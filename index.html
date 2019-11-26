@@ -153,6 +153,282 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Question-P1908" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/26/Question-P1908/">Question-P1908</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/26/Question-P1908/" class="archive-article-date">
+  	<time datetime="2019-11-26T10:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="P1908"><a href="#P1908" class="headerlink" title="P1908"></a>P1908</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>猫猫TOM和小老鼠JERRY最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。最近，TOM老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中ai&gt;aj且i&lt;j的有序对。知道这概念后，他们就比赛谁先算出给定的一段正整数序列中逆序对的数目。<br>Update:数据已加强。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行，一个数n，表示序列中有n个数。</p>
+<p>第二行n个数，表示给定的序列。序列中每个数字不超过10^910<br>9</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>给定序列中逆序对的数目。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入 #1  </p>
+<pre><code>6
+5 4 2 6 3 1</code></pre><p>输出</p>
+<pre><code>11</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于25%的数据，n \leq 2500n≤2500</p>
+<p>对于50%的数据，n \leq 4 \times 10^4n≤4×10<br>4<br> 。</p>
+<p>对于所有数据，n \leq 5 \times 10^5n≤5×10<br>5</p>
+<p>请使用较快的输入输出</p>
+<hr>
+<h1 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h1><p>啊对了，忘了说廖，建立这个博客就是为了记录学编程的过程呢</p>
+<p>大概是初二(初三？？ 反正我也不知道我跳的是初二还是初三hhh)开始学的C扒</p>
+<p>然后高一试着搞了搞noip，高二喜提省二第一就放弃廖TAT</p>
+<p><strong>菜是原罪啊</strong></p>
+<p>现在大一廖，也不知道怎么脑子抽了报志愿就报了计算机专业hhh</p>
+<p>终于决定痛改前非，去搞一搞ACM</p>
+<p>总之就是你们面前这个写博客的蒟蒻又双叒叕开始学编程了QAQ</p>
+<p>应该在博客里打算记一下这些东西：    </p>
+<ul>
+<li>算法题中过程出大问题的地方 Question<ul>
+<li>应该会按照算法分好类</li>
+</ul>
+</li>
+<li>一些奇♂妙的编程方法 Algorithm</li>
+<li>一些编程科目的小笔记 Note<ul>
+<li>应该不多这个</li>
+</ul>
+</li>
+</ul>
+<p>嘛应该会记得很杂很杂…..尽量分个小类吧hhh</p>
+<p>不啰嗦了hh</p>
+<hr>
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p>嘛首先看到这道题，分析一波数据要求<code>theta(nlgn)</code></p>
+<p>然后首先考虑遍历数组，发现暴力做法就是遍历两遍数组： </p>
+<hr>
+<h2 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a><em>暴力解法</em></h2><pre><code>for(int i = 1; i &lt;= n; i++)
+    for(int j = i + 1; j &lt;= n; j++&gt;)
+        if(a[i] &gt; a[j])
+            count++;</code></pre><p>嗯就是这么暴力,自己求一遍逆，用计算机打出我的暴力思路hhh</p>
+<p>然后发现<del>题目标签有分治法</del>，这道题可以用分治法来做</p>
+<ul>
+<li><p>先拆分，一般都拆成二分<br><code>一列数组的逆序数 = 中间靠左数组的逆序数 + 中间靠右数组的逆序数 + 两个子数组之间产生的逆序数</code></p>
+</li>
+<li><p>然后递归求解两边的逆序数，发现：<br><code>原子问题： 两个数字的逆序数</code></p>
+</li>
+<li><p>最后要合并问题</p>
+</li>
+</ul>
+<p>这里我为难廖，怎么合并呢？也就是说，怎么求两个子数组之间产生的逆序数呢？</p>
+<p>先考虑暴力做法，跟上方的代码差不多，左边遍历一遍，然后嵌套里面，里面右边遍历一遍</p>
+<p>有什么优化嘛？什么被重复计算了？</p>
+<p>我发现了：<em>假设5&gt;2，5在2前面，如果有7&gt;5，7在2的前面，那么一定有7&gt;2</em></p>
+<p>这里自然而然想到了排序，也就假设左右合并的数组已经排好序(升序)了</p>
+<p>发现只用遍历一遍就能出结果</p>
+<ol>
+<li>计数好右边的数字的数目</li>
+<li>遍历整个排好升序的数组</li>
+<li><ul>
+<li>如果遍历到右边的数字，计数–</li>
+<li>如果遍历到左边的数字，结果 += 计数</li>
+</ul>
+</li>
+</ol>
+<p>如此得合并的时间复杂度为 <em>排序的复杂度+一个单n</em></p>
+<hr>
+<h2 id="分治法1"><a href="#分治法1" class="headerlink" title="分治法1"></a><em>分治法1</em></h2><p>这里搞了一个结构体，用来暂存传入Merge()中的数组以及下标，并且排好序</p>
+<pre><code>//分治法的合并
+int Merge(int l, int r)
+{
+    for(int i = l; i &lt;= r; i++)
+    {
+        snot2[i].num = snot[i];
+        snot2[i].p = i;
+    }
+
+
+    VQuickSort(l, r);
+
+    int count = 0, result = 0;
+
+    for(int i = l; i &lt;= r; i++)
+    {
+        if(snot2[i].p &gt; ( l + r ) / 2)
+            count++;
+        if(snot2[i].p &lt;= ( l + r ) / 2)
+            result += count;
+
+        snot2[i].num = 0;
+        snot2[i].p = 0;
+    }
+    return result;
+}
+
+//分治法的拆分和递归
+int Rev(int l, int r)
+{
+    if(l + 1 == r)
+    {
+        if(snot[l] &gt;= snot[r])
+            return 1;
+        else
+            return 0;
+    }
+    else if (l &lt; r)
+    {
+        int mid = ( l + r ) / 2;
+        int leftValue = Rev(l, mid);
+        int rightValue = Rev(mid + 1, r);
+        int midValue = Merge(l, r);
+        return leftValue + rightValue + midValue;
+    }
+    else
+        return 0;
+}</code></pre><p>正确性：由循环不变式确定，正确</p>
+<p>时间复杂度( <strong>T(1) = theta(1)</strong> )：</p>
+<p><code>T(n) = 2T(n / 2) + nlgn = theta(nlg(n)lg(n))</code></p>
+<p>嗯还是超了，事实证明只过了前50%</p>
+<p>很明显问题出在Merge()上，每次都排一次序很麻烦</p>
+<p>然后 <strong>这</strong> <strong>个</strong> <strong>时</strong> <strong>候</strong></p>
+<p>我终于意识到了</p>
+<p>这玩意跟归并排序好像啊！</p>
+<p>归并排序也有排序啊，也有分治啊</p>
+<p>归并排序的Merge()部分，数组是由Partition部分排过序的</p>
+<p>那么这个题也在Partition部分排个序也就行廖</p>
+<hr>
+<h2 id="分治法2"><a href="#分治法2" class="headerlink" title="分治法2"></a><em>分治法2</em></h2><p>其实这个题就是分治法加上一个返回值啊……</p>
+<pre><code>long long int Merge(int left, int right)
+{
+    int mid = (left + right) / 2;
+    int leftLength = right - mid;
+    long long int result = 0;
+
+    int k,p;
+    k = mid;
+    p = right;
+
+    for(int i = 1; i &lt;= right - left + 1; i++)
+    {
+        if(k &lt; left)
+        {
+            mia[i] = snot[p];
+            p--;
+            leftLength--;
+        }
+        else if(p &lt; mid + 1)
+        {
+            mia[i] = snot[k];
+            k--;
+        }
+        else if(snot[k] &lt;= snot[p])
+        {
+            mia[i] = snot[p];
+            p--;
+            leftLength--;
+        }
+        else if(snot[k] &gt; snot[p])
+        {
+            mia[i] = snot[k];
+            k--;
+            result += leftLength;
+        }
+    }
+    for(int i = right - left + 1; i &gt;= 1; i--)
+    {
+        snot[left + right - left + 1 - i] = mia[i];
+        mia[i] = 0;
+    }
+
+
+    return result;
+}
+
+long long int Rev(int left, int right)
+{
+    if(left &lt; right)
+    {
+        if(left + 1 == right)
+        {
+            if(snot[left] &gt; snot[right])
+            {
+                swap(snot[left], snot[right]);
+                return 1;
+            }
+            else
+                return 0;
+        }
+
+        int mid = (left + right) / 2;
+        long long int leftValue = Rev(left, mid);
+        long long int rightValue = Rev(mid + 1, right);
+        long long int midValue = Merge(left, right);
+        return leftValue + rightValue + midValue;
+    }
+    return 0;
+}</code></pre><p>嗯，AC了，是我愚钝，把这道普及+的题看♂了QAQ</p>
+<p>以后分治的时候可别再犯这种 <strong>过程重复计算使时间空间复杂度提高</strong> 的蠢错误了啊QAQ</p>
+<p>欧系卖<br>To be continued</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">分治法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/26/Question-P1908/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一个博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -531,6 +807,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">markdown</a>
