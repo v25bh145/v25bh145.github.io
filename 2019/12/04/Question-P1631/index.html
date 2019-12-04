@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
   <title>Question-P1631 | V25bh145的小家儿~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N2 个和，求这N^2N2 个和中最小的N个。">
-<meta name="keywords" content="堆,数据结构,Question">
+  <meta name="description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。">
+<meta name="keywords" content="Question,堆,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Question-P1631">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2019&#x2F;12&#x2F;04&#x2F;Question-P1631&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N2 个和，求这N^2N2 个和中最小的N个。">
+<meta property="og:description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-12-04T09:05:32.069Z">
+<meta property="og:updated_time" content="2019-12-04T09:17:26.224Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -165,12 +165,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N<br>2<br> 个和，求这N^2N<br>2<br> 个和中最小的N个。</p>
+        <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。</p>
 <a id="more"></a>
 
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数N；</p>
-<p>第二行N个整数A_iA<br>i<br>​<br> , 满足A_i\le A_{i+1}A<br>i<br>​<br> ≤A<br>i+1<br>​<br> 且A_i\le 10^9A<br>i<br>​<br> ≤10<br>9<br> ;</p>
-<p>第三行N个整数B_iB<br>i<br>​<br> , 满足B_i\le B_{i+1}B<br>i<br>​<br> ≤B<br>i+1<br>​<br> 且B_i\le 10^9B<br>i<br>​<br> ≤10<br>9<br> .</p>
+<p>第二行N个整数$A_{i}$, 满足$A_{i}$ &lt;= $A_{i+1}$且 $A_{i}$ ≤$10^{9}$;</p>
+<p>第三行N个整数$B_{i}$, 满足$B_{i}$ &lt;= $B_{i+1}$且 $B_{i}$ ≤$10^{9}$.</p>
 <h2 id="【数据规模】"><a href="#【数据规模】" class="headerlink" title="【数据规模】"></a>【数据规模】</h2><p>对于50%的数据中，满足1&lt;=N&lt;=1000；</p>
 <p>对于100%的数据中，满足1&lt;=N&lt;=100000。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出仅一行，包含N个整数，从小到大输出这N个最小的和，相邻数字之间用空格隔开。</p>
@@ -184,7 +184,7 @@
 
 <hr>
 <h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p>这个题真的不难，但是非常的具有代表性QAQ</p>
-<p>下面这个题用这个题的模板做，就改改值的计算方式就AC了……</p>
+<p>下面这个题用这个题的模板做，改改value的计算方式就AC了……</p>
 <p>链接：<a href="https://www.luogu.com.cn/problem/P2085" target="_blank" rel="noopener">P2085</a></p>
 <p>所以还不多康康这种题？！！</p>
 <hr>
@@ -193,7 +193,7 @@
 <p>从数据范围看出来要的是<code>O(nlgn)</code></p>
 <hr>
 <h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><p>暴力做法，那就是申个二维数组挨个算</p>
-<p>不仅从时间上(<code>O($n^{2}$)</code>)超了，空间也超了</p>
+<p>不仅从时间上(O($n^{2}$))超了，空间也超了</p>
 <p>在第n个小的求和之外所花费的时间和空间全部多余了</p>
 <p>研究如何使得多余的计算被避免掉，那就需要从暴力做法还没有讨论到的特殊性质出发辣</p>
 <hr>
@@ -270,7 +270,7 @@
 <p>还有一个性质：</p>
 <p><code>如果要取(i,j)，必须要保证(i,j-1)与(i-1,j)被取得</code></p>
 <p>因为(i,j-1)与(i-1,j)都比(i,j)要小</p>
-<p>反应到图上，由于这是一条可以递归的性质，<code>图要求这个节点的左上所构成的矩形全部被取到</code></p>
+<p>反映到图上，由于这是一条可以递归的性质，<code>图要求这个节点的左上所构成的矩形全部被取到</code></p>
 <p>然后还有个最基础的性质，<code>(1,1)一定会被取到</code></p>
 <hr>
 <blockquote>
@@ -605,15 +605,15 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		
 		</ul>
