@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>V25bh145的小家儿~</title>
+  <title>Question-P1631 | V25bh145的小家儿~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习编程的过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小家儿~">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;index.html">
+  <meta name="description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N2 个和，求这N^2N2 个和中最小的N个。">
+<meta name="keywords" content="堆,数据结构,Question">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Question-P1631">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2019&#x2F;12&#x2F;04&#x2F;Question-P1631&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="记录学习编程的过程">
+<meta property="og:description" content="P1631题目描述有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N2 个和，求这N^2N2 个和中最小的N个。">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-12-04T09:05:32.069Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -143,16 +145,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Question-P1631" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Question-P1631" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/04/Question-P1631/">Question-P1631</a>
+    <h1 class="article-title" itemprop="name">
+      Question-P1631
     </h1>
   
 
@@ -166,9 +166,433 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到N^2N<br>2<br> 个和，求这N^2N<br>2<br> 个和中最小的N个。</p>
-        
-          <a class="article-more-a" href="/2019/12/04/Question-P1631/#more">more >></a>
-        
+<a id="more"></a>
+
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数N；</p>
+<p>第二行N个整数A_iA<br>i<br>​<br> , 满足A_i\le A_{i+1}A<br>i<br>​<br> ≤A<br>i+1<br>​<br> 且A_i\le 10^9A<br>i<br>​<br> ≤10<br>9<br> ;</p>
+<p>第三行N个整数B_iB<br>i<br>​<br> , 满足B_i\le B_{i+1}B<br>i<br>​<br> ≤B<br>i+1<br>​<br> 且B_i\le 10^9B<br>i<br>​<br> ≤10<br>9<br> .</p>
+<h2 id="【数据规模】"><a href="#【数据规模】" class="headerlink" title="【数据规模】"></a>【数据规模】</h2><p>对于50%的数据中，满足1&lt;=N&lt;=1000；</p>
+<p>对于100%的数据中，满足1&lt;=N&lt;=100000。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出仅一行，包含N个整数，从小到大输出这N个最小的和，相邻数字之间用空格隔开。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入 #1</p>
+<pre><code>3
+2 6 6
+1 4 8</code></pre><p>输出 #1</p>
+<pre><code>3 6 7</code></pre><hr>
+<p>听音乐~</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36024572&auto=0&height=66"></iframe>
+
+<hr>
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p>这个题真的不难，但是非常的具有代表性QAQ</p>
+<p>下面这个题用这个题的模板做，就改改值的计算方式就AC了……</p>
+<p>链接：<a href="https://www.luogu.com.cn/problem/P2085" target="_blank" rel="noopener">P2085</a></p>
+<p>所以还不多康康这种题？！！</p>
+<hr>
+<h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>a和b是以升序排布的嘛 <del>(这一点我一开始居然没有看出来！QAQ我个瞎子)</del></p>
+<p>然后求的是 a + b 的前几个最小值</p>
+<p>从数据范围看出来要的是<code>O(nlgn)</code></p>
+<hr>
+<h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><p>暴力做法，那就是申个二维数组挨个算</p>
+<p>不仅从时间上(<code>O($n^{2}$)</code>)超了，空间也超了</p>
+<p>在第n个小的求和之外所花费的时间和空间全部多余了</p>
+<p>研究如何使得多余的计算被避免掉，那就需要从暴力做法还没有讨论到的特殊性质出发辣</p>
+<hr>
+<h3 id="暴力做法二维数组的性质"><a href="#暴力做法二维数组的性质" class="headerlink" title="暴力做法二维数组的性质"></a>暴力做法二维数组的性质</h3><p>那我们先打个表出来</p>
+<p>横行是a数组，纵行是b数组</p>
+<table>
+<thead>
+<tr>
+<th align="left">a\b</th>
+<th align="center">1</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">7</th>
+<th align="center">9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">8</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">7</td>
+<td align="center">9</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center">5</td>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="center">7</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="center">13</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">14</td>
+<td align="center">15</td>
+<td align="center">17</td>
+<td align="center">19</td>
+</tr>
+</tbody></table>
+<p>很明显，<code>最小的数字应该从左上往右下取得</code></p>
+<p>还有一个性质：</p>
+<p><code>如果要取(i,j)，必须要保证(i,j-1)与(i-1,j)被取得</code></p>
+<p>因为(i,j-1)与(i-1,j)都比(i,j)要小</p>
+<p>反应到图上，由于这是一条可以递归的性质，<code>图要求这个节点的左上所构成的矩形全部被取到</code></p>
+<p>然后还有个最基础的性质，<code>(1,1)一定会被取到</code></p>
+<hr>
+<blockquote>
+<p>那么就可以从(1,1)开始，先打印(1,1)</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>判断出(1,2)与(2,1)都符合比较的规则</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>然后比较(1,2)与(2,1)  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>按照图来，打印(2,1)</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>判断(3,1)符合规则，(2,2)由于(1,2)还没有被取到，不符合规则</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>比较(3,1)与(1,2)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>……</p>
+</blockquote>
+<p>注意到前面的比较被淘汰的仍然参与下一次比较</p>
+<p>每一次比较只选出最小的值</p>
+<p>想到了什么？？堆！</p>
+<p>接下来还有两个问题需要讨论：</p>
+<ol>
+<li>如何判断是否符合规则</li>
+<li>如何比较堆的值(&gt; &lt; =)</li>
+</ol>
+<hr>
+<h3 id="1-如何判断是否符合规则"><a href="#1-如何判断是否符合规则" class="headerlink" title="1. 如何判断是否符合规则"></a>1. 如何判断是否符合规则</h3><p>即是判断二维数组左上角的矩形中有没有没被选择上的数字</p>
+<p>考虑到如果(i,j)被选择到了，那么(i,j)左上角的矩形都被选择到了</p>
+<p><code>所以要看(i + 1, j  + 1)左上方是否有空，就是看其左方的数字的左上方是否有空，上方的数字的左上方是否有空，也就是看左方的数字是否为空，上方的数字是否为空</code></p>
+<p>这不是让你递归啊=-=</p>
+<p>就是把(i + 1,j + 1)的判断转移到了(i,j+1)与(i+1,j)上</p>
+<p>以左边为例</p>
+<p>判断左边是否为空，第一想到的就是设置一个矩阵……超空间了</p>
+<p>然后依据最小的性质，可以比较左边和刚刚输出的数字，如果小就是已经输出过了</p>
+<hr>
+<h2 id="–如果左边的数字和刚刚输出的数字相等呢？"><a href="#–如果左边的数字和刚刚输出的数字相等呢？" class="headerlink" title="–如果左边的数字和刚刚输出的数字相等呢？"></a>–如果左边的数字和刚刚输出的数字相等呢？</h2><p>那我们可以做一个规定，默认堆排序的时候在 值大小 的优先级之下比较谁更靠左</p>
+<p>这样也解决了问题2.</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>#include &lt;iostream&gt;
+using namespace std;
+int a[105000], b[105000], n, length = 0;
+struct Node
+{
+    int value;
+    int left;
+    int right;
+}heap[105000];
+void SwapHeap(int p1, int p2)
+{
+    swap(heap[p1].left, heap[p2].left);
+    swap(heap[p1].right, heap[p2].right);
+    swap(heap[p1].value, heap[p2].value);
+}
+void HeapifyFromDownToUp(int k)
+{
+    if(k &gt; 1)
+    {
+        int parent = k / 2;
+        if(heap[parent].value &gt; heap[k].value)
+        {
+            SwapHeap(parent, k);
+            HeapifyFromDownToUp(parent);
+        }
+        else if(heap[parent].value == heap[k].value &amp;&amp; heap[parent].right &gt; heap[k].right)
+        //在value大小的优先级之下比较right
+        {
+            SwapHeap(parent, k)    ;
+            HeapifyFromDownToUp(parent);
+        }
+    }
+}
+void HeapifyFromUpToDown(int k)
+{
+    if(k &lt;= length / 2)
+    {
+        int rChild = k * 2 + 1;
+        int lChild = k * 2;
+        int minChild;
+        if(rChild &gt; length)
+            minChild = lChild;
+        else
+        {
+            if(heap[rChild].value &lt; heap[lChild].value)
+                minChild = rChild;
+            else if(heap[rChild].value &gt; heap[lChild].value)
+                minChild = lChild;
+            else if(heap[rChild].value == heap[lChild].value)
+            {
+                minChild = heap[lChild].right &lt;= heap[rChild].right ? lChild : rChild;
+            }
+        }
+
+        if(heap[minChild].value &lt; heap[k].value)
+        {
+            SwapHeap(minChild, k);
+            HeapifyFromUpToDown(minChild);
+        }
+        else if(heap[minChild].value == heap[k].value &amp;&amp; heap[minChild].right &lt; heap[k].right)
+        //在value大小的优先级之下比较right
+        {
+            SwapHeap(minChild, k);    
+            HeapifyFromUpToDown(minChild);
+        }
+    }
+}
+void Put(int le, int r)
+{
+    length++;
+    heap[length].left = le;
+    heap[length].right = r;
+    heap[length].value = a[le] + b[r];
+    HeapifyFromDownToUp(length);
+}
+
+Node Push()
+{
+    Node temp;
+    temp.left = heap[1].left;
+    temp.right = heap[1].right;
+    temp.value = heap[1].value;
+
+    SwapHeap(1, length);
+    length--;
+    HeapifyFromUpToDown(1);    
+    return temp;
+}
+int  main()
+{
+    cin&gt;&gt;n;
+    for(int i = 1; i &lt;= n; i++)
+        cin&gt;&gt;a[i];
+    for(int i = 1; i &lt;= n; i++)
+        cin&gt;&gt;b[i];
+
+    Put(1, 1);
+    for(int i = 1; i &lt;= n; i++)
+    {
+        Node temp = Push();
+        cout&lt;&lt;temp.value&lt;&lt;&quot; &quot;;
+        int r = temp.right;
+        int le = temp.left;
+        //这里有一个边界条件鸭
+        if(r - 1 == 0 || a[le + 1] + b[r - 1] &lt;= a[le] + b[r])
+        //这个小于等于就是默认规定辣
+            Put(le + 1, r);
+        if(le - 1 == 0 || a[le - 1] + b[r + 1] &lt; a[le] + b[r])
+            Put(le, r + 1);
+    }
+    return 0;
+}</code></pre><p><del>我居然把函数名搞错了还居然花了我一个下午调试</del></p>
+<hr>
+<h1 id="解2"><a href="#解2" class="headerlink" title="解2"></a>解2</h1><p>还可以这样想呢~</p>
+<p>等我先把表格搬过来，嘿咻~</p>
+<table>
+<thead>
+<tr>
+<th align="left">a\b</th>
+<th align="center">1</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">7</th>
+<th align="center">9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">8</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">7</td>
+<td align="center">9</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center">5</td>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="center">7</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="center">13</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">14</td>
+<td align="center">15</td>
+<td align="center">17</td>
+<td align="center">19</td>
+</tr>
+</tbody></table>
+<p>把每一行当做优先队列，将第一列的值存入堆，输出最小值时把对应的行的下一列的值放入堆</p>
+<p>也就是把表格横着扫一遍~</p>
+<p>当然这是其他dalao的思路，我搬过来而已QAQ</p>
+<p>这样想更简单了</p>
+<hr>
+<p>没有什么默认规则了，代码就舒服多了QAQ</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+int a[105000], b[105000], length = 0, n;
+struct Node
+{
+    int value;
+    int p1;
+    int p2;
+}heap[500000];
+void HeapifyUTD(int k)
+{
+    if(k &lt;= length / 2)
+    {
+        int rChild = k * 2 + 1, lChild = k * 2, minChild;
+        if(lChild == length)
+            minChild = lChild;
+        else
+            minChild = heap[lChild].value &lt; heap[rChild].value ? lChild : rChild;
+        if(heap[k].value &gt; heap[minChild].value)
+        {
+            swap(heap[k], heap[minChild]);
+            HeapifyUTD(minChild);
+        }
+    }
+}
+Node Get()
+{
+    Node tmp;
+    tmp.p1 = heap[1].p1;
+    tmp.p2 = heap[1].p2;
+    tmp.value = heap[1].value;
+    swap(heap[1], heap[length]);
+    length--;
+    HeapifyUTD(1);
+    return tmp;
+}
+void HeapifyDTU(int k)
+{
+    int parent = k / 2;
+    if(parent &gt; 0)
+        if(heap[k].value &lt; heap[parent].value)
+        {
+            swap(heap[k], heap[parent]);
+            HeapifyDTU(parent);
+        }
+}
+void Put(int p1, int p2)
+{
+    length++;
+    heap[length].p1 = p1;
+    heap[length].p2 = p2;
+    heap[length].value = a[p1] + b[p2];
+    HeapifyDTU(length);
+}
+int main()
+{
+    cin&gt;&gt;n;
+    for(int i = 1; i &lt;= n; i++)
+        cin&gt;&gt;a[i];
+    for(int i = 1; i &lt;= n; i++)
+        cin&gt;&gt;b[i];
+
+    for(int i = 1; i &lt;= n; i++)
+        Put(i, 1);
+    for(int i = 1; i &lt;= n; i++)
+    {
+        Node tmp = Get();
+        cout&lt;&lt;tmp.value&lt;&lt;&quot; &quot;;
+        Put(tmp.p1, tmp.p2 + 1);
+    }
+    return 0;
+}</code></pre><hr>
+<ul>
+<li>归纳：<blockquote>
+<p>遇见可以用 表格/暴力 做 超空间/超时间 的题,<br>不妨先按着 表格/暴力做法 推几个数据找性质,<br>然后根据性质选择性地从 表格/暴力做法 中筛选 需要的元素和需要的步骤</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>最后提一嘴</p>
+<p><a href="https://www.luogu.com.cn/problem/P2085" target="_blank" rel="noopener">P2085</a> 中的数组是[x][n]呢</p>
+
       
 
       
@@ -198,16 +622,24 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/04/Question-P1631/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/30/Question-P2278/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Question-P2278</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -222,352 +654,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Question-P2278" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/30/Question-P2278/">Question-P2278</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/30/Question-P2278/" class="archive-article-date">
-  	<time datetime="2019-11-30T14:06:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="P2278"><a href="#P2278" class="headerlink" title="P2278"></a>P2278</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个程序来模拟操作系统的进程调度。假设该系统只有一个CPU，每一个进程的到达时间，执行时间和运行优先级都是已知的。其中运行优先级用自然数表示，数字越大，则优先级越高。</p>
-<p>如果一个进程到达的时候CPU是空闲的，则它会一直占用CPU直到该进程结束。除非在这个过程中，有一个比它优先级高的进程要运行。在这种情况下，这个新的（优先级更高的）进程会占用CPU，而老的只有等待。</p>
-<p>如果一个进程到达时，CPU正在处理一个比它优先级高或优先级相同的进程，则这个（新到达的）进程必须等待。</p>
-<p>一旦CPU空闲，如果此时有进程在等待，则选择优先级最高的先运行。如果有多个优先级最高的进程，则选择到达时间最早的。</p>
-        
-          <a class="article-more-a" href="/2019/11/30/Question-P2278/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">模拟</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/30/Question-P2278/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P1631"><span class="toc-number">1.</span> <span class="toc-text">P1631</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入格式"><span class="toc-number">1.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【数据规模】"><span class="toc-number">1.3.</span> <span class="toc-text">【数据规模】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出格式"><span class="toc-number">1.4.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出样例"><span class="toc-number">1.5.</span> <span class="toc-text">输入输出样例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解"><span class="toc-number">2.</span> <span class="toc-text">解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">2.1.</span> <span class="toc-text">intro</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#暴力"><span class="toc-number">2.1.1.</span> <span class="toc-text">暴力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暴力做法二维数组的性质"><span class="toc-number">2.1.2.</span> <span class="toc-text">暴力做法二维数组的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-如何判断是否符合规则"><span class="toc-number">2.1.3.</span> <span class="toc-text">1. 如何判断是否符合规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#–如果左边的数字和刚刚输出的数字相等呢？"><span class="toc-number">2.2.</span> <span class="toc-text">–如果左边的数字和刚刚输出的数字相等呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解2"><span class="toc-number">3.</span> <span class="toc-text">解2</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-Question-P1801" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/30/Question-P1801/">Question-P1801</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/30/Question-P1801/" class="archive-article-date">
-  	<time datetime="2019-11-30T10:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="P1801"><a href="#P1801" class="headerlink" title="P1801"></a>P1801</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Black Box是一种原始的数据库。它可以储存一个整数数组，还有一个特别的变量i。最开始的时候Black Box是空的．而i等于0。这个Black Box要处理一串命令。</p>
-<p>命令只有两种：</p>
-<p>ADD(x):把x元素放进BlackBox;</p>
-<p>GET:i加1，然后输出Blackhox中第i小的数。</p>
-<p>记住：第i小的数，就是Black Box里的数的按从小到大的顺序排序后的第i个元素。例如：</p>
-        
-          <a class="article-more-a" href="/2019/11/30/Question-P1801/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/30/Question-P1801/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Question-P1908" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/Question-P1908/">Question-P1908</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/26/Question-P1908/" class="archive-article-date">
-  	<time datetime="2019-11-26T10:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="P1908"><a href="#P1908" class="headerlink" title="P1908"></a>P1908</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>猫猫TOM和小老鼠JERRY最近又较量上了，但是毕竟都是成年人，他们已经不喜欢再玩那种你追我赶的游戏，现在他们喜欢玩统计。最近，TOM老猫查阅到一个人类称之为“逆序对”的东西，这东西是这样定义的：对于给定的一段正整数序列，逆序对就是序列中ai&gt;aj且i&lt;j的有序对。知道这概念后，他们就比赛谁先算出给定的一段正整数序列中逆序对的数目。</p>
-        
-          <a class="article-more-a" href="/2019/11/26/Question-P1908/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">分治法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/26/Question-P1908/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一个博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">我的第一个博客</a>
-    </h1>
   
 
-        
-        <a href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-26T09:28:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="首先，不管你是谁，总之欢迎来到我的博客鸭"><a href="#首先，不管你是谁，总之欢迎来到我的博客鸭" class="headerlink" title="首先，不管你是谁，总之欢迎来到我的博客鸭~"></a>首先，不管你是谁，总之欢迎来到我的博客鸭~</h2>
-        
-          <a class="article-more-a" href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -590,8 +702,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
