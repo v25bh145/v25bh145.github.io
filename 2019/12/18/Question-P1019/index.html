@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Tag: 随笔 | V25bh145的小家儿~</title>
+  <title>Question-P1019 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="记录学习编程的过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小家儿~">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;tags&#x2F;%E9%9A%8F%E7%AC%94&#x2F;index.html">
+  <meta name="description" content="P1019题目描述单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 beastbeast和astonishastonish，如果接成一条龙则变为beastonishbeastonish，另外相邻的两部分不能存在包含关系，例如atat 和">
+<meta name="keywords" content="深度优先搜索,Question">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Question-P1019">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2019&#x2F;12&#x2F;18&#x2F;Question-P1019&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="记录学习编程的过程">
+<meta property="og:description" content="P1019题目描述单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 beastbeast和astonishastonish，如果接成一条龙则变为beastonishbeastonish，另外相邻的两部分不能存在包含关系，例如atat 和">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-12-18T12:19:14.561Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -166,69 +168,293 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Question-P1019" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2019-11-26T09:28:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" target="_blank">我的第一个博客</a>
   
+    <h1 class="article-title" itemprop="name">
+      Question-P1019
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/12/18/Question-P1019/" class="archive-article-date">
+        <time datetime="2019-12-18T11:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="P1019"><a href="#P1019" class="headerlink" title="P1019"></a>P1019</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 beastbeast和astonishastonish，如果接成一条龙则变为beastonishbeastonish，另外相邻的两部分不能存在包含关系，例如atat 和 atideatide 间不能相连。</p>
+<a id="more"></a>
+
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入的第一行为一个单独的整数n (n≤20)表示单词数，以下n 行每行有一个单词，输入的最后一行为一个单个字符，表示“龙”开头的字母。你可以假定以此字母开头的“龙”一定存在.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只需输出以此字母开头的最长的“龙”的长度</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><pre><code>5
+at
+touch
+cheat
+choose
+tact
+a</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><pre><code>23</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>（连成的“龙”为atoucheatactactouchoose）</p>
+<h3 id="NOIp2000提高组第三题"><a href="#NOIp2000提高组第三题" class="headerlink" title="NOIp2000提高组第三题"></a>NOIp2000提高组第三题</h3><hr>
+<h2 id="听歌儿"><a href="#听歌儿" class="headerlink" title="听歌儿"></a>听歌儿</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4010234&auto=0&height=66"></iframe>
+
+<p><del>MC大法好</del></p>
+<hr>
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p>康康数据规模，这题就是暴力枚举/线性的深度优先搜索</p>
+<p>这样枚举(套用DFS模板即可)：</p>
+<blockquote>
+<p>Enum(last: int)</p>
+<blockquote>
+<p>从1至n<br>if 位置为i的单词尚未超过使用限额 且 位置为i的单词头部可以和上一个使用的单词尾部连接<br>则</p>
+<ol>
+<li>连接上此单词</li>
+<li>将此单词标记为使用一次</li>
+<li>递归Enum(i)  </li>
+<li>将此单词标记为取消使用一次</li>
+<li>取消连接此单词<br>继续循环</li>
+</ol>
+</blockquote>
+</blockquote>
+<p>难点在于连接与取消连接</p>
+<hr>
+<h2 id="连接（融♂合）"><a href="#连接（融♂合）" class="headerlink" title="连接（融♂合）"></a>连接（<del>融♂合</del>）</h2><p>顺序遍历一遍字符串和接龙，计算他们<code>最小重叠的长度</code></p>
+<blockquote>
+<p>例如， C#nb 和 nb 的最小重叠长度就是2</p>
+</blockquote>
+<p>如果最小重叠长度等于其中一个字符串的长度(也就是说<code>覆盖</code>辣)，这肯定是不行的鸭</p>
+<p>之后进行连接操作，从重叠的那里连接就完事儿了</p>
+<hr>
+<h2 id="取消连接"><a href="#取消连接" class="headerlink" title="取消连接"></a>取消连接</h2><p>这个函数必须要传入三个值啊，接龙，上个连接的单词和这个连接的单词</p>
+<p>我们需要算出两个单词的<code>最小重叠长度</code>，之后再使接龙部分减去这个单词没有重叠的部分</p>
+<blockquote>
+<p>例如，hiahiahiahiahiahiahhh, hiahiahia, hiahhh 就必须算出最小重叠长度，之后使接龙减去没有重叠的部分就可以了</p>
+</blockquote>
+<hr>
+<h2 id="杂项的操作"><a href="#杂项的操作" class="headerlink" title="杂项的操作"></a>杂项的操作</h2><p>比如程序要求第一个开头固定，那我们就将接龙初始化为那个开头字母，之后第一次枚举的时候传入<code>last = 0</code>表示没有上一个单词的，然后在连接和取消连接的那里做一个spj(special judge)</p>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cstring&gt;
+using namespace std;
+string words[22], sentence;
+char start;
+int n, MAX = 0;
+int isUsed[22];
+void CancelConnect(int position, int last)
+{
+    string tmp = words[position];
+
+    if(last == 0)
+    {
+        sentence = string(sentence.begin(), sentence.end() - tmp.length());
+        return;
+    }
+
+    string sLast = words[last];
+    int length = min(sLast.length(), tmp.length());
+    int radix = 0;
+    for(int i = 0; i &lt; length; i++)
+    {
+        string s1 = string(sLast.end() - i, sLast.end());
+        string s2 = string(tmp.begin(), tmp.begin() + i);
+
+        if(s1 == s2 &amp;&amp; s1.length() != 0)
+        {
+            if(radix == 0)    radix = s1.length();
+            else
+                radix = radix &lt; s1.length() ? radix : s1.length();
+        }
+    }
+    sentence = string(sentence.begin(), sentence.end() - tmp.length() + radix);
+}
+bool Connect(int position, int last)
+{
+    string tmp = words[position];
+    int radix = 0;
+    int length = min(sentence.length(), tmp.length());
+    for(int i = 0; i &lt;= length - 1; i++)
+    {
+        string s1 = string(sentence.end() - i, sentence.end());
+        string s2 = string(tmp.begin(), tmp.begin() + i);
+        if(s1 == s2 &amp;&amp; s1.length() != 0)
+        {
+            if(radix == 0)    radix = s1.length();
+            else
+                radix = radix &lt; s1.length() ? radix : s1.length();
+        }
+    }
+    if(radix == 0 &amp;&amp; last != 0)//这里就是spj
+        return false;
+    string result = string(tmp.begin() + radix, tmp.end());
+    sentence = sentence + result;
+    return true;
+}
+void Enum(int last)
+{
+    MAX = MAX &gt; sentence.length() ? MAX : sentence.length();
+    for(int i = 1; i &lt;= n; i++)
+        if(isUsed[i] &lt;= 1)
+        {
+            string sTmp = words[i];
+            if(last == 0 &amp;&amp; sTmp[0] != start)
+                continue;
+            if(Connect(i, last) == true)
+            {
+                isUsed[i]++;
+                Enum(i);
+                isUsed[i]--;
+                CancelConnect(i, last);
+            }
+        }
+}
+int main()
+{
+    cin&gt;&gt;n;
+    for(int i = 1; i &lt;= n; i++)
+        isUsed[i] = 0;
+    for(int i = 1; i &lt;= n; i++)
+        cin&gt;&gt;words[i];
+    cin&gt;&gt;start;
+    sentence = string(1, start);
+    Enum(0);
+    cout&lt;&lt;MAX - 1&lt;&lt;endl;
+    return 0;
+}</code></pre><hr>
+<p><del>一开始太菜算成了最大重叠长度</del></p>
+<p>写博客有点晚了，现在逐渐开始习惯输入进去C字符串<code>scanf(%s, c);</code>然后<code>string s = string(c)</code>了2333</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          v25bh145
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://v25bh145.github.io/2019/12/18/Question-P1019/" title="Question-P1019" target="_blank">https://v25bh145.github.io/2019/12/18/Question-P1019/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">markdown</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">深度优先搜索</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/11/Question-P1280/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Question-P1280</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -269,9 +495,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
