@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Archives | V25bh145的小家儿~</title>
+  <title>Question-CF979C | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="记录学习编程的过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小家儿~">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="#CF979C Kuro and Walking Route 题目描述Kuro is living in a country called Uberland, consisting of n towns, numbered from 1 to n , and n - 1 bidirectional roads connecting these towns. It is possible to re">
+<meta name="keywords" content="容斥,搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Question-CF979C">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;02&#x2F;19&#x2F;Question-CF979C&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="记录学习编程的过程">
+<meta property="og:description" content="#CF979C Kuro and Walking Route 题目描述Kuro is living in a country called Uberland, consisting of n towns, numbered from 1 to n , and n - 1 bidirectional roads connecting these towns. It is possible to re">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;19&#x2F;x1ezrQJ39tqsPaw.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;19&#x2F;ZM7qVvEIWAGwkQm.png">
+<meta property="og:updated_time" content="2020-02-19T09:09:58.515Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;19&#x2F;x1ezrQJ39tqsPaw.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
   
@@ -166,41 +171,184 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Question-CF979C" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/19/Question-CF979C/" class="archive-article-date">
-        <time datetime="2020-02-19T08:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/19/Question-CF979C/" target="_blank">Question-CF979C</a>
   
+    <h1 class="article-title" itemprop="name">
+      Question-CF979C
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/02/19/Question-CF979C/" class="archive-article-date">
+        <time datetime="2020-02-19T08:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>#CF979C Kuro and Walking Route</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Kuro is living in a country called Uberland, consisting of n towns, numbered from 1 to n , and n - 1 bidirectional roads connecting these towns. It is possible to reach each town from any other. Each road connects two towns a and b . Kuro loves walking and he is planning to take a walking marathon, in which he will choose a pair of towns (u, v) (u != v)<br>​<br> and walk from uu using the shortest path to vv (note that (u, v) is considered to be different from (v, u) .</p>
+<p>Oddly, there are 2 special towns in Uberland named Flowrisa (denoted with the index x ) and Beetopia (denoted with the index y ). Flowrisa is a town where there are many strong-scent flowers, and Beetopia is another town where many bees live. In particular, Kuro will avoid any pair of towns (u, v) if on the path from u to v , he reaches Beetopia after he reached Flowrisa, since the bees will be attracted with the flower smell on Kuro’s body and sting him.</p>
+<p>Kuro wants to know how many pair of city (u, v) he can take as his route. Since he’s not really bright, he asked you to help him with this problem.</p>
+<a id="more"></a>
+
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains three integers n ($1 &lt;= n &lt;= 3 * 10 ^ {5}$) , x and y ($1 &lt;= x,y &lt;= n$)- the number of towns, index of the town Flowrisa and index of the town Beetopia, respectively.</p>
+<p>n - 1lines follow, each line contains two integers a and b<br>​<br>, describes a road connecting two towns a and b .</p>
+<p>It is guaranteed that from each town, we can reach every other town in the city using the given roads. That is, the given map of towns and roads is a tree.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>A single integer resembles the number of pair of towns (u, v) that Kuro can use as his walking route.</p>
+<h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>n 个结点，编号从 1 到 n ， n−1 条双向边的连通图，问图中有多少点对 (u,v) 使得从 u 到 v 的最短路上，不存在先到达 x ，再到达 y 的情况。点对 (u,v) 与点对 (v,u) 被认为是不同的。</p>
+<h2 id="听歌"><a href="#听歌" class="headerlink" title="听歌"></a>听歌</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=528309&auto=0&height=66"></iframe>
+
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>n个节点，n - 1条边，每一个节点都有边与之相连，可以判断出来是一棵<code>树</code></p>
+<p>我们可以利用容斥把题的意思翻转一下，点之间的最短路径总数(n * n - n) = 先到x再到y的情况 + 不是先到x再到y的情况<br>因此题意就变成了 ‘<code>求两点之间的最短路径中，先到x再到y的情况</code></p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><p>我们先画一个简单的树出来</p>
+<p><img src="https://i.loli.net/2020/02/19/x1ezrQJ39tqsPaw.png" alt="1.png"></p>
+<p>设起始点是3，终点是5，3到5的最短路径是 3 -&gt; 4 -&gt; 5</p>
+<blockquote>
+<p>我们可以由起点和终点把树划分为三个点集</p>
+</blockquote>
+<blockquote>
+<p>第一个集包含了由起点到终点的最短路径中所经过的点(不包含起始和终点)<br>第二个集包含了起点，集合内的点互相联通且与第一个集的交集为空<br>第三个集包含了终点，集合内的点互相联通且与第一个集的交集为空</p>
+</blockquote>
+<p>举个例子，图中第一个集合就是4，第二个集合就是1, 2, 3，第三个集合就是5, 6, 7</p>
+<p>可以看出来，<code>先到x再到y的最短路径的总和 = 第二个集合的基数 * 第三个集合的基数</code></p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>这就好做多了，我们可以两边dfs分别求集合。</p>
+<p>这里我们依然采用容斥</p>
+<blockquote>
+<p>第一次dfs</p>
+</blockquote>
+<p>我们可算出第一个集合与第二个集合的基数之和(从起点dfs，终止条件是 vis1[n] 或 n == ed)</p>
+<blockquote>
+<p>第二次dfs</p>
+</blockquote>
+<p>我们可算出第三个集合的基数与第二个集合的基数(从终点dfs，终止条件是vis2[n]或 n == st)</p>
+<p>另外：</p>
+<ol>
+<li>当遍历到的点属于第一次dfs的点的集合时 (<strong>确切的说，是处于第一集合与第二集合的并集中，且由于遍历以起始点作为终点，所以我们不会遍历到第一集合的点，所以结论是这些点就属于第二集合的点，且这些点的集合就是第二集合</strong>) ，我们可以用第一次计算到的基数之和减去这些点的集合的基数，得到的就是第一集合的基数</li>
+<li>当遍历到的点不属于第一次dfs的点的集合时，这个点就属于第三集合，且这些点的集合就是第三集合</li>
+</ol>
+<p>用图来解释一下：</p>
+<p><img src="https://i.loli.net/2020/02/19/ZM7qVvEIWAGwkQm.png" alt="1.png"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>//Madoka daisuki!!!
+#include&lt;bits/stdc++.h&gt;
+#define N 300050
+using namespace std;
+int h[N], n, st, ed, length;
+long long ans, cnt1 = 0, cnt2 = 0;
+bool vis1[N], vis2[N];
+struct Edge
+{
+    int next, to;
+}edge[2 * N];//要注意啊，无向图装配两次所以要开两倍qwq
+void Equip(int x, int y)
+{
+    length++;
+    edge[length].to = y;
+    edge[length].next = h[x];
+    h[x] = length;
+}
+void dfs1(int x)
+{
+    if(vis1[x] || x == ed) return;
+    cnt1++; vis1[x] = true;
+    for(int e = h[x]; e; e = edge[e].next)
+        if(!vis1[edge[e].to])
+            dfs1(edge[e].to);
+}
+void dfs2(int x)
+{
+    if(vis2[x] || x == st) return;
+    if(vis1[x]) cnt1--;
+    else cnt2++;
+    vis2[x] = true;
+    for(int e = h[x]; e; e = edge[e].next)
+        if(!vis2[edge[e].to])
+            dfs2(edge[e].to);
+}
+int main()
+{
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;st, &amp;ed);
+    ans = 1ll * n * n - n; //1ll :表示数据类型为long long，数据值为1的常量
+    int tmp1, tmp2;
+    for(int i = 1; i &lt;= n - 1; i++)
+    {
+        scanf(&quot;%d%d&quot;, &amp;tmp1, &amp;tmp2);
+        Equip(tmp1, tmp2); Equip(tmp2, tmp1);
+    }
+    dfs1(st);
+    dfs2(ed);
+    ans -= cnt1 * cnt2;
+    printf(&quot;%lld&quot;, ans);
+}</code></pre><p>##<br><del>虽然是好简单一道题但是还是为了写写容斥而且英文题看着好装逼啊虽然看着翻译做的哈哈哈哈就放上来了哈哈哈哈哈哈</del></p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          v25bh145
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://v25bh145.github.io/2020/02/19/Question-CF979C/" title="Question-CF979C" target="_blank">https://v25bh145.github.io/2020/02/19/Question-CF979C/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -216,476 +364,55 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/16/Question-P1197/" class="archive-article-date">
-        <time datetime="2020-02-16T07:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/16/Question-P1197/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Question-P1197</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/16/Question-P1197/" target="_blank">Question-P1197</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/08/Question-P2024/" class="archive-article-date">
-        <time datetime="2020-02-08T07:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/08/Question-P2024/" target="_blank">Question-P2024</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/18/Question-P1019/" class="archive-article-date">
-        <time datetime="2019-12-18T11:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/18/Question-P1019/" target="_blank">Question-P1019</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">深度优先搜索</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/11/Question-P1280/" class="archive-article-date">
-        <time datetime="2019-12-11T14:23:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/11/Question-P1280/" target="_blank">Question-P1280</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/09/Question-P1064/" class="archive-article-date">
-        <time datetime="2019-12-09T13:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/09/Question-P1064/" target="_blank">Question-P1064</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/04/Question-P1631/" class="archive-article-date">
-        <time datetime="2019-12-04T08:12:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/04/Question-P1631/" target="_blank">Question-P1631</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/30/Question-P2278/" class="archive-article-date">
-        <time datetime="2019-11-30T14:06:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/30/Question-P2278/" target="_blank">Question-P2278</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">模拟</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/30/Question-P1801/" class="archive-article-date">
-        <time datetime="2019-11-30T10:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/30/Question-P1801/" target="_blank">Question-P1801</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/26/Question-P1908/" class="archive-article-date">
-        <time datetime="2019-11-26T10:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/26/Question-P1908/" target="_blank">Question-P1908</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">分治法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -726,8 +453,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
