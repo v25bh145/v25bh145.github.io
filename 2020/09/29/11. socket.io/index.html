@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="V25bh145的小家儿~">
 <meta property="og:description" content="Socket.io   提供了很好的灵活性，并非完全基于WebSocket =&amp;gt; 可以在大多数设备上运行  聊天程序初始化程序123456789&amp;#123;    &quot;name&quot;: &quot;chat.io&quot;,    &quot;version&quot;: &quot;0.0.1&quot;,    &quot;dependencies&quot;: &amp;#123;        &quot;body-parser&quot;: &quot;^1.19.0&quot;,        &quot;expres">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-29T11:15:40.418Z">
+<meta property="og:updated_time" content="2020-09-29T11:29:44.141Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -47,6 +47,9 @@
   
 
 
+  
+    <script src="/lib/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
   
 
 </head>
@@ -81,6 +84,10 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
+			
+				
+					<a q-on="click: openSlider(e, 'innerArchive')">所有文章</a>
+				
 			
 				
 			
@@ -223,6 +230,8 @@
 <p>提供了很好的灵活性，并非完全基于WebSocket =&gt; 可以在大多数设备上运行</p>
 </blockquote>
 <h1 id="聊天程序"><a href="#聊天程序" class="headerlink" title="聊天程序"></a>聊天程序</h1><h2 id="初始化程序"><a href="#初始化程序" class="headerlink" title="初始化程序"></a>初始化程序</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"chat.io"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"body-parser"</span>: <span class="string">"^1.19.0"</span>,</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"^4.17.1"</span>,</span><br><span class="line">        <span class="attr">"socket.io"</span>: <span class="string">"^2.3.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h2 id="构建服务器"><a href="#构建服务器" class="headerlink" title="构建服务器"></a>构建服务器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 模块依赖</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>),</span><br><span class="line">    sio = <span class="built_in">require</span>(<span class="string">'socket.io'</span>), </span><br><span class="line">    bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>), </span><br><span class="line">    http  = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建app</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">app = express();</span><br><span class="line"></span><br><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br><span class="line"></span><br><span class="line">app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;));</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 
@@ -431,7 +440,7 @@
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
-		innerArchive: false,
+		innerArchive: true,
 		showTags: true
 	}
 </script>
@@ -487,6 +496,10 @@
     
     
       
+      
+      
+    
+      
     
       
     
@@ -496,12 +509,143 @@
     
     
       
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" target="_blank" rel="noopener" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
         
       
         
     </ul>
   </div>
   <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia-plus根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
     
 
     
