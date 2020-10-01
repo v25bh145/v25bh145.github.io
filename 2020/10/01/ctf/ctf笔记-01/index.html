@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="[toc] CTF笔记-WEB攻防-01 写在前面：  此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。 尽可能按照攻防世界的题目顺序来。 如果各位从我的文章发现了什么问题或者想和我探tan讨tan探ren讨sheng，欢迎联系我呀~    baby_web​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch dirsearch">
+  <meta name="description" content="CTF笔记-WEB攻防-01 写在前面：  此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。 尽可能按照攻防世界的题目顺序来。 如果各位从我的文章发现了什么问题或者想和我探tan讨tan探ren讨sheng，欢迎联系我呀~    baby_web​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch">
 <meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF笔记-WEB攻防-01">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;01&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-01&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="[toc] CTF笔记-WEB攻防-01 写在前面：  此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。 尽可能按照攻防世界的题目顺序来。 如果各位从我的文章发现了什么问题或者想和我探tan讨tan探ren讨sheng，欢迎联系我呀~    baby_web​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch dirsearch">
+<meta property="og:description" content="CTF笔记-WEB攻防-01 写在前面：  此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。 尽可能按照攻防世界的题目顺序来。 如果各位从我的文章发现了什么问题或者想和我探tan讨tan探ren讨sheng，欢迎联系我呀~    baby_web​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-10-01T13:26:19.770Z">
+<meta property="og:updated_time" content="2020-10-01T13:29:27.124Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -204,7 +204,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">643字</span>
+      <span class="post-count">642字</span>
     </span>
   </span>
 
@@ -224,8 +224,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[toc]</p>
-<h1 id="CTF笔记-WEB攻防-01"><a href="#CTF笔记-WEB攻防-01" class="headerlink" title="CTF笔记-WEB攻防-01"></a>CTF笔记-WEB攻防-01</h1><blockquote>
+    <h1 id="CTF笔记-WEB攻防-01"><a href="#CTF笔记-WEB攻防-01" class="headerlink" title="CTF笔记-WEB攻防-01"></a>CTF笔记-WEB攻防-01</h1><blockquote>
 <p>写在前面：</p>
 <ol>
 <li>此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。</li>
@@ -235,6 +234,7 @@
 </blockquote>
 <hr>
 <h2 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h2><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
+<a id="more"></a>
 <h3 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
 
 <p><strong>output:</strong></p>

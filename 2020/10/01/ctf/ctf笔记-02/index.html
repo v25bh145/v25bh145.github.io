@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="[toc] CTF笔记-WEB攻防-02Web_php_unserialize(题外话)这一题觉得好难呀 访问端口: output: 123456789101112131415161718192021222324252627&amp;lt;?php class Demo &amp;#123;     private $file = &amp;apos;index.php&amp;apos;;    public function __constru">
+  <meta name="description" content="CTF笔记-WEB攻防-02Web_php_unserialize(题外话)这一题觉得好难呀 访问端口: output: 123456789101112131415161718192021222324252627&amp;lt;?php class Demo &amp;#123;     private $file = &amp;apos;index.php&amp;apos;;    public function __construct($fi">
 <meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF笔记-WEB攻防-02">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;01&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-02&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="[toc] CTF笔记-WEB攻防-02Web_php_unserialize(题外话)这一题觉得好难呀 访问端口: output: 123456789101112131415161718192021222324252627&amp;lt;?php class Demo &amp;#123;     private $file = &amp;apos;index.php&amp;apos;;    public function __constru">
+<meta property="og:description" content="CTF笔记-WEB攻防-02Web_php_unserialize(题外话)这一题觉得好难呀 访问端口: output: 123456789101112131415161718192021222324252627&amp;lt;?php class Demo &amp;#123;     private $file = &amp;apos;index.php&amp;apos;;    public function __construct($fi">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-10-01T13:26:13.432Z">
+<meta property="og:updated_time" content="2020-10-01T13:29:38.233Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -224,12 +224,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[toc]</p>
-<h1 id="CTF笔记-WEB攻防-02"><a href="#CTF笔记-WEB攻防-02" class="headerlink" title="CTF笔记-WEB攻防-02"></a>CTF笔记-WEB攻防-02</h1><h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h2><p>(题外话)<del>这一题觉得好难呀</del></p>
+    <h1 id="CTF笔记-WEB攻防-02"><a href="#CTF笔记-WEB攻防-02" class="headerlink" title="CTF笔记-WEB攻防-02"></a>CTF笔记-WEB攻防-02</h1><h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h2><p>(题外话)<del>这一题觉得好难呀</del></p>
 <p>访问端口:</p>
 <p><strong>output:</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <p><strong>var</strong></p>
 <ol>
 <li>我们需要get传参var，var的值就是序列化后的类的base64编码</li>
