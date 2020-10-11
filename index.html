@@ -80,7 +80,11 @@
 			
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/" target="_blank">随笔</a></li>
 			
-				<li><a href="/tags/Question/" target="_blank">问题</a></li>
+				<li><a href="/tags/Question/" target="_blank">算法问题</a></li>
+			
+				<li><a href="/tags/ctf-web/" target="_blank">ctf</a></li>
+			
+				<li><a href="/tags/node/" target="_blank">node</a></li>
 			
 			</ul>
 		</nav>
@@ -136,6 +140,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -152,11 +160,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 20%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/Question/">问题</a></li>
+					<li style="width: 20%"><a href="/tags/Question/">算法问题</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/ctf-web/">ctf</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/node/">node</a></li>
 		        
 				</ul>
 			</nav>
@@ -389,102 +401,6 @@
 
 
   
-    <article id="post-ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/" target="_blank">CTF笔记-WEB攻防-02</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/" class="archive-article-date">
-        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4749&page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
-
-<p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-ctf/ctf笔记-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -561,6 +477,102 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-03/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/" target="_blank">CTF笔记-WEB攻防-02</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/" class="archive-article-date">
+        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4749&page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
+
+<p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/">展开全文 >></a>
     </p>
     
 
@@ -1326,14 +1338,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1350,11 +1354,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,11 +1382,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,7 +1402,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
               </li>
             
             <div class="clearfix"></div>
