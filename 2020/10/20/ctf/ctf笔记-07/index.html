@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;lt;?php    session_start();if (!isset($_GET[">
+  <meta name="description" content="ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:">
 <meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF笔记-WEB攻防-07">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;20&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-07&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;lt;?php    session_start();if (!isset($_GET[">
+<meta property="og:description" content="ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;20&#x2F;Bp3gYV.md.png">
-<meta property="og:updated_time" content="2020-10-21T13:11:40.894Z">
+<meta property="og:updated_time" content="2020-10-21T13:18:18.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;20&#x2F;Bp3gYV.md.png">
   
@@ -239,6 +239,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a>ics-07</h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
+<a id="more"></a>
+
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    session_start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_GET[page])) &#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[page]) &amp;&amp; $_GET[page] != <span class="string">'index.php'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'flag.php'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">'Location: ?page=flag.php'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($_SESSION[<span class="string">'admin'</span>]) &#123;</span><br><span class="line">    $con = $_POST[<span class="string">'con'</span>];</span><br><span class="line">    $file = $_POST[<span class="string">'file'</span>];</span><br><span class="line">    $filename = <span class="string">"backup/"</span>.$file;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">'/.+\.ph(p[3457]?|t|tml)$/i'</span>, $filename))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"Bad file extension"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        chdir(<span class="string">'uploaded'</span>);</span><br><span class="line">        $f = fopen($filename, <span class="string">'w'</span>);</span><br><span class="line">        fwrite($f, $con);</span><br><span class="line">        fclose($f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[id]) &amp;&amp; floatval($_GET[id]) !== <span class="string">'1'</span> &amp;&amp; substr($_GET[id], <span class="number">-1</span>) === <span class="string">'9'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span> <span class="string">'config.php'</span>;</span><br><span class="line">    $id = mysql_real_escape_string($_GET[id]);</span><br><span class="line">    $sql=<span class="string">"select * from cetc007.user where id='$id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    $result = mysql_fetch_object($result);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $result = <span class="keyword">False</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!$result)<span class="keyword">die</span>(<span class="string">"&lt;br &gt;something wae wrong ! &lt;br&gt;"</span>);</span><br><span class="line"><span class="keyword">if</span>($result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"id: "</span>.$result-&gt;id.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"name:"</span>.$result-&gt;user.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    $_SESSION[<span class="string">'admin'</span>] = <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>第一段是关于页面跳转的，第二段需要获取admin之后再看，先看第三段，是关于id的，这里检测为：</p>
@@ -332,8 +334,8 @@
     </a>
   
   
-    <a href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CTF笔记-WEB攻防-05</div>
+    <a href="/2020/10/15/ctf/ctf%E7%AC%94%E8%AE%B0-06/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTF笔记-WEB攻防-06</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -532,18 +534,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -552,11 +542,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +566,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,11 +574,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
             
             <div class="clearfix"></div>
