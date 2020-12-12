@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”  主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。   e.g:报纸&amp;amp;订阅报纸的人">
+  <meta name="description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.观察者模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;designPatten&#x2F;2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”  主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。   e.g:报纸&amp;amp;订阅报纸的人">
+<meta property="og:description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-12-12T02:37:20.737Z">
+<meta property="og:updated_time" content="2020-12-12T18:36:08.344Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -249,8 +249,9 @@
 <p>JDK使用最多的模式</p>
 </blockquote>
 <hr>
-<ol>
-<li><p>“主题 + 订阅者 = 观察者模式”</p>
+<blockquote>
+<p>“主题 + 订阅者 = 观察者模式”</p>
+</blockquote>
 <ul>
 <li><p>主题负责产生/获取信息。(主题在所知的信息<strong>改变</strong>时会<strong>通知</strong>订阅者)</p>
 </li>
@@ -260,24 +261,20 @@
 </li>
 <li><p>只要主题还在产生/获取消息，就会<strong>不断</strong>向订阅者发送消息。</p>
 </li>
-<li><blockquote>
-<p>e.g:报纸&amp;订阅报纸的人</p>
-</blockquote>
+<li><p>e.g:报纸&amp;订阅报纸的人</p>
 </li>
 </ul>
-</li>
-</ol>
 <a id="more"></a>
 
-<ol start="2">
-<li><p>定义: “观察者模式定义了对象之间的<strong>一对多依赖</strong>，这样一来，当一个对象<strong>改变状态</strong>时，它的所有依赖者都会<strong>收到通知</strong>并<strong>自动更新</strong>。”</p>
+<blockquote>
+<p>定义: “观察者模式定义了对象之间的<strong>一对多依赖</strong>，这样一来，当一个对象<strong>改变状态</strong>时，它的所有依赖者都会<strong>收到通知</strong>并<strong>自动更新</strong>。”</p>
+</blockquote>
 <ul>
 <li>一对多依赖，即指的是一个主题+多个订阅者的模式</li>
 </ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>大体框架</p>
+<blockquote>
+<p>大体框架</p>
+</blockquote>
 <ul>
 <li><p>主题接口 &amp; 主题类</p>
 <ul>
@@ -292,10 +289,9 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>“观察者模式提供了一种对象设计，让主题与观察者之间<strong>松耦合</strong>“</p>
+<blockquote>
+<p>“观察者模式提供了一种对象设计，让主题与观察者之间<strong>松耦合</strong>“</p>
+</blockquote>
 <ul>
 <li><p><strong>松耦合</strong>: 指主题与观察者之间以接口(即是<strong>观察者接口</strong>)连接。</p>
 <ul>
@@ -307,13 +303,12 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-<ol start="5">
-<li>“为了交互对象之间的<strong>松耦合</strong>而努力”</li>
-</ol>
-<ol start="6">
-<li><p>java.util.Observer &amp; java.util.Observable - 官方的观察者模式</p>
+<blockquote>
+<p>“为了交互对象之间的<strong>松耦合</strong>而努力”</p>
+</blockquote>
+<blockquote>
+<p>java.util.Observer &amp; java.util.Observable - 官方的观察者模式</p>
+</blockquote>
 <ul>
 <li><code>在官方的Object类中，主题接口是一个抽象类Observable，主题类(可观察者)继承了Observable。</code></li>
 <li>主题(可观察者)想要推送给观察者数据时，需要先执行<strong>setChanged()</strong>方法，之后执行notifyObservers()方法，其中notifyObservers可选直接传输一个数据对象。</li>
@@ -322,11 +317,9 @@
 <li>观察者需要数据时，还可以向可观察者<strong>主动</strong>(pull)拉取数据</li>
 <li>但是很遗憾，JAVA9弃用(@deprecation)了Observable与Observer…<a href="https://cloud.tencent.com/developer/ask/56291" target="_blank" rel="noopener">为什么？</a></li>
 </ul>
-</li>
-</ol>
-<ol start="7">
-<li><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/Observer" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/Observer</a> 查看实例代码(加了注释、分类了文件)</li>
-</ol>
+<blockquote>
+<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/Observer" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/Observer</a> 查看实例代码(加了注释、分类了文件)</p>
+</blockquote>
 
     
 
@@ -580,19 +573,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,11 +613,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,19 +629,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,7 +637,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
