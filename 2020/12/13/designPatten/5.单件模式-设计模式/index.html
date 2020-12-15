@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="单件模式 “用来创建独一无二的，只能有一个实例的对象的入场券。”    定义: “单件模式确保一个类只有一个实例，并提供一个全局访问点。”   全局访问点: 构造函数是私有方法，而提供一个公开、静态的getInstance()方法  public static Singleton getInstance() {     if(uniqueInstance != null) uniqueInstan">
+  <meta name="description" content="单件模式 “用来创建独一无二的，只能有一个实例的对象的入场券。”    定义: “单件模式确保一个类只有一个实例，并提供一个全局访问点。”   全局访问点: 构造函数是私有方法，而提供一个公开、静态的getInstance()方法  1234public static Singleton getInstance() &amp;#123;    if(uniqueInstance != null) uniq">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5.单件模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;13&#x2F;designPatten&#x2F;5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="单件模式 “用来创建独一无二的，只能有一个实例的对象的入场券。”    定义: “单件模式确保一个类只有一个实例，并提供一个全局访问点。”   全局访问点: 构造函数是私有方法，而提供一个公开、静态的getInstance()方法  public static Singleton getInstance() {     if(uniqueInstance != null) uniqueInstan">
+<meta property="og:description" content="单件模式 “用来创建独一无二的，只能有一个实例的对象的入场券。”    定义: “单件模式确保一个类只有一个实例，并提供一个全局访问点。”   全局访问点: 构造函数是私有方法，而提供一个公开、静态的getInstance()方法  1234public static Singleton getInstance() &amp;#123;    if(uniqueInstance != null) uniq">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-12-14T01:01:05.770Z">
+<meta property="og:updated_time" content="2020-12-15T03:39:32.394Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">108字</span>
+      <span class="post-count">345字</span>
     </span>
   </span>
 
@@ -250,17 +250,32 @@
 <p>定义: “单件模式确保<strong>一个类只有一个实例</strong>，并提供一个<strong>全局访问点</strong>。”</p>
 </blockquote>
 <ul>
-<li><p><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</p>
-</li>
-<li><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();
-    <span class="keyword">return</span> uniqueInstance;
-}
-&lt;!--￼<span class="number">0</span>--&gt;
+<li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-- 不适用于<span class="number">1.4</span>或更早版本的java。
-</code></pre>
+<ul>
+<li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
+</ul>
+<a id="more"></a>
+
+
+
+<blockquote>
+<p><strong>线程安全性</strong></p>
+</blockquote>
+<ul>
+<li><p>将<code>getInstance()</code>改为<strong>同步方法</strong>(<strong>synchronized</strong>)，但是性能将遭受损失。</p>
 </li>
+<li><p>对uniqueInstance<strong>赋初值</strong>，不再改变它 (也就是说，getInstance不负责创建对象，仅仅负责返回对象。</p>
+</li>
+<li><p><strong>双重检查加锁</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//volatile: 当变量被初始化时，确保多个进程能正确处理变量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//如果单例已经创建过了，则不会进入这个if区块，也就是说没有由锁带来的性能损失</span></span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//进入此区域的仅限于想要初始化单例的进程。也就是说，到达这里的为第一批的单例创建者们</span></span><br><span class="line">        <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">            <span class="comment">//而其中只能有一个单例创建者进入创建单例</span></span><br><span class="line">            <span class="keyword">if</span>(uniqueInstance == <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> uniqueInstance</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不适用于1.4或更早版本的java。</li>
 </ul>
 
     
@@ -515,6 +530,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
               </li>
              
@@ -523,11 +546,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,15 +562,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,6 +579,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,27 +602,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">

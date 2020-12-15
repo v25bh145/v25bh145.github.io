@@ -193,6 +193,116 @@
             
 
   
+    <article id="post-designPatten/7.适配器模式&amp;外观模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/15/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">7.适配器模式&amp;外观模式-设计模式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/15/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-15T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="适配器模式-amp-外观模式"><a href="#适配器模式-amp-外观模式" class="headerlink" title="适配器模式&amp;外观模式"></a>适配器模式&amp;外观模式</h2><blockquote>
+<p>交流电适配器 =&gt; “将一个接口转换成另一个接口，以符合客户的期望”</p>
+</blockquote>
+<blockquote>
+<p>“如果它走起路来像只鸭子，叫起来像只鸭子，那么它<del>必定</del>可能是一只<del>鸭子</del>包装了鸭子适配器的火鸡”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>客户使用适配器的过程</p>
+</blockquote>
+<ol>
+<li>客户通过<strong>目标接口</strong>调用<strong>适配器的方法</strong>对<strong>适配器</strong>发出<strong>请求</strong>。</li>
+<li><strong>适配器</strong>使用<strong>被适配者接口</strong>把<strong>请求</strong>转换成被<strong>适配者的一个或多个接口</strong>。</li>
+<li>客户接收到调用的结果，但并未察觉这一切是适配器在起<strong>转换作用</strong>。</li>
+</ol>
+<ul>
+<li><strong>适配器</strong>要把<strong>被适配者</strong>转换成客户需要的样子。</li>
+<li><strong>客户</strong>与<strong>被适配者</strong>是解耦的。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/15/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/15/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-designPatten/6.命令模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -334,19 +444,16 @@
 <p>定义: “单件模式确保<strong>一个类只有一个实例</strong>，并提供一个<strong>全局访问点</strong>。”</p>
 </blockquote>
 <ul>
-<li><p><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</p>
-</li>
-<li><pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{
-    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();
-    <span class="keyword">return</span> uniqueInstance;
-}
-&lt;!--￼<span class="number">0</span>--&gt;
-
-- 不适用于<span class="number">1.4</span>或更早版本的java。
-</code></pre>
-</li>
+<li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/13/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
     
 
     
@@ -1121,101 +1228,6 @@
 
 
   
-    <article id="post-history/全球通史/3.古代文明及游牧入侵-全球通史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/11/26/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/3.%E5%8F%A4%E4%BB%A3%E6%96%87%E6%98%8E%E5%8F%8A%E6%B8%B8%E7%89%A7%E5%85%A5%E4%BE%B5-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" target="_blank">3.古代文明及游牧入侵-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/11/26/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/3.%E5%8F%A4%E4%BB%A3%E6%96%87%E6%98%8E%E5%8F%8A%E6%B8%B8%E7%89%A7%E5%85%A5%E4%BE%B5-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" class="archive-article-date">
-        <time datetime="2020-11-26T10:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="古代文明"><a href="#古代文明" class="headerlink" title="古代文明"></a>古代文明</h2><p><strong>preview</strong></p>
-<blockquote>
-<p>城市的建立是为了能够让人们过上更好的生活。 –亚里士多德</p>
-</blockquote>
-<blockquote>
-<p>每个城邦都分裂成了两个城邦:多数穷人的城邦和少数富人的城邦，而且这两个城邦总在相互交战。 –柏拉图</p>
-</blockquote>
-<p><strong>最早的文明 – 苏美尔 – 公元前3500年</strong> </p>
-    
-    <a class="article-more-a" href="/2020/11/26/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/3.%E5%8F%A4%E4%BB%A3%E6%96%87%E6%98%8E%E5%8F%8A%E6%B8%B8%E7%89%A7%E5%85%A5%E4%BE%B5-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/11/26/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/3.%E5%8F%A4%E4%BB%A3%E6%96%87%E6%98%8E%E5%8F%8A%E6%B8%B8%E7%89%A7%E5%85%A5%E4%BE%B5-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1370,6 +1382,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
               </li>
              
@@ -1378,11 +1398,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,15 +1414,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1411,6 +1431,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1426,27 +1454,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">CTF笔记-WEB攻防</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
