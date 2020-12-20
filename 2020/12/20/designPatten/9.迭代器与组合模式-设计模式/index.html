@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>3.装饰者模式-设计模式 | V25bh145的小家儿~</title>
+  <title>9.迭代器模式与组合模式-设计模式 | V25bh145的小家儿~</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你)   不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
+  <meta name="description" content="迭代器与组合模式 “有许多种方法可以把对象堆起来成为一个集合” =&amp;gt; 如何做到封装不同集合的遍历呢？   迭代器模式 “封装不同集合的遍历”   将不同集合的遍历过程封装起来，使用相同的集合访问接口。 使用迭代器接口实现">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.装饰者模式-设计模式">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;designPatten&#x2F;3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:title" content="9.迭代器模式与组合模式-设计模式">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;20&#x2F;designPatten&#x2F;9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小家儿~">
-<meta property="og:description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你)   不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
+<meta property="og:description" content="迭代器与组合模式 “有许多种方法可以把对象堆起来成为一个集合” =&amp;gt; 如何做到封装不同集合的遍历呢？   迭代器模式 “封装不同集合的遍历”   将不同集合的遍历过程封装起来，使用相同的集合访问接口。 使用迭代器接口实现">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-12-12T19:11:32.564Z">
+<meta property="og:updated_time" content="2020-12-20T04:18:18.052Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -189,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-designPatten/3.装饰者模式-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-designPatten/9.迭代器与组合模式-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      3.装饰者模式-设计模式
+      9.迭代器模式与组合模式-设计模式
     </h1>
   
 
@@ -208,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/12/12/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T03:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
+<a href="/2020/12/20/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-20T04:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
 </a>
 
   
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">552字</span>
+      <span class="post-count">686字</span>
     </span>
   </span>
 
@@ -231,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -242,47 +242,67 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
-<p>给爱用继承的人一个全新的设计眼界<del>(翻译: 再敢滥用继承我不打死你)</del></p>
-</blockquote>
-<blockquote>
-<p>不修改底层代码而给你的对象赋予新的职责</p>
+    <h2 id="迭代器与组合模式"><a href="#迭代器与组合模式" class="headerlink" title="迭代器与组合模式"></a>迭代器与组合模式</h2><blockquote>
+<p>“有许多种方法可以把对象堆起来成为一个集合” =&gt; 如何做到封装不同集合的遍历呢？</p>
 </blockquote>
 <hr>
-<blockquote>
-<p>“类应该对扩展开放，对修改关闭。” =&gt; 开放-关闭原则</p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><blockquote>
+<p>“封装不同集合的遍历”</p>
 </blockquote>
 <ul>
-<li>类如果对扩展关闭，毫无疑问不具备可扩展性。</li>
-<li>类如果对修改开放，则会导致一系列内部实现被扰乱。</li>
-<li>没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。</li>
+<li>将<strong>不同集合的遍历过程</strong>封装起来，使用<strong>相同的集合访问接口</strong>。</li>
+<li>使用<strong>迭代器接口</strong>实现</li>
 </ul>
 <a id="more"></a>
 
+
+
 <blockquote>
-<p>五点规则</p>
+<p><strong>定义</strong>: “迭代器模式提供了一种方法<strong>顺序</strong>访问一个<strong>聚合对象</strong>中的各种元素，而又<strong>不暴露其内部的表示</strong>。”</p>
 </blockquote>
 <ul>
-<li>装饰者和被装饰者对象有相同的<strong>超类型</strong>(父类)。</li>
-<li>你可以用<strong>一个或多个</strong>装饰者包装被装饰者。</li>
-<li>既然装饰者与被装饰者拥有相同的超类型，则可以使用装饰者去装饰一个<strong>已经包装过的装饰</strong>。</li>
-<li><code>装饰者可以在所委托被装饰者的行为之前/之后，加上自己的行为，以达到特定的目的。</code></li>
-<li>对象可以在<strong>任何时候</strong>被装饰，所以可以<strong>动态</strong>地、<strong>不限量</strong>地装饰被装饰者。</li>
+<li><strong>顺序</strong>: 指以聚合对象内部的顺序，可以不是输入的原顺序。</li>
+<li><strong>聚合对象</strong>: 也可以称为<strong>集合对象</strong>(collections)，只要是<strong>相同数据类型的变量的集合</strong>即可。</li>
+<li><strong>内部表示</strong>: 并不会告知内部是什么数据结构实现的，我们也在调用时看不到内部具体的实现算法，也就是说将<strong>调用与内部实现解耦</strong>了</li>
 </ul>
 <blockquote>
-<p>定义: “装饰者模式动态地将责任附加到对象上，若要<strong>扩展功能</strong>，装饰者提供了比继承更有弹性的替代方案。”</p>
+<p><strong>设计原则</strong> - 一个类应该只有一个<strong>引起变化的原因</strong></p>
 </blockquote>
 <ul>
-<li>在代码中，<strong>具体被装饰者</strong>与<strong>装饰父类</strong>(抽象类或接口)继承了一个<strong>通用父类</strong>(可以是一个接口，但是JAVA内已经习惯了使用抽象类)，<strong>具体装饰者</strong>继承了<strong>装饰父类</strong>。</li>
-<li>具体装饰者拥有一个<strong>通用父类</strong>的引用，指向包装的对象。</li>
-<li>这里使用了大量的继承，但是关键的地方在于，我们利用继承达到”<strong>类型匹配</strong>“，而不是获得”<strong>行为</strong>“，且这里的继承完全可以替换成接口。</li>
+<li><strong>一个引起变化的原因</strong>:若有两个引起变化的原因，则会在改变需求的时候不容易修改代码。 =&gt; <strong>要正确区分设计中的责任</strong></li>
+<li>“<strong>内聚(cohesion)</strong>“: 用来度量一个类/模块紧密地达到单一目的的责任。<ul>
+<li><strong>当一个模块或一个类被设计成只支持一组相关的功能时，我们说它具有高内聚。</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><blockquote>
+<p><strong>定义</strong>: “<strong>组合模式</strong>允许你讲对象组合成<strong>树形结构</strong>来表现[<strong>整体/部分</strong>]的层次结构。组合能让客户以一致的方式处理<strong>个别对象以及对象组合</strong>。”</p>
+</blockquote>
+<blockquote>
+<p><strong>树形结构</strong>: 组件、组合、叶节点</p>
+</blockquote>
+<ul>
+<li>组件是一个<strong>接口</strong>，组合与叶节点将实现接口中的方法，一般有三个<strong>默认行为</strong>: <code>add()、remove()、getChild()</code>。</li>
+<li>组合是一个<strong>非叶节点</strong>，其可以有孩子，孩子可以是<strong>叶节点或其他的组合</strong>。</li>
+<li>叶节点不能有子，<strong>通过实现组件的操作，定义组合内元素的行为</strong>。</li>
 </ul>
 <blockquote>
-<p>缺点:会在使用时加入大量<strong>小类</strong>，导致代码<strong>复杂性</strong>偏高。 =&gt; 需要避免过度使用</p>
+<p>“以<strong>单一责任设计原则</strong>换取<strong>透明性</strong>“</p>
 </blockquote>
+<ul>
+<li><p><strong>单一设计原则</strong>: <strong>抽象类不止负责一个功能</strong>，同时拥有了叶节点(执行方法)与组合(管理层次)的功能。</p>
+</li>
+<li><p><strong>透明性</strong>: 通过使叶节点与组合<strong>继承一个抽象类</strong>，客户会将叶节点与组合一视同仁。</p>
+</li>
+</ul>
 <blockquote>
-<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/Beverage" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/Beverage</a> 以及 <a href="https://github.com/v25bh145/pattenDesign-code/tree/master/JavaIODecorator" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/JavaIODecorator</a>  查看实例代码 (加了注释、分类了文件)</p>
+<p>示例代码: </p>
 </blockquote>
+<ul>
+<li>迭代器模式: <a href="https://github.com/v25bh145/pattenDesign-code/tree/master/RestaurantMerge/src/IteratorPatten" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/RestaurantMerge/src/IteratorPatten</a></li>
+<li>组合模式: <a href="https://github.com/v25bh145/pattenDesign-code/tree/master/RestaurantMerge/src/CompositePatten" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/RestaurantMerge/src/CompositePatten</a> [组合模式中外部迭代器的实现有个输出bug，如果您调试出来具体问题了劳烦告知我，万分感谢]</li>
+</ul>
 
     
 
@@ -297,7 +317,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/12/12/designPatten/3.装饰者模式-设计模式/" title="3.装饰者模式-设计模式" target="_blank">https://v25bh145.github.io/2020/12/12/designPatten/3.装饰者模式-设计模式/</a>
+          <a href="https://v25bh145.github.io/2020/12/20/designPatten/9.迭代器与组合模式-设计模式/" title="9.迭代器模式与组合模式-设计模式" target="_blank">https://v25bh145.github.io/2020/12/20/designPatten/9.迭代器与组合模式-设计模式/</a>
         </li>
         
         <li>
@@ -342,18 +362,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/12/13/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          4.工厂模式-设计模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/12/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2.观察者模式-设计模式</div>
+    <a href="/2020/12/17/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">8.模板方法模式-设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
