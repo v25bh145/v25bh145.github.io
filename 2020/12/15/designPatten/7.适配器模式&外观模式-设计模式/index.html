@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="V25bh145的小家儿~">
 <meta property="og:description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望”   “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-12-15T03:40:42.653Z">
+<meta property="og:updated_time" content="2020-12-29T02:39:37.839Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
@@ -276,7 +276,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumerationIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">    Enumeration <span class="keyword">enum</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EnumerationIterator</span><span class="params">(Enumeration <span class="keyword">enum</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">enum</span> = <span class="keyword">enum</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.hasMoreElements();</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.nextElement();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//枚举类中没有迭代器中remove()相对应的接口，因此只能抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/Turkey" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/Turkey</a> 查看实例代码</p>
+<p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/Turkey" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/Turkey</a> 查看实例代码</p>
 </blockquote>
 <hr>
 <blockquote>
@@ -315,7 +315,7 @@
 
 
 <blockquote>
-<p><a href="https://github.com/v25bh145/pattenDesign-code/tree/master/HomeTheater" target="_blank" rel="noopener">https://github.com/v25bh145/pattenDesign-code/tree/master/HomeTheater</a> 查看实例代码</p>
+<p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/HomeTheater" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/HomeTheater</a> 查看实例代码</p>
 </blockquote>
 
     
@@ -570,14 +570,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
               </li>
              
@@ -586,11 +578,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,7 +602,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,10 +630,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
               </li>
              
@@ -630,23 +638,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
