@@ -78,8 +78,6 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/" target="_blank">随笔</a></li>
-			
 				<li><a href="/tags/Question/" target="_blank">算法问题</a></li>
 			
 				<li><a href="/tags/ctf-web/" target="_blank">ctf</a></li>
@@ -146,8 +144,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -164,17 +160,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 20%"><a href="/tags/Question/">算法问题</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/Question/">算法问题</a></li>
+					<li style="width: 20%"><a href="/tags/ctf-web/">ctf</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/ctf-web/">ctf</a></li>
+					<li style="width: 20%"><a href="/tags/node/">node</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/node/">node</a></li>
-		        
-					<li style="width: 16.666666666666668%"><a href="/cv/">个人介绍</a></li>
+					<li style="width: 20%"><a href="/cv/">个人介绍</a></li>
 		        
 				</ul>
 			</nav>
@@ -193,7 +187,7 @@
             
 
   
-    <article id="post-questions/Question-P2536" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/nodeJs/5. CLI以及FS API 第一个node.js程序 - 命令行程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -201,7 +195,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/03/02/questions/Question-P2536/" target="_blank">Question-P2536</a>
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank">5.CLI以及FS API</a>
   
     </h1>
   
@@ -209,7 +203,124 @@
 
   
   
-<a href="/2020/03/02/questions/Question-P2536/" class="archive-article-date">
+<a href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
+        <time datetime="2020-09-29T11:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NODE-JS"><a href="#NODE-JS" class="headerlink" title="NODE.JS"></a>NODE.JS</h1><ul>
+<li>为什么要记这个笔记？<ul>
+<li>在以前的实战项目中，发现自己的忘性很大，经常忘记函数名以及使用方法，所以在这次的node.js学习之路中，想记一点笔记以自用。</li>
+</ul>
+</li>
+<li>记些什么？<ul>
+<li>不记基础和起步内容，记一些重要的模块的api函数以及用法，以及一些JavaScript的巧妙用法。</li>
+</ul>
+</li>
+<li>所采用的书籍？<ul>
+<li>《了不起的Node JS 将JavaScript进行到底》</li>
+</ul>
+</li>
+<li>补：<ul>
+<li>此系列与2020年9月初编写，本想使用node搭建一个项目再发布这些文章，奈何写出来自觉没有hexo的主题好看，因此自行删除<del>不是</del>，打算之后把我的项目展示出来以供参考。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="CLI以及FS-API"><a href="#CLI以及FS-API" class="headerlink" title="CLI以及FS API"></a>CLI以及FS API</h1><hr>
+<h2 id="第一个node-js程序-命令行程序"><a href="#第一个node-js程序-命令行程序" class="headerlink" title="第一个node.js程序 - 命令行程序"></a>第一个node.js程序 - 命令行程序</h2><hr>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>1. 程序在命令行运行，意味着程序要么通过node命令运行，要么直接执行，通过终端提供交互给用户进行输入输出。
+2. 启动后需要显示当前目录的列表
+3. 选取某个文件后，显示该文件的内容
+4. 选择某个目录后，显示该目录下的信息
+5. 运行结束后程序退出</code></pre>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/questions/Question-P2536" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/02/coding/questions/Question-P2536/" target="_blank">Question-P2536</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/02/coding/questions/Question-P2536/" class="archive-article-date">
         <time datetime="2020-03-02T08:52:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
 </a>
 
@@ -230,7 +341,7 @@
 <p>由于，机器人搜集的这些RNA片段中除去病毒的其他部分都具有非常高的研究价值。所以科学家们希望能够分辨出其中哪些RNA片段不是病毒，并将不是病毒的RNA片段运回宇宙空间站继续进行研究。</p>
 <p>科学家将这项任务交给了小联。现在请你为小联编写程序统计哪些RNA片段不是病毒。</p>
     
-    <a class="article-more-a" href="/2020/03/02/questions/Question-P2536/#more">more >></a>
+    <a class="article-more-a" href="/2020/03/02/coding/questions/Question-P2536/#more">more >></a>
     
     
 
@@ -261,7 +372,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/02/questions/Question-P2536/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/03/02/coding/questions/Question-P2536/">展开全文 >></a>
     </p>
     
 
@@ -291,7 +402,7 @@
 
 
   
-    <article id="post-questions/Question-P2292" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P2292" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -299,7 +410,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/02/27/questions/Question-P2292/" target="_blank">Question-P2292</a>
+	  <a class="article-title" href="/2020/02/27/coding/questions/Question-P2292/" target="_blank">Question-P2292</a>
   
     </h1>
   
@@ -307,7 +418,7 @@
 
   
   
-<a href="/2020/02/27/questions/Question-P2292/" class="archive-article-date">
+<a href="/2020/02/27/coding/questions/Question-P2292/" class="archive-article-date">
         <time datetime="2020-02-27T12:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
 </a>
 
@@ -325,7 +436,7 @@
 <p>例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘your’}，则文章‘whatisyourname’是在字典D下可以被理解的，因为它可以分成4个单词：‘what’, ‘is’, ‘your’, ‘name’，且每个单词都属于字典D，而文章‘whatisyouname’在字典D下不能被理解，但可以在字典D’=D+{‘you’}下被理解。这段文章的一个前缀‘whatis’，也可以在字典D下被理解，而且是在字典D下能够被理解的最长的前缀。</p>
 <p>给定一个字典D，你的程序需要判断若干段文章在字典D下是否能够被理解。并给出其在字典D下能够被理解的最长前缀的位置。</p>
     
-    <a class="article-more-a" href="/2020/02/27/questions/Question-P2292/#more">more >></a>
+    <a class="article-more-a" href="/2020/02/27/coding/questions/Question-P2292/#more">more >></a>
     
     
 
@@ -360,7 +471,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/27/questions/Question-P2292/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/02/27/coding/questions/Question-P2292/">展开全文 >></a>
     </p>
     
 
@@ -390,7 +501,7 @@
 
 
   
-    <article id="post-questions/Question-CF979C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-CF979C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -398,7 +509,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/02/19/questions/Question-CF979C/" target="_blank">Question-CF979C</a>
+	  <a class="article-title" href="/2020/02/19/coding/questions/Question-CF979C/" target="_blank">Question-CF979C</a>
   
     </h1>
   
@@ -406,7 +517,7 @@
 
   
   
-<a href="/2020/02/19/questions/Question-CF979C/" class="archive-article-date">
+<a href="/2020/02/19/coding/questions/Question-CF979C/" class="archive-article-date">
         <time datetime="2020-02-19T08:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
 
@@ -423,7 +534,7 @@
 <p>Oddly, there are 2 special towns in Uberland named Flowrisa (denoted with the index x ) and Beetopia (denoted with the index y ). Flowrisa is a town where there are many strong-scent flowers, and Beetopia is another town where many bees live. In particular, Kuro will avoid any pair of towns (u, v) if on the path from u to v , he reaches Beetopia after he reached Flowrisa, since the bees will be attracted with the flower smell on Kuro’s body and sting him.</p>
 <p>Kuro wants to know how many pair of city (u, v) he can take as his route. Since he’s not really bright, he asked you to help him with this problem.</p>
     
-    <a class="article-more-a" href="/2020/02/19/questions/Question-CF979C/#more">more >></a>
+    <a class="article-more-a" href="/2020/02/19/coding/questions/Question-CF979C/#more">more >></a>
     
     
 
@@ -454,7 +565,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/19/questions/Question-CF979C/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/02/19/coding/questions/Question-CF979C/">展开全文 >></a>
     </p>
     
 
@@ -484,7 +595,7 @@
 
 
   
-    <article id="post-questions/Question-P1197" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P1197" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -492,7 +603,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/02/16/questions/Question-P1197/" target="_blank">Question-P1197</a>
+	  <a class="article-title" href="/2020/02/16/coding/questions/Question-P1197/" target="_blank">Question-P1197</a>
   
     </h1>
   
@@ -500,7 +611,7 @@
 
   
   
-<a href="/2020/02/16/questions/Question-P1197/" class="archive-article-date">
+<a href="/2020/02/16/coding/questions/Question-P1197/" class="archive-article-date">
         <time datetime="2020-02-16T07:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
 </a>
 
@@ -518,7 +629,7 @@
 <p>但好景不长，很快帝国又重新造出了他的超级武器。凭借这超级武器的力量，帝国开始有计划地摧毁反抗军占领的星球。由于星球的不断被摧毁，两个星球之间的通讯通道也开始不可靠起来。</p>
 <p>现在，反抗军首领交给你一个任务：给出原来两个星球之间的以太隧道连通情况以及帝国打击的星球顺序，以尽量快的速度求出每一次打击之后反抗军占据的星球的连通块的个数。（如果两个星球可以通过现存的以太通道直接或间接地连通，则这两个星球在同一个连通块中）。</p>
     
-    <a class="article-more-a" href="/2020/02/16/questions/Question-P1197/#more">more >></a>
+    <a class="article-more-a" href="/2020/02/16/coding/questions/Question-P1197/#more">more >></a>
     
     
 
@@ -549,7 +660,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/16/questions/Question-P1197/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/02/16/coding/questions/Question-P1197/">展开全文 >></a>
     </p>
     
 
@@ -579,7 +690,7 @@
 
 
   
-    <article id="post-questions/Question-P2024" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P2024" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -587,7 +698,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/02/08/questions/Question-P2024/" target="_blank">Question-P2024</a>
+	  <a class="article-title" href="/2020/02/08/coding/questions/Question-P2024/" target="_blank">Question-P2024</a>
   
     </h1>
   
@@ -595,7 +706,7 @@
 
   
   
-<a href="/2020/02/08/questions/Question-P2024/" class="archive-article-date">
+<a href="/2020/02/08/coding/questions/Question-P2024/" class="archive-article-date">
         <time datetime="2020-02-08T07:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
 </a>
 
@@ -622,7 +733,7 @@
 <p>• 当前的话表示 X 吃 X，就是假话</p>
 <p>你的任务是根据给定的 N 和 K 句话，输出假话的总数。</p>
     
-    <a class="article-more-a" href="/2020/02/08/questions/Question-P2024/#more">more >></a>
+    <a class="article-more-a" href="/2020/02/08/coding/questions/Question-P2024/#more">more >></a>
     
     
 
@@ -657,7 +768,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/02/08/questions/Question-P2024/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/02/08/coding/questions/Question-P2024/">展开全文 >></a>
     </p>
     
 
@@ -687,7 +798,7 @@
 
 
   
-    <article id="post-questions/Question-P2502" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P2502" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -695,7 +806,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/01/11/questions/Question-P2502/" target="_blank">Question-P2502</a>
+	  <a class="article-title" href="/2020/01/11/coding/questions/Question-P2502/" target="_blank">Question-P2502</a>
   
     </h1>
   
@@ -703,7 +814,7 @@
 
   
   
-<a href="/2020/01/11/questions/Question-P2502/" class="archive-article-date">
+<a href="/2020/01/11/coding/questions/Question-P2502/" class="archive-article-date">
         <time datetime="2020-01-11T01:24:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
 </a>
 
@@ -718,7 +829,7 @@
     
     <h1 id="P2502"><a href="#P2502" class="headerlink" title="P2502"></a>P2502</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Z小镇是一个景色宜人的地方，吸引来自各地的观光客来此旅游观光。Z小镇附近共有N个景点（编号为1,2,3,…,N），这些景点被M条道路连接着，所有道路都是双向的，两个景点之间可能有多条道路。也许是为了保护该地的旅游资源，Z小镇有个奇怪的规定，就是对于一条给定的公路Ri，任何在该公路上行驶的车辆速度必须为Vi。速度变化太快使得游客们很不舒服，因此从一个景点前往另一个景点的时候，大家都希望选择行使过程中最大速度和最小速度的比尽可能小的路线，也就是所谓最舒适的路线。</p>
     
-    <a class="article-more-a" href="/2020/01/11/questions/Question-P2502/#more">more >></a>
+    <a class="article-more-a" href="/2020/01/11/coding/questions/Question-P2502/#more">more >></a>
     
     
 
@@ -753,7 +864,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/01/11/questions/Question-P2502/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/01/11/coding/questions/Question-P2502/">展开全文 >></a>
     </p>
     
 
@@ -783,7 +894,7 @@
 
 
   
-    <article id="post-questions/Question-P1019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P1019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -791,7 +902,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/18/questions/Question-P1019/" target="_blank">Question-P1019</a>
+	  <a class="article-title" href="/2019/12/18/coding/questions/Question-P1019/" target="_blank">Question-P1019</a>
   
     </h1>
   
@@ -799,7 +910,7 @@
 
   
   
-<a href="/2019/12/18/questions/Question-P1019/" class="archive-article-date">
+<a href="/2019/12/18/coding/questions/Question-P1019/" class="archive-article-date">
         <time datetime="2019-12-18T11:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
 </a>
 
@@ -814,7 +925,7 @@
     
     <h1 id="P1019"><a href="#P1019" class="headerlink" title="P1019"></a>P1019</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 beastbeast和astonishastonish，如果接成一条龙则变为beastonishbeastonish，另外相邻的两部分不能存在包含关系，例如atat 和 atideatide 间不能相连。</p>
     
-    <a class="article-more-a" href="/2019/12/18/questions/Question-P1019/#more">more >></a>
+    <a class="article-more-a" href="/2019/12/18/coding/questions/Question-P1019/#more">more >></a>
     
     
 
@@ -845,7 +956,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/18/questions/Question-P1019/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/18/coding/questions/Question-P1019/">展开全文 >></a>
     </p>
     
 
@@ -875,7 +986,7 @@
 
 
   
-    <article id="post-questions/Question-P1280" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P1280" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -883,7 +994,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/11/questions/Question-P1280/" target="_blank">Question-P1280</a>
+	  <a class="article-title" href="/2019/12/11/coding/questions/Question-P1280/" target="_blank">Question-P1280</a>
   
     </h1>
   
@@ -891,7 +1002,7 @@
 
   
   
-<a href="/2019/12/11/questions/Question-P1280/" class="archive-article-date">
+<a href="/2019/12/11/coding/questions/Question-P1280/" class="archive-article-date">
         <time datetime="2019-12-11T14:23:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
 </a>
 
@@ -908,7 +1019,7 @@
 <p>尼克的一个工作日为N分钟，从第一分钟开始到第N分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第P分钟开始，持续时间为T分钟，则该任务将在第P+T-1分钟结束。</p>
 <p>写一个程序计算尼克应该如何选取任务，才能获得最大的空暇时间。</p>
     
-    <a class="article-more-a" href="/2019/12/11/questions/Question-P1280/#more">more >></a>
+    <a class="article-more-a" href="/2019/12/11/coding/questions/Question-P1280/#more">more >></a>
     
     
 
@@ -939,7 +1050,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/11/questions/Question-P1280/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/11/coding/questions/Question-P1280/">展开全文 >></a>
     </p>
     
 
@@ -969,7 +1080,7 @@
 
 
   
-    <article id="post-questions/Question-P1064" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/questions/Question-P1064" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -977,7 +1088,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/12/09/questions/Question-P1064/" target="_blank">Question-P1064</a>
+	  <a class="article-title" href="/2019/12/09/coding/questions/Question-P1064/" target="_blank">Question-P1064</a>
   
     </h1>
   
@@ -985,7 +1096,7 @@
 
   
   
-<a href="/2019/12/09/questions/Question-P1064/" class="archive-article-date">
+<a href="/2019/12/09/coding/questions/Question-P1064/" class="archive-article-date">
         <time datetime="2019-12-09T13:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
 </a>
 
@@ -1009,7 +1120,7 @@
 <p>v[j1] * w[j1] + v[j2] * w[j2] + ……　＋ v[jk] * w[jk]</p>
 <p>请你帮助金明设计一个满足要求的购物单。</p>
     
-    <a class="article-more-a" href="/2019/12/09/questions/Question-P1064/#more">more >></a>
+    <a class="article-more-a" href="/2019/12/09/coding/questions/Question-P1064/#more">more >></a>
     
     
 
@@ -1040,103 +1151,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/09/questions/Question-P1064/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-questions/Question-P1631" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/04/questions/Question-P1631/" target="_blank">Question-P1631</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/04/questions/Question-P1631/" class="archive-article-date">
-        <time datetime="2019-12-04T08:12:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。</p>
-    
-    <a class="article-more-a" href="/2019/12/04/questions/Question-P1631/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/04/questions/Question-P1631/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/12/09/coding/questions/Question-P1064/">展开全文 >></a>
     </p>
     
 
@@ -1336,14 +1351,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1364,7 +1371,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1376,19 +1383,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1396,7 +1391,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">weekly-report</a>
               </li>
              
               <li class="article-tag-list-item">
