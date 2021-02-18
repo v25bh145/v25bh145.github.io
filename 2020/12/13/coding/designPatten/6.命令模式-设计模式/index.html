@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>6.命令模式-设计模式 | V25bh145的小家儿~</title>
+  <title>6.命令模式-设计模式 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -15,13 +15,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="6.命令模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;13&#x2F;coding&#x2F;designPatten&#x2F;6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
-<meta property="og:site_name" content="V25bh145的小家儿~">
+<meta property="og:site_name" content="V25bh145的小茶室">
 <meta property="og:description" content="命令模式 “把方法调用封装起来”    定义: “命令模式把请求封装成对象，以便使用不同的请求、队列或者日志来参数化其他的对象。命令模式也支持可撤销的操作。”   在接收者上绑定一组动作到命令对象上来封装一个请求。 =&amp;gt; 命令对象只暴露execute()方法，在方法内部封装接收者与接收者动作的具体实现。 使用命令来参数化对象。 =&amp;gt; 传递者使用抽象命令接口，且传入(已绑定好执行者的)具">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:39:33.560Z">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -439,10 +439,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "CLOSED-" + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "OPEN-" + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
@@ -519,6 +519,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -543,14 +551,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
@@ -559,7 +559,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,15 +571,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,7 +579,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">weekly-report</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">

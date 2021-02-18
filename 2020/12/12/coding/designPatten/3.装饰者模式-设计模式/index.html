@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>3.装饰者模式-设计模式 | V25bh145的小家儿~</title>
+  <title>3.装饰者模式-设计模式 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -15,13 +15,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="3.装饰者模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;coding&#x2F;designPatten&#x2F;3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
-<meta property="og:site_name" content="V25bh145的小家儿~">
+<meta property="og:site_name" content="V25bh145的小茶室">
 <meta property="og:description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你)   不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:39:20.154Z">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -462,10 +462,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "CLOSED-" + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "OPEN-" + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
@@ -542,6 +542,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -566,14 +574,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
@@ -582,7 +582,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,15 +594,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +602,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">weekly-report</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">

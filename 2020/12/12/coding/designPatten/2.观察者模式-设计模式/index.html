@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>2.观察者模式-设计模式 | V25bh145的小家儿~</title>
+  <title>2.观察者模式-设计模式 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -15,13 +15,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.观察者模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;coding&#x2F;designPatten&#x2F;2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
-<meta property="og:site_name" content="V25bh145的小家儿~">
+<meta property="og:site_name" content="V25bh145的小茶室">
 <meta property="og:description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:42:08.583Z">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="V25bh145的小家儿~" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -502,10 +502,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      document.title = "CLOSED-" + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "OPEN-" + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
@@ -582,6 +582,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -606,14 +614,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
@@ -622,7 +622,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,15 +634,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,7 +642,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">weekly-report</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
