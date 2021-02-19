@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Question-P2292 | V25bh145的小茶室</title>
+  <title>终于要开始做记录了 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="P2292题目描述标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。 一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。 例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘yo">
-<meta name="keywords" content="Question,动态规划,字典树">
+  <meta name="description" content="变化">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Question-P2292">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;02&#x2F;27&#x2F;coding&#x2F;questions&#x2F;Question-P2292&#x2F;index.html">
+<meta property="og:title" content="终于要开始做记录了">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2021&#x2F;02&#x2F;19&#x2F;records&#x2F;%E7%BB%88%E4%BA%8E%E8%A6%81%E5%BC%80%E5%A7%8B%E5%81%9A%E8%AE%B0%E5%BD%95%E4%BA%86&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="P2292题目描述标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。 一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。 例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘yo">
+<meta property="og:description" content="变化">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-29T11:30:32.467Z">
+<meta property="og:updated_time" content="2021-02-19T12:49:38.329Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
@@ -179,14 +179,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coding/questions/Question-P2292" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-records/终于要开始做记录了" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Question-P2292
+      终于要开始做记录了
     </h1>
   
 
@@ -198,8 +198,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/02/27/coding/questions/Question-P2292/" class="archive-article-date">
-        <time datetime="2020-02-27T12:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
+<a href="/2021/02/19/records/%E7%BB%88%E4%BA%8E%E8%A6%81%E5%BC%80%E5%A7%8B%E5%81%9A%E8%AE%B0%E5%BD%95%E4%BA%86/" class="archive-article-date">
+        <time datetime="2021-02-18T17:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-19</time>
 </a>
 
   
@@ -212,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.4k字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -221,7 +221,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -232,116 +232,21 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="P2292"><a href="#P2292" class="headerlink" title="P2292"></a>P2292</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。</p>
-<p>一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。</p>
-<p>例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘your’}，则文章‘whatisyourname’是在字典D下可以被理解的，因为它可以分成4个单词：‘what’, ‘is’, ‘your’, ‘name’，且每个单词都属于字典D，而文章‘whatisyouname’在字典D下不能被理解，但可以在字典D’=D+{‘you’}下被理解。这段文章的一个前缀‘whatis’，也可以在字典D下被理解，而且是在字典D下能够被理解的最长的前缀。</p>
-<p>给定一个字典D，你的程序需要判断若干段文章在字典D下是否能够被理解。并给出其在字典D下能够被理解的最长前缀的位置。</p>
-<a id="more"></a>
+    <h2 id="变化"><a href="#变化" class="headerlink" title="变化"></a>变化</h2><a id="more"></a>
 
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入文件第一行是两个正整数n和m，表示字典D中有n个单词，且有m段文章需要被处理。之后的n行每行描述一个单词，再之后的m行每行描述一段文章。</p>
-<p>其中1&lt;=n, m&lt;=20，每个单词长度不超过10，每段文章长度不超过1M。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对于输入的每一段文章，你需要输出这段文章在字典D可以被理解的最长前缀的位置。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入-1复制"><a href="#输入-1复制" class="headerlink" title="输入 #1复制"></a>输入 #1复制</h3><p>4 3<br>is<br>name<br>what<br>your<br>whatisyourname<br>whatisyouname<br>whaisyourname</p>
-<h3 id="输出-1复制"><a href="#输出-1复制" class="headerlink" title="输出 #1复制"></a>输出 #1复制</h3><p>14  （整段文章’whatisyourname’都能被理解）<br>6  （前缀’whatis’能够被理解）<br>0  （没有任何前缀能够被理解）</p>
-<h2 id="听音乐"><a href="#听音乐" class="headerlink" title="听音乐"></a>听音乐</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4010234&auto=0&height=66"></iframe>
-
-<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><p>一个非常有意思的字符串问题 <del>(这道题有个有趣的灵魂)</del></p>
-<p>从单词和小写来看，这题一定是需要建立字典树的，之后怎么办呢？</p>
-<h2 id="错解"><a href="#错解" class="headerlink" title="错解"></a>错解</h2><p><code>我们可以针对字符文本来创一个栈，逐字扫描入栈，如果栈里的字符构成了个单词，就全部请出去继续扫描，如果栈里的字符长于字典树匹配的最长单词，这段文字就不可翻译</code></p>
-<p>但是这样做会出现个问题：<strong>目前选择的单词并不是最优解</strong></p>
-<p>何来此言？举个例子：</p>
-<p>就拿测试数据举例子：</p>
-<pre><code>4 3
-whatis
-what
-your
-name
-whatisyourname</code></pre><p><code>我们如果单纯进行扫描入栈的操作，会在进行到what这儿判定为一个单词，请出栈，然后i打头莫得单词，直接判定为不可翻译</code></p>
-<p>所以这样的线性算法是行不通的</p>
-<p><strong>等等，你刚刚说了最优解对吧？！！</strong></p>
-<h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><p>我们需要一个最优选择，使得我们可以完美选择字典的单词来翻译</p>
-<blockquote>
-<p>反转思维来考虑这种问题，已知前面的文段已经被正确翻译，如何来解下面的翻译问题？</p>
-</blockquote>
-<h3 id="思路1-dfs"><a href="#思路1-dfs" class="headerlink" title="思路1 -dfs"></a>思路1 -dfs</h3><p><strong>我们需要遍历所有这个字符的单词，判定这个字符能达到哪些单词，然后再从这个字符的下一个字符出发，看能达到哪些单词，如果有成功达到终点的单词，就结束</strong></p>
-<h3 id="思路2-动态规划"><a href="#思路2-动态规划" class="headerlink" title="思路2 -动态规划"></a>思路2 -动态规划</h3><p><strong>我们可以依次遍历这个文本，如果字符可以达到就遍历这个字符的下个字符开头的所有单词，将能达到的点设为可以达到状态，然后继续扫描</strong></p>
-<p><del>(只要能到达那个地方)</del></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>//Madoka daisuki!!!
-#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int root = 0, length = 1, n, m;
-struct TrieNode
-{
-    int child[26];
-    bool isWord;
-}tree[2200];
-inline void Add(string s)
-//添加单词到字典
-{
-    int x = root;
-    for(int i = 0; i &lt; s.length(); i++)
-    {
-        if(tree[x].child[s[i] - &apos;a&apos;] == 0)
-        {
-            length++;
-            tree[x].child[s[i] - &apos;a&apos;] = length;
-        }
-        x = tree[x].child[s[i] - &apos;a&apos;];
-    }
-    tree[x].isWord = true;
-}
-char tmpWord[15], tmpText[1000050];
-string tmpS;
-int maxLen;
-bool canReach[1000050];
-inline void Find(string text)
-//重头戏来了：动态规划的扫描
-{
-    //进行初始化
-    maxLen = -1;
-    for(int i = 0; i &lt; text.length(); i++) canReach[i] = false;
-    //初始化第一个字符能达到的点
-    for(int i = 0, x = root; i &lt; text.length(); i++)
-    {    
-        if(tree[x].child[text[i] - &apos;a&apos;] == 0) break;
-        x = tree[x].child[text[i] - &apos;a&apos;];
-        if(tree[x].isWord) canReach[i] = true;
-    }
-    //沿着字符扫描文本
-    for(int i = 0; i &lt; text.length(); i++)
-    {
-        //走不到就溜
-        if(!canReach[i]) continue;
-        //走到了就遍历以下一个字符开头能到达的所有点
-        //放到字典树就是遍历一遍那条边，如果是个单词就设置为可以达到
-        maxLen = i;
-        for(int j = i + 1, x = root; j &lt; text.length(); j++)
-        {
-            if(tree[x].child[text[j] - &apos;a&apos;] == 0) break;
-            x = tree[x].child[text[j] - &apos;a&apos;];
-            if(tree[x].isWord) canReach[j] = true;
-        }
-    }
-}
-int main()
-{
-    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-
-    for(int i = 1; i &lt;= n; i++)
-    {
-        scanf(&quot;%s&quot;, tmpWord);
-        tmpS = string(tmpWord);
-        Add(tmpS);
-    }
-    for(int i = 1; i &lt;= m; i++)
-    {
-        scanf(&quot;%s&quot;, tmpText);
-        tmpS = string(tmpText);
-        Find(tmpS);
-        printf(&quot;%d\n&quot;, maxLen + 1);
-    }
-}</code></pre><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>动态规划具有最优子结构和无后效性</p>
-<p>一开始我居然使用的是dfs，失误失误QAQ <del>(果然我对动态规划还是理解不深呢)</del> (逃)</p>
+<p>​    现在，这个小小的博客网站正发生着变化，这也许是谁也不在意的，不过这里确实在根据我的想法慢慢地发生着改变。这里就像我独有的天地一番。</p>
+<p>​    那是在遥远、遥远的一年半前，当时我刚刚进入大学。我被网上的介绍洗了脑，认为大学就是要奋斗、学习的。于是我一次又一次地同<strong>懒惰</strong>搏斗，学习了很多东西。但很遗憾的是这些东西至今也没为我带来什么<strong>实质性的</strong>收获。</p>
+<p>​    这个小小的博客站也曾是我努力的产物，我将自己小心翼翼搭起来的博客用作了技术记录并且享受着将自己的知识分享到网上的乐趣。虽然并没有什么人看，我也心知肚明，这只是<strong>自我满足感</strong>在做崇。</p>
+<p>​    我记录着我专业学习过程中的杂杂碎碎，就这样过去了一年半。<strong>我是一个一年半来一直在傻傻地学习专业内容、且学习目标并不明确的傻孩子。</strong>我曾执迷于算法，可最终发现一切只不过是应试题目而已；我开始研究工程项目，却发现我缺乏更专业的知识，我只做到了肤浅的使用，与底层逻辑相差甚远；我将自己的疑问诉于学长，学长却指责我快去写项目练经验；半年前我醒悟了过来，只不过在压榨我的劳动力罢了，原来小丑竟是我自己。</p>
+<p>​    这半年我一直在探索，我<strong>应该</strong>做的事是什么呢？这是一个毫无作为的大二学期，每天从早忙碌到晚，我学东学西，却四处碰壁。我终于成为了别人眼里假努力的大学生，我活成了最讨厌的样子。</p>
+<p>​    临近期末，我也终于想开了：我想到了我的未来，一个坐在公司里加班到深夜的形象。某种意义上既可怜又不可怜，拿着高工资却失去了高工资带来的享受。<strong>我开始对我所学的东西产生了厌恶感</strong>。</p>
+<p>​    与其拿着高工资做着别人眼中的”技术大佬”与”加班皇帝”，不如只做一个底层的人，不拿那么高的工资，过一个自己满意的人生。</p>
+<p>​    我可不是说我没有上进心，说来毫不自惭，我自认我的上进心无人能比。我曾疯狂学习日语、英语以期出国镀金；我曾疯狂学习算法、CTF以期竞赛加分；我曾疯狂复习专业课、通识课以期顺利保研。<strong>我没有出国的基底，我忍不了踩在我头上的竞赛前辈，我争不过那些卷起来的魔怔人。</strong></p>
+<p>​    于是，我选择做一个废物，但我问心无愧。我给自己定下两条铁律：<strong>不要和他人对比，不要后悔做过的事。</strong>不过说实话，无论你是什么样的金子，出了大学无非都是在996罢了。这不是我的错，也不是你的错，这是时代的错。</p>
+<p>​    可不要突然妄想去改变社会。唯物史观告诉我们，历史由社会的变化而演进。我不相信这个社会会一直这样下去。这个tmd黑暗时代(不过以前的时代更黑暗就是)总会过去的。做好心里的自己就可以了。</p>
+<p>​    我无力改造社会，可我有力改造自己。我想要培养自己更多的兴趣。既然社会要毒打我，那我便要更加强大。这样说起来感觉很中二，我要积攒自己的力量，等到了真的要打倒巨人的时代，我自会将自己微薄的力量全力奉上。</p>
+<p>​    以上，就是这个博客站正在发生的、毫不有趣的事情。<strong>如果您看到这里，我表达我最诚挚的感谢。</strong></p>
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>​    现在我打算将这个技术性的博客站转变为记录我生活的博客站。不止记记技术，也用来记记自己的兴趣和随随便便的心得。<strong>这也将是我存在于这世界上的某种证明吧</strong>，我想。</p>
 
     
 
@@ -356,7 +261,7 @@ int main()
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/02/27/coding/questions/Question-P2292/" title="Question-P2292" target="_blank">https://v25bh145.github.io/2020/02/27/coding/questions/Question-P2292/</a>
+          <a href="https://v25bh145.github.io/2021/02/19/records/终于要开始做记录了/" title="终于要开始做记录了" target="_blank">https://v25bh145.github.io/2021/02/19/records/终于要开始做记录了/</a>
         </li>
         
         <li>
@@ -378,15 +283,7 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">字典树</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -405,18 +302,18 @@ int main()
 
 <nav id="article-nav">
   
-    <a href="/2020/03/02/coding/questions/Question-P2536/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/19/records/weekly/1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Question-P2536
+          周记录 2.19 周五
         
       </div>
     </a>
   
   
-    <a href="/2020/02/19/coding/questions/Question-CF979C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Question-CF979C</div>
+    <a href="/2021/02/15/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/13.%E9%9D%A9%E5%91%BD%E7%9A%84%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">13.革命的西方文明-全球通史</div>
       <i class="icon-circle-right"></i>
     </a>
   
