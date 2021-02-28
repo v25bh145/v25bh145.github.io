@@ -183,6 +183,112 @@
             
 
   
+    <article id="post-coding/designPatten/5.单件模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">5.单件模式-设计模式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-13T03:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="单件模式"><a href="#单件模式" class="headerlink" title="单件模式"></a>单件模式</h2><blockquote>
+<p>“用来创建独一无二的，只能有一个实例的对象的入场券。”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>定义: “单件模式确保<strong>一个类只有一个实例</strong>，并提供一个<strong>全局访问点</strong>。”</p>
+</blockquote>
+<ul>
+<li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-coding/designPatten/4.工厂模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1104,106 +1210,6 @@
 
 
   
-    <article id="post-hobbies/history/全球通史/1.旧石器时代-全球通史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/11/23/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/1.%E6%97%A7%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A3-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" target="_blank">1.旧石器时代-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/11/23/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/1.%E6%97%A7%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A3-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" class="archive-article-date">
-        <time datetime="2020-11-23T08:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="序-笔记"><a href="#序-笔记" class="headerlink" title="序(笔记)"></a>序(笔记)</h2><ul>
-<li>最近闲来无事(真的闲吗)，想入门人文历史，为了先大体了解了解历史的框架，就先看起来了全球通史，在这里做做笔记，摘抄之类。</li>
-<li>这条是之后加的：在前几篇笔记中发现截图略多，不方便进行内容总结，所以在后面适当减少了截图所占的篇幅。</li>
-</ul>
-<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p><strong>盲目的消费主义与物质主义的成因</strong></p>
-<p><img src="https://i.loli.net/2020/11/23/hrMaOV7vZcYFLwK.png" alt="image-20201123151357868"></p>
-<p><strong>资本主义的形态</strong></p>
-<blockquote>
-<p>自由企业制度</p>
-<p>福利国家 - 工人参与决策 =&gt; 纳维亚形态</p>
-<p>国家计划经济 - 终身雇佣 - 政府资助 =&gt; 亚洲经济形态</p>
-</blockquote>
-<p><img src="https://i.loli.net/2020/11/23/VMLFam9JQBxosfg.png" alt="image-20201123151624259"></p>
-    
-    <a class="article-more-a" href="/2020/11/23/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/1.%E6%97%A7%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A3-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/11/23/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/1.%E6%97%A7%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A3-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
@@ -1358,6 +1364,18 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">周记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">唐宋梁架基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">中国古代建筑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">ctf-web</a>
               </li>
              
@@ -1398,11 +1416,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,10 +1440,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
@@ -1434,19 +1448,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">唐宋梁架基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">中国古代建筑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">周记录</a>
               </li>
              
               <li class="article-tag-list-item">
