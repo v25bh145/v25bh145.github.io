@@ -183,7 +183,7 @@
             
 
   
-    <article id="post-records/随笔/寻找回忆中的碎片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/designPatten/3.装饰者模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -191,7 +191,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/02/21/records/%E9%9A%8F%E7%AC%94/%E5%AF%BB%E6%89%BE%E5%9B%9E%E5%BF%86%E4%B8%AD%E7%9A%84%E7%A2%8E%E7%89%87/" target="_blank">寻找回忆中的碎片</a>
+	  <a class="article-title" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">3.装饰者模式-设计模式</a>
   
     </h1>
   
@@ -199,8 +199,8 @@
 
   
   
-<a href="/2021/02/21/records/%E9%9A%8F%E7%AC%94/%E5%AF%BB%E6%89%BE%E5%9B%9E%E5%BF%86%E4%B8%AD%E7%9A%84%E7%A2%8E%E7%89%87/" class="archive-article-date">
-        <time datetime="2021-02-21T15:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-21</time>
+<a href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-12T03:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
 </a>
 
   
@@ -212,839 +212,23 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>正如我<a href="https://v25bh145.github.io/2021/02/19/records/%E7%BB%88%E4%BA%8E%E8%A6%81%E5%BC%80%E5%A7%8B%E5%81%9A%E8%AE%B0%E5%BD%95%E4%BA%86/#more">之前记载过</a>的，现在开始我会记一些杂七杂八的，包括日常生活与学习中的事。</p>
-<h2 id="回忆中的那座小山丘"><a href="#回忆中的那座小山丘" class="headerlink" title="回忆中的那座小山丘"></a>回忆中的那座小山丘</h2>
-    
-    <a class="article-more-a" href="/2021/02/21/records/%E9%9A%8F%E7%AC%94/%E5%AF%BB%E6%89%BE%E5%9B%9E%E5%BF%86%E4%B8%AD%E7%9A%84%E7%A2%8E%E7%89%87/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/21/records/%E9%9A%8F%E7%AC%94/%E5%AF%BB%E6%89%BE%E5%9B%9E%E5%BF%86%E4%B8%AD%E7%9A%84%E7%A2%8E%E7%89%87/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/architecture/1.柱网层-唐宋梁架基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/20/hobbies/architecture/1.%E6%9F%B1%E7%BD%91%E5%B1%82-%E5%94%90%E5%AE%8B%E6%A2%81%E6%9E%B6%E5%9F%BA%E7%A1%80/" target="_blank">1.柱网层-唐宋梁架基础</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/20/hobbies/architecture/1.%E6%9F%B1%E7%BD%91%E5%B1%82-%E5%94%90%E5%AE%8B%E6%A2%81%E6%9E%B6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2021-02-20T14:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="写在之前"><a href="#写在之前" class="headerlink" title="写在之前"></a>写在之前</h2><ul>
-<li>这是一系列有关建筑知识的<strong>笔记</strong>，主要讲述理论，并在实践部分使用mc实现。</li>
-<li>教材用自<code>明城京联合太学</code>，群号为364840986，对古建筑感兴趣的大家欢迎来群里交流鸭。</li>
-<li>《唐宋梁架基础》是其中理论课的必修一部分。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2021/02/20/hobbies/architecture/1.%E6%9F%B1%E7%BD%91%E5%B1%82-%E5%94%90%E5%AE%8B%E6%A2%81%E6%9E%B6%E5%9F%BA%E7%A1%80/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">唐宋梁架基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">中国古代建筑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/20/hobbies/architecture/1.%E6%9F%B1%E7%BD%91%E5%B1%82-%E5%94%90%E5%AE%8B%E6%A2%81%E6%9E%B6%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/13.革命的西方文明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/15/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/13.%E9%9D%A9%E5%91%BD%E7%9A%84%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E/" target="_blank">13.革命的西方文明-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/15/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/13.%E9%9D%A9%E5%91%BD%E7%9A%84%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E/" class="archive-article-date">
-        <time datetime="2021-02-15T15:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="革命的西方文明"><a href="#革命的西方文明" class="headerlink" title="革命的西方文明"></a>革命的西方文明</h2><p><strong>说明:</strong> 上一章，儒家思想没有记录，因为懂的都懂(中学历史、中华上下五千年什么的比这个写得更详细啦)。在这一章，我们终于要记到了近代史力！(鼓掌)</p>
-    
-    <a class="article-more-a" href="/2021/02/15/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/13.%E9%9D%A9%E5%91%BD%E7%9A%84%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/15/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/13.%E9%9D%A9%E5%91%BD%E7%9A%84%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/12.传统的拜占庭文明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/12/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/12.%E4%BC%A0%E7%BB%9F%E7%9A%84%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%96%87%E6%98%8E/" target="_blank">12.传统的拜占庭文明-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/12/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/12.%E4%BC%A0%E7%BB%9F%E7%9A%84%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%96%87%E6%98%8E/" class="archive-article-date">
-        <time datetime="2021-02-12T12:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="传统的拜占庭文明"><a href="#传统的拜占庭文明" class="headerlink" title="传统的拜占庭文明"></a>传统的拜占庭文明</h2><blockquote>
-<p>“于1204年就已崩溃，后又于1261年得以部分地回复，并一直苟延残喘到1453年最终灭亡。”</p>
-</blockquote>
-<h2 id="拜占庭的出场"><a href="#拜占庭的出场" class="headerlink" title="拜占庭的出场"></a>拜占庭的出场</h2><p><strong>君士坦丁堡</strong>: 原为公元前七世纪<strong>希腊人的殖民城邦</strong>，名为”拜占蒂翁”，南临马尔马拉海，北为博斯普鲁斯海湾。在<strong>罗马</strong>攻占了<strong>君士坦丁堡</strong>周围的土地后其愈发重要，后被选为<strong>东罗马帝国的首都</strong>。</p>
-    
-    <a class="article-more-a" href="/2021/02/12/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/12.%E4%BC%A0%E7%BB%9F%E7%9A%84%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%96%87%E6%98%8E/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/12/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/12.%E4%BC%A0%E7%BB%9F%E7%9A%84%E6%8B%9C%E5%8D%A0%E5%BA%AD%E6%96%87%E6%98%8E/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/11.突厥人与蒙古人的入侵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/09/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/11.%E7%AA%81%E5%8E%A5%E4%BA%BA%E4%B8%8E%E8%92%99%E5%8F%A4%E4%BA%BA%E7%9A%84%E5%85%A5%E4%BE%B5/" target="_blank">11.突厥人与蒙古人的入侵-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/09/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/11.%E7%AA%81%E5%8E%A5%E4%BA%BA%E4%B8%8E%E8%92%99%E5%8F%A4%E4%BA%BA%E7%9A%84%E5%85%A5%E4%BE%B5/" class="archive-article-date">
-        <time datetime="2021-02-09T09:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="纲要"><a href="#纲要" class="headerlink" title="纲要"></a>纲要</h2><blockquote>
-<p>突厥人 =&gt; 蒙古人 =&gt; 突厥人</p>
+    <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
+<p>给爱用继承的人一个全新的设计眼界<del>(翻译: 再敢滥用继承我不打死你)</del></p>
 </blockquote>
 <blockquote>
-<p>天主教、东正教 =&gt; 伊斯兰教</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2021/02/09/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/11.%E7%AA%81%E5%8E%A5%E4%BA%BA%E4%B8%8E%E8%92%99%E5%8F%A4%E4%BA%BA%E7%9A%84%E5%85%A5%E4%BE%B5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/09/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/11.%E7%AA%81%E5%8E%A5%E4%BA%BA%E4%B8%8E%E8%92%99%E5%8F%A4%E4%BA%BA%E7%9A%84%E5%85%A5%E4%BE%B5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/10.伊斯兰教的兴起" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/06/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/10.%E4%BC%8A%E6%96%AF%E5%85%B0%E6%95%99%E7%9A%84%E5%85%B4%E8%B5%B7/" target="_blank">10.伊斯兰教的兴起-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/06/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/10.%E4%BC%8A%E6%96%AF%E5%85%B0%E6%95%99%E7%9A%84%E5%85%B4%E8%B5%B7/" class="archive-article-date">
-        <time datetime="2021-02-06T13:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="伊斯兰教的兴起"><a href="#伊斯兰教的兴起" class="headerlink" title="伊斯兰教的兴起"></a>伊斯兰教的兴起</h2><p><strong>兴起时期:</strong> <strong>公元7-11世纪</strong></p>
-<p><strong>势力范围:</strong> <strong>摩洛哥-中亚</strong>(信德省)</p>
-<p><strong>语言:</strong> <strong>阿拉伯语</strong></p>
-    
-    <a class="article-more-a" href="/2021/02/06/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/10.%E4%BC%8A%E6%96%AF%E5%85%B0%E6%95%99%E7%9A%84%E5%85%B4%E8%B5%B7/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/06/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/10.%E4%BC%8A%E6%96%AF%E5%85%B0%E6%95%99%E7%9A%84%E5%85%B4%E8%B5%B7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/9.中世纪文明形成欧亚大陆一致性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/02/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/9.%E4%B8%AD%E4%B8%96%E7%BA%AA%E6%96%87%E6%98%8E%E5%BD%A2%E6%88%90%E6%AC%A7%E4%BA%9A%E5%A4%A7%E9%99%86%E4%B8%80%E8%87%B4%E6%80%A7/" target="_blank">9.中世纪文明形成欧亚大陆一致性-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/02/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/9.%E4%B8%AD%E4%B8%96%E7%BA%AA%E6%96%87%E6%98%8E%E5%BD%A2%E6%88%90%E6%AC%A7%E4%BA%9A%E5%A4%A7%E9%99%86%E4%B8%80%E8%87%B4%E6%80%A7/" class="archive-article-date">
-        <time datetime="2021-02-02T14:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="中世纪文明形成欧亚大陆一致性"><a href="#中世纪文明形成欧亚大陆一致性" class="headerlink" title="中世纪文明形成欧亚大陆一致性"></a>中世纪文明形成欧亚大陆一致性</h2><p><strong>特点:</strong></p>
-<ol>
-<li>庞大的、横跨多块大陆的帝国。</li>
-<li>连续不断的侵略扩张。</li>
-</ol>
-    
-    <a class="article-more-a" href="/2021/02/02/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/9.%E4%B8%AD%E4%B8%96%E7%BA%AA%E6%96%87%E6%98%8E%E5%BD%A2%E6%88%90%E6%AC%A7%E4%BA%9A%E5%A4%A7%E9%99%86%E4%B8%80%E8%87%B4%E6%80%A7/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/02/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/9.%E4%B8%AD%E4%B8%96%E7%BA%AA%E6%96%87%E6%98%8E%E5%BD%A2%E6%88%90%E6%AC%A7%E4%BA%9A%E5%A4%A7%E9%99%86%E4%B8%80%E8%87%B4%E6%80%A7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/8.古典文明的终结-全球通史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/01/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/8.%E5%8F%A4%E5%85%B8%E6%96%87%E6%98%8E%E7%9A%84%E7%BB%88%E7%BB%93-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" target="_blank">8.古典文明的终结-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/01/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/8.%E5%8F%A4%E5%85%B8%E6%96%87%E6%98%8E%E7%9A%84%E7%BB%88%E7%BB%93-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" class="archive-article-date">
-        <time datetime="2021-02-01T15:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>reason</strong></p>
-<pre><code>1. 技术停滞不前。 =&gt; 生产力低下。(根本原因)
-2. 游牧、侵略者入侵。 (直接原因)</code></pre><h2 id="前言-2"><a href="#前言-2" class="headerlink" title="前言-2"></a>前言-2</h2><blockquote>
-<p>全球通史的第七章–中国，这里并没有选择记载，各位有兴趣可以去书上看看，我阅读一遍之后发现基本上都是初中高中的历史内容，所以也就没记了。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2021/02/01/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/8.%E5%8F%A4%E5%85%B8%E6%96%87%E6%98%8E%E7%9A%84%E7%BB%88%E7%BB%93-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/01/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/8.%E5%8F%A4%E5%85%B8%E6%96%87%E6%98%8E%E7%9A%84%E7%BB%88%E7%BB%93-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hobbies/history/全球通史/7.印度-全球通史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/29/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/7.%E5%8D%B0%E5%BA%A6-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" target="_blank">7.印度-全球通史</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/29/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/7.%E5%8D%B0%E5%BA%A6-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" class="archive-article-date">
-        <time datetime="2021-01-28T16:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="印度文明"><a href="#印度文明" class="headerlink" title="印度文明"></a>印度文明</h1><p><strong>characteristic</strong></p>
-<p>​    与外界隔绝的程度介于中国与欧洲之间，侵略者也来自西方，但是却形成了与西方完全不同的文明。</p>
-    
-    <a class="article-more-a" href="/2021/01/29/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/7.%E5%8D%B0%E5%BA%A6-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/29/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/7.%E5%8D%B0%E5%BA%A6-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/10.状态模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/22/coding/designPatten/10.%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">10.状态模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/22/coding/designPatten/10.%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-22T03:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><blockquote>
-<p>“策略模式与状态模式是双胞胎，在出生时才分开。”</p>
+<p>不修改底层代码而给你的对象赋予新的职责</p>
 </blockquote>
 <hr>
 <blockquote>
-<p><strong>定义</strong>: “<strong>状态模式</strong>允许对象<strong>在内部状态改变时改变它的行为</strong>，对象看起来好像修改了它的类。”</p>
+<p>“类应该对扩展开放，对修改关闭。” =&gt; 开放-关闭原则</p>
 </blockquote>
 <ul>
-<li><strong>状态</strong>: 可以理解为对象的一个<strong>字段/变量</strong>。</li>
-<li><strong>在内部状态改变时改变它的行为</strong>: 对象的同一个方法会<strong>因为状态的改变而产生不同的结果</strong>，看起来类方法内部实现的算法完全换了一个。</li>
+<li>类如果对扩展关闭，毫无疑问不具备可扩展性。</li>
+<li>类如果对修改开放，则会导致一系列内部实现被扰乱。</li>
+<li>没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。</li>
 </ul>
     
-    <a class="article-more-a" href="/2020/12/22/coding/designPatten/10.%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    <a class="article-more-a" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
     
     
 
@@ -1075,7 +259,931 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/22/coding/designPatten/10.%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/designPatten/2.观察者模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">2.观察者模式-设计模式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-12T02:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><blockquote>
+<p>让你的对象知悉现况</p>
+</blockquote>
+<blockquote>
+<p>JDK使用最多的模式</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>“主题 + 订阅者 = 观察者模式”</p>
+</blockquote>
+<ul>
+<li><p>主题负责产生/获取信息。(主题在所知的信息<strong>改变</strong>时会<strong>通知</strong>订阅者)</p>
+</li>
+<li><p>订阅者可以接收由主题发来的信息。 (订阅者会<strong>接收</strong>主题的通知并且做出改变)</p>
+</li>
+<li><p>订阅者可以随时<strong>取消订阅</strong>。</p>
+</li>
+<li><p>只要主题还在产生/获取消息，就会<strong>不断</strong>向订阅者发送消息。</p>
+</li>
+<li><p>e.g:报纸&amp;订阅报纸的人</p>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/designPatten/1.策略模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">1.策略模式-设计模式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-11T17:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="设计模式-总"><a href="#设计模式-总" class="headerlink" title="设计模式-总"></a>设计模式-总</h1><blockquote>
+<p>这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。</p>
+</blockquote>
+<blockquote>
+<p>请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。</p>
+</blockquote>
+<blockquote>
+<p>如果您发现我的笔记/演示程序有问题或是有什么建议，欢迎联系<a href="https://github.com/v25bh145/" target="_blank" rel="noopener">我</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>设计模式好处都有啥？</p>
+</blockquote>
+<p><strong>程序员间模式级别的共享语言</strong></p>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><blockquote>
+<p>“当涉及<strong>维护</strong>时，为了<strong>复用</strong>目的而使用继承，结局并不完美。”</p>
+</blockquote>
+<ul>
+<li><p><strong>为什么”结局并不完美”呢?</strong> </p>
+</li>
+<li><p>当我们想要添加某一<strong>公共特性</strong>时:</p>
+<ol>
+<li><p>我们会将其放在抽象类中，但有些子类并不需要这个特性，因此我们还需在这些不需要特性的子类中继承这个特性并<strong>置空</strong>，造成了不必要的麻烦。</p>
+</li>
+<li><p>我们选择另外写一个接口(特性接口)，但是这样却导致了大量需要这个特性的子类都需要写一遍这个接口的实现，出现大量的<strong>代码复用</strong>。</p>
+</li>
+</ol>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" target="_blank">CTF笔记-WEB攻防-08</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" class="archive-article-date">
+        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="love-math"><a href="#love-math" class="headerlink" title="love_math"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5419&page=2" target="_blank" rel="noopener">love_math</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>php代码审计</li>
+<li>进制转换</li>
+<li>使用进制绕过字母</li>
+<li>使用进制绕过<strong>所有ascii字符</strong>(除1xxxxxxx开头外)</li>
+<li>使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)</li>
+</ol>
+    
+    <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/" target="_blank">CTF笔记-WEB攻防-08</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/" class="archive-article-date">
+        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="comment"><a href="#comment" class="headerlink" title="comment"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5416&page=2" target="_blank" rel="noopener">comment</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><blockquote>
+<ol>
+<li>git泄露</li>
+<li>git版本控制 git版本恢复</li>
+<li>sql二次注入(注释式构造)</li>
+<li>利用mysql函数load_file()读取文件( + 读取二进制文件使用hex()函数)</li>
+<li>/etc/passwd关于用户信息的泄露</li>
+<li>linux系统的历史指令文件(需有打开控制台的权限，与5.联合使用)</li>
+<li>.DS_Store泄露</li>
+</ol>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/20/coding/ctf/ctf%E7%AC%94%E8%AE%B0-07/" target="_blank">CTF笔记-WEB攻防-07</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/20/coding/ctf/ctf%E7%AC%94%E8%AE%B0-07/" class="archive-article-date">
+        <time datetime="2020-10-20T09:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4768&page=2" target="_blank" rel="noopener">bug</a></h2><blockquote>
+<p>题目目前数据库有点问题，待之后好了补充</p>
+</blockquote>
+<h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4921&page=2" target="_blank" rel="noopener">ics-07</a></h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
+    
+    <a class="article-more-a" href="/2020/10/20/coding/ctf/ctf%E7%AC%94%E8%AE%B0-07/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/20/coding/ctf/ctf%E7%AC%94%E8%AE%B0-07/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/15/coding/ctf/ctf%E7%AC%94%E8%AE%B0-06/" target="_blank">CTF笔记-WEB攻防-06</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/15/coding/ctf/ctf%E7%AC%94%E8%AE%B0-06/" class="archive-article-date">
+        <time datetime="2020-10-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
+</blockquote>
+<h1 id="fakebook"><a href="#fakebook" class="headerlink" title="fakebook"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5425&page=2" target="_blank" rel="noopener">fakebook</a></h1><p>首先dirsearch扫一遍，扫到了robors.txt，进入发现文件user.php.bak，下载，开始审计php代码。</p>
+<p>看到注册中的$blog是有正则检测的，大概像个网页的样子，使用echo出具体的正则：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i"</span>;</span><br><span class="line"><span class="comment"># /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i</span></span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/10/15/coding/ctf/ctf%E7%AC%94%E8%AE%B0-06/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/15/coding/ctf/ctf%E7%AC%94%E8%AE%B0-06/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/14/coding/ctf/ctf%E7%AC%94%E8%AE%B0-05/" target="_blank">CTF笔记-WEB攻防-05</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/14/coding/ctf/ctf%E7%AC%94%E8%AE%B0-05/" class="archive-article-date">
+        <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
+</blockquote>
+<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4686&page=1" target="_blank" rel="noopener">NewsCenter</a></h1><p>首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。</p>
+<p>接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。</p>
+<p>使用sqlmap，搞定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/10/14/coding/ctf/ctf%E7%AC%94%E8%AE%B0-05/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/14/coding/ctf/ctf%E7%AC%94%E8%AE%B0-05/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" target="_blank">CTF笔记-WEB攻防-04</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" class="archive-article-date">
+        <time datetime="2020-10-11T14:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4749&page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
+
+<p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/ctf/ctf笔记-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-03/" target="_blank">CTF笔记-WEB攻防-03</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-03/" class="archive-article-date">
+        <time datetime="2020-10-11T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="supersqli"><a href="#supersqli" class="headerlink" title="supersqli"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5417&page=1" target="_blank" rel="noopener">supersqli</a></h1><blockquote>
+<p>sql注入题目</p>
+</blockquote>
+<h2 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h2><p>先试试万能的单引号，果然报错了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos;&apos; at line 1</span><br></pre></td></tr></table></figure>
+
+<p>注意一下，<strong>第一个’和最后一个’是起标识位置作用的</strong>,就是一个单引号,所以原语句是’1’(<code>单引号闭合</code>)</p>
+<h3 id="尝试-联合注入"><a href="#尝试-联合注入" class="headerlink" title="尝试 联合注入"></a>尝试 联合注入</h3><p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;+union+select+database()+--+</span><br></pre></td></tr></table></figure>
+
+<p>返回了一段这样的包含正则匹配的php代码，说明不可行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
+
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3>
+    
+    <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-03/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-03/">展开全文 >></a>
     </p>
     
 
@@ -1107,7 +1215,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1119,7 +1227,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019-2021 v25bh145
+    		&copy; 2019-2022 v25bh145
     	</div>
       	<div class="footer-right">
 			
@@ -1275,14 +1383,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1331,23 +1431,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">唐宋梁架基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">中国古代建筑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">全球通史</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">计算机图形学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
             
             <div class="clearfix"></div>

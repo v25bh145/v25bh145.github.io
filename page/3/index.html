@@ -183,7 +183,7 @@
             
 
   
-    <article id="post-coding/designPatten/9.迭代器与组合模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/ctf/ctf笔记-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -191,7 +191,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">9.迭代器模式与组合模式-设计模式</a>
+	  <a class="article-title" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-02/" target="_blank">CTF笔记-WEB攻防-02</a>
   
     </h1>
   
@@ -199,8 +199,8 @@
 
   
   
-<a href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-20T04:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
+<a href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-02/" class="archive-article-date">
+        <time datetime="2020-10-01T13:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
 </a>
 
   
@@ -212,874 +212,24 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="迭代器与组合模式"><a href="#迭代器与组合模式" class="headerlink" title="迭代器与组合模式"></a>迭代器与组合模式</h2><blockquote>
-<p>“有许多种方法可以把对象堆起来成为一个集合” =&gt; 如何做到封装不同集合的遍历呢？</p>
-</blockquote>
-<hr>
-<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><blockquote>
-<p>“封装不同集合的遍历”</p>
-</blockquote>
-<ul>
-<li>将<strong>不同集合的遍历过程</strong>封装起来，使用<strong>相同的集合访问接口</strong>。</li>
-<li>使用<strong>迭代器接口</strong>实现</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
+    <h1 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h1><p>(题外话)<del>这一题觉得好难呀</del></p>
+<p>访问端口:</p>
+<p><strong>output:</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/8.模板算法模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">8.模板方法模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-17T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h2><blockquote>
-<p>“封装算法”</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/7.适配器模式&amp;外观模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">7.适配器模式&amp;外观模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-15T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="适配器模式-amp-外观模式"><a href="#适配器模式-amp-外观模式" class="headerlink" title="适配器模式&amp;外观模式"></a>适配器模式&amp;外观模式</h2><blockquote>
-<p>交流电适配器 =&gt; “将一个接口转换成另一个接口，以符合客户的期望”</p>
-</blockquote>
-<blockquote>
-<p>“如果它走起路来像只鸭子，叫起来像只鸭子，那么它<del>必定</del>可能是一只<del>鸭子</del>包装了鸭子适配器的火鸡”</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>客户使用适配器的过程</p>
-</blockquote>
+<p><strong>var</strong></p>
 <ol>
-<li>客户通过<strong>目标接口</strong>调用<strong>适配器的方法</strong>对<strong>适配器</strong>发出<strong>请求</strong>。</li>
-<li><strong>适配器</strong>使用<strong>被适配者接口</strong>把<strong>请求</strong>转换成被<strong>适配者的一个或多个接口</strong>。</li>
-<li>客户接收到调用的结果，但并未察觉这一切是适配器在起<strong>转换作用</strong>。</li>
+<li>我们需要get传参var，var的值就是序列化后的类的base64编码</li>
+<li>在处理var时用到了正则匹配检测，含义就是匹配 <code>o或c之后跟数字加冒号的格式</code></li>
 </ol>
-<ul>
-<li><strong>适配器</strong>要把<strong>被适配者</strong>转换成客户需要的样子。</li>
-<li><strong>客户</strong>与<strong>被适配者</strong>是解耦的。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/6.命令模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">6.命令模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-13T08:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><blockquote>
-<p>“把方法调用封装起来”</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>定义</strong>: “<strong>命令模式</strong>把<strong>请求</strong>封装成对象，以便使用不同的请求、队列或者日志来参数化其他的对象。命令模式也支持可撤销的操作。”</p>
-</blockquote>
-<ul>
-<li>在<strong>接收者</strong>上<strong>绑定</strong>一组动作到<strong>命令对象</strong>上来<strong>封装</strong>一个请求。 =&gt; 命令对象只暴露execute()方法，在方法内部封装<strong>接收者</strong>与<strong>接收者动作的具体实现</strong>。</li>
-<li>使用<strong>命令</strong>来<strong>参数化对象</strong>。 =&gt; 传递者使用抽象命令接口，且传入(已绑定好执行者的)具体的命令对象。</li>
-<li>我们也可以直接在<strong>命令对象层实现一些逻辑</strong>，尽管不符合命令模式的框架。</li>
-<li>我们也可以将许多命令聚合为一个<strong>宏命令</strong>，只要满足<strong>抽象命令接口</strong>即可。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/5.单件模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">5.单件模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-13T03:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="单件模式"><a href="#单件模式" class="headerlink" title="单件模式"></a>单件模式</h2><blockquote>
-<p>“用来创建独一无二的，只能有一个实例的对象的入场券。”</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>定义: “单件模式确保<strong>一个类只有一个实例</strong>，并提供一个<strong>全局访问点</strong>。”</p>
-</blockquote>
-<ul>
-<li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/4.工厂模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">4.工厂模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T19:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><blockquote>
-<p>除了new之外，还有更多制造对象的方法。</p>
-</blockquote>
-<hr>
-<h3 id="简单工厂、工厂方法"><a href="#简单工厂、工厂方法" class="headerlink" title="简单工厂、工厂方法"></a>简单工厂、工厂方法</h3><blockquote>
-<p>“<strong>封装</strong>创建<strong>对象</strong>“</p>
-</blockquote>
-<ul>
-<li>将创建对象的代码<strong>封装</strong>到一个对象中，我们称这个对象为”<strong>工厂</strong>“。</li>
-<li>如果将创建对象的代码<strong>封装</strong>到一个<strong>静态方法</strong>中，我们可以称此位”<strong>静态工厂</strong>“，有一个缺点:不能通过<strong>继承</strong>来改变创建方法的<strong>行为</strong>。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/3.装饰者模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">3.装饰者模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T03:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
-<p>给爱用继承的人一个全新的设计眼界<del>(翻译: 再敢滥用继承我不打死你)</del></p>
-</blockquote>
-<blockquote>
-<p>不修改底层代码而给你的对象赋予新的职责</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>“类应该对扩展开放，对修改关闭。” =&gt; 开放-关闭原则</p>
-</blockquote>
-<ul>
-<li>类如果对扩展关闭，毫无疑问不具备可扩展性。</li>
-<li>类如果对修改开放，则会导致一系列内部实现被扰乱。</li>
-<li>没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/2.观察者模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">2.观察者模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T02:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><blockquote>
-<p>让你的对象知悉现况</p>
-</blockquote>
-<blockquote>
-<p>JDK使用最多的模式</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>“主题 + 订阅者 = 观察者模式”</p>
-</blockquote>
-<ul>
-<li><p>主题负责产生/获取信息。(主题在所知的信息<strong>改变</strong>时会<strong>通知</strong>订阅者)</p>
-</li>
-<li><p>订阅者可以接收由主题发来的信息。 (订阅者会<strong>接收</strong>主题的通知并且做出改变)</p>
-</li>
-<li><p>订阅者可以随时<strong>取消订阅</strong>。</p>
-</li>
-<li><p>只要主题还在产生/获取消息，就会<strong>不断</strong>向订阅者发送消息。</p>
-</li>
-<li><p>e.g:报纸&amp;订阅报纸的人</p>
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/designPatten/1.策略模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">1.策略模式-设计模式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-11T17:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="设计模式-总"><a href="#设计模式-总" class="headerlink" title="设计模式-总"></a>设计模式-总</h1><blockquote>
-<p>这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。</p>
-</blockquote>
-<blockquote>
-<p>请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。</p>
-</blockquote>
-<blockquote>
-<p>如果您发现我的笔记/演示程序有问题或是有什么建议，欢迎联系<a href="https://github.com/v25bh145/" target="_blank" rel="noopener">我</a></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>设计模式好处都有啥？</p>
-</blockquote>
-<p><strong>程序员间模式级别的共享语言</strong></p>
-<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><blockquote>
-<p>“当涉及<strong>维护</strong>时，为了<strong>复用</strong>目的而使用继承，结局并不完美。”</p>
-</blockquote>
-<ul>
-<li><p><strong>为什么”结局并不完美”呢?</strong> </p>
-</li>
-<li><p>当我们想要添加某一<strong>公共特性</strong>时:</p>
+<p><strong>Demo</strong></p>
 <ol>
-<li><p>我们会将其放在抽象类中，但有些子类并不需要这个特性，因此我们还需在这些不需要特性的子类中继承这个特性并<strong>置空</strong>，造成了不必要的麻烦。</p>
-</li>
-<li><p>我们选择另外写一个接口(特性接口)，但是这样却导致了大量需要这个特性的子类都需要写一遍这个接口的实现，出现大量的<strong>代码复用</strong>。</p>
-</li>
+<li>看到了三个方法，构造器不用管，从注释看到了目标文件fl4g.php</li>
+<li>__destruct会将输入的文件输出</li>
+<li><em>\</em>wakeup则是一个防护用函数，将file强制改为index.php，因此我们需要绕过__wakeup方法</li>
 </ol>
-</li>
-</ul>
     
-    <a class="article-more-a" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-02/#more">more >></a>
     
     
 
@@ -1096,11 +246,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
         		</li>
       		
 		</ul>
@@ -1110,7 +260,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-02/">展开全文 >></a>
     </p>
     
 
@@ -1140,7 +290,7 @@
 
 
   
-    <article id="post-hobbies/history/全球通史/6.罗马-全球通史" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding/ctf/ctf笔记-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1148,7 +298,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/12/08/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/6.%E7%BD%97%E9%A9%AC-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" target="_blank">6.罗马-全球通史</a>
+	  <a class="article-title" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-01/" target="_blank">CTF笔记-WEB攻防-01</a>
   
     </h1>
   
@@ -1156,8 +306,8 @@
 
   
   
-<a href="/2020/12/08/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/6.%E7%BD%97%E9%A9%AC-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/" class="archive-article-date">
-        <time datetime="2020-12-08T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
+<a href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-01/" class="archive-article-date">
+        <time datetime="2020-10-01T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
 </a>
 
   
@@ -1169,11 +319,24 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="希腊-罗马文明史-下"><a href="#希腊-罗马文明史-下" class="headerlink" title="希腊-罗马文明史(下)"></a>希腊-罗马文明史(下)</h1><h2 id="罗马历史上的早期共和国-至公元前264"><a href="#罗马历史上的早期共和国-至公元前264" class="headerlink" title="罗马历史上的早期共和国(至公元前264)"></a>罗马历史上的早期共和国(至公元前264)</h2><p>​    罗马人在击败西地中海最大的敌人迦太基之后转而东征，强迫马其顿与希腊臣服，最终强迫整个希腊化东方归顺。</p>
-<h3 id="reason-罗马人的起源"><a href="#reason-罗马人的起源" class="headerlink" title="reason(罗马人的起源)"></a>reason(罗马人的起源)</h3><p>​    印欧语系的拉丁人沿意大利半岛抵达台伯河南岸(印欧语系的亚该亚人与多里安人就进入了希腊)，罗马一开始只是一开始拉丁社团中的一个，但占有重要的地理位置，使得其更易于受到外来影响。</p>
-<p>​    约公元前800年，伊特鲁斯坎人与希腊人先后移民到台伯河北面，给罗马人带去了比较先进的思想与技术。</p>
+    <blockquote>
+<p>写在前面：</p>
+<ol>
+<li>此笔记系个人(初学者)整理思路之用，没有想过能起到供各位参考学习的用处。</li>
+<li>尽可能按照<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">攻防世界</a>的题目顺序来。</li>
+<li>如果各位从我的文章发现了什么问题或者想和我探<del>tan</del>讨<del>tan</del>探<del>ren</del>讨<del>sheng</del>，欢迎联系我呀~</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h1><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
+<h2 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
+
+<p><strong>output:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[19:22:07] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[19:22:07] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.save</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[19:22:07] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[19:22:07] 403 -  303B  - /.httr-oauth</span><br><span class="line">[19:22:15] 200 -   11B  - /1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php  -&gt;  1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php/login/  -&gt;  1.php</span><br><span class="line">[19:23:30] 403 -  305B  - /server-status</span><br><span class="line">[19:23:30] 403 -  306B  - /</span><br></pre></td></tr></table></figure>
+
+<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题</p>
     
-    <a class="article-more-a" href="/2020/12/08/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/6.%E7%BD%97%E9%A9%AC-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/#more">more >></a>
+    <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-01/#more">more >></a>
     
     
 
@@ -1190,7 +353,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">全球通史</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
         		</li>
       		
 		</ul>
@@ -1200,7 +367,799 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/08/hobbies/history/%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/6.%E7%BD%97%E9%A9%AC-%E5%85%A8%E7%90%83%E9%80%9A%E5%8F%B2/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-01/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/12. redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/12.%20redis/" target="_blank">12.Redis</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/12.%20redis/" class="archive-article-date">
+        <time datetime="2020-09-29T11:21:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><p>(抄自菜鸟教程)</p>
+<p>REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。</p>
+<p>Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
+<p>它通常被称为数据结构服务器，因为值（value）可以是 字符串(String), 哈希(Hash), 列表(list), 集合(sets) 和 有序集合(sorted sets)等类型。</p>
+<p><code>特点</code></p>
+<blockquote>
+<p>基于内存，可持久化 &gt; <strong>快速</strong></p>
+<p>可存键值对，数据结构 &gt; <strong>算法透明(开源)</strong></p>
+<p>具有多语言支持</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/12.%20redis/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/12.%20redis/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/11. socket.io" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/11.%20socket.io/" target="_blank">11.Socket.io</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/11.%20socket.io/" class="archive-article-date">
+        <time datetime="2020-09-29T11:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Socket-io"><a href="#Socket-io" class="headerlink" title="Socket.io"></a>Socket.io</h1><hr>
+<blockquote>
+<p>提供了很好的灵活性，并非完全基于WebSocket =&gt; 可以在大多数设备上运行</p>
+</blockquote>
+<h1 id="聊天程序"><a href="#聊天程序" class="headerlink" title="聊天程序"></a>聊天程序</h1><h2 id="初始化程序"><a href="#初始化程序" class="headerlink" title="初始化程序"></a>初始化程序</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"chat.io"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"body-parser"</span>: <span class="string">"^1.19.0"</span>,</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"^4.17.1"</span>,</span><br><span class="line">        <span class="attr">"socket.io"</span>: <span class="string">"^2.3.0"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/11.%20socket.io/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/11.%20socket.io/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/10. WebSocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/10.%20WebSocket/" target="_blank">10.WebSocket</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/10.%20WebSocket/" class="archive-article-date">
+        <time datetime="2020-09-29T11:15:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p><code>注解：书中使用的WebSocket.io已经是8年未动的过时项目了，因此这里的所有内容使用的均为ws</code></p>
+<blockquote>
+<p>使用ws模块</p>
+</blockquote>
+<p><strong>客户端</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//WebSocket实例化</span></span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8181"</span>);</span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//成功连接服务器回调</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端（client）：与服务器的连接已打开'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ws.send($(<span class="string">'#message'</span>).val());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>服务端</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> WebSocketServer = <span class="built_in">require</span>(<span class="string">'ws'</span>).Server;</span><br><span class="line"><span class="keyword">var</span> wss = <span class="keyword">new</span> WebSocketServer(&#123;<span class="attr">port</span>: <span class="number">8181</span>&#125;);</span><br><span class="line">wss.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ws</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器端：客户端已连接'</span>);</span><br><span class="line">    ws.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(message);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/10.%20WebSocket/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/10.%20WebSocket/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/9. express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/9.%20express/" target="_blank">9.Express</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/9.%20express/" class="archive-article-date">
+        <time datetime="2020-09-29T11:14:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="一个小型express应用"><a href="#一个小型express应用" class="headerlink" title="一个小型express应用"></a><strong>一个小型express应用</strong></h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"express-tweet"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"ejs"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"superagent"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/9.%20express/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/9.%20express/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/8. connect 中间件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" target="_blank">8.connect</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
+        <time datetime="2020-09-29T11:13:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h1><blockquote>
+<p>基于HTTP服务器的工具集，提供了一种新的组织代码的方式来与请求，响应对象进行交互，称中间件(middleware)</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/8.%20connect%20%E4%B8%AD%E9%97%B4%E4%BB%B6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/7. HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/7.%20HTTP/" target="_blank">7.HTTP --TCP上层的超文本传输协议</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/7.%20HTTP/" class="archive-article-date">
+        <time datetime="2020-09-29T11:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="HTTP-–TCP上层的超文本传输协议"><a href="#HTTP-–TCP上层的超文本传输协议" class="headerlink" title="HTTP –TCP上层的超文本传输协议"></a>HTTP –TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(<span class="string">'Hello World'</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP / 1.1 200 OK</span><br><span class="line">Date: Mon, 31 Aug 2020 22: 57: 14 GMT</span><br><span class="line">Connection: keep - alive</span><br><span class="line">Transfer - Encoding: chunked</span><br><span class="line">b</span><br><span class="line">Hello World</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+</blockquote>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/7.%20HTTP/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/7.%20HTTP/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/6. TCP服务器 在线聊天应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" target="_blank">6.TCP服务器</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="archive-article-date">
+        <time datetime="2020-09-29T11:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="TCP服务器"><a href="#TCP服务器" class="headerlink" title="TCP服务器"></a>TCP服务器</h1><hr>
+<h2 id="创建TCP服务器-使用telnet测试"><a href="#创建TCP服务器-使用telnet测试" class="headerlink" title="创建TCP服务器 使用telnet测试"></a>创建TCP服务器 使用telnet测试</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">    res.end(<span class="string">'&lt;h1&gt;hello world&lt;/h1&gt;'</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding/nodeJs/5. CLI以及FS API 第一个node.js程序 - 命令行程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank">5.CLI以及FS API</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
+        <time datetime="2020-09-29T11:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NODE-JS"><a href="#NODE-JS" class="headerlink" title="NODE.JS"></a>NODE.JS</h1><ul>
+<li>为什么要记这个笔记？<ul>
+<li>在以前的实战项目中，发现自己的忘性很大，经常忘记函数名以及使用方法，所以在这次的node.js学习之路中，想记一点笔记以自用。</li>
+</ul>
+</li>
+<li>记些什么？<ul>
+<li>不记基础和起步内容，记一些重要的模块的api函数以及用法，以及一些JavaScript的巧妙用法。</li>
+</ul>
+</li>
+<li>所采用的书籍？<ul>
+<li>《了不起的Node JS 将JavaScript进行到底》</li>
+</ul>
+</li>
+<li>补：<ul>
+<li>此系列与2020年9月初编写，本想使用node搭建一个项目再发布这些文章，奈何写出来自觉没有hexo的主题好看，因此自行删除<del>不是</del>，打算之后把我的项目展示出来以供参考。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="CLI以及FS-API"><a href="#CLI以及FS-API" class="headerlink" title="CLI以及FS API"></a>CLI以及FS API</h1><hr>
+<h2 id="第一个node-js程序-命令行程序"><a href="#第一个node-js程序-命令行程序" class="headerlink" title="第一个node.js程序 - 命令行程序"></a>第一个node.js程序 - 命令行程序</h2><hr>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>1. 程序在命令行运行，意味着程序要么通过node命令运行，要么直接执行，通过终端提供交互给用户进行输入输出。
+2. 启动后需要显示当前目录的列表
+3. 选取某个文件后，显示该文件的内容
+4. 选择某个目录后，显示该目录下的信息
+5. 运行结束后程序退出</code></pre>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
     </p>
     
 
@@ -1232,7 +1191,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1244,7 +1203,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019-2021 v25bh145
+    		&copy; 2019-2022 v25bh145
     	</div>
       	<div class="footer-right">
 			
@@ -1400,14 +1359,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1456,23 +1407,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">唐宋梁架基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">中国古代建筑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">全球通史</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">计算机图形学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
             
             <div class="clearfix"></div>
