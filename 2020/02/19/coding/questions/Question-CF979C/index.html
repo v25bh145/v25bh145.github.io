@@ -239,7 +239,6 @@
 <p>Oddly, there are 2 special towns in Uberland named Flowrisa (denoted with the index x ) and Beetopia (denoted with the index y ). Flowrisa is a town where there are many strong-scent flowers, and Beetopia is another town where many bees live. In particular, Kuro will avoid any pair of towns (u, v) if on the path from u to v , he reaches Beetopia after he reached Flowrisa, since the bees will be attracted with the flower smell on Kuro’s body and sting him.</p>
 <p>Kuro wants to know how many pair of city (u, v) he can take as his route. Since he’s not really bright, he asked you to help him with this problem.</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains three integers n ($1 &lt;= n &lt;= 3 * 10 ^ {5}$) , x and y ($1 &lt;= x,y &lt;= n$)- the number of towns, index of the town Flowrisa and index of the town Beetopia, respectively.</p>
 <p>n - 1lines follow, each line contains two integers a and b<br>​<br>, describes a road connecting two towns a and b .</p>
 <p>It is guaranteed that from each town, we can reach every other town in the city using the given roads. That is, the given map of towns and roads is a tree.</p>
@@ -254,8 +253,6 @@
 <p>设起始点是3，终点是5，3到5的最短路径是 3 -&gt; 4 -&gt; 5</p>
 <blockquote>
 <p>我们可以由起点和终点把树划分为三个点集</p>
-</blockquote>
-<blockquote>
 <p>第一个集包含了由起点到终点的最短路径中所经过的点(不包含起始和终点)<br>第二个集包含了起点，集合内的点互相联通且与第一个集的交集为空<br>第三个集包含了终点，集合内的点互相联通且与第一个集的交集为空</p>
 </blockquote>
 <p>举个例子，图中第一个集合就是4，第二个集合就是1, 2, 3，第三个集合就是5, 6, 7</p>
@@ -327,7 +324,8 @@ int main()
     dfs2(ed);
     ans -= cnt1 * cnt2;
     printf(&quot;%lld&quot;, ans);
-}</code></pre><p>##<br><del>虽然是好简单一道题但是还是为了写写容斥而且英文题看着好装逼啊虽然看着翻译做的哈哈哈哈就放上来了哈哈哈哈哈哈</del></p>
+}
+</code></pre><h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1><p><del>虽然是好简单一道题但是还是为了写写容斥而且英文题看着好装逼啊虽然看着翻译做的哈哈哈哈就放上来了哈哈哈哈哈哈</del></p>
 
     
 
@@ -597,6 +595,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -605,7 +611,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,15 +619,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,6 +632,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,14 +652,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

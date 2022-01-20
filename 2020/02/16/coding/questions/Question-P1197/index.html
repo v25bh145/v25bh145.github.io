@@ -237,7 +237,6 @@
 <p>但好景不长，很快帝国又重新造出了他的超级武器。凭借这超级武器的力量，帝国开始有计划地摧毁反抗军占领的星球。由于星球的不断被摧毁，两个星球之间的通讯通道也开始不可靠起来。</p>
 <p>现在，反抗军首领交给你一个任务：给出原来两个星球之间的以太隧道连通情况以及帝国打击的星球顺序，以尽量快的速度求出每一次打击之后反抗军占据的星球的连通块的个数。（如果两个星球可以通过现存的以太通道直接或间接地连通，则这两个星球在同一个连通块中）。</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入文件第一行包含两个整数，n, m，分别表示星球的数目和以太隧道的数目。星球用 0 ∼ n−1 的整数编号。</p>
 <p>接下来的 m 行，每行包括两个整数 x,y，表示星球 x 和星球 y 之间有 “以太” 隧道，可以直接通讯。</p>
 <p>接下来的一行为一个整数 k ，表示将遭受攻击的星球的数目。</p>
@@ -262,12 +261,14 @@
 6
 3
 5
-7</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><pre><code>1
+7
+</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><pre><code>1
 1
 1
 2
 3
-3</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>【数据范围】<br>对于 100% 的数据，1 &lt; m &lt; $2*10^{5}$ , 1 &lt; n &lt; 2m</p>
+3
+</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>【数据范围】<br>对于 100% 的数据，1 &lt; m &lt; $2*10^{5}$ , 1 &lt; n &lt; 2m</p>
 <p>(JSOI2008)</p>
 <h2 id="听歌"><a href="#听歌" class="headerlink" title="听歌"></a>听歌</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30482673&auto=0&height=66"></iframe>
 
@@ -278,7 +279,7 @@
 <p>然后把思维逆转一下，不用“实时”的操作，也就是offline操作，可以把“毁灭”变为“建立”，也就可以使用并查集动态从后向前维护了</p>
 <p>具体思路是这样子：</p>
 <ol>
-<li>将没有被(不会被)毁灭的行星放到一个并查集 –初始化操作</li>
+<li>将没有被(不会被)毁灭的行星放到一个并查集 —初始化操作</li>
 <li>倒序录入已经毁灭的行星与已经毁灭的行星与<strong>未被毁灭的行星</strong>的关系</li>
 <li>将集合的个数作为结果存入那一次毁灭之前的答案中</li>
 </ol>
@@ -381,7 +382,8 @@ int main()
 
     for(int i = 0; i &lt;= k; i++)
         printf(&quot;%d\n&quot;, ans[i]);
-}</code></pre><ul>
+}
+</code></pre><ul>
 <li>后续<br><del>说起来你可能不信，我调了半个下午最后才发现我<strong>并查集路径压缩</strong>写错了</del></li>
 </ul>
 
@@ -653,6 +655,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -661,7 +671,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,15 +679,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,6 +692,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,14 +712,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

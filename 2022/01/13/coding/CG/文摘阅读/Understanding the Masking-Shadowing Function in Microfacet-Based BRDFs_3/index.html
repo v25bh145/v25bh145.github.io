@@ -39,7 +39,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;usNnXhkGfjpl4d8.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;OZD71y96Fhxrzck.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;8G5ph43OKx1yq2L.png">
-<meta property="og:image" content="c:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220115131533981.png">
+<meta property="og:image" content="c:&#x2F;Users&#x2F;v25bh&#x2F;AppData&#x2F;Roaming&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20220115131533981.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;hSCnemdDx5BAbuP.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;unwx3C2hFrASJcm.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;bSGRDWfBeApamxs.png">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;oS4ilGBaEsW6eQN.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;OVZdcael7yPoKND.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;gLWUbYlO6Eh9oMj.png">
-<meta property="og:updated_time" content="2022-01-15T06:47:57.597Z">
+<meta property="og:updated_time" content="2022-01-20T07:45:13.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;08&#x2F;bupRYgE8Q9jTMFv.png">
   
@@ -268,13 +268,13 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[[toc]]</p>
+<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/08/bupRYgE8Q9jTMFv.png" alt="image-20220108154627238"></p>
-<ol start="2">
+<ol>
 <li>本文可能需要的前置知识：<ol>
 <li>辐射度量学(radiometry)</li>
 <li>对于微表面的基本了解</li>
@@ -293,54 +293,83 @@
 <p><img src="https://s2.loli.net/2022/01/13/kSlzZIT4bdiPH6s.png" alt="image-20220113172956284"></p>
 <h3 id="斜率-slopes-的分布"><a href="#斜率-slopes-的分布" class="headerlink" title="斜率(slopes)的分布"></a>斜率(slopes)的分布</h3><p>一个微表面的模型是三维的，其中Z轴即是高度，X、Y轴则是微表面对应的平面位置。约定使用一个二维向量$(x_{\tilde m},y_{\tilde m})$来表示一个点的斜率，其中$x_{\tilde m}$表示切平面沿x轴的斜率，$y_{\tilde m}$表示切平面沿y轴的斜率，如下图所示[y轴同理]：</p>
 <p><img src="https://s2.loli.net/2022/01/14/HB7jSNapLb2cd36.png" alt="image-20220114141939640"></p>
-<p>设切平面的法线坐标为$(x_m,y_m,z_m)$，则法线在xz轴的斜率为$\frac{z_m}{x_m}$，已知切平面与法线垂直，设切平面沿x轴切线斜率为$x_{\tilde m}$，则有：<br>$$<br>x_{\tilde m}\cdot k_{\tilde n}=-1\<br>x_{\tilde m}=-\frac{x_m}{z_m}=-tan\theta_mcos\phi_m<br>$$<br>同理，得切平面沿y轴切线斜率：<br>$$<br>y_{\tilde m}=-\frac{y_m}{z_m}=-tan\theta_msin\phi_m<br>$$<br>同时，有法线$ω<em>m=(x_m,y_m,z_m)$与斜率$(x</em>{\tilde m},y_{\tilde m})$的对应关系如下：</p>
+<p>设切平面的法线坐标为$(x_m,y_m,z_m)$，则法线在xz轴的斜率为$\frac{z_m}{x_m}$，已知切平面与法线垂直，设切平面沿x轴切线斜率为$x_{\tilde m}$，则有：</p>
+<script type="math/tex; mode=display">
+x_{\tilde m}\cdot k_{\tilde n}=-1\\
+x_{\tilde m}=-\frac{x_m}{z_m}=-tan\theta_mcos\phi_m</script><p>同理，得切平面沿y轴切线斜率：</p>
+<script type="math/tex; mode=display">
+y_{\tilde m}=-\frac{y_m}{z_m}=-tan\theta_msin\phi_m</script><p>同时，有法线$ω_m=(x_m,y_m,z_m)$z与斜率$(x_{\tilde m},y_{\tilde m})$的对应关系如下：</p>
 <p><img src="https://s2.loli.net/2022/01/14/jxCIe27QwsdyDES.png" alt="image-20220114142824160"></p>
-<p>我们记斜率的分布为$P^{22}(x_{\tilde m},y_{\tilde m})$，由分布之间的变换得，从$P^{22}(x_{\tilde m},y_{\tilde m})$变换到$D(ω<em>m)$的公式为：<br>$$<br>D(ω_m)=\frac{P^{22}(x</em>{\tilde m},y_{\tilde m})}{|J_T|}<br>$$<br>为便于表示，设$x^2+y^2+1=t$，有雅可比行列式：<br>$$<br>\begin{aligned}J_T=&amp;\begin{pmatrix}\frac{\partial ω<em>{mx}}{\partial x</em>{\tilde m}}&amp;\frac{\partial ω<em>{my}}{\partial x</em>{\tilde m}}\\frac{\partial ω<em>{mx}}{\partial y</em>{\tilde m}}&amp;\frac{\partial ω<em>{my}}{\partial y</em>{\tilde m}}\end{pmatrix}\=&amp;\begin{pmatrix}\frac{x^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}&amp;\frac{xyt^{-\frac{1}{2}}}{t}\\frac{xyt^{-\frac{1}{2}}}{t}&amp;\frac{y^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}\end{pmatrix}\end{aligned}<br>$$<br>求解行列式|J_T|并化简，代入球坐标式，则有：<br>$$<br>|J_T|=\frac{1}{cos^4\theta_m}<br>$$<br><img src="https://s2.loli.net/2022/01/14/Ccb1UiyzJwhnVl9.png" alt="image-20220114144357090"></p>
+<p>我们记斜率的分布为$P^{22}(x_{\tilde m},y_{\tilde m})$，由分布之间的变换得，从$P^{22}(x_{\tilde m},y_{\tilde m})$变换到$D(ω_m)$的公式为：</p>
+<script type="math/tex; mode=display">
+D(ω_m)=\frac{P^{22}(x_{\tilde m},y_{\tilde m})}{|J_T|}</script><p>为便于表示，设$x^2+y^2+1=t$，有雅可比行列式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}J_T=&\begin{pmatrix}\frac{\partial ω_{mx}}{\partial x_{\tilde m}}&\frac{\partial ω_{my}}{\partial x_{\tilde m}}\\\frac{\partial ω_{mx}}{\partial y_{\tilde m}}&\frac{\partial ω_{my}}{\partial y_{\tilde m}}\end{pmatrix}\\=&\begin{pmatrix}\frac{x^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}&\frac{xyt^{-\frac{1}{2}}}{t}\\\frac{xyt^{-\frac{1}{2}}}{t}&\frac{y^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}\end{pmatrix}\end{aligned}</script><p>求解行列式|J_T|并化简，代入球坐标式，则有：</p>
+<script type="math/tex; mode=display">
+|J_T|=\frac{1}{cos^4\theta_m}</script><p><img src="https://s2.loli.net/2022/01/14/Ccb1UiyzJwhnVl9.png" alt="image-20220114144357090"></p>
 <h3 id="各向同性形状不变性的斜率分布"><a href="#各向同性形状不变性的斜率分布" class="headerlink" title="各向同性形状不变性的斜率分布"></a>各向同性形状不变性的斜率分布</h3><p>形状不变性即为将微表面模型沿x、y伸展后微表面(平均？)高度不发生变化的性质。为了将拉伸形状后的微表面模型与现有模型等效，引入粗糙度α，当改变α时仅仅改变拉伸的比例，并不改变微表面的形状，新的法线分布函数形式为：$P^{22}(x_{\tilde m},y_{\tilde m},α)$。</p>
 <p>斜率经过改变后，变为$\frac{tan\theta_m}{\alpha}$，如下图：</p>
 <p><img src="https://s2.loli.net/2022/01/15/YkOJtAnTvI5Dlyi.png" alt="image-20220115135537338"></p>
-<p>因此设法线分布的函数为：<br>$$<br>P^{22}(x_{\tilde m},y_{\tilde m},α)=Cf(\frac{tan\theta_m}{α})<br>$$</p>
-<h4 id="求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看"><a href="#求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看" class="headerlink" title="求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]"></a>求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]</h4><blockquote>
+<p>因此设法线分布的函数为：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m},α)=Cf(\frac{tan\theta_m}{α})</script><h4 id="求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看"><a href="#求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看" class="headerlink" title="求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]"></a>求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]</h4><blockquote>
 <p> 论文直接给出了$P^{22}(x_{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})$，我很好奇$\frac{1}{α^2}$是怎么推导出的，因此尝试进行了以下证明：</p>
 </blockquote>
-<p>将$P^{22}(x_{\tilde m},y_{\tilde m},α)$转换为$D(ω_m)$，得：<br>$$<br>D(ω_m)=\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}<br>$$<br>已知：</p>
+<p>将$P^{22}(x_{\tilde m},y_{\tilde m},α)$转换为$D(ω_m)$，得：</p>
+<script type="math/tex; mode=display">
+D(ω_m)=\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}</script><p>已知：</p>
 <ol>
 <li>$\int_\Omega |ω_m\cdot ω_g|D(ω_m)dω_m=1$</li>
 <li>$|ω_m\cdot ω_g|=|(cos\phi_m sin\theta_m,\sin\phi_m\sin\theta_m,\cos\theta_m)\cdot(0,0,1)|=cos\theta_m$</li>
 </ol>
-<p>将上式代入已知，得出：<br>$$<br>\begin{aligned}<br>\int_\Omega cos\theta_m\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}d\omega<br>=&amp;\int^{2\pi}<em>0\int^{\frac{\pi}{2}}_0\frac{Ctan\theta_mf(\frac{tan\theta_m}{α})}{cos^2\theta_m}d\theta_md\phi_m\<br>=&amp;2\pi\int^{\frac{\pi}{2}}_0Ctan\theta_mf(\frac{tan\theta_m}{α})dtan\theta_m\<br>=&amp;2\pi\int^{\infin}_0Ctf(\frac{t}{α})dt\<br>=&amp;2\pi Cα^2\int^{\infin}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\<br>=&amp;Cα^2\int^{\infin}_0uf(u)du=1<br>\end{aligned}<br>$$<br>因为f是关于$\frac{tan\theta_m}{α}$的函数，当代入变量时f是关于u的函数，因此f中不包含变量α，因此积分项中没有变量α，故C中包含有变量项$\frac{1}{α^2}$，不妨就设$C=\frac{1}{α^2}$，同时可得以下两式：<br>$$<br>P^{22}(x</em>{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})<br>$$</p>
-<p>$$<br>\int^{\infin}_0xf(x)dx=1<br>$$</p>
-<p>由斜率概率密度得出法线概率密度得：<br>$$<br>D(\omega_m)=\frac{1}{cos\theta^4_mα^2}f(\frac{tan\theta_m}{α})<br>$$</p>
-<h4 id="各向同性形状不变性的形式化定义"><a href="#各向同性形状不变性的形式化定义" class="headerlink" title="各向同性形状不变性的形式化定义"></a>各向同性形状不变性的形式化定义</h4><p>若斜率分布密度函数对于$\lambda&gt;0$，有以下成立，则该斜率分布函数满足形状不变性。</p>
+<p>将上式代入已知，得出：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_\Omega cos\theta_m\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}d\omega
+=&\int^{2\pi}_0\int^{\frac{\pi}{2}}_0\frac{Ctan\theta_mf(\frac{tan\theta_m}{α})}{cos^2\theta_m}d\theta_md\phi_m\\
+=&2\pi\int^{\frac{\pi}{2}}_0Ctan\theta_mf(\frac{tan\theta_m}{α})dtan\theta_m\\
+=&2\pi\int^{\infin}_0Ctf(\frac{t}{α})dt\\
+=&2\pi Cα^2\int^{\infin}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\\
+=&Cα^2\int^{\infin}_0uf(u)du=1
+\end{aligned}</script><p>因为f是关于$\frac{tan\theta_m}{α}$的函数，当代入变量时f是关于u的函数，因此f中不包含变量α，因此积分项中没有变量α，故C中包含有变量项$\frac{1}{α^2}$，不妨就设$C=\frac{1}{α^2}$，同时可得以下两式：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})</script><script type="math/tex; mode=display">
+\int^{\infin}_0xf(x)dx=1</script><p>由斜率概率密度得出法线概率密度得：</p>
+<script type="math/tex; mode=display">
+D(\omega_m)=\frac{1}{cos\theta^4_mα^2}f(\frac{tan\theta_m}{α})</script><h4 id="各向同性形状不变性的形式化定义"><a href="#各向同性形状不变性的形式化定义" class="headerlink" title="各向同性形状不变性的形式化定义"></a>各向同性形状不变性的形式化定义</h4><p>若斜率分布密度函数对于$\lambda&gt;0$，有以下成立，则该斜率分布函数满足形状不变性。</p>
 <p><img src="https://s2.loli.net/2022/01/14/FBroxSEAk4wZX8M.png" alt="image-20220114165608527"></p>
 <h4 id="各向同性Beckmann分布"><a href="#各向同性Beckmann分布" class="headerlink" title="各向同性Beckmann分布"></a>各向同性Beckmann分布</h4><p><img src="https://s2.loli.net/2022/01/14/QoKWYenfaGLR6U1.png" alt="image-20220114165638203"></p>
 <p><img src="https://s2.loli.net/2022/01/14/7QEGkbePmZ5BHhS.png" alt="image-20220114165654110"></p>
 <p><img src="https://s2.loli.net/2022/01/14/xUlEhrja47TNz2G.png" alt="image-20220114165739301"></p>
 <p>其中，Λ函数与$G_1$遮挡项有关(见前，$G_1(ω_0)=\frac{1}{1+Λ(ω_0)}$)，设$a=\frac{1}{\alpha tan\theta_o}$，也可以对Λ函数取函数逼近，结果为：</p>
 <p><img src="https://s2.loli.net/2022/01/14/gQXLOPTMkloGhUb.png" alt="image-20220114165959026"></p>
-<p>容易证得，Beckmann分布的函数f是满足上述推导约束($\int^{\infin}_0xf(x)dx=1$)的。</p>
+<p>容易证得，Beckmann分布的函数f是满足上述推导约束($\int^{\infty}_0xf(x)dx=1$)的。</p>
 <h4 id="各向同性GGX分布"><a href="#各向同性GGX分布" class="headerlink" title="各向同性GGX分布"></a>各向同性GGX分布</h4><p><img src="https://s2.loli.net/2022/01/14/iuEd4kVXfvQrzJS.png" alt="image-20220114170130830"></p>
 <p><img src="https://s2.loli.net/2022/01/14/o9hNuVMjcTOQany.png" alt="image-20220114170136836"></p>
 <p><img src="https://s2.loli.net/2022/01/14/3nxhgLArIG9RwpF.png" alt="image-20220114170143150"></p>
 <p>函数定义以及相关说明见Beckmann分布。</p>
-<h3 id="各向异性形状不变性的斜率分布"><a href="#各向异性形状不变性的斜率分布" class="headerlink" title="各向异性形状不变性的斜率分布"></a>各向异性形状不变性的斜率分布</h3><p>由上文同理得，各向异性可将α分别拆成沿x, y方向的$α<em>x,α_y$，由此公式变为$P^{22}(x</em>{\tilde m},y_{\tilde m},α_x,α_y)$：</p>
+<h3 id="各向异性形状不变性的斜率分布"><a href="#各向异性形状不变性的斜率分布" class="headerlink" title="各向异性形状不变性的斜率分布"></a>各向异性形状不变性的斜率分布</h3><p>由上文同理得，各向异性可将α分别拆成沿x, y方向的$α_x,α_y$，由此公式变为$P^{22}(x_{\tilde m},y_{\tilde m},α_x,α_y)$：</p>
 <p><img src="https://s2.loli.net/2022/01/15/fyAinSXPGaZg43o.png" alt="image-20220115130649328"></p>
 <p><img src="https://s2.loli.net/2022/01/15/VEbrkpxiZ9TuKvn.png" alt="image-20220115131634842"></p>
-<p>经过各向异性变换后的斜率为：<br>$$<br>\frac{1}{tan\theta_o’}=\frac{1}{\sqrt{α_x^2x_o^2+α_y^2y_o^2}}=\frac{1}{tan\theta_o\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}}<br>$$<br>设$α_o=\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}$，含义为投影到$\omega_o$的α值。</p>
+<p>经过各向异性变换后的斜率为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{tan\theta_o'}=\frac{1}{\sqrt{α_x^2x_o^2+α_y^2y_o^2}}=\frac{1}{tan\theta_o\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}}</script><p>设$α_o=\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}$，含义为投影到$\omega_o$的α值。</p>
 <h4 id="各向异性形状不变性的形式化定义"><a href="#各向异性形状不变性的形式化定义" class="headerlink" title="各向异性形状不变性的形式化定义"></a>各向异性形状不变性的形式化定义</h4><p><img src="https://s2.loli.net/2022/01/15/Our5jbaWlMhnpP2.png" alt="image-20220115130724073"></p>
 <h4 id="各向异性Beckmann分布"><a href="#各向异性Beckmann分布" class="headerlink" title="各向异性Beckmann分布"></a>各向异性Beckmann分布</h4><p><img src="https://s2.loli.net/2022/01/15/OK51mYWFntMjdpe.png" alt="image-20220115131412592"></p>
 <p><img src="https://s2.loli.net/2022/01/15/usNnXhkGfjpl4d8.png" alt="image-20220115131420517"></p>
 <p><img src="https://s2.loli.net/2022/01/15/OZD71y96Fhxrzck.png" alt="image-20220115131427005"></p>
 <p>其中，$α_o,a$在前文定义过。</p>
 <h4 id="各向异性GGX分布"><a href="#各向异性GGX分布" class="headerlink" title="各向异性GGX分布"></a>各向异性GGX分布</h4><p><img src="https://s2.loli.net/2022/01/15/8G5ph43OKx1yq2L.png" alt="image-20220115131526215"></p>
-<p><img src="C:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220115131533981.png" alt="image-20220115131533981"></p>
+<p><img src="C:\Users\v25bh\AppData\Roaming\Typora\typora-user-images\image-20220115131533981.png" alt="image-20220115131533981"></p>
 <p><img src="https://s2.loli.net/2022/01/15/hSCnemdDx5BAbuP.png" alt="image-20220115131555364"></p>
 <p>其中，$α_o,a$在前文定义过。</p>
-<h3 id="非轴方向对齐的拉伸"><a href="#非轴方向对齐的拉伸" class="headerlink" title="非轴方向对齐的拉伸"></a>非轴方向对齐的拉伸</h3><p>设经过调整α改变后的微表面斜率变为$\sqrt{||\tilde m||^2_Q}$，$\tilde m=(x_{\tilde m},y_{\tilde m})$，则广义的斜率分布公式与$α<em>o$变量为：<br>$$<br>P^{22}(x</em>{\tilde m},y_{\tilde m})=\frac{1}{α_xα_y}f(\sqrt{||\tilde m||^2_Q})<br>$$</p>
-<p>$$<br>\frac{1}{tan\theta_o’}=\frac{z_o}{\sqrt{||(x_o,y_o)||^2_Q}}<br>$$</p>
-<p>其中，$||\tilde m||<em>Q$为马氏距离(Mahalanobis Distance)。当$α_x,α_y$不相关(相关系数$r</em>{xy}=0$)时，马氏距离退化为欧几里得距离($\frac{tan\theta_m}{\alpha}$)，反之，我们需求E-距离矩阵：<br>$$<br>Q^{-1}=\begin{pmatrix}α^2_x&amp;r_{xy}α<em>xα_y\r</em>{xy}α_xα_y&amp;α^2_y\end{pmatrix}<br>$$</p>
-<p>$$<br>||\tilde m||^2=\sqrt{&lt;\tilde m,\tilde m&gt;}=\sqrt{\tilde m^TQ\tilde m}<br>$$</p>
-<p>其中$r_{xy}\in[-1,1]$为相关系数，求得的结果为：</p>
+<h3 id="非轴方向对齐的拉伸"><a href="#非轴方向对齐的拉伸" class="headerlink" title="非轴方向对齐的拉伸"></a>非轴方向对齐的拉伸</h3><p>设经过调整α改变后的微表面斜率变为$\sqrt{||\tilde m||^2_Q}$，$\tilde m=(x_{\tilde m},y_{\tilde m})$，则广义的斜率分布公式与$α_o$变量为：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m})=\frac{1}{α_xα_y}f(\sqrt{||\tilde m||^2_Q})</script><script type="math/tex; mode=display">
+\frac{1}{tan\theta_o'}=\frac{z_o}{\sqrt{||(x_o,y_o)||^2_Q}}</script><p>其中，$||\tilde m||_Q$为马氏距离(Mahalanobis Distance)。当$α_x,α_y$不相关(相关系数$r_{xy}=0$)时，马氏距离退化为欧几里得距离($\frac{tan\theta_m}{\alpha}$)，反之，我们需求E-距离矩阵：</p>
+<script type="math/tex; mode=display">
+Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}</script><script type="math/tex; mode=display">
+||\tilde m||^2=\sqrt{<\tilde m,\tilde m>}=\sqrt{\tilde m^TQ\tilde m}</script><p>其中$r_{xy}\in[-1,1]$为相关系数，求得的结果为：</p>
 <p><img src="https://s2.loli.net/2022/01/15/unwx3C2hFrASJcm.png" alt="image-20220115143222160"></p>
 <p><img src="https://s2.loli.net/2022/01/15/bSGRDWfBeApamxs.png" alt="image-20220115143229444"></p>
 <h2 id="Smith联合遮罩-阴影函数"><a href="#Smith联合遮罩-阴影函数" class="headerlink" title="Smith联合遮罩-阴影函数"></a>Smith联合遮罩-阴影函数</h2><p>这里将开始讨论遮罩函数与阴影函数的组合方式，共分为分离式、高度关联、方向关联与高度-方向关联。</p>
@@ -611,6 +640,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -619,7 +656,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,15 +664,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,6 +677,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,14 +697,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -214,8 +214,6 @@
     
     <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
 <p>给爱用继承的人一个全新的设计眼界<del>(翻译: 再敢滥用继承我不打死你)</del></p>
-</blockquote>
-<blockquote>
 <p>不修改底层代码而给你的对象赋予新的职责</p>
 </blockquote>
 <hr>
@@ -320,8 +318,6 @@
     
     <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><blockquote>
 <p>让你的对象知悉现况</p>
-</blockquote>
-<blockquote>
 <p>JDK使用最多的模式</p>
 </blockquote>
 <hr>
@@ -433,11 +429,7 @@
     
     <h1 id="设计模式-总"><a href="#设计模式-总" class="headerlink" title="设计模式-总"></a>设计模式-总</h1><blockquote>
 <p>这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。</p>
-</blockquote>
-<blockquote>
 <p>请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。</p>
-</blockquote>
-<blockquote>
 <p>如果您发现我的笔记/演示程序有问题或是有什么建议，欢迎联系<a href="https://github.com/v25bh145/" target="_blank" rel="noopener">我</a></p>
 </blockquote>
 <hr>
@@ -449,8 +441,7 @@
 <p>“当涉及<strong>维护</strong>时，为了<strong>复用</strong>目的而使用继承，结局并不完美。”</p>
 </blockquote>
 <ul>
-<li><p><strong>为什么”结局并不完美”呢?</strong> </p>
-</li>
+<li><strong>为什么”结局并不完美”呢?</strong> </li>
 <li><p>当我们想要添加某一<strong>公共特性</strong>时:</p>
 <ol>
 <li><p>我们会将其放在抽象类中，但有些子类并不需要这个特性，因此我们还需在这些不需要特性的子类中继承这个特性并<strong>置空</strong>，造成了不必要的麻烦。</p>
@@ -522,104 +513,6 @@
 
 
   
-    <article id="post-coding/ctf/ctf笔记-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" target="_blank">CTF笔记-WEB攻防-08</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" class="archive-article-date">
-        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="love-math"><a href="#love-math" class="headerlink" title="love_math"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5419&page=2" target="_blank" rel="noopener">love_math</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>php代码审计</li>
-<li>进制转换</li>
-<li>使用进制绕过字母</li>
-<li>使用进制绕过<strong>所有ascii字符</strong>(除1xxxxxxx开头外)</li>
-<li>使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)</li>
-</ol>
-    
-    <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-coding/ctf/ctf笔记-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -649,7 +542,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="comment"><a href="#comment" class="headerlink" title="comment"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5416&page=2" target="_blank" rel="noopener">comment</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><blockquote>
+    <h1 id="comment"><a href="#comment" class="headerlink" title="comment"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5416&amp;page=2" target="_blank" rel="noopener">comment</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><blockquote>
 <ol>
 <li>git泄露</li>
 <li>git版本控制 git版本恢复</li>
@@ -722,6 +615,104 @@
 
 
   
+    <article id="post-coding/ctf/ctf笔记-09" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" target="_blank">CTF笔记-WEB攻防-08</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" class="archive-article-date">
+        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="love-math"><a href="#love-math" class="headerlink" title="love_math"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5419&amp;page=2" target="_blank" rel="noopener">love_math</a></h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>php代码审计</li>
+<li>进制转换</li>
+<li>使用进制绕过字母</li>
+<li>使用进制绕过<strong>所有ascii字符</strong>(除1xxxxxxx开头外)</li>
+<li>使用’{}’绕过’[]’ (数组 奇淫技巧，对开发有思路帮助)</li>
+</ol>
+    
+    <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-coding/ctf/ctf笔记-07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -751,10 +742,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4768&page=2" target="_blank" rel="noopener">bug</a></h2><blockquote>
+    <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4768&amp;page=2" target="_blank" rel="noopener">bug</a></h2><blockquote>
 <p>题目目前数据库有点问题，待之后好了补充</p>
 </blockquote>
-<h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4921&page=2" target="_blank" rel="noopener">ics-07</a></h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
+<h2 id="ics-07"><a href="#ics-07" class="headerlink" title="ics-07"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4921&amp;page=2" target="_blank" rel="noopener">ics-07</a></h2><p>我们的工控云管理叕叒出问题啦，点开”项目管理”，进入之后看到最下面有一行”view source”，进入页面，开始审计php:</p>
     
     <a class="article-more-a" href="/2020/10/20/coding/ctf/ctf%E7%AC%94%E8%AE%B0-07/#more">more >></a>
     
@@ -849,7 +840,7 @@
     <blockquote>
 <p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
 </blockquote>
-<h1 id="fakebook"><a href="#fakebook" class="headerlink" title="fakebook"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5425&page=2" target="_blank" rel="noopener">fakebook</a></h1><p>首先dirsearch扫一遍，扫到了robors.txt，进入发现文件user.php.bak，下载，开始审计php代码。</p>
+<h1 id="fakebook"><a href="#fakebook" class="headerlink" title="fakebook"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5425&amp;page=2" target="_blank" rel="noopener">fakebook</a></h1><p>首先dirsearch扫一遍，扫到了robors.txt，进入发现文件user.php.bak，下载，开始审计php代码。</p>
 <p>看到注册中的$blog是有正则检测的，大概像个网页的样子，使用echo出具体的正则：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i"</span>;</span><br><span class="line"><span class="comment"># /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]&#123;2,6&#125;(\:[0-9]+)?(\/\S*)?$/i</span></span><br></pre></td></tr></table></figure>
     
@@ -946,7 +937,7 @@
     <blockquote>
 <p>此题解系写ctf笔记-08之时熬夜所补，所以篇幅可能略精简，望见谅。</p>
 </blockquote>
-<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4686&page=1" target="_blank" rel="noopener">NewsCenter</a></h1><p>首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。</p>
+<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4686&amp;page=1" target="_blank" rel="noopener">NewsCenter</a></h1><p>首先用dirsearch扫了一遍，什么也没发现，robots.txt也是空的。</p>
 <p>接着尝试使用单引号闭合搜索框，成功，考虑SQL注入。</p>
 <p>使用sqlmap，搞定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -r postTmp.txt -D news -T secret_table -C fl4g --dump</span><br></pre></td></tr></table></figure>
@@ -1041,9 +1032,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4749&page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
+    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4749&amp;page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
-
 <p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
     
@@ -1137,19 +1127,16 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="supersqli"><a href="#supersqli" class="headerlink" title="supersqli"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5417&page=1" target="_blank" rel="noopener">supersqli</a></h1><blockquote>
+    <h1 id="supersqli"><a href="#supersqli" class="headerlink" title="supersqli"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5417&amp;page=1" target="_blank" rel="noopener">supersqli</a></h1><blockquote>
 <p>sql注入题目</p>
 </blockquote>
 <h2 id="手写"><a href="#手写" class="headerlink" title="手写"></a>手写</h2><p>先试试万能的单引号，果然报错了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error 1064 : You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos;&apos; at line 1</span><br></pre></td></tr></table></figure>
-
 <p>注意一下，<strong>第一个’和最后一个’是起标识位置作用的</strong>,就是一个单引号,所以原语句是’1’(<code>单引号闭合</code>)</p>
 <h3 id="尝试-联合注入"><a href="#尝试-联合注入" class="headerlink" title="尝试 联合注入"></a>尝试 联合注入</h3><p>payload:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;+union+select+database()+--+</span><br></pre></td></tr></table></figure>
-
 <p>返回了一段这样的包含正则匹配的php代码，说明不可行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
-
 <h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3>
     
     <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-03/#more">more >></a>
@@ -1383,6 +1370,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1391,7 +1386,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1399,15 +1394,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1416,6 +1407,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1432,14 +1427,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

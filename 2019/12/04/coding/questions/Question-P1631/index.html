@@ -234,7 +234,6 @@
     
     <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数N；</p>
 <p>第二行N个整数$A_{i}$, 满足$A_{i}$ &lt;= $A_{i+1}$且 $A_{i}$ ≤$10^{9}$;</p>
 <p>第三行N个整数$B_{i}$, 满足$B_{i}$ &lt;= $B_{i+1}$且 $B_{i}$ ≤$10^{9}$.</p>
@@ -244,8 +243,10 @@
 <h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入 #1</p>
 <pre><code>3
 2 6 6
-1 4 8</code></pre><p>输出 #1</p>
-<pre><code>3 6 7</code></pre><hr>
+1 4 8
+</code></pre><p>输出 #1</p>
+<pre><code>3 6 7
+</code></pre><hr>
 <p>听音乐~</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36024572&auto=0&height=66"></iframe>
 
@@ -266,73 +267,77 @@
 <hr>
 <h3 id="暴力做法二维数组的性质"><a href="#暴力做法二维数组的性质" class="headerlink" title="暴力做法二维数组的性质"></a>暴力做法二维数组的性质</h3><p>那我们先打个表出来</p>
 <p>横行是a数组，纵行是b数组</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">a\b</th>
-<th align="center">1</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">7</th>
-<th align="center">9</th>
+<th style="text-align:left">a\b</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">9</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="center">2</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">8</td>
-<td align="center">10</td>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="center">3</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">9</td>
-<td align="center">11</td>
+<td style="text-align:left">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="center">5</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
-<td align="center">11</td>
-<td align="center">13</td>
+<td style="text-align:left">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">13</td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="center">7</td>
-<td align="center">9</td>
-<td align="center">10</td>
-<td align="center">11</td>
-<td align="center">13</td>
-<td align="center">15</td>
+<td style="text-align:left">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">15</td>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="center">9</td>
-<td align="center">11</td>
-<td align="center">12</td>
-<td align="center">13</td>
-<td align="center">15</td>
-<td align="center">17</td>
+<td style="text-align:left">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">17</td>
 </tr>
 <tr>
-<td align="left">9</td>
-<td align="center">10</td>
-<td align="center">12</td>
-<td align="center">14</td>
-<td align="center">15</td>
-<td align="center">17</td>
-<td align="center">19</td>
+<td style="text-align:left">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">19</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>很明显，<code>最小的数字应该从左上往右下取得</code></p>
 <p>还有一个性质：</p>
 <p><code>如果要取(i,j)，必须要保证(i,j-1)与(i-1,j)被取得</code></p>
@@ -342,31 +347,15 @@
 <hr>
 <blockquote>
 <p>那么就可以从(1,1)开始，先打印(1,1)</p>
-</blockquote>
-<blockquote>
 <blockquote>
 <p>判断出(1,2)与(2,1)都符合比较的规则</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
 <p>然后比较(1,2)与(2,1)  </p>
 </blockquote>
-</blockquote>
-<blockquote>
 <p>按照图来，打印(2,1)</p>
-</blockquote>
-<blockquote>
 <blockquote>
 <p>判断(3,1)符合规则，(2,2)由于(1,2)还没有被取到，不符合规则</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
 <p>比较(3,1)与(1,2)</p>
 </blockquote>
-</blockquote>
-<blockquote>
 <p>……</p>
 </blockquote>
 <p>注意到前面的比较被淘汰的仍然参与下一次比较</p>
@@ -387,7 +376,7 @@
 <p>判断左边是否为空，第一想到的就是设置一个矩阵……超空间了</p>
 <p>然后依据最小的性质，可以比较左边和刚刚输出的数字，如果小就是已经输出过了</p>
 <hr>
-<h2 id="–如果左边的数字和刚刚输出的数字相等呢？"><a href="#–如果左边的数字和刚刚输出的数字相等呢？" class="headerlink" title="–如果左边的数字和刚刚输出的数字相等呢？"></a>–如果左边的数字和刚刚输出的数字相等呢？</h2><p>那我们可以做一个规定，默认堆排序的时候在 值大小 的优先级之下比较谁更靠左</p>
+<h2 id="—如果左边的数字和刚刚输出的数字相等呢？"><a href="#—如果左边的数字和刚刚输出的数字相等呢？" class="headerlink" title="—如果左边的数字和刚刚输出的数字相等呢？"></a>—如果左边的数字和刚刚输出的数字相等呢？</h2><p>那我们可以做一个规定，默认堆排序的时候在 值大小 的优先级之下比较谁更靠左</p>
 <p>这样也解决了问题2.</p>
 <hr>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>#include &lt;iostream&gt;
@@ -501,77 +490,82 @@ int  main()
             Put(le, r + 1);
     }
     return 0;
-}</code></pre><p><del>我居然把函数名搞错了还居然花了我一个下午调试</del></p>
+}
+</code></pre><p><del>我居然把函数名搞错了还居然花了我一个下午调试</del></p>
 <hr>
 <h1 id="解2"><a href="#解2" class="headerlink" title="解2"></a>解2</h1><p>还可以这样想呢~</p>
 <p>等我先把表格搬过来，嘿咻~</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">a\b</th>
-<th align="center">1</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">7</th>
-<th align="center">9</th>
+<th style="text-align:left">a\b</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">9</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="center">2</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">8</td>
-<td align="center">10</td>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="center">3</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">9</td>
-<td align="center">11</td>
+<td style="text-align:left">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="center">5</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
-<td align="center">11</td>
-<td align="center">13</td>
+<td style="text-align:left">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">13</td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="center">7</td>
-<td align="center">9</td>
-<td align="center">10</td>
-<td align="center">11</td>
-<td align="center">13</td>
-<td align="center">15</td>
+<td style="text-align:left">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">15</td>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="center">9</td>
-<td align="center">11</td>
-<td align="center">12</td>
-<td align="center">13</td>
-<td align="center">15</td>
-<td align="center">17</td>
+<td style="text-align:left">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">17</td>
 </tr>
 <tr>
-<td align="left">9</td>
-<td align="center">10</td>
-<td align="center">12</td>
-<td align="center">14</td>
-<td align="center">15</td>
-<td align="center">17</td>
-<td align="center">19</td>
+<td style="text-align:left">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">19</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>把每一行当做优先队列，将第一列的值存入堆，输出最小值时把对应的行的下一列的值放入堆</p>
 <p>也就是把表格横着扫一遍~</p>
 <p>当然这是其他dalao的思路，我搬过来而已QAQ</p>
@@ -649,7 +643,8 @@ int main()
         Put(tmp.p1, tmp.p2 + 1);
     }
     return 0;
-}</code></pre><hr>
+}
+</code></pre><hr>
 <ul>
 <li>归纳：<blockquote>
 <p>遇见可以用 表格/暴力 做 超空间/超时间 的题,<br>不妨先按着 表格/暴力做法 推几个数据找性质,<br>然后根据性质选择性地从 表格/暴力做法 中筛选 需要的元素和需要的步骤</p>
@@ -932,6 +927,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -940,7 +943,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,15 +951,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,6 +964,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,14 +984,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

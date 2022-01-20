@@ -212,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.5k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -233,38 +233,24 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="一个小型express应用"><a href="#一个小型express应用" class="headerlink" title="一个小型express应用"></a><strong>一个小型express应用</strong></h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"express-tweet"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"express"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"ejs"</span>: <span class="string">"*"</span>,</span><br><span class="line">        <span class="attr">"superagent"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <a id="more"></a>
-
 <h3 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h3><p><strong>./view/index.ejs</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;Twitter app&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;Please enter your search term:&lt;/p&gt;</span><br><span class="line">&lt;form action=&quot;/search&quot; method = &quot;GET&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;q&quot; /&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button&gt;SEARCH&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
 <p><strong>./view/search.ejs</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;Tweet results for &lt;%= search %&gt;&lt;/h1&gt;</span><br><span class="line">&lt;!--我们将JavaScript代码嵌在标签中，通过在标签之后加入=来将变量值打印出来--&gt;</span><br><span class="line">&lt;% if (results.length) &#123; %&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;% for (var i = 0; i &lt; results.length; i++) &#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;%= results[i].text %&gt; - &lt;em&gt;&lt;%= results[i].from_user %&gt;&lt;/em&gt;&lt;/li&gt;</span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;% &#125; else &#123; %&gt;</span><br><span class="line">    &lt;p&gt;No results&lt;/p&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
 <h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p><strong>server.js</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 模块依赖</span><br><span class="line"> */</span><br><span class="line">var express = require(&apos;express&apos;);</span><br><span class="line"></span><br><span class="line">//创建服务 - 自己修改过，书上是老版本的用法</span><br><span class="line">var app = express();</span><br><span class="line"></span><br><span class="line">//指定模板引擎</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;ejs&apos;);</span><br><span class="line"></span><br><span class="line">//指定视图文件所在的路径</span><br><span class="line">app.set(&apos;views&apos;, __dirname + &apos;/views&apos;);</span><br><span class="line"></span><br><span class="line">//视图文件选项</span><br><span class="line">app.set(&apos;view options&apos;, &#123;layout: false&#125;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 路由</span><br><span class="line"> */</span><br><span class="line">app.get(&apos;/&apos;, function(req, res) &#123;</span><br><span class="line">    /*</span><br><span class="line">    Express为response对象提供了render方法，该方法完成了下面的三件事:</span><br><span class="line">    1. 初始化模板引擎</span><br><span class="line">    2. 读取视图文件并将其传递给模板引擎</span><br><span class="line">    3. 获取解析后的HTML页面并作为响应发送给客户端</span><br><span class="line">    */</span><br><span class="line">    res.render(&apos;index&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 监听</span><br><span class="line"> */</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
-
 <h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p><strong>example</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由示例</span></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//:name 匹配参数，id值不同也能匹配到</span></span><br><span class="line">app.put(<span class="string">'/post/:name'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/signup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.del(<span class="string">'/user/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.patch(<span class="string">'/user/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.head(<span class="string">'/user/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//sth</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p><strong>查询路由</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> search = <span class="built_in">require</span>(<span class="string">'./search'</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">app.get(<span class="string">'/search'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    search(req.query.q, <span class="function"><span class="keyword">function</span> (<span class="params">err, tweets</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//如果报错就把错传递下去</span></span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> next(err);</span><br><span class="line">        <span class="comment">//render给ejs传参(json)，这里的变量成为本地变量，因为其内容只对其传递的视图可见</span></span><br><span class="line">        res.render(<span class="string">'search'</span>, &#123; <span class="attr">results</span>: tweets, <span class="attr">search</span>: req.query.q &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h3 id="最终的server"><a href="#最终的server" class="headerlink" title="最终的server"></a>最终的server</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 模块依赖</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> search = <span class="built_in">require</span>(<span class="string">'./search'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建服务</span></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">//指定模板引擎</span></span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'ejs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//指定视图文件所在的路径</span></span><br><span class="line">app.set(<span class="string">'views'</span>, __dirname + <span class="string">'/views'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图文件选项</span></span><br><span class="line">app.set(<span class="string">'view options'</span>, &#123; <span class="attr">layout</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 路由</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Express为response对象提供了render方法，该方法完成了下面的三件事:</span></span><br><span class="line"><span class="comment">    1. 初始化模板引擎</span></span><br><span class="line"><span class="comment">    2. 读取视图文件并将其传递给模板引擎</span></span><br><span class="line"><span class="comment">    3. 获取解析后的HTML页面并作为响应发送给客户端</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    res.render(<span class="string">'index'</span>);</span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">'/search'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    search(req.query.q, <span class="function"><span class="keyword">function</span> (<span class="params">err, tweets</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//如果报错就把错传递下去</span></span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> next(err);</span><br><span class="line">        <span class="comment">//render给ejs传参(json)，这里的变量成为本地变量，因为其内容只对其传递的视图可见</span></span><br><span class="line">        res.render(<span class="string">'search'</span>, &#123; <span class="attr">results</span>: tweets, <span class="attr">search</span>: req.query.q &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 监听</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p><strong>search.js</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Search function.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @param (String) search query</span></span><br><span class="line"><span class="comment"> * @param (Function) callback</span></span><br><span class="line"><span class="comment"> * @api public</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">search</span>(<span class="params">query, fn</span>) </span>&#123;</span><br><span class="line">    request.get(<span class="string">'http://search.twitter.com/search.json'</span>)</span><br><span class="line">        .send(&#123; <span class="attr">q</span>: query &#125;)</span><br><span class="line">        .end(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (res.body &amp;&amp; <span class="built_in">Array</span>.isArray(res.body.results)) &#123;</span><br><span class="line">                <span class="comment">//如果superagent获取到了json格式的信息，他会自动解码放到body中</span></span><br><span class="line">                <span class="keyword">return</span> fn(<span class="literal">null</span>, res.body.results);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                fn(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Bad twitter response'</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="一些express设置"><a href="#一些express设置" class="headerlink" title="一些express设置"></a>一些express设置</h2><blockquote>
 <p>缓存模板引擎</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.enable(<span class="string">'view cache'</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-
 <h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><ul>
 <li>Haml</li>
 <li>Jade</li>
@@ -277,51 +263,35 @@
 </blockquote>
 <p><strong>自定义错误处理</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error handler</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// set locals, only providing error in development</span></span><br><span class="line">    res.locals.message = err.message;</span><br><span class="line">    res.locals.error = req.app.get(<span class="string">'env'</span>) === <span class="string">'development'</span> ? err : &#123;&#125;;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// render the error page</span></span><br><span class="line">    res.status(err.status || <span class="number">500</span>);</span><br><span class="line">    res.render(<span class="string">'error'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
 <h2 id="方便的函数"><a href="#方便的函数" class="headerlink" title="方便的函数"></a>方便的函数</h2><p><strong>request</strong></p>
 <blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.header(sth); <span class="comment">//返回头部的信息</span></span><br></pre></td></tr></table></figure>
-
 <p>e.g:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(req.header(<span class="string">'HoSt'</span>)); <span class="comment">//不区分大小写</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.accepts(<span class="string">'text/html'</span>); <span class="comment">//分析请求中的Accept头信息，根据值返回true / false</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.is(<span class="string">'text/html'</span>); <span class="comment">//与accepts类似，但是它会检查Content-Type头信息</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <p><strong>response</strong></p>
 <blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.render(filename); <span class="comment">//渲染文件，路径在views设置中(  app.set('views', __dirname + '/views');  )</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//经测试，响应会在send之后结束</span></span><br><span class="line">res.send(<span class="built_in">Number</span>); <span class="comment">//发送状态码</span></span><br><span class="line">res.send(<span class="built_in">Object</span>); <span class="comment">//发送对象(被解析为JSON字符串)</span></span><br><span class="line">res.send(<span class="built_in">Array</span>); <span class="comment">//发送数组(被解析为字符串)</span></span><br><span class="line">res.send(<span class="built_in">String</span>); <span class="comment">//发送字符串</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.redirect(path(, <span class="built_in">Number</span>)); <span class="comment">//等效于发送302状态码以及Location头信息，第二个参数允许自己设置状态码</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <p><strong>路由</strong></p>
 <blockquote>
 <p>路由传参，变量被注入到req.params中</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/example/:name'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.send(req.params.name);<span class="comment">//字符串类型</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>还可以加问号表示可选</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/example/:name?'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.send(req.params.name);<span class="comment">//字符串类型</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>还可以使用RegExp对象(正则表达式)进行匹配</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get( <span class="regexp">/^\/post\/([a-z\d\-]*)/</span> , <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">'success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <p>在路由中使用next，可以跳过这个路由，让其他路由进行处理</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/search/:name'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(req.params.name == <span class="string">"f**k"</span>) <span class="keyword">return</span> next();</span><br><span class="line">&#125;);</span><br><span class="line">app.get(<span class="string">'/search/f**k'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//do sth if the route is /search/f**k</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>同时也可以<code>next(err)</code>来传递错误</p>
 <p>在中间件中使用<code>next(&#39;route&#39;)</code>，可以确保当前路由被跳过</p>
 </blockquote>
 <h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(func);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在特定的路由中使用中间件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">secure</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//do sth</span></span><br><span class="line">&#125;</span><br><span class="line">app.get(<span class="string">'/financials'</span>, secure, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//do sth</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//也可以定义多个中间件</span></span><br><span class="line">app.get(<span class="string">'/route'</span>, a, b, c, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//do sth</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="代码组织策略"><a href="#代码组织策略" class="headerlink" title="代码组织策略"></a>代码组织策略</h2><ul>
@@ -338,22 +308,10 @@
 </li>
 <li><p>e.g:</p>
 <ul>
-<li><pre><code class="js"><span class="comment">//blog.js中</span>
-<span class="keyword">var</span> app = <span class="built_in">module</span>.exports = <span class="built_in">require</span>(<span class="string">'express'</span>)();
-<span class="comment">/**</span>
-<span class="comment"> * 路由</span>
-<span class="comment"> */</span>
- app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>{
-     <span class="comment">//do sth</span>
- })
- app.get(<span class="string">'/categories'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>{
-     <span class="comment">//do sth</span>
- })
- app.get(<span class="string">'/search'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>{
-     <span class="comment">//do sth</span>
- })
-&lt;!--￼<span class="number">23</span>--&gt;
-</code></pre>
+<li>```js<br>//blog.js中<br>var app = module.exports = require(‘express’)();<br>/**<ul>
+<li>路由<br>*/<br>app.get(‘/‘, function (req, res, next) {<br>  //do sth<br>})<br>app.get(‘/categories’, function (req, res, next) {<br>  //do sth<br>})<br>app.get(‘/search’, function (req, res, next) {<br>  //do sth<br>})<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```js</span><br><span class="line">  //主程序中</span><br><span class="line">  app.use((path, )require(&apos;./blog&apos;));</span><br><span class="line">  /*path: 可选参数，前置路径</span><br><span class="line">  e.g:</span><br><span class="line">  app.use((&apos;/blog&apos;, )require(&apos;./blog&apos;));</span><br><span class="line">  则url为 /blog/ /blog/categories /blog/search</span><br><span class="line">  */</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -631,6 +589,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -639,7 +605,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,15 +613,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,6 +626,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,14 +646,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -39,7 +39,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;9CH7WsxdKJZAFkP.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;yagGjdkKvI2OQtF.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;ycJoLsQMkeTrKYI.png">
-<meta property="og:updated_time" content="2022-01-15T06:47:38.096Z">
+<meta property="og:updated_time" content="2022-01-20T07:44:55.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;08&#x2F;bupRYgE8Q9jTMFv.png">
   
@@ -260,13 +260,13 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[[toc]]</p>
+<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/08/bupRYgE8Q9jTMFv.png" alt="image-20220108154627238"></p>
-<ol start="2">
+<ol>
 <li>本文可能需要的前置知识：<ol>
 <li>辐射度量学(radiometry)</li>
 <li>对于微表面的基本了解</li>
@@ -284,22 +284,28 @@
 <h3 id="微表面面积、两种积分"><a href="#微表面面积、两种积分" class="headerlink" title="微表面面积、两种积分"></a>微表面面积、两种积分</h3><p>之后提出了两种计算平面面积的方式，分别是空间(spatial)积分与统计学(statistical)积分：</p>
 <p>空间积分即是简单地遍历面上各点，而统计学积分需要使用<strong>法线分布函数</strong>D。法线分布函数是个概率密度函数，D(w)表示w方向的法线在整个法线中出现的概率：</p>
 <p><img src="https://s2.loli.net/2022/01/08/kOU4xM1sNPJThy9.png" alt="image-20220108155247548"></p>
-<p>其中$p_m$指微表面M上的任意一点，$\omega_m$指任意一条法线，$\Omega$指体积角空间。而在计算有关微表面有关的函数时，也出现了两种计算的方式：<br>$$<br>\int_Mg(p_m)dp_m=\int_{\Omega}g(\omega_m)D(\omega_m)d\omega_m<br>$$<br>其中$\omega(p)$指在微表面p处的法线方向。</p>
+<p>其中$p_m$指微表面M上的任意一点，$\omega_m$指任意一条法线，$\Omega$指体积角空间。而在计算有关微表面有关的函数时，也出现了两种计算的方式：</p>
+<script type="math/tex; mode=display">
+\int_Mg(p_m)dp_m=\int_{\Omega}g(\omega_m)D(\omega_m)d\omega_m</script><p>其中$\omega(p)$指在微表面p处的法线方向。</p>
 <p>随后，给出了关于微表面空间的点函数转换为关于体积角空间的法线函数：</p>
 <p><img src="https://s2.loli.net/2022/01/08/uohHcjiTNf8QdAq.png" alt="image-20220108160021102"></p>
-<p>其中$\delta_\omega$是Delta函数，仅当自变量等于$\omega$时有非零值，Delta函数还有如下公式(性质)：<br>$$<br>\int^{\infin}_{-\infin}\delta(x)dx=1<br>$$</p>
-<h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
+<p>其中$\delta_\omega$是Delta函数，仅当自变量等于$\omega$时有非零值，Delta函数还有如下公式(性质)：</p>
+<script type="math/tex; mode=display">
+\int^{\infin}_{-\infin}\delta(x)dx=1</script><h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
 <p>由图得，$projected\ area=area*cos\theta_0$，因此得出：</p>
 <p><img src="https://s2.loli.net/2022/01/08/Ccz8hIiqxfmlUkL.png" alt="image-20220108160730843"></p>
 <h3 id="遮罩函数-masking-function"><a href="#遮罩函数-masking-function" class="headerlink" title="遮罩函数(masking function)"></a>遮罩函数(masking function)</h3><p>投影的区域不止是从$\omega_o$方向看几何平面的面积，也可以是从$\omega_o$看微表面的可见面积(visible microfacet)。</p>
-<p>因此可设空间(spatial)函数$G_1(\omega_o,p_m)$为一个函数，若$p_m$于$\omega_o$方向被遮挡，则值为0，否则其值为1。根据积分转换(上文)的公式，可以将空间函数G1转换为统计学函数$G_1(\omega_o,\omega_m)$：<br>$$<br>projected\ area=\int_MG_1(\omega_o,p_m)&lt;\omega_o,\omega_m(p_m)&gt;dp_m\<br>G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_m}{\int_M\delta_\omega(\omega_m(p_m))dp_m}<br>$$<br>其中&lt;a,b&gt;为夹(clamped)点积，若(a,b)小于零则取0，大于0则取正常点积结果。</p>
+<p>因此可设空间(spatial)函数$G_1(\omega_o,p_m)$为一个函数，若$p_m$于$\omega_o$方向被遮挡，则值为0，否则其值为1。根据积分转换(上文)的公式，可以将空间函数G1转换为统计学函数$G_1(\omega_o,\omega_m)$：</p>
+<script type="math/tex; mode=display">
+projected\ area=\int_MG_1(\omega_o,p_m)<\omega_o,\omega_m(p_m)>dp_m\\
+G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_m}{\int_M\delta_\omega(\omega_m(p_m))dp_m}</script><p>其中<a,b>为夹(clamped)点积，若(a,b)小于零则取0，大于0则取正常点积结果。</p>
 <p>统计学函数的值域为[0,1]，表示$\omega$法线方向的点从$\omega_m$看被微表面自身遮挡的概率(或者说，比例)。被自身遮挡的情况如下图黑色部分：</p>
 <p><img src="https://s2.loli.net/2022/01/09/gBkdsrpPcIJYFQi.png" alt="image-20220109095008213"></p>
 <h4 id="遮罩函数满足的约束"><a href="#遮罩函数满足的约束" class="headerlink" title="遮罩函数满足的约束"></a>遮罩函数满足的约束</h4><ol>
 <li>如前所述，遮罩函数计算的微表面可视面积须等于几何平面投影到$\omega_o$的面积，即约束如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/09/mq9fNEMZ1GXVlBp.png" alt="image-20220109095157881"></p>
-<ol start="2">
+<ol>
 <li>微表面还需满足一种约束，称微表面轮廓(microsurface profile)，第一种约束仅限制了法线方向，并没有限制法线所在点的位置。</li>
 </ol>
 <h2 id="微表面BRDFs的推导"><a href="#微表面BRDFs的推导" class="headerlink" title="微表面BRDFs的推导"></a>微表面BRDFs的推导</h2><h3 id="对辐亮度公式的展开"><a href="#对辐亮度公式的展开" class="headerlink" title="对辐亮度公式的展开"></a>对辐亮度公式的展开</h3><p>根据上述D、$G_1$函数的定义，我们可以导出进入微表面的辐亮度公式：</p>
@@ -309,7 +315,11 @@
 <p><img src="https://s2.loli.net/2022/01/09/Wcz2EsgeUYVQy36.png" alt="image-20220109101254604"></p>
 <p>由于遮罩函数的约束，得出$\int_\Omega D_{\omega_o}(\omega_m)d\omega_m=1$，原公式也可以展开为：</p>
 <p><img src="https://s2.loli.net/2022/01/09/8zb13FyAoTjBmdU.png" alt="image-20220109101524331"></p>
-<h3 id="构建局部与整体BRDF函数"><a href="#构建局部与整体BRDF函数" class="headerlink" title="构建局部与整体BRDF函数"></a>构建局部与整体BRDF函数</h3><p>由于BRDF的定义，设局部(含$\omega_m$项)BRDF$\rho_M(\omega_o,\omega_i,\omega_m)$：<br>$$<br>\rho_M(\omega_o,\omega_i,\omega_m)=\frac{dL(\omega_o.\omega_m)}{&lt;\omega_i,\omega_m&gt;L(\omega_i)d\omega_i}<br>$$<br>我们将公式中的$d_L(\omega_o,\omega_m)$推导出来代入辐亮度的展开式的微分形式：<br>$$<br>\begin{aligned}dL(\omega_o,M)=&amp;\int_{\Omega}dL(\omega_o,\omega_m)D_{\omega_o}(\omega_m)d\omega_m\=&amp;\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)&lt;\omega_i,\omega_m&gt;L(\omega_i)d\omega_i D_{\omega_o}(\omega_m)d\omega_m\=&amp;L(\omega_i)d\omega_i\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)&lt;\omega_i,\omega_m&gt;D_{\omega_o}(\omega_m)d\omega_m\end{aligned}<br>$$<br>设与微分项$\omega_m$无关的整个微表面的BRDF函数$\rho(\omega_o,\omega_i)=\frac{dL(\omega_o,M)}{cos\theta_iL(\omega_i)d\omega_i}$，代入上式则有：</p>
+<h3 id="构建局部与整体BRDF函数"><a href="#构建局部与整体BRDF函数" class="headerlink" title="构建局部与整体BRDF函数"></a>构建局部与整体BRDF函数</h3><p>由于BRDF的定义，设局部(含$\omega_m$项)BRDF$\rho_M(\omega_o,\omega_i,\omega_m)$：</p>
+<script type="math/tex; mode=display">
+\rho_M(\omega_o,\omega_i,\omega_m)=\frac{dL(\omega_o.\omega_m)}{<\omega_i,\omega_m>L(\omega_i)d\omega_i}</script><p>我们将公式中的$d_L(\omega_o,\omega_m)$推导出来代入辐亮度的展开式的微分形式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}dL(\omega_o,M)=&\int_{\Omega}dL(\omega_o,\omega_m)D_{\omega_o}(\omega_m)d\omega_m\\=&\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)<\omega_i,\omega_m>L(\omega_i)d\omega_i D_{\omega_o}(\omega_m)d\omega_m\\=&L(\omega_i)d\omega_i\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)<\omega_i,\omega_m>D_{\omega_o}(\omega_m)d\omega_m\end{aligned}</script><p>设与微分项$\omega_m$无关的整个微表面的BRDF函数$\rho(\omega_o,\omega_i)=\frac{dL(\omega_o,M)}{cos\theta_iL(\omega_i)d\omega_i}$，代入上式则有：</p>
 <p><img src="https://s2.loli.net/2022/01/09/GMuPDKYz5Ag1yQH.png" alt="image-20220109102709140"></p>
 <p>将$D_{\omega_o}(\omega_m)$展开代入上式，则有：</p>
 <p><img src="https://s2.loli.net/2022/01/09/WsfJG5Nq26czxXh.png" alt="image-20220109102819964"></p>
@@ -324,7 +334,8 @@
 <p><img src="https://s2.loli.net/2022/01/09/NoXVm1yS5tYxC8s.png" alt="image-20220109104141086"></p>
 <p>上述推导结果并没有解析解(analytical solution)，只有拟合解(analytical fit)。</p>
 <h3 id="BRDF归一化测试"><a href="#BRDF归一化测试" class="headerlink" title="BRDF归一化测试"></a>BRDF归一化测试</h3><h4 id="白炉测试-The-White-Furnace-Test"><a href="#白炉测试-The-White-Furnace-Test" class="headerlink" title="白炉测试(The White Furnace Test)"></a>白炉测试(The White Furnace Test)</h4><p>BSDF是BRDF(反射)与BTDF(透射)的和，其定义为：$s(\omega_o,\omega_i)=\rho(\omega_o,\omega_i)+t(\omega_o,\omega_i)$，当微表面吸收率为0(就是说不吸收能量)时，满足以下约束：</p>
-<p>$$<br>\int_{\Omega_i}s(ω_o,ω_i)|ω_g,ω_i|dω_i=1\ \forall ω_o<br>$$<br>若菲涅尔项=1，则光线发生全反射，$s=\rho$，有如下测试，成为白炉测试：</p>
+<script type="math/tex; mode=display">
+\int_{\Omega_i}s(ω_o,ω_i)|ω_g,ω_i|dω_i=1\ \forall ω_o</script><p>若菲涅尔项=1，则光线发生全反射，$s=\rho$，有如下测试，成为白炉测试：</p>
 <p><img src="https://s2.loli.net/2022/01/09/9CH7WsxdKJZAFkP.png" alt="image-20220109112856425"></p>
 <p>然而，对于基于镜面反射的微表面BRDF而言，其微表面之内的遮挡被全部忽略，并没有考虑在微表面之内的多次光线弹射，由此并不通过白炉测试，基于这个原因提出了弱白炉测试。</p>
 <h4 id="弱白炉测试-The-Weak-White-Furnace-Test"><a href="#弱白炉测试-The-Weak-White-Furnace-Test" class="headerlink" title="弱白炉测试(The Weak White Furnace Test)"></a>弱白炉测试(The Weak White Furnace Test)</h4><p>弱白炉测试不考虑$ω_i$(当然也不考虑$ω_h$)与$G_2$项，仅考虑入射光线到微表面这一段。</p>
@@ -332,8 +343,9 @@
 <p><img src="https://s2.loli.net/2022/01/09/yagGjdkKvI2OQtF.png" alt="image-20220109113235061"></p>
 <p>代入白炉测试的公式，得出弱白炉测试的公式如下：</p>
 <p><img src="https://s2.loli.net/2022/01/09/ycJoLsQMkeTrKYI.png" alt="image-20220109113301719"></p>
-<p>对于基于漫反射的微表面BRDF，替换$G_2$为$G_1$，可得：<br>$$<br>\int_{\Omega_i}\frac{1}{\pi}\frac{1}{|ω<em>g\cdotω_o||ω_g\cdotω_i|}\int</em>{\Omega}&lt;ω<em>o,ω_m&gt;&lt;ω_i,ω_m&gt;G_1(ω_o,ω_m)D(ω_m)dω_m|ω_g\cdotω_i|dω_i\=\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o|}\int</em>{\Omega_i}\int_{\Omega}&lt;ω_o,ω_m&gt;&lt;ω_i,ω_m&gt;G_1(ω_o,ω_m)D(ω_m)dω_mdω_i=1<br>$$</p>
-
+<p>对于基于漫反射的微表面BRDF，替换$G_2$为$G_1$，可得：</p>
+<script type="math/tex; mode=display">
+\int_{\Omega_i}\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o||ω_g\cdotω_i|}\int_{\Omega}<ω_o,ω_m><ω_i,ω_m>G_1(ω_o,ω_m)D(ω_m)dω_m|ω_g\cdotω_i|dω_i\\=\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o|}\int_{\Omega_i}\int_{\Omega}<ω_o,ω_m><ω_i,ω_m>G_1(ω_o,ω_m)D(ω_m)dω_mdω_i=1</script>
     
 
     
@@ -602,6 +614,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -610,7 +630,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,15 +638,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,6 +651,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,14 +671,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -240,7 +240,6 @@
 <p>GET:i加1，然后输出Blackhox中第i小的数。</p>
 <p>记住：第i小的数，就是Black Box里的数的按从小到大的顺序排序后的第i个元素。例如：</p>
 <a id="more"></a>
-
 <p>我们来演示一下一个有11个命令的命令串。（如下图所示）</p>
 <p><img src="https://i.loli.net/2019/11/30/Z8QUNdYG1tRomaA.jpg" alt="P1801.png"></p>
 <p>现在要求找出对于给定的命令串的最好的处理方法。ADD和GET命令分别最多200000个。现在用两个整数数组来表示命令串：</p>
@@ -255,11 +254,13 @@
 <h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p>输入 #1</p>
 <pre><code>7 4
 3 1 -4 2 8 -1000 2
-1 2 6 6</code></pre><p>输出 #1</p>
+1 2 6 6
+</code></pre><p>输出 #1</p>
 <pre><code>3
 3
 1
-2</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于30%的数据，M≤10000;</p>
+2
+</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于30%的数据，M≤10000;</p>
 <p>对于50%的数据，M≤100000：</p>
 <p>对于100%的数据，M≤200000。</p>
 <hr>
@@ -287,7 +288,8 @@ for(int i = 1; i &lt;= n; i++)
 {
     cin&gt;&gt;tmp;
     getOp[i] = tmp;
-}</code></pre><p>之后的处理也大概能写个框架出来</p>
+}
+</code></pre><p>之后的处理也大概能写个框架出来</p>
 <pre><code>headGet = 1;
 for(int i = 1;i &lt;= m; i++)
 {
@@ -300,7 +302,8 @@ for(int i = 1;i &lt;= m; i++)
         cout&lt;&lt;tmp&lt;&lt;endl;
         headGet++;
     }
-}</code></pre><p>这里需要注意一下while,题目实例就给出了get重复的i值</p>
+}
+</code></pre><p>这里需要注意一下while,题目实例就给出了get重复的i值</p>
 <p><del>我才不是因为一开始写的if等到写完了算法回去再测试的时候菜发现的呢</del> <del>(菜)</del></p>
 <p>好了，那我们来填补一下里面的操作扒</p>
 <hr>
@@ -342,7 +345,8 @@ int main()
         }
     }
     return 0;
-}</code></pre><p><del>果然暴力插<strong><em>♂</em></strong>入只有30分嘛</del></p>
+}
+</code></pre><p><del>果然暴力插<strong><em>♂</em></strong>入只有30分嘛</del>~</p>
 <p>好的继续，现在我们需要优化程序廖</p>
 <hr>
 <h2 id="插入排序的优化"><a href="#插入排序的优化" class="headerlink" title="插入排序的优化"></a>插入排序的优化</h2><h2 id="Mark-1-1"><a href="#Mark-1-1" class="headerlink" title="Mark.1"></a>Mark.1</h2><p>这里的插入消耗时间显然过长，一定需要在这里优化</p>
@@ -370,7 +374,7 @@ int main()
 <p><strong><em>诶，这里这个<code>弃牌区</code>怎么实现呢？</em></strong></p>
 <p>首先考虑到<code>弃牌区</code>必须要有序</p>
 <p>元素依次加入的同时维护有序性</p>
-<p>所以我们自然想到了我们的老朋友–<code>插入排序</code>！</p>
+<p>所以我们自然想到了我们的老朋友—<code>插入排序</code>！</p>
 <p>别急，还没完！</p>
 <p>然后再次考虑到我们需要获取<strong>最大的</strong>元素</p>
 <p>再想想刚刚的暴力插入排序转变的过程</p>
@@ -525,7 +529,8 @@ int main()
         }
     }
     return 0;
-}</code></pre><hr>
+}
+</code></pre><hr>
 <h2 id="感想："><a href="#感想：" class="headerlink" title="感想："></a>感想：</h2><p>这道题我居然一次做出来了诶，果然堆对我的毒害不浅哈哈哈哈</p>
 <p>所以大概什么时候使用堆呢？</p>
 <ul>
@@ -806,6 +811,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -814,7 +827,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,15 +835,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,6 +848,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -855,14 +868,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

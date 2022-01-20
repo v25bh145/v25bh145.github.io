@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="HTTP –TCP上层的超文本传输协议HTTP结构 12345require(&amp;apos;http&amp;apos;).createServer(function (req, res) &amp;#123;    res.writeHead(200);    res.end(&amp;apos;Hello World&amp;apos;);&amp;#125;).listen(3000);   1234567HTTP &#x2F; 1.1 200 OKDate: Mon, 31 Au">
+  <meta name="description" content="HTTP —TCP上层的超文本传输协议HTTP结构 12345require(&amp;apos;http&amp;apos;).createServer(function (req, res) &amp;#123;    res.writeHead(200);    res.end(&amp;apos;Hello World&amp;apos;);&amp;#125;).listen(3000); 1234567HTTP &#x2F; 1.1 200 OKDate: Mon, 31 Aug">
 <meta name="keywords" content="node,《了不起的Node JS 将JavaScript进行到底》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="7.HTTP --TCP上层的超文本传输协议">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;09&#x2F;29&#x2F;coding&#x2F;nodeJs&#x2F;7.%20HTTP&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="HTTP –TCP上层的超文本传输协议HTTP结构 12345require(&amp;apos;http&amp;apos;).createServer(function (req, res) &amp;#123;    res.writeHead(200);    res.end(&amp;apos;Hello World&amp;apos;);&amp;#125;).listen(3000);   1234567HTTP &#x2F; 1.1 200 OKDate: Mon, 31 Au">
+<meta property="og:description" content="HTTP —TCP上层的超文本传输协议HTTP结构 12345require(&amp;apos;http&amp;apos;).createServer(function (req, res) &amp;#123;    res.writeHead(200);    res.end(&amp;apos;Hello World&amp;apos;);&amp;#125;).listen(3000); 1234567HTTP &#x2F; 1.1 200 OKDate: Mon, 31 Aug">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-09-29T11:29:24.452Z">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -221,7 +221,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -232,29 +232,21 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="HTTP-–TCP上层的超文本传输协议"><a href="#HTTP-–TCP上层的超文本传输协议" class="headerlink" title="HTTP –TCP上层的超文本传输协议"></a>HTTP –TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
+    <h1 id="HTTP-—TCP上层的超文本传输协议"><a href="#HTTP-—TCP上层的超文本传输协议" class="headerlink" title="HTTP —TCP上层的超文本传输协议"></a>HTTP —TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(<span class="string">'Hello World'</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP / 1.1 200 OK</span><br><span class="line">Date: Mon, 31 Aug 2020 22: 57: 14 GMT</span><br><span class="line">Connection: keep - alive</span><br><span class="line">Transfer - Encoding: chunked</span><br><span class="line">b</span><br><span class="line">Hello World</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 </blockquote>
 <a id="more"></a>
-
 <h2 id="头信息"><a href="#头信息" class="headerlink" title="头信息"></a>头信息</h2><blockquote>
 <p>“Content-Type” 文本类型：text/plain 普通文本 text/html 富文本</p>
-</blockquote>
-<blockquote>
 <p>“Transfer-Encoding” 头信息默认值 chunked(使得响应逐步产生)</p>
-</blockquote>
-<blockquote>
 <p>“Connection” 连接状态 keep-alive 保持连接，不用重复连接TCP</p>
 </blockquote>
 <ul>
 <li><p>流 管道 的应用(两者等效)</p>
 </li>
-<li><pre><code class="javascript"><span class="built_in">require</span>(<span class="string">'fs'</span>).createReadStream(<span class="string">'image.png'</span>).pipe(res);
-&lt;!--￼<span class="number">2</span>--&gt;
-</code></pre>
+<li><p>```javascript<br>require(‘fs’).createReadStream(‘image.png’).pipe(res);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```javascript</span><br><span class="line">  var stream = require(&apos;fs&apos;).createReadStream(&apos;image.png&apos;);</span><br><span class="line">  	stream.on(&apos;data&apos;, function () &#123;</span><br><span class="line">  	res.write(&apos;data&apos;);</span><br><span class="line">  &#125;);</span><br><span class="line">  stream.on(&apos;end&apos;, function () &#123;</span><br><span class="line">  	res.end();</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><ul>
@@ -280,32 +272,24 @@
 <p>querystring对url进行处理</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">require</span>(<span class="string">'querystring'</span>).parse(<span class="string">'name=Guillermo'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">require</span>(<span class="string">'querystring'</span>).parse(<span class="string">'q=guillermo+rauch'</span>));</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Object: null prototype] &#123; name: &apos;Guillermo&apos; &#125;</span><br><span class="line">[Object: null prototype] &#123; q: &apos;guillermo rauch&apos; &#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'/'</span> == req.url) &#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">"text/html"</span> &#125;);</span><br><span class="line">        res.end([</span><br><span class="line">            <span class="string">'&lt;form method="POST" action="url" '</span>,</span><br><span class="line">            <span class="string">'&lt;h1&gt;My form&lt;/h1&gt;'</span>,</span><br><span class="line">            <span class="string">'&lt;fieldset&gt;'</span>,</span><br><span class="line">            <span class="string">'&lt;label&gt;Personal information&lt;/label&gt;'</span>,</span><br><span class="line">            <span class="string">'&lt;p&gt;What is your name?&lt;/p&gt;'</span>,</span><br><span class="line">            <span class="string">'&lt;input type="text" name="name"'</span>,</span><br><span class="line">            <span class="string">'&lt;p&gt;&lt;button&gt;Submit&lt;/button&gt;&lt;/p&gt;'</span>,</span><br><span class="line">            <span class="string">'&lt;/form&gt;'</span></span><br><span class="line">        ].join(<span class="string">''</span>));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">'/url'</span> == req.url &amp;&amp; <span class="string">'POST'</span> == req.method) &#123;</span><br><span class="line">        <span class="keyword">var</span> body = <span class="string">''</span>;</span><br><span class="line">        req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">            body += chunk;</span><br><span class="line">        &#125;);</span><br><span class="line">        req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span>: <span class="string">"text/html"</span> &#125;);</span><br><span class="line">            <span class="comment">//使用querystring处理</span></span><br><span class="line">            res.end(<span class="string">'&lt;p&gt;Your name is &lt;b&gt;'</span> + qs.parse(body).name + <span class="string">'&lt;/b&gt;&lt;/p&gt;'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//404处理</span></span><br><span class="line">        res.writeHead(<span class="number">404</span>);</span><br><span class="line">        res.end(<span class="string">'Not Found'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h1 id="一个Twitter-Web客户端"><a href="#一个Twitter-Web客户端" class="headerlink" title="一个Twitter Web客户端"></a>一个Twitter Web客户端</h1><hr>
 <h2 id="创建模块-1"><a href="#创建模块-1" class="headerlink" title="创建模块"></a>创建模块</h2><blockquote>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"tweet-client"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"An HTTP tweets client"</span>,</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.0.1"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="发送一个简单的http请求"><a href="#发送一个简单的http请求" class="headerlink" title="发送一个简单的http请求"></a>发送一个简单的http请求</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).request(&#123;<span class="comment">//初始化一个新的http.Client Request对象</span></span><br><span class="line">    host: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    url: <span class="string">'/'</span>,</span><br><span class="line">    method: <span class="string">'GET'</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> body = <span class="string">""</span>;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        body += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'\r\n We got: \033[96m'</span> + body + <span class="string">'\033[39m\r\n'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).end();<span class="comment">//调用end(): 原因是创建完一个请求之后，在发送给服务器前还可以和request对象进行交互</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">We got: &lt;form method=&quot;POST&quot; action=&quot;url&quot; &lt;h1&gt;My form&lt;/h1&gt;&lt;fieldset&gt;&lt;label&gt;Personal information&lt;/label&gt;&lt;p&gt;What is your name?&lt;/p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot;&lt;p&gt;&lt;button&gt;Submit&lt;/button&gt;&lt;/p&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="模拟一次请求"><a href="#模拟一次请求" class="headerlink" title="模拟一次请求"></a>模拟一次请求</h2><blockquote>
 <p>服务端</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body = <span class="string">''</span>;</span><br><span class="line">    req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        body += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">'done'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'\r\n got name \033[90m'</span> + qs.parse(body).name + <span class="string">'\033[39m\r\n'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>客户端</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">theName</span>) </span>&#123;</span><br><span class="line">    http.request(&#123;</span><br><span class="line">        host: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">        port: <span class="number">3000</span>,</span><br><span class="line">        url: <span class="string">'/'</span>,</span><br><span class="line">        method: <span class="string">'POST'</span></span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">        <span class="comment">//自己注册的事件，end事件在测试中发现需要先注册data事件</span></span><br><span class="line">        res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Data: "</span> + data);</span><br><span class="line">        &#125;)</span><br><span class="line">        res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'\r\n \033[90m request complete!\033[39m'</span>);</span><br><span class="line">            process.stdout.write(<span class="string">'\r\n your name: '</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;).end(qs.stringify(&#123;<span class="attr">name</span>: theName&#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process.stdout.write(<span class="string">'\r\n your name: '</span>);</span><br><span class="line">process.stdin.resume();</span><br><span class="line">process.stdin.setEncoding(<span class="string">'utf-8'</span>);</span><br><span class="line">process.stdin.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    send(name.replace(<span class="string">'\n'</span>, <span class="string">''</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="获取推文"><a href="#获取推文" class="headerlink" title="获取推文"></a>获取推文</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> search = process.argv.slice(<span class="number">2</span>).join(<span class="string">' '</span>).trim();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!search.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'\r\n Usage: node tweets &lt;search term&gt;\r\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'\r\n searching for: \033[96m'</span> + search + <span class="string">'\033[39m\r\n'</span>);</span><br><span class="line">http.request(&#123; <span class="comment">//also http.get(obj, func);(这种方法不用.end())</span></span><br><span class="line">    host: <span class="string">'search.twitter.com'</span>,</span><br><span class="line">    path: <span class="string">'/search.json?'</span> + qs.stringify(&#123; <span class="attr">q</span>: search &#125;)</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> body = <span class="string">''</span>;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        body += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    res.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(body);</span><br><span class="line">        obj.results.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">tweet</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'   \033[90m'</span> + tweet.text + <span class="string">'\033[39m'</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'   \033[94m'</span> + TreeWalker.from_user + <span class="string">'\033[39m'</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'--'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;).end();</span><br></pre></td></tr></table></figure>
-
 <h2 id="superagent-客户端"><a href="#superagent-客户端" class="headerlink" title="superagent(客户端)"></a>superagent(客户端)</h2><blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install superagent</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -578,6 +562,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -586,7 +578,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,15 +586,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +599,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,14 +619,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

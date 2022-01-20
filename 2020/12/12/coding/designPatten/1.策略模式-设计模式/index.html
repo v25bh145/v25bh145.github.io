@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="设计模式-总 这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。   请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。   如果您发现我的笔记&#x2F;演示程序有问题或是有什么建议，欢迎联系我    设计模式好处都有啥？  程序员间模式级别的共享语言 策略模式 “当涉及维护时，为了复用目的而使用继承，结局并不完美。”   为什么">
+  <meta name="description" content="设计模式-总 这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。 请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。 如果您发现我的笔记&#x2F;演示程序有问题或是有什么建议，欢迎联系我    设计模式好处都有啥？  程序员间模式级别的共享语言 策略模式 “当涉及维护时，为了复用目的而使用继承，结局并不完美。”   为什么”结局并">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.策略模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;coding&#x2F;designPatten&#x2F;1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="设计模式-总 这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。   请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。   如果您发现我的笔记&#x2F;演示程序有问题或是有什么建议，欢迎联系我    设计模式好处都有啥？  程序员间模式级别的共享语言 策略模式 “当涉及维护时，为了复用目的而使用继承，结局并不完美。”   为什么">
+<meta property="og:description" content="设计模式-总 这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。 请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。 如果您发现我的笔记&#x2F;演示程序有问题或是有什么建议，欢迎联系我    设计模式好处都有啥？  程序员间模式级别的共享语言 策略模式 “当涉及维护时，为了复用目的而使用继承，结局并不完美。”   为什么”结局并">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:39:15.223Z">
 <meta name="twitter:card" content="summary">
@@ -234,11 +234,7 @@
     
     <h1 id="设计模式-总"><a href="#设计模式-总" class="headerlink" title="设计模式-总"></a>设计模式-总</h1><blockquote>
 <p>这几天顺手买了本《Head First 设计模式》，打算做个笔记，当然程序演示也会放在这里。</p>
-</blockquote>
-<blockquote>
 <p>请各位配合书进行观看，这里有一些对书中抽象术语的总结与解释，并且有更完善的演示代码。</p>
-</blockquote>
-<blockquote>
 <p>如果您发现我的笔记/演示程序有问题或是有什么建议，欢迎联系<a href="https://github.com/v25bh145/" target="_blank" rel="noopener">我</a></p>
 </blockquote>
 <hr>
@@ -250,8 +246,7 @@
 <p>“当涉及<strong>维护</strong>时，为了<strong>复用</strong>目的而使用继承，结局并不完美。”</p>
 </blockquote>
 <ul>
-<li><p><strong>为什么”结局并不完美”呢?</strong> </p>
-</li>
+<li><strong>为什么”结局并不完美”呢?</strong> </li>
 <li><p>当我们想要添加某一<strong>公共特性</strong>时:</p>
 <ol>
 <li><p>我们会将其放在抽象类中，但有些子类并不需要这个特性，因此我们还需在这些不需要特性的子类中继承这个特性并<strong>置空</strong>，造成了不必要的麻烦。</p>
@@ -262,7 +257,6 @@
 </li>
 </ul>
 <a id="more"></a>
-
 <blockquote>
 <p>“找出应用中可能需要变化之处，把它们<strong>独立</strong>起来，不要和那些不需要变化的代码混在一起。”</p>
 </blockquote>
@@ -385,7 +379,7 @@
     </a>
   
   
-    <a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-09/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">CTF笔记-WEB攻防-08</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -585,6 +579,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -593,7 +595,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,15 +603,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +616,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,14 +636,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

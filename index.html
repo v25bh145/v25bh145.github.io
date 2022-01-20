@@ -218,13 +218,13 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[[toc]]</p>
+<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/08/bupRYgE8Q9jTMFv.png" alt="image-20220108154627238"></p>
-<ol start="2">
+<ol>
 <li>本文可能需要的前置知识：<ol>
 <li>辐射度量学(radiometry)</li>
 <li>对于微表面的基本了解</li>
@@ -243,54 +243,83 @@
 <p><img src="https://s2.loli.net/2022/01/13/kSlzZIT4bdiPH6s.png" alt="image-20220113172956284"></p>
 <h3 id="斜率-slopes-的分布"><a href="#斜率-slopes-的分布" class="headerlink" title="斜率(slopes)的分布"></a>斜率(slopes)的分布</h3><p>一个微表面的模型是三维的，其中Z轴即是高度，X、Y轴则是微表面对应的平面位置。约定使用一个二维向量$(x_{\tilde m},y_{\tilde m})$来表示一个点的斜率，其中$x_{\tilde m}$表示切平面沿x轴的斜率，$y_{\tilde m}$表示切平面沿y轴的斜率，如下图所示[y轴同理]：</p>
 <p><img src="https://s2.loli.net/2022/01/14/HB7jSNapLb2cd36.png" alt="image-20220114141939640"></p>
-<p>设切平面的法线坐标为$(x_m,y_m,z_m)$，则法线在xz轴的斜率为$\frac{z_m}{x_m}$，已知切平面与法线垂直，设切平面沿x轴切线斜率为$x_{\tilde m}$，则有：<br>$$<br>x_{\tilde m}\cdot k_{\tilde n}=-1\<br>x_{\tilde m}=-\frac{x_m}{z_m}=-tan\theta_mcos\phi_m<br>$$<br>同理，得切平面沿y轴切线斜率：<br>$$<br>y_{\tilde m}=-\frac{y_m}{z_m}=-tan\theta_msin\phi_m<br>$$<br>同时，有法线$ω<em>m=(x_m,y_m,z_m)$与斜率$(x</em>{\tilde m},y_{\tilde m})$的对应关系如下：</p>
+<p>设切平面的法线坐标为$(x_m,y_m,z_m)$，则法线在xz轴的斜率为$\frac{z_m}{x_m}$，已知切平面与法线垂直，设切平面沿x轴切线斜率为$x_{\tilde m}$，则有：</p>
+<script type="math/tex; mode=display">
+x_{\tilde m}\cdot k_{\tilde n}=-1\\
+x_{\tilde m}=-\frac{x_m}{z_m}=-tan\theta_mcos\phi_m</script><p>同理，得切平面沿y轴切线斜率：</p>
+<script type="math/tex; mode=display">
+y_{\tilde m}=-\frac{y_m}{z_m}=-tan\theta_msin\phi_m</script><p>同时，有法线$ω_m=(x_m,y_m,z_m)$z与斜率$(x_{\tilde m},y_{\tilde m})$的对应关系如下：</p>
 <p><img src="https://s2.loli.net/2022/01/14/jxCIe27QwsdyDES.png" alt="image-20220114142824160"></p>
-<p>我们记斜率的分布为$P^{22}(x_{\tilde m},y_{\tilde m})$，由分布之间的变换得，从$P^{22}(x_{\tilde m},y_{\tilde m})$变换到$D(ω<em>m)$的公式为：<br>$$<br>D(ω_m)=\frac{P^{22}(x</em>{\tilde m},y_{\tilde m})}{|J_T|}<br>$$<br>为便于表示，设$x^2+y^2+1=t$，有雅可比行列式：<br>$$<br>\begin{aligned}J_T=&amp;\begin{pmatrix}\frac{\partial ω<em>{mx}}{\partial x</em>{\tilde m}}&amp;\frac{\partial ω<em>{my}}{\partial x</em>{\tilde m}}\\frac{\partial ω<em>{mx}}{\partial y</em>{\tilde m}}&amp;\frac{\partial ω<em>{my}}{\partial y</em>{\tilde m}}\end{pmatrix}\=&amp;\begin{pmatrix}\frac{x^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}&amp;\frac{xyt^{-\frac{1}{2}}}{t}\\frac{xyt^{-\frac{1}{2}}}{t}&amp;\frac{y^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}\end{pmatrix}\end{aligned}<br>$$<br>求解行列式|J_T|并化简，代入球坐标式，则有：<br>$$<br>|J_T|=\frac{1}{cos^4\theta_m}<br>$$<br><img src="https://s2.loli.net/2022/01/14/Ccb1UiyzJwhnVl9.png" alt="image-20220114144357090"></p>
+<p>我们记斜率的分布为$P^{22}(x_{\tilde m},y_{\tilde m})$，由分布之间的变换得，从$P^{22}(x_{\tilde m},y_{\tilde m})$变换到$D(ω_m)$的公式为：</p>
+<script type="math/tex; mode=display">
+D(ω_m)=\frac{P^{22}(x_{\tilde m},y_{\tilde m})}{|J_T|}</script><p>为便于表示，设$x^2+y^2+1=t$，有雅可比行列式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}J_T=&\begin{pmatrix}\frac{\partial ω_{mx}}{\partial x_{\tilde m}}&\frac{\partial ω_{my}}{\partial x_{\tilde m}}\\\frac{\partial ω_{mx}}{\partial y_{\tilde m}}&\frac{\partial ω_{my}}{\partial y_{\tilde m}}\end{pmatrix}\\=&\begin{pmatrix}\frac{x^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}&\frac{xyt^{-\frac{1}{2}}}{t}\\\frac{xyt^{-\frac{1}{2}}}{t}&\frac{y^2t^{-\frac{1}{2}}-t^{\frac{1}{2}}}{t}\end{pmatrix}\end{aligned}</script><p>求解行列式|J_T|并化简，代入球坐标式，则有：</p>
+<script type="math/tex; mode=display">
+|J_T|=\frac{1}{cos^4\theta_m}</script><p><img src="https://s2.loli.net/2022/01/14/Ccb1UiyzJwhnVl9.png" alt="image-20220114144357090"></p>
 <h3 id="各向同性形状不变性的斜率分布"><a href="#各向同性形状不变性的斜率分布" class="headerlink" title="各向同性形状不变性的斜率分布"></a>各向同性形状不变性的斜率分布</h3><p>形状不变性即为将微表面模型沿x、y伸展后微表面(平均？)高度不发生变化的性质。为了将拉伸形状后的微表面模型与现有模型等效，引入粗糙度α，当改变α时仅仅改变拉伸的比例，并不改变微表面的形状，新的法线分布函数形式为：$P^{22}(x_{\tilde m},y_{\tilde m},α)$。</p>
 <p>斜率经过改变后，变为$\frac{tan\theta_m}{\alpha}$，如下图：</p>
 <p><img src="https://s2.loli.net/2022/01/15/YkOJtAnTvI5Dlyi.png" alt="image-20220115135537338"></p>
-<p>因此设法线分布的函数为：<br>$$<br>P^{22}(x_{\tilde m},y_{\tilde m},α)=Cf(\frac{tan\theta_m}{α})<br>$$</p>
-<h4 id="求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看"><a href="#求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看" class="headerlink" title="求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]"></a>求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]</h4><blockquote>
+<p>因此设法线分布的函数为：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m},α)=Cf(\frac{tan\theta_m}{α})</script><h4 id="求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看"><a href="#求出C值-注-本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看" class="headerlink" title="求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]"></a>求出C值[注:本段论文没有出处，也没有相关公式证明，属擅自推导，请辩证观看]</h4><blockquote>
 <p> 论文直接给出了$P^{22}(x_{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})$，我很好奇$\frac{1}{α^2}$是怎么推导出的，因此尝试进行了以下证明：</p>
 </blockquote>
-<p>将$P^{22}(x_{\tilde m},y_{\tilde m},α)$转换为$D(ω_m)$，得：<br>$$<br>D(ω_m)=\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}<br>$$<br>已知：</p>
+<p>将$P^{22}(x_{\tilde m},y_{\tilde m},α)$转换为$D(ω_m)$，得：</p>
+<script type="math/tex; mode=display">
+D(ω_m)=\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}</script><p>已知：</p>
 <ol>
 <li>$\int_\Omega |ω_m\cdot ω_g|D(ω_m)dω_m=1$</li>
 <li>$|ω_m\cdot ω_g|=|(cos\phi_m sin\theta_m,\sin\phi_m\sin\theta_m,\cos\theta_m)\cdot(0,0,1)|=cos\theta_m$</li>
 </ol>
-<p>将上式代入已知，得出：<br>$$<br>\begin{aligned}<br>\int_\Omega cos\theta_m\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}d\omega<br>=&amp;\int^{2\pi}<em>0\int^{\frac{\pi}{2}}_0\frac{Ctan\theta_mf(\frac{tan\theta_m}{α})}{cos^2\theta_m}d\theta_md\phi_m\<br>=&amp;2\pi\int^{\frac{\pi}{2}}_0Ctan\theta_mf(\frac{tan\theta_m}{α})dtan\theta_m\<br>=&amp;2\pi\int^{\infin}_0Ctf(\frac{t}{α})dt\<br>=&amp;2\pi Cα^2\int^{\infin}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\<br>=&amp;Cα^2\int^{\infin}_0uf(u)du=1<br>\end{aligned}<br>$$<br>因为f是关于$\frac{tan\theta_m}{α}$的函数，当代入变量时f是关于u的函数，因此f中不包含变量α，因此积分项中没有变量α，故C中包含有变量项$\frac{1}{α^2}$，不妨就设$C=\frac{1}{α^2}$，同时可得以下两式：<br>$$<br>P^{22}(x</em>{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})<br>$$</p>
-<p>$$<br>\int^{\infin}_0xf(x)dx=1<br>$$</p>
-<p>由斜率概率密度得出法线概率密度得：<br>$$<br>D(\omega_m)=\frac{1}{cos\theta^4_mα^2}f(\frac{tan\theta_m}{α})<br>$$</p>
-<h4 id="各向同性形状不变性的形式化定义"><a href="#各向同性形状不变性的形式化定义" class="headerlink" title="各向同性形状不变性的形式化定义"></a>各向同性形状不变性的形式化定义</h4><p>若斜率分布密度函数对于$\lambda&gt;0$，有以下成立，则该斜率分布函数满足形状不变性。</p>
+<p>将上式代入已知，得出：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\int_\Omega cos\theta_m\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}d\omega
+=&\int^{2\pi}_0\int^{\frac{\pi}{2}}_0\frac{Ctan\theta_mf(\frac{tan\theta_m}{α})}{cos^2\theta_m}d\theta_md\phi_m\\
+=&2\pi\int^{\frac{\pi}{2}}_0Ctan\theta_mf(\frac{tan\theta_m}{α})dtan\theta_m\\
+=&2\pi\int^{\infin}_0Ctf(\frac{t}{α})dt\\
+=&2\pi Cα^2\int^{\infin}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\\
+=&Cα^2\int^{\infin}_0uf(u)du=1
+\end{aligned}</script><p>因为f是关于$\frac{tan\theta_m}{α}$的函数，当代入变量时f是关于u的函数，因此f中不包含变量α，因此积分项中没有变量α，故C中包含有变量项$\frac{1}{α^2}$，不妨就设$C=\frac{1}{α^2}$，同时可得以下两式：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})</script><script type="math/tex; mode=display">
+\int^{\infin}_0xf(x)dx=1</script><p>由斜率概率密度得出法线概率密度得：</p>
+<script type="math/tex; mode=display">
+D(\omega_m)=\frac{1}{cos\theta^4_mα^2}f(\frac{tan\theta_m}{α})</script><h4 id="各向同性形状不变性的形式化定义"><a href="#各向同性形状不变性的形式化定义" class="headerlink" title="各向同性形状不变性的形式化定义"></a>各向同性形状不变性的形式化定义</h4><p>若斜率分布密度函数对于$\lambda&gt;0$，有以下成立，则该斜率分布函数满足形状不变性。</p>
 <p><img src="https://s2.loli.net/2022/01/14/FBroxSEAk4wZX8M.png" alt="image-20220114165608527"></p>
 <h4 id="各向同性Beckmann分布"><a href="#各向同性Beckmann分布" class="headerlink" title="各向同性Beckmann分布"></a>各向同性Beckmann分布</h4><p><img src="https://s2.loli.net/2022/01/14/QoKWYenfaGLR6U1.png" alt="image-20220114165638203"></p>
 <p><img src="https://s2.loli.net/2022/01/14/7QEGkbePmZ5BHhS.png" alt="image-20220114165654110"></p>
 <p><img src="https://s2.loli.net/2022/01/14/xUlEhrja47TNz2G.png" alt="image-20220114165739301"></p>
 <p>其中，Λ函数与$G_1$遮挡项有关(见前，$G_1(ω_0)=\frac{1}{1+Λ(ω_0)}$)，设$a=\frac{1}{\alpha tan\theta_o}$，也可以对Λ函数取函数逼近，结果为：</p>
 <p><img src="https://s2.loli.net/2022/01/14/gQXLOPTMkloGhUb.png" alt="image-20220114165959026"></p>
-<p>容易证得，Beckmann分布的函数f是满足上述推导约束($\int^{\infin}_0xf(x)dx=1$)的。</p>
+<p>容易证得，Beckmann分布的函数f是满足上述推导约束($\int^{\infty}_0xf(x)dx=1$)的。</p>
 <h4 id="各向同性GGX分布"><a href="#各向同性GGX分布" class="headerlink" title="各向同性GGX分布"></a>各向同性GGX分布</h4><p><img src="https://s2.loli.net/2022/01/14/iuEd4kVXfvQrzJS.png" alt="image-20220114170130830"></p>
 <p><img src="https://s2.loli.net/2022/01/14/o9hNuVMjcTOQany.png" alt="image-20220114170136836"></p>
 <p><img src="https://s2.loli.net/2022/01/14/3nxhgLArIG9RwpF.png" alt="image-20220114170143150"></p>
 <p>函数定义以及相关说明见Beckmann分布。</p>
-<h3 id="各向异性形状不变性的斜率分布"><a href="#各向异性形状不变性的斜率分布" class="headerlink" title="各向异性形状不变性的斜率分布"></a>各向异性形状不变性的斜率分布</h3><p>由上文同理得，各向异性可将α分别拆成沿x, y方向的$α<em>x,α_y$，由此公式变为$P^{22}(x</em>{\tilde m},y_{\tilde m},α_x,α_y)$：</p>
+<h3 id="各向异性形状不变性的斜率分布"><a href="#各向异性形状不变性的斜率分布" class="headerlink" title="各向异性形状不变性的斜率分布"></a>各向异性形状不变性的斜率分布</h3><p>由上文同理得，各向异性可将α分别拆成沿x, y方向的$α_x,α_y$，由此公式变为$P^{22}(x_{\tilde m},y_{\tilde m},α_x,α_y)$：</p>
 <p><img src="https://s2.loli.net/2022/01/15/fyAinSXPGaZg43o.png" alt="image-20220115130649328"></p>
 <p><img src="https://s2.loli.net/2022/01/15/VEbrkpxiZ9TuKvn.png" alt="image-20220115131634842"></p>
-<p>经过各向异性变换后的斜率为：<br>$$<br>\frac{1}{tan\theta_o’}=\frac{1}{\sqrt{α_x^2x_o^2+α_y^2y_o^2}}=\frac{1}{tan\theta_o\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}}<br>$$<br>设$α_o=\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}$，含义为投影到$\omega_o$的α值。</p>
+<p>经过各向异性变换后的斜率为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{tan\theta_o'}=\frac{1}{\sqrt{α_x^2x_o^2+α_y^2y_o^2}}=\frac{1}{tan\theta_o\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}}</script><p>设$α_o=\sqrt{cos^2\phi_oα_x^2+sin^2\phi_oα_y^2}$，含义为投影到$\omega_o$的α值。</p>
 <h4 id="各向异性形状不变性的形式化定义"><a href="#各向异性形状不变性的形式化定义" class="headerlink" title="各向异性形状不变性的形式化定义"></a>各向异性形状不变性的形式化定义</h4><p><img src="https://s2.loli.net/2022/01/15/Our5jbaWlMhnpP2.png" alt="image-20220115130724073"></p>
 <h4 id="各向异性Beckmann分布"><a href="#各向异性Beckmann分布" class="headerlink" title="各向异性Beckmann分布"></a>各向异性Beckmann分布</h4><p><img src="https://s2.loli.net/2022/01/15/OK51mYWFntMjdpe.png" alt="image-20220115131412592"></p>
 <p><img src="https://s2.loli.net/2022/01/15/usNnXhkGfjpl4d8.png" alt="image-20220115131420517"></p>
 <p><img src="https://s2.loli.net/2022/01/15/OZD71y96Fhxrzck.png" alt="image-20220115131427005"></p>
 <p>其中，$α_o,a$在前文定义过。</p>
 <h4 id="各向异性GGX分布"><a href="#各向异性GGX分布" class="headerlink" title="各向异性GGX分布"></a>各向异性GGX分布</h4><p><img src="https://s2.loli.net/2022/01/15/8G5ph43OKx1yq2L.png" alt="image-20220115131526215"></p>
-<p><img src="C:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220115131533981.png" alt="image-20220115131533981"></p>
+<p><img src="C:\Users\v25bh\AppData\Roaming\Typora\typora-user-images\image-20220115131533981.png" alt="image-20220115131533981"></p>
 <p><img src="https://s2.loli.net/2022/01/15/hSCnemdDx5BAbuP.png" alt="image-20220115131555364"></p>
 <p>其中，$α_o,a$在前文定义过。</p>
-<h3 id="非轴方向对齐的拉伸"><a href="#非轴方向对齐的拉伸" class="headerlink" title="非轴方向对齐的拉伸"></a>非轴方向对齐的拉伸</h3><p>设经过调整α改变后的微表面斜率变为$\sqrt{||\tilde m||^2_Q}$，$\tilde m=(x_{\tilde m},y_{\tilde m})$，则广义的斜率分布公式与$α<em>o$变量为：<br>$$<br>P^{22}(x</em>{\tilde m},y_{\tilde m})=\frac{1}{α_xα_y}f(\sqrt{||\tilde m||^2_Q})<br>$$</p>
-<p>$$<br>\frac{1}{tan\theta_o’}=\frac{z_o}{\sqrt{||(x_o,y_o)||^2_Q}}<br>$$</p>
-<p>其中，$||\tilde m||<em>Q$为马氏距离(Mahalanobis Distance)。当$α_x,α_y$不相关(相关系数$r</em>{xy}=0$)时，马氏距离退化为欧几里得距离($\frac{tan\theta_m}{\alpha}$)，反之，我们需求E-距离矩阵：<br>$$<br>Q^{-1}=\begin{pmatrix}α^2_x&amp;r_{xy}α<em>xα_y\r</em>{xy}α_xα_y&amp;α^2_y\end{pmatrix}<br>$$</p>
-<p>$$<br>||\tilde m||^2=\sqrt{&lt;\tilde m,\tilde m&gt;}=\sqrt{\tilde m^TQ\tilde m}<br>$$</p>
-<p>其中$r_{xy}\in[-1,1]$为相关系数，求得的结果为：</p>
+<h3 id="非轴方向对齐的拉伸"><a href="#非轴方向对齐的拉伸" class="headerlink" title="非轴方向对齐的拉伸"></a>非轴方向对齐的拉伸</h3><p>设经过调整α改变后的微表面斜率变为$\sqrt{||\tilde m||^2_Q}$，$\tilde m=(x_{\tilde m},y_{\tilde m})$，则广义的斜率分布公式与$α_o$变量为：</p>
+<script type="math/tex; mode=display">
+P^{22}(x_{\tilde m},y_{\tilde m})=\frac{1}{α_xα_y}f(\sqrt{||\tilde m||^2_Q})</script><script type="math/tex; mode=display">
+\frac{1}{tan\theta_o'}=\frac{z_o}{\sqrt{||(x_o,y_o)||^2_Q}}</script><p>其中，$||\tilde m||_Q$为马氏距离(Mahalanobis Distance)。当$α_x,α_y$不相关(相关系数$r_{xy}=0$)时，马氏距离退化为欧几里得距离($\frac{tan\theta_m}{\alpha}$)，反之，我们需求E-距离矩阵：</p>
+<script type="math/tex; mode=display">
+Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}</script><script type="math/tex; mode=display">
+||\tilde m||^2=\sqrt{<\tilde m,\tilde m>}=\sqrt{\tilde m^TQ\tilde m}</script><p>其中$r_{xy}\in[-1,1]$为相关系数，求得的结果为：</p>
 <p><img src="https://s2.loli.net/2022/01/15/unwx3C2hFrASJcm.png" alt="image-20220115143222160"></p>
 <p><img src="https://s2.loli.net/2022/01/15/bSGRDWfBeApamxs.png" alt="image-20220115143229444"></p>
 <h2 id="Smith联合遮罩-阴影函数"><a href="#Smith联合遮罩-阴影函数" class="headerlink" title="Smith联合遮罩-阴影函数"></a>Smith联合遮罩-阴影函数</h2><p>这里将开始讨论遮罩函数与阴影函数的组合方式，共分为分离式、高度关联、方向关联与高度-方向关联。</p>
@@ -396,13 +425,13 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[[toc]]</p>
+<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/08/bupRYgE8Q9jTMFv.png" alt="image-20220108154627238"></p>
-<ol start="2">
+<ol>
 <li>本文可能需要的前置知识：<ol>
 <li>辐射度量学(radiometry)</li>
 <li>对于微表面的基本了解</li>
@@ -417,7 +446,7 @@
 <h2 id="基于物理-不基于物理的遮罩函数"><a href="#基于物理-不基于物理的遮罩函数" class="headerlink" title="基于物理/不基于物理的遮罩函数"></a>基于物理/不基于物理的遮罩函数</h2><h3 id="Smith微表面轮廓-surface"><a href="#Smith微表面轮廓-surface" class="headerlink" title="Smith微表面轮廓(surface)"></a>Smith微表面轮廓(surface)</h3><h4 id="法线的独立性"><a href="#法线的独立性" class="headerlink" title="法线的独立性"></a>法线的独立性</h4><p>Smith微表面假设微表面内的所有法线都是位置不相关的，即法线(所在点)高度与法线(所在点)临近的法线(所在点)的高度无关，呈随机分布，如下图右：</p>
 <p><img src="https://s2.loli.net/2022/01/12/qxbPBUJmiYQM4zN.png" alt="image-20220112151534731"></p>
 <p>若法线高度与所在位置无关，则在远处其他<strong>自身微表面部分</strong>对法线所在点部分的遮挡中，并没有法线方向本身这一要素的参与，即可以分离$G_1$公式如下(dist=&gt;distance)：</p>
-<p><img src="C:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220112151541845.png" alt="image-20220112151541845"></p>
+<p><img src="C:\Users\v25bh\AppData\Roaming\Typora\typora-user-images\image-20220112151541845.png" alt="image-20220112151541845"></p>
 <p>其中，$G^{local}_1$为法线所在点自身的遮挡(即从$\omega_o$方向是否看得到法线方向为$\omega_m$的点)，因此是一个二进制函数(表示方法见前”注意”部分)：</p>
 <p><img src="https://s2.loli.net/2022/01/12/DS4lAIkuB2HTaRx.png" alt="image-20220112151722573"></p>
 <h4 id="遮罩函数的推导部分"><a href="#遮罩函数的推导部分" class="headerlink" title="遮罩函数的推导部分"></a>遮罩函数的推导部分</h4><p>由$cos\theta_o=\int_{\Omega}G_1(\omega_o,\omega_m)&lt;\omega_o,\omega_m&gt;D(\omega_m)d\omega_m$，我们将$G_1$的分离式代入，得：</p>
@@ -433,7 +462,7 @@
 <p>微表面的NDF(Normal Distribution Function，法线概率密度函数)D(ω)如下：</p>
 <p><img src="https://s2.loli.net/2022/01/12/sl7XQoqAxKr1JcI.png" alt="image-20220112155039943"></p>
 <p>由于一个微表面只有两条法线，因此使用了Delta函数，若$ω_h$等于其中一条法线，D(ω)即有值，且满足约束式：</p>
-<p><img src="C:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220112155422367.png" alt="image-20220112155422367"></p>
+<p><img src="C:\Users\v25bh\AppData\Roaming\Typora\typora-user-images\image-20220112155422367.png" alt="image-20220112155422367"></p>
 <p>代入D(ω)到投影的恒等式$cos\theta_o=\int_\Omega G_1(ω_o,ω)&lt;ω_o,ω&gt;D(ω)dω$中，得出：</p>
 <p><img src="https://s2.loli.net/2022/01/13/2ATisJnBjU9lroO.png" alt="image-20220113164233847"></p>
 <p>对于得出的函数结果，由于钳制点积，存在三种情况：$ω_o$与$ω_m,ω_m’$其中之一处于同一半球面，$ω_o$与$ω_m,ω_m’$均处于同一半球面，$ω_o$与$ω_m,ω_m’$均不处于同一半球面，由于第三种情况结果为0，因此可以忽略，下面分析前两种情况，情况如下图：</p>
@@ -454,8 +483,9 @@
 <p><img src="https://s2.loli.net/2022/01/13/aVNeHkI9iyZvDLp.png" alt="image-20220113165002030"></p>
 <h4 id="证明-D-ω-o-ω-m-满足约束"><a href="#证明-D-ω-o-ω-m-满足约束" class="headerlink" title="证明$D_{ω_o}(ω_m)$满足约束"></a>证明$D_{ω_o}(ω_m)$满足约束</h4><p>同理，分为两种情况：</p>
 <ol>
-<li><p>$ω<em>o$与$ω_m,ω_m’$均处于同一半球面<br>$$<br>\int_\Omega D</em>{ω_o}(ω_m)dω_m=\int_\Omega \frac{&lt;ω_o,ω_m&gt;D(ω_m)}{cos\theta_o}dω_m=\frac{cos\theta_o}{cos\theta_o}=1<br>$$</p>
-</li>
+<li><p>$ω_o$与$ω_m,ω_m’$均处于同一半球面</p>
+<script type="math/tex; mode=display">
+\int_\Omega D_{ω_o}(ω_m)dω_m=\int_\Omega \frac{<ω_o,ω_m>D(ω_m)}{cos\theta_o}dω_m=\frac{cos\theta_o}{cos\theta_o}=1</script></li>
 <li><p>$ω_o$与$ω_m,ω_m’$其中之一处于同一半球面</p>
 <p>同，假设$ω_o$与$ω_m$处于同一半球面，对于$ω_m’$情况同理：</p>
 <p><img src="https://s2.loli.net/2022/01/13/HpJzsVc1Lyliw7g.png" alt="image-20220113165754509"></p>
@@ -484,7 +514,7 @@
 <h4 id="隐式遮罩函数"><a href="#隐式遮罩函数" class="headerlink" title="隐式遮罩函数"></a>隐式遮罩函数</h4><p>为了简化基于镜面的BRDF等式，移除了$G_2$函数并将分母的$|ω_g\cdot ω_o||ω_g\cdot ω_i|$用于抵消移除$G_2$函数的影响，$G_2$被隐式定义为：</p>
 <p><img src="https://s2.loli.net/2022/01/13/LyinTHICaYAQ5u4.png" alt="image-20220113171632249"></p>
 <p>其中两项$G_1$分别被简化为：</p>
-<p><img src="C:%5CUsers%5Cv25bh%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220113171717445.png" alt="image-20220113171717445"></p>
+<p><img src="C:\Users\v25bh\AppData\Roaming\Typora\typora-user-images\image-20220113171717445.png" alt="image-20220113171717445"></p>
 <p>当$ω_o=ω_g$时$G_1=1$，简化式看似是合理的，但是其并不是基于物理的。</p>
 <h4 id="Kelemen遮罩函数"><a href="#Kelemen遮罩函数" class="headerlink" title="Kelemen遮罩函数"></a>Kelemen遮罩函数</h4><p>V-Cavity的一种廉价计算方式，简化以下式得：</p>
 <p><img src="https://s2.loli.net/2022/01/13/p62acIuxFOkd7SL.png" alt="image-20220113172416975"></p>
@@ -584,13 +614,13 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[[toc]]</p>
+<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/08/bupRYgE8Q9jTMFv.png" alt="image-20220108154627238"></p>
-<ol start="2">
+<ol>
 <li>本文可能需要的前置知识：<ol>
 <li>辐射度量学(radiometry)</li>
 <li>对于微表面的基本了解</li>
@@ -608,22 +638,28 @@
 <h3 id="微表面面积、两种积分"><a href="#微表面面积、两种积分" class="headerlink" title="微表面面积、两种积分"></a>微表面面积、两种积分</h3><p>之后提出了两种计算平面面积的方式，分别是空间(spatial)积分与统计学(statistical)积分：</p>
 <p>空间积分即是简单地遍历面上各点，而统计学积分需要使用<strong>法线分布函数</strong>D。法线分布函数是个概率密度函数，D(w)表示w方向的法线在整个法线中出现的概率：</p>
 <p><img src="https://s2.loli.net/2022/01/08/kOU4xM1sNPJThy9.png" alt="image-20220108155247548"></p>
-<p>其中$p_m$指微表面M上的任意一点，$\omega_m$指任意一条法线，$\Omega$指体积角空间。而在计算有关微表面有关的函数时，也出现了两种计算的方式：<br>$$<br>\int_Mg(p_m)dp_m=\int_{\Omega}g(\omega_m)D(\omega_m)d\omega_m<br>$$<br>其中$\omega(p)$指在微表面p处的法线方向。</p>
+<p>其中$p_m$指微表面M上的任意一点，$\omega_m$指任意一条法线，$\Omega$指体积角空间。而在计算有关微表面有关的函数时，也出现了两种计算的方式：</p>
+<script type="math/tex; mode=display">
+\int_Mg(p_m)dp_m=\int_{\Omega}g(\omega_m)D(\omega_m)d\omega_m</script><p>其中$\omega(p)$指在微表面p处的法线方向。</p>
 <p>随后，给出了关于微表面空间的点函数转换为关于体积角空间的法线函数：</p>
 <p><img src="https://s2.loli.net/2022/01/08/uohHcjiTNf8QdAq.png" alt="image-20220108160021102"></p>
-<p>其中$\delta_\omega$是Delta函数，仅当自变量等于$\omega$时有非零值，Delta函数还有如下公式(性质)：<br>$$<br>\int^{\infin}_{-\infin}\delta(x)dx=1<br>$$</p>
-<h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
+<p>其中$\delta_\omega$是Delta函数，仅当自变量等于$\omega$时有非零值，Delta函数还有如下公式(性质)：</p>
+<script type="math/tex; mode=display">
+\int^{\infin}_{-\infin}\delta(x)dx=1</script><h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
 <p>由图得，$projected\ area=area*cos\theta_0$，因此得出：</p>
 <p><img src="https://s2.loli.net/2022/01/08/Ccz8hIiqxfmlUkL.png" alt="image-20220108160730843"></p>
 <h3 id="遮罩函数-masking-function"><a href="#遮罩函数-masking-function" class="headerlink" title="遮罩函数(masking function)"></a>遮罩函数(masking function)</h3><p>投影的区域不止是从$\omega_o$方向看几何平面的面积，也可以是从$\omega_o$看微表面的可见面积(visible microfacet)。</p>
-<p>因此可设空间(spatial)函数$G_1(\omega_o,p_m)$为一个函数，若$p_m$于$\omega_o$方向被遮挡，则值为0，否则其值为1。根据积分转换(上文)的公式，可以将空间函数G1转换为统计学函数$G_1(\omega_o,\omega_m)$：<br>$$<br>projected\ area=\int_MG_1(\omega_o,p_m)&lt;\omega_o,\omega_m(p_m)&gt;dp_m\<br>G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_m}{\int_M\delta_\omega(\omega_m(p_m))dp_m}<br>$$<br>其中&lt;a,b&gt;为夹(clamped)点积，若(a,b)小于零则取0，大于0则取正常点积结果。</p>
+<p>因此可设空间(spatial)函数$G_1(\omega_o,p_m)$为一个函数，若$p_m$于$\omega_o$方向被遮挡，则值为0，否则其值为1。根据积分转换(上文)的公式，可以将空间函数G1转换为统计学函数$G_1(\omega_o,\omega_m)$：</p>
+<script type="math/tex; mode=display">
+projected\ area=\int_MG_1(\omega_o,p_m)<\omega_o,\omega_m(p_m)>dp_m\\
+G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_m}{\int_M\delta_\omega(\omega_m(p_m))dp_m}</script><p>其中<a,b>为夹(clamped)点积，若(a,b)小于零则取0，大于0则取正常点积结果。</p>
 <p>统计学函数的值域为[0,1]，表示$\omega$法线方向的点从$\omega_m$看被微表面自身遮挡的概率(或者说，比例)。被自身遮挡的情况如下图黑色部分：</p>
 <p><img src="https://s2.loli.net/2022/01/09/gBkdsrpPcIJYFQi.png" alt="image-20220109095008213"></p>
 <h4 id="遮罩函数满足的约束"><a href="#遮罩函数满足的约束" class="headerlink" title="遮罩函数满足的约束"></a>遮罩函数满足的约束</h4><ol>
 <li>如前所述，遮罩函数计算的微表面可视面积须等于几何平面投影到$\omega_o$的面积，即约束如下：</li>
 </ol>
 <p><img src="https://s2.loli.net/2022/01/09/mq9fNEMZ1GXVlBp.png" alt="image-20220109095157881"></p>
-<ol start="2">
+<ol>
 <li>微表面还需满足一种约束，称微表面轮廓(microsurface profile)，第一种约束仅限制了法线方向，并没有限制法线所在点的位置。</li>
 </ol>
 <h2 id="微表面BRDFs的推导"><a href="#微表面BRDFs的推导" class="headerlink" title="微表面BRDFs的推导"></a>微表面BRDFs的推导</h2><h3 id="对辐亮度公式的展开"><a href="#对辐亮度公式的展开" class="headerlink" title="对辐亮度公式的展开"></a>对辐亮度公式的展开</h3><p>根据上述D、$G_1$函数的定义，我们可以导出进入微表面的辐亮度公式：</p>
@@ -633,7 +669,11 @@
 <p><img src="https://s2.loli.net/2022/01/09/Wcz2EsgeUYVQy36.png" alt="image-20220109101254604"></p>
 <p>由于遮罩函数的约束，得出$\int_\Omega D_{\omega_o}(\omega_m)d\omega_m=1$，原公式也可以展开为：</p>
 <p><img src="https://s2.loli.net/2022/01/09/8zb13FyAoTjBmdU.png" alt="image-20220109101524331"></p>
-<h3 id="构建局部与整体BRDF函数"><a href="#构建局部与整体BRDF函数" class="headerlink" title="构建局部与整体BRDF函数"></a>构建局部与整体BRDF函数</h3><p>由于BRDF的定义，设局部(含$\omega_m$项)BRDF$\rho_M(\omega_o,\omega_i,\omega_m)$：<br>$$<br>\rho_M(\omega_o,\omega_i,\omega_m)=\frac{dL(\omega_o.\omega_m)}{&lt;\omega_i,\omega_m&gt;L(\omega_i)d\omega_i}<br>$$<br>我们将公式中的$d_L(\omega_o,\omega_m)$推导出来代入辐亮度的展开式的微分形式：<br>$$<br>\begin{aligned}dL(\omega_o,M)=&amp;\int_{\Omega}dL(\omega_o,\omega_m)D_{\omega_o}(\omega_m)d\omega_m\=&amp;\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)&lt;\omega_i,\omega_m&gt;L(\omega_i)d\omega_i D_{\omega_o}(\omega_m)d\omega_m\=&amp;L(\omega_i)d\omega_i\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)&lt;\omega_i,\omega_m&gt;D_{\omega_o}(\omega_m)d\omega_m\end{aligned}<br>$$<br>设与微分项$\omega_m$无关的整个微表面的BRDF函数$\rho(\omega_o,\omega_i)=\frac{dL(\omega_o,M)}{cos\theta_iL(\omega_i)d\omega_i}$，代入上式则有：</p>
+<h3 id="构建局部与整体BRDF函数"><a href="#构建局部与整体BRDF函数" class="headerlink" title="构建局部与整体BRDF函数"></a>构建局部与整体BRDF函数</h3><p>由于BRDF的定义，设局部(含$\omega_m$项)BRDF$\rho_M(\omega_o,\omega_i,\omega_m)$：</p>
+<script type="math/tex; mode=display">
+\rho_M(\omega_o,\omega_i,\omega_m)=\frac{dL(\omega_o.\omega_m)}{<\omega_i,\omega_m>L(\omega_i)d\omega_i}</script><p>我们将公式中的$d_L(\omega_o,\omega_m)$推导出来代入辐亮度的展开式的微分形式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}dL(\omega_o,M)=&\int_{\Omega}dL(\omega_o,\omega_m)D_{\omega_o}(\omega_m)d\omega_m\\=&\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)<\omega_i,\omega_m>L(\omega_i)d\omega_i D_{\omega_o}(\omega_m)d\omega_m\\=&L(\omega_i)d\omega_i\int_{\Omega}\rho_M(\omega_o,\omega_i,\omega_m)<\omega_i,\omega_m>D_{\omega_o}(\omega_m)d\omega_m\end{aligned}</script><p>设与微分项$\omega_m$无关的整个微表面的BRDF函数$\rho(\omega_o,\omega_i)=\frac{dL(\omega_o,M)}{cos\theta_iL(\omega_i)d\omega_i}$，代入上式则有：</p>
 <p><img src="https://s2.loli.net/2022/01/09/GMuPDKYz5Ag1yQH.png" alt="image-20220109102709140"></p>
 <p>将$D_{\omega_o}(\omega_m)$展开代入上式，则有：</p>
 <p><img src="https://s2.loli.net/2022/01/09/WsfJG5Nq26czxXh.png" alt="image-20220109102819964"></p>
@@ -648,7 +688,8 @@
 <p><img src="https://s2.loli.net/2022/01/09/NoXVm1yS5tYxC8s.png" alt="image-20220109104141086"></p>
 <p>上述推导结果并没有解析解(analytical solution)，只有拟合解(analytical fit)。</p>
 <h3 id="BRDF归一化测试"><a href="#BRDF归一化测试" class="headerlink" title="BRDF归一化测试"></a>BRDF归一化测试</h3><h4 id="白炉测试-The-White-Furnace-Test"><a href="#白炉测试-The-White-Furnace-Test" class="headerlink" title="白炉测试(The White Furnace Test)"></a>白炉测试(The White Furnace Test)</h4><p>BSDF是BRDF(反射)与BTDF(透射)的和，其定义为：$s(\omega_o,\omega_i)=\rho(\omega_o,\omega_i)+t(\omega_o,\omega_i)$，当微表面吸收率为0(就是说不吸收能量)时，满足以下约束：</p>
-<p>$$<br>\int_{\Omega_i}s(ω_o,ω_i)|ω_g,ω_i|dω_i=1\ \forall ω_o<br>$$<br>若菲涅尔项=1，则光线发生全反射，$s=\rho$，有如下测试，成为白炉测试：</p>
+<script type="math/tex; mode=display">
+\int_{\Omega_i}s(ω_o,ω_i)|ω_g,ω_i|dω_i=1\ \forall ω_o</script><p>若菲涅尔项=1，则光线发生全反射，$s=\rho$，有如下测试，成为白炉测试：</p>
 <p><img src="https://s2.loli.net/2022/01/09/9CH7WsxdKJZAFkP.png" alt="image-20220109112856425"></p>
 <p>然而，对于基于镜面反射的微表面BRDF而言，其微表面之内的遮挡被全部忽略，并没有考虑在微表面之内的多次光线弹射，由此并不通过白炉测试，基于这个原因提出了弱白炉测试。</p>
 <h4 id="弱白炉测试-The-Weak-White-Furnace-Test"><a href="#弱白炉测试-The-Weak-White-Furnace-Test" class="headerlink" title="弱白炉测试(The Weak White Furnace Test)"></a>弱白炉测试(The Weak White Furnace Test)</h4><p>弱白炉测试不考虑$ω_i$(当然也不考虑$ω_h$)与$G_2$项，仅考虑入射光线到微表面这一段。</p>
@@ -656,8 +697,9 @@
 <p><img src="https://s2.loli.net/2022/01/09/yagGjdkKvI2OQtF.png" alt="image-20220109113235061"></p>
 <p>代入白炉测试的公式，得出弱白炉测试的公式如下：</p>
 <p><img src="https://s2.loli.net/2022/01/09/ycJoLsQMkeTrKYI.png" alt="image-20220109113301719"></p>
-<p>对于基于漫反射的微表面BRDF，替换$G_2$为$G_1$，可得：<br>$$<br>\int_{\Omega_i}\frac{1}{\pi}\frac{1}{|ω<em>g\cdotω_o||ω_g\cdotω_i|}\int</em>{\Omega}&lt;ω<em>o,ω_m&gt;&lt;ω_i,ω_m&gt;G_1(ω_o,ω_m)D(ω_m)dω_m|ω_g\cdotω_i|dω_i\=\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o|}\int</em>{\Omega_i}\int_{\Omega}&lt;ω_o,ω_m&gt;&lt;ω_i,ω_m&gt;G_1(ω_o,ω_m)D(ω_m)dω_mdω_i=1<br>$$</p>
-
+<p>对于基于漫反射的微表面BRDF，替换$G_2$为$G_1$，可得：</p>
+<script type="math/tex; mode=display">
+\int_{\Omega_i}\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o||ω_g\cdotω_i|}\int_{\Omega}<ω_o,ω_m><ω_i,ω_m>G_1(ω_o,ω_m)D(ω_m)dω_m|ω_g\cdotω_i|dω_i\\=\frac{1}{\pi}\frac{1}{|ω_g\cdotω_o|}\int_{\Omega_i}\int_{\Omega}<ω_o,ω_m><ω_i,ω_m>G_1(ω_o,ω_m)D(ω_m)dω_mdω_i=1</script>
     
 
     
@@ -1046,8 +1088,6 @@
     
     <h2 id="适配器模式-amp-外观模式"><a href="#适配器模式-amp-外观模式" class="headerlink" title="适配器模式&amp;外观模式"></a>适配器模式&amp;外观模式</h2><blockquote>
 <p>交流电适配器 =&gt; “将一个接口转换成另一个接口，以符合客户的期望”</p>
-</blockquote>
-<blockquote>
 <p>“如果它走起路来像只鸭子，叫起来像只鸭子，那么它<del>必定</del>可能是一只<del>鸭子</del>包装了鸭子适配器的火鸡”</p>
 </blockquote>
 <hr>
@@ -1269,7 +1309,6 @@
 <li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
 </ul>
@@ -1607,6 +1646,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1615,7 +1662,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,15 +1670,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1640,6 +1683,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1656,14 +1703,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

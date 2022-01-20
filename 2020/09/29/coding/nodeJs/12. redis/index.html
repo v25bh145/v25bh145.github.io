@@ -243,40 +243,33 @@
 <p>具有多语言支持</p>
 </blockquote>
 <a id="more"></a>
-
 <h2 id="2-数据类型-控制台使用演示"><a href="#2-数据类型-控制台使用演示" class="headerlink" title="2. 数据类型 - 控制台使用演示"></a>2. 数据类型 - 控制台使用演示</h2><blockquote>
 <p>更多指令见<a href="https://www.runoob.com/redis/redis-commands.html" target="_blank" rel="noopener">菜鸟教程</a></p>
 </blockquote>
 <h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set key value</span><br><span class="line"></span><br><span class="line">get key</span><br><span class="line"></span><br><span class="line">del key</span><br></pre></td></tr></table></figure>
-
 <p><code>一个键最大能存储 512MB。</code></p>
 <h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hset obj key value //redis[&quot;obj&quot;].key = value</span><br><span class="line"></span><br><span class="line">hmset obj key1 value1 [key2 value2 ...]</span><br><span class="line"></span><br><span class="line">hget obj key</span><br><span class="line"></span><br><span class="line">hmget obj key1 [key2]</span><br></pre></td></tr></table></figure>
-
 <p><code>每个 hash 可以存储 232 -1 键值对（40多亿）</code></p>
 <h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l(r)push listName value1 [value2 ...]</span><br><span class="line"></span><br><span class="line">l(r)pop listName</span><br></pre></td></tr></table></figure>
-
 <p><code>列表最多可存储 232 - 1 元素 (4294967295, 每个列表可存储40多亿)</code></p>
 <h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><blockquote>
 <p>无序集合</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sadd setName value1 [value2 ...]</span><br><span class="line"></span><br><span class="line">smembers runoob</span><br></pre></td></tr></table></figure>
-
 <p><code>集合中最大的成员数为 2^32 - 1 (4294967295, 每个集合可存储40多亿个成员)</code></p>
 <h3 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h3><blockquote>
 <p>有序集合</p>
-<p><a href="https://blog.csdn.net/weixin_38008100/article/details/94629753?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param" target="_blank" rel="noopener">skiplist</a> 通俗易懂</p>
+<p><a href="https://blog.csdn.net/weixin_38008100/article/details/94629753?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.channel_param" target="_blank" rel="noopener">skiplist</a> 通俗易懂</p>
 <p><a href="https://blog.csdn.net/zgaoq/article/details/89710600" target="_blank" rel="noopener">ziplist</a>顺序数据结构，适用数据集较小时</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zadd zsetName score(double) value1 [value2 ...]</span><br><span class="line"></span><br><span class="line">zrangebyscore zsetName min max //[min, max]</span><br></pre></td></tr></table></figure>
-
 <h3 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h3><blockquote>
 <p>基数计数</p>
 <p>Btree(各位大佬们都学过了)</p>
 <p>bitmap</p>
-<p>比较：Btree对于合并操作的时间复杂度不如bitmap，但是bitmap的空间复杂度为$O(max{a_{n}})$</p>
+<p>比较：Btree对于合并操作的时间复杂度不如bitmap，但是bitmap的空间复杂度为$O(max\{a_{n}\})$</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pfadd hllName value [value ...]</span><br><span class="line"></span><br><span class="line">pfcount hllName [hllName ...]</span><br><span class="line"></span><br><span class="line">pfmerge destkey sourcekey [sourcekey ...]</span><br></pre></td></tr></table></figure>
-
 <h2 id="redis-持久化"><a href="#redis-持久化" class="headerlink" title="redis 持久化"></a>redis 持久化</h2><blockquote>
 <p>将内存存入硬盘的策略</p>
 </blockquote>
@@ -301,7 +294,7 @@
 <p>​    启用RDB后默认启用，当后台保存数据失败时，</p>
 </li>
 <li><p><strong>rdbcompression</strong> </p>
-<p>​    启用RDB后默认启用，压缩存储快照<a href="https://blog.csdn.net/yitouhan/article/details/108035859?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">LZF</a></p>
+<p>​    启用RDB后默认启用，压缩存储快照<a href="https://blog.csdn.net/yitouhan/article/details/108035859?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">LZF</a></p>
 </li>
 <li><p><strong>rdbchecksum</strong> </p>
 <p>​    启用RDB后默认启用，存取快照后使用<a href="https://blog.csdn.net/guodongxiaren/article/details/44706613" target="_blank" rel="noopener">CRC64</a>进行数据校验</p>
@@ -348,8 +341,6 @@
 <p>（1）对于同一份数据来说，AOF日志文件通常比RDB数据快照文件更大</p>
 <p>（2）AOF开启后，支持的写QPS会比RDB支持的写QPS低，因为AOF一般会配置成每秒fsync一次日志文件，当然，每秒一次fsync，性能也还是很高的</p>
 <p>（3）以前AOF发生过bug，就是通过AOF记录的日志，进行数据恢复的时候，没有恢复一模一样的数据出来。</p>
-</blockquote>
-<blockquote>
 <p><code>文件重写</code></p>
 <p>防止文件过大，使用bgreweiteaof，将内存中的数据以命令方式保存到临时文件，同时fork出一条新进程将文件重写</p>
 <p>可以减小log的体积(减少不必要的命令，压缩可以压缩的命令)</p>
@@ -358,13 +349,6 @@
 <p><a href="https://www.cnblogs.com/qlnx/p/11771633.html" target="_blank" rel="noopener">php的redis扩展</a></p>
 </blockquote>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis::somecommand <span class="comment">//redis的命令</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 
     
 
@@ -634,6 +618,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -642,7 +634,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,15 +642,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,6 +655,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,14 +675,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -212,11 +212,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5409&page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h1><p>(题外话)<del>这一题觉得好难呀</del></p>
+    <h1 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5409&amp;page=1" target="_blank" rel="noopener">Web_php_unserialize</a></h1><p>(题外话)<del>这一题觉得好难呀</del></p>
 <p>访问端口:</p>
 <p><strong>output:</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>var</strong></p>
 <ol>
 <li>我们需要get传参var，var的值就是序列化后的类的base64编码</li>
@@ -226,7 +225,7 @@
 <ol>
 <li>看到了三个方法，构造器不用管，从注释看到了目标文件fl4g.php</li>
 <li>__destruct会将输入的文件输出</li>
-<li><em>\</em>wakeup则是一个防护用函数，将file强制改为index.php，因此我们需要绕过__wakeup方法</li>
+<li>__wakeup则是一个防护用函数，将file强制改为index.php，因此我们需要绕过__wakeup方法</li>
 </ol>
     
     <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-02/#more">more >></a>
@@ -328,13 +327,11 @@
 </ol>
 </blockquote>
 <hr>
-<h1 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h1><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
+<h1 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5411&amp;page=1" target="_blank" rel="noopener">baby_web</a></h1><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
 <h2 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
-
 <p><strong>output:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[19:22:07] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[19:22:07] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.save</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[19:22:07] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[19:22:07] 403 -  303B  - /.httr-oauth</span><br><span class="line">[19:22:15] 200 -   11B  - /1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php  -&gt;  1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php/login/  -&gt;  1.php</span><br><span class="line">[19:23:30] 403 -  305B  - /server-status</span><br><span class="line">[19:23:30] 403 -  306B  - /</span><br></pre></td></tr></table></figure>
-
-<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题</p>
+<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题<br>
     
     <a class="article-more-a" href="/2020/10/01/coding/ctf/ctf%E7%AC%94%E8%AE%B0-01/#more">more >></a>
     
@@ -629,9 +626,6 @@
 </blockquote>
 <p><strong>客户端</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//WebSocket实例化</span></span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8181"</span>);</span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//成功连接服务器回调</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端（client）：与服务器的连接已打开'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ws.send($(<span class="string">'#message'</span>).val());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
 <p><strong>服务端</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> WebSocketServer = <span class="built_in">require</span>(<span class="string">'ws'</span>).Server;</span><br><span class="line"><span class="keyword">var</span> wss = <span class="keyword">new</span> WebSocketServer(&#123;<span class="attr">port</span>: <span class="number">8181</span>&#125;);</span><br><span class="line">wss.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ws</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器端：客户端已连接'</span>);</span><br><span class="line">    ws.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(message);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
     
@@ -911,10 +905,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="HTTP-–TCP上层的超文本传输协议"><a href="#HTTP-–TCP上层的超文本传输协议" class="headerlink" title="HTTP –TCP上层的超文本传输协议"></a>HTTP –TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
+    <h1 id="HTTP-—TCP上层的超文本传输协议"><a href="#HTTP-—TCP上层的超文本传输协议" class="headerlink" title="HTTP —TCP上层的超文本传输协议"></a>HTTP —TCP上层的超文本传输协议</h1><h2 id="HTTP结构"><a href="#HTTP结构" class="headerlink" title="HTTP结构"></a>HTTP结构</h2><blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    res.end(<span class="string">'Hello World'</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP / 1.1 200 OK</span><br><span class="line">Date: Mon, 31 Aug 2020 22: 57: 14 GMT</span><br><span class="line">Connection: keep - alive</span><br><span class="line">Transfer - Encoding: chunked</span><br><span class="line">b</span><br><span class="line">Hello World</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 </blockquote>
     
@@ -1126,7 +1118,8 @@
 2. 启动后需要显示当前目录的列表
 3. 选取某个文件后，显示该文件的内容
 4. 选择某个目录后，显示该目录下的信息
-5. 运行结束后程序退出</code></pre>
+5. 运行结束后程序退出
+</code></pre>
     
     <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
     
@@ -1359,6 +1352,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -1367,7 +1368,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,15 +1376,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,6 +1389,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1408,14 +1409,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

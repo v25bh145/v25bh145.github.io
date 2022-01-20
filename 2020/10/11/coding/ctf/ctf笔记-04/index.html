@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="NaNNaNNaNNaN-Batman下载附件，打开看到了一堆乱码，看着像是js的审计题 1(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&amp;gt; 进行了一波完形填空  仔细对着代码看了看，发现代码是有有序的结构的： 1234_=&amp;apos;function $() &amp;#123;&#x2F;*乱码*&#x2F;&amp;#125;&amp;apos;;for(Y in $=&amp;apos;&#x2F;*乱码*&#x2F;&amp;apos;)    with(_">
+  <meta name="description" content="NaNNaNNaNNaN-Batman下载附件，打开看到了一堆乱码，看着像是js的审计题 1(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&amp;gt; 进行了一波完形填空 仔细对着代码看了看，发现代码是有有序的结构的： 1234_=&amp;apos;function $() &amp;#123;&#x2F;*乱码*&#x2F;&amp;#125;&amp;apos;;for(Y in $=&amp;apos;&#x2F;*乱码*&#x2F;&amp;apos;)    with(_.">
 <meta name="keywords" content="ctf-web,CTF笔记-WEB攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF笔记-WEB攻防-04">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;10&#x2F;11&#x2F;coding&#x2F;ctf&#x2F;ctf%E7%AC%94%E8%AE%B0-04&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="NaNNaNNaNNaN-Batman下载附件，打开看到了一堆乱码，看着像是js的审计题 1(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&amp;gt; 进行了一波完形填空  仔细对着代码看了看，发现代码是有有序的结构的： 1234_=&amp;apos;function $() &amp;#123;&#x2F;*乱码*&#x2F;&amp;#125;&amp;apos;;for(Y in $=&amp;apos;&#x2F;*乱码*&#x2F;&amp;apos;)    with(_">
+<meta property="og:description" content="NaNNaNNaNNaN-Batman下载附件，打开看到了一堆乱码，看着像是js的审计题 1(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&amp;gt; 进行了一波完形填空 仔细对着代码看了看，发现代码是有有序的结构的： 1234_=&amp;apos;function $() &amp;#123;&#x2F;*乱码*&#x2F;&amp;#125;&amp;apos;;for(Y in $=&amp;apos;&#x2F;*乱码*&#x2F;&amp;apos;)    with(_.">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-10-11T14:33:20.386Z">
 <meta name="twitter:card" content="summary">
@@ -232,23 +232,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4749&page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
+    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4749&amp;page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
-
 <p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
-
 <a id="more"></a>
-
 <p>于是将eval换成了console，输出了变量_的值：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(_)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> e = <span class="built_in">document</span>.getElementById(<span class="string">"c"</span>).value;</span><br><span class="line">  <span class="keyword">if</span> (e.length == <span class="number">16</span>)</span><br><span class="line">    <span class="keyword">if</span> (e.match(<span class="regexp">/^be0f23/</span>) != <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">if</span> (e.match(<span class="regexp">/233ac/</span>) != <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">if</span> (e.match(<span class="regexp">/e98aa$/</span>) != <span class="literal">null</span>)</span><br><span class="line">          <span class="keyword">if</span> (e.match(<span class="regexp">/c7be9/</span>) != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> t = [<span class="string">"fl"</span>, <span class="string">"s_a"</span>, <span class="string">"i"</span>, <span class="string">"e&#125;"</span>];</span><br><span class="line">            <span class="keyword">var</span> n = [<span class="string">"a"</span>, <span class="string">"_h0l"</span>, <span class="string">"n"</span>];</span><br><span class="line">            <span class="keyword">var</span> r = [<span class="string">"g&#123;"</span>, <span class="string">"e"</span>, <span class="string">"_0"</span>];</span><br><span class="line">            <span class="keyword">var</span> i = [<span class="string">"it'"</span>, <span class="string">"_"</span>, <span class="string">"n"</span>];</span><br><span class="line">            <span class="keyword">var</span> s = [t, n, r, i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">13</span>; ++o) &#123;</span><br><span class="line">              <span class="built_in">document</span>.write(s[o % <span class="number">4</span>][<span class="number">0</span>]);</span><br><span class="line">              s[o % <span class="number">4</span>].splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">'&lt;input id="c"&gt;&lt;button onclick=$()&gt;Ok&lt;/button&gt;'</span>);</span><br><span class="line"><span class="keyword">delete</span> _;</span><br></pre></td></tr></table></figure>
-
 <p>这里看到里面有fl a g之类的东西，直接把里面的东西扒下来修改，按格式输出：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = [<span class="string">"fl"</span>, <span class="string">"s_a"</span>, <span class="string">"i"</span>, <span class="string">"e&#125;"</span>];</span><br><span class="line"><span class="keyword">var</span> n = [<span class="string">"a"</span>, <span class="string">"_h0l"</span>, <span class="string">"n"</span>];</span><br><span class="line"><span class="keyword">var</span> r = [<span class="string">"g&#123;"</span>, <span class="string">"e"</span>, <span class="string">"_0"</span>];</span><br><span class="line"><span class="keyword">var</span> i = [<span class="string">"it'"</span>, <span class="string">"_"</span>, <span class="string">"n"</span>];</span><br><span class="line"><span class="keyword">var</span> s = [t, n, r, i];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> res = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> o = <span class="number">0</span>; o &lt; <span class="number">13</span>; ++o) &#123;</span><br><span class="line">    res += s[o % <span class="number">4</span>][<span class="number">0</span>];</span><br><span class="line">    s[o % <span class="number">4</span>].splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);</span><br></pre></td></tr></table></figure>
-
-<h1 id="web2"><a href="#web2" class="headerlink" title="web2"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=5326&page=1" target="_blank" rel="noopener">web2</a></h1><p>是一道php的审计解密题</p>
+<h1 id="web2"><a href="#web2" class="headerlink" title="web2"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=5326&amp;page=1" target="_blank" rel="noopener">web2</a></h1><p>是一道php的审计解密题</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$miwen=<span class="string">"a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encode</span><span class="params">($str)</span></span>&#123;</span><br><span class="line">    $_o=strrev($str);</span><br><span class="line">    <span class="comment">// echo $_o;</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">for</span>($_0=<span class="number">0</span>;$_0&lt;strlen($_o);$_0++)&#123;</span><br><span class="line">       </span><br><span class="line">        $_c=substr($_o,$_0,<span class="number">1</span>);</span><br><span class="line">        $__=ord($_c)+<span class="number">1</span>;</span><br><span class="line">        $_c=chr($__);</span><br><span class="line">        $_=$_.$_c;   </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> str_rot13(strrev(base64_encode($_)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>这段代码大意为：</p>
 <blockquote>
 <p>反向输出str到$_o中</p>
@@ -257,13 +251,10 @@
 </blockquote>
 <p>我们构建出反向解密：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$miwen=<span class="string">"a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws"</span>;</span><br><span class="line">$miwen = base64_decode(strrev(str_rot13($miwen)));</span><br><span class="line"><span class="keyword">for</span>($_0=<span class="number">0</span>;$_0&lt;strlen($miwen);$_0++)&#123; </span><br><span class="line">    $_c=substr($miwen,$_0,<span class="number">1</span>);</span><br><span class="line">    $__=ord($_c)<span class="number">-1</span>;</span><br><span class="line">    $_c=chr($__);</span><br><span class="line">    $_=$_.$_c;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> strrev($_);</span><br></pre></td></tr></table></figure>
-
-<h1 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&number=3&grade=1&id=4820&page=1" target="_blank" rel="noopener">PHP2</a></h1><p>这道题也是php代码审计，不过入口文件很怪，普通的dirsearch搜索不出来，在<code>index.phps</code></p>
+<h1 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4820&amp;page=1" target="_blank" rel="noopener">PHP2</a></h1><p>这道题也是php代码审计，不过入口文件很怪，普通的dirsearch搜索不出来，在<code>index.phps</code></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">"admin"</span>===$_GET[id]) &#123;</span><br><span class="line">  <span class="keyword">echo</span>(<span class="string">"&lt;p&gt;not allowed!&lt;/p&gt;"</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$_GET[id] = urldecode($_GET[id]);</span><br><span class="line"><span class="keyword">if</span>($_GET[id] == <span class="string">"admin"</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Access granted!&lt;/p&gt;"</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Key: xxxxxxx &lt;/p&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
-
 <p>很简单，是之前在<code>ctf笔记-03</code>中的<code>warmup</code>的下位替代，直接将admin进行url二次编码即可通过验证：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65</span><br></pre></td></tr></table></figure>
-
 
     
 
@@ -533,6 +524,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -541,7 +540,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,15 +548,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +561,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,14 +581,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="P2292题目描述标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章。 一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。 例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘yo">
-<meta name="keywords" content="Question,动态规划,字典树">
+<meta name="keywords" content="动态规划,Question,字典树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Question-P2292">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;02&#x2F;27&#x2F;coding&#x2F;questions&#x2F;Question-P2292&#x2F;index.html">
@@ -237,7 +237,6 @@
 <p>例如字典D中包括单词{‘is’, ‘name’, ‘what’, ‘your’}，则文章‘whatisyourname’是在字典D下可以被理解的，因为它可以分成4个单词：‘what’, ‘is’, ‘your’, ‘name’，且每个单词都属于字典D，而文章‘whatisyouname’在字典D下不能被理解，但可以在字典D’=D+{‘you’}下被理解。这段文章的一个前缀‘whatis’，也可以在字典D下被理解，而且是在字典D下能够被理解的最长的前缀。</p>
 <p>给定一个字典D，你的程序需要判断若干段文章在字典D下是否能够被理解。并给出其在字典D下能够被理解的最长前缀的位置。</p>
 <a id="more"></a>
-
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入文件第一行是两个正整数n和m，表示字典D中有n个单词，且有m段文章需要被处理。之后的n行每行描述一个单词，再之后的m行每行描述一段文章。</p>
 <p>其中1&lt;=n, m&lt;=20，每个单词长度不超过10，每段文章长度不超过1M。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对于输入的每一段文章，你需要输出这段文章在字典D可以被理解的最长前缀的位置。</p>
@@ -256,7 +255,8 @@ whatis
 what
 your
 name
-whatisyourname</code></pre><p><code>我们如果单纯进行扫描入栈的操作，会在进行到what这儿判定为一个单词，请出栈，然后i打头莫得单词，直接判定为不可翻译</code></p>
+whatisyourname
+</code></pre><p><code>我们如果单纯进行扫描入栈的操作，会在进行到what这儿判定为一个单词，请出栈，然后i打头莫得单词，直接判定为不可翻译</code></p>
 <p>所以这样的线性算法是行不通的</p>
 <p><strong>等等，你刚刚说了最优解对吧？！！</strong></p>
 <h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><p>我们需要一个最优选择，使得我们可以完美选择字典的单词来翻译</p>
@@ -281,12 +281,12 @@ inline void Add(string s)
     int x = root;
     for(int i = 0; i &lt; s.length(); i++)
     {
-        if(tree[x].child[s[i] - &apos;a&apos;] == 0)
+        if(tree[x].child[s[i] - &#39;a&#39;] == 0)
         {
             length++;
-            tree[x].child[s[i] - &apos;a&apos;] = length;
+            tree[x].child[s[i] - &#39;a&#39;] = length;
         }
-        x = tree[x].child[s[i] - &apos;a&apos;];
+        x = tree[x].child[s[i] - &#39;a&#39;];
     }
     tree[x].isWord = true;
 }
@@ -303,8 +303,8 @@ inline void Find(string text)
     //初始化第一个字符能达到的点
     for(int i = 0, x = root; i &lt; text.length(); i++)
     {    
-        if(tree[x].child[text[i] - &apos;a&apos;] == 0) break;
-        x = tree[x].child[text[i] - &apos;a&apos;];
+        if(tree[x].child[text[i] - &#39;a&#39;] == 0) break;
+        x = tree[x].child[text[i] - &#39;a&#39;];
         if(tree[x].isWord) canReach[i] = true;
     }
     //沿着字符扫描文本
@@ -317,8 +317,8 @@ inline void Find(string text)
         maxLen = i;
         for(int j = i + 1, x = root; j &lt; text.length(); j++)
         {
-            if(tree[x].child[text[j] - &apos;a&apos;] == 0) break;
-            x = tree[x].child[text[j] - &apos;a&apos;];
+            if(tree[x].child[text[j] - &#39;a&#39;] == 0) break;
+            x = tree[x].child[text[j] - &#39;a&#39;];
             if(tree[x].isWord) canReach[j] = true;
         }
     }
@@ -340,7 +340,8 @@ int main()
         Find(tmpS);
         printf(&quot;%d\n&quot;, maxLen + 1);
     }
-}</code></pre><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>动态规划具有最优子结构和无后效性</p>
+}
+</code></pre><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>动态规划具有最优子结构和无后效性</p>
 <p>一开始我居然使用的是dfs，失误失误QAQ <del>(果然我对动态规划还是理解不深呢)</del> (逃)</p>
 
     
@@ -378,11 +379,11 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -615,6 +616,14 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -623,7 +632,7 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,15 +640,11 @@ int main()
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,6 +653,10 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,14 +673,6 @@ int main()
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

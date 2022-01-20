@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
+  <meta name="description" content="观察者模式 让你的对象知悉现况 JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.观察者模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;coding&#x2F;designPatten&#x2F;2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="观察者模式 让你的对象知悉现况   JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
+<meta property="og:description" content="观察者模式 让你的对象知悉现况 JDK使用最多的模式    “主题 + 订阅者 = 观察者模式”   主题负责产生&#x2F;获取信息。(主题在所知的信息改变时会通知订阅者)  订阅者可以接收由主题发来的信息。 (订阅者会接收主题的通知并且做出改变)  订阅者可以随时取消订阅。  只要主题还在产生&#x2F;获取消息，就会不断向订阅者发送消息。  e.g:报纸&amp;amp;订阅报纸的人">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:42:08.583Z">
 <meta name="twitter:card" content="summary">
@@ -234,8 +234,6 @@
     
     <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><blockquote>
 <p>让你的对象知悉现况</p>
-</blockquote>
-<blockquote>
 <p>JDK使用最多的模式</p>
 </blockquote>
 <hr>
@@ -255,7 +253,6 @@
 </li>
 </ul>
 <a id="more"></a>
-
 <blockquote>
 <p>定义: “观察者模式定义了对象之间的<strong>一对多依赖</strong>，这样一来，当一个对象<strong>改变状态</strong>时，它的所有依赖者都会<strong>收到通知</strong>并<strong>自动更新</strong>。”</p>
 </blockquote>
@@ -295,8 +292,6 @@
 </ul>
 <blockquote>
 <p>“为了交互对象之间的<strong>松耦合</strong>而努力”</p>
-</blockquote>
-<blockquote>
 <p>java.util.Observer &amp; java.util.Observable - 官方的观察者模式</p>
 </blockquote>
 <ul>
@@ -309,8 +304,6 @@
 </ul>
 <blockquote>
 <p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/Observer" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/Observer</a> 查看实例代码(加了注释、分类了文件)</p>
-</blockquote>
-<blockquote>
 <p>补充: 使用了JAVA的PropertyChangeListener 类代替deprecated(已经废弃的)observer类 <a href="https://github.com/v25bh145/patternDesign-code/tree/master/UltimateDuck" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/UltimateDuck</a></p>
 </blockquote>
 
@@ -582,6 +575,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -590,7 +591,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,15 +599,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +612,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,14 +632,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

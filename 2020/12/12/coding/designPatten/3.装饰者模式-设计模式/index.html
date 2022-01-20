@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你)   不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
+  <meta name="description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你) 不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3.装饰者模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;coding&#x2F;designPatten&#x2F;3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你)   不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
+<meta property="og:description" content="装饰者模式 给爱用继承的人一个全新的设计眼界(翻译: 再敢滥用继承我不打死你) 不修改底层代码而给你的对象赋予新的职责    “类应该对扩展开放，对修改关闭。” =&amp;gt; 开放-关闭原则   类如果对扩展关闭，毫无疑问不具备可扩展性。 类如果对修改开放，则会导致一系列内部实现被扰乱。 没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:39:20.154Z">
 <meta name="twitter:card" content="summary">
@@ -234,8 +234,6 @@
     
     <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
 <p>给爱用继承的人一个全新的设计眼界<del>(翻译: 再敢滥用继承我不打死你)</del></p>
-</blockquote>
-<blockquote>
 <p>不修改底层代码而给你的对象赋予新的职责</p>
 </blockquote>
 <hr>
@@ -248,7 +246,6 @@
 <li>没有必要使得每一个地方都保持开放-关闭原则，这样会增加代码的复杂度，通常只需在变化区实现此功能即可。</li>
 </ul>
 <a id="more"></a>
-
 <blockquote>
 <p>五点规则</p>
 </blockquote>
@@ -269,8 +266,6 @@
 </ul>
 <blockquote>
 <p>缺点:会在使用时加入大量<strong>小类</strong>，导致代码<strong>复杂性</strong>偏高。 =&gt; 需要避免过度使用</p>
-</blockquote>
-<blockquote>
 <p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/Beverage" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/Beverage</a> 以及 <a href="https://github.com/v25bh145/patternDesign-code/tree/master/JavaIODecorator" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/JavaIODecorator</a>  查看实例代码 (加了注释、分类了文件)</p>
 </blockquote>
 
@@ -542,6 +537,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -550,7 +553,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,15 +561,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,6 +574,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,14 +594,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -10,13 +10,13 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望”   “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转">
+  <meta name="description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望” “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转换作">
 <meta name="keywords" content="设计模式,《Head First 设计模式》">
 <meta property="og:type" content="article">
 <meta property="og:title" content="7.适配器模式&amp;外观模式-设计模式">
 <meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2020&#x2F;12&#x2F;15&#x2F;coding&#x2F;designPatten&#x2F;7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&amp;%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望”   “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转">
+<meta property="og:description" content="适配器模式&amp;amp;外观模式 交流电适配器 =&amp;gt; “将一个接口转换成另一个接口，以符合客户的期望” “如果它走起路来像只鸭子，叫起来像只鸭子，那么它必定可能是一只鸭子包装了鸭子适配器的火鸡”    客户使用适配器的过程   客户通过目标接口调用适配器的方法对适配器发出请求。 适配器使用被适配者接口把请求转换成被适配者的一个或多个接口。 客户接收到调用的结果，但并未察觉这一切是适配器在起转换作">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:updated_time" content="2020-12-29T02:39:37.839Z">
 <meta name="twitter:card" content="summary">
@@ -234,8 +234,6 @@
     
     <h2 id="适配器模式-amp-外观模式"><a href="#适配器模式-amp-外观模式" class="headerlink" title="适配器模式&amp;外观模式"></a>适配器模式&amp;外观模式</h2><blockquote>
 <p>交流电适配器 =&gt; “将一个接口转换成另一个接口，以符合客户的期望”</p>
-</blockquote>
-<blockquote>
 <p>“如果它走起路来像只鸭子，叫起来像只鸭子，那么它<del>必定</del>可能是一只<del>鸭子</del>包装了鸭子适配器的火鸡”</p>
 </blockquote>
 <hr>
@@ -252,7 +250,6 @@
 <li><strong>客户</strong>与<strong>被适配者</strong>是解耦的。</li>
 </ul>
 <a id="more"></a>
-
 <blockquote>
 <p><strong>定义</strong>: “<strong>适配器模式</strong>将一个<strong>类的接口</strong>，转换成<strong>客户期望的另一个接口</strong>，<strong>适配器</strong>让原本接口不兼容的类可以合作无间。”</p>
 </blockquote>
@@ -264,7 +261,6 @@
 <p>适配不完全的例子-枚举器&amp;迭代器的适配器 =&gt; <strong>抛出异常</strong></p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumerationIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">    Enumeration <span class="keyword">enum</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EnumerationIterator</span><span class="params">(Enumeration <span class="keyword">enum</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">enum</span> = <span class="keyword">enum</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.hasMoreElements();</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">enum</span>.nextElement();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//枚举类中没有迭代器中remove()相对应的接口，因此只能抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/Turkey" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/Turkey</a> 查看实例代码</p>
 </blockquote>
@@ -294,16 +290,10 @@
 <li>错误用法举例:</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//不要声明[传递/创建/实例化]的对象所[传递/创建/实例化]的对象</span></span><br><span class="line">    <span class="comment">//也就是说，避免二次引用，提倡一次饮用</span></span><br><span class="line">    Thermometer thermometer = station.getThermometer();</span><br><span class="line">    <span class="keyword">return</span> getTempHelper(thermometer);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTempHelper</span><span class="params">(Thermometer thermometer)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> thermometer.getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>正确用法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在之间使用station解耦</span></span><br><span class="line">    <span class="keyword">return</span> tation.getThermometer().getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <blockquote>
 <p><a href="https://github.com/v25bh145/patternDesign-code/tree/master/HomeTheater" target="_blank" rel="noopener">https://github.com/v25bh145/patternDesign-code/tree/master/HomeTheater</a> 查看实例代码</p>
 </blockquote>
@@ -576,6 +566,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -584,7 +582,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,15 +590,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,6 +603,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,14 +623,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
