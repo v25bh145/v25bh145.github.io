@@ -39,7 +39,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;9CH7WsxdKJZAFkP.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;yagGjdkKvI2OQtF.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;09&#x2F;ycJoLsQMkeTrKYI.png">
-<meta property="og:updated_time" content="2022-01-20T07:44:55.401Z">
+<meta property="og:updated_time" content="2022-01-20T10:09:44.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;08&#x2F;bupRYgE8Q9jTMFv.png">
   
@@ -101,7 +101,7 @@
 			
 				<li><a href="/tags/Question/" target="_blank">算法问题</a></li>
 			
-				<li><a href="/tags/ctf-web/" target="_blank">ctf</a></li>
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" target="_blank">图形学</a></li>
 			
 				<li><a href="/tags/node/" target="_blank">node</a></li>
 			
@@ -181,7 +181,7 @@
 		        
 					<li style="width: 20%"><a href="/tags/Question/">算法问题</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/ctf-web/">ctf</a></li>
+					<li style="width: 20%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">图形学</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/node/">node</a></li>
 		        
@@ -260,7 +260,6 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
@@ -279,6 +278,7 @@
 <li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
 </ol>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>文章主要关于微表面历来公式与研究的总结，介绍了微表面的原理、微表面相关模型、遮罩(masking)-阴影(shadowing)的Smith及V-cavity公式以及详细的推导过程，并没有提出新的公式或模型。</p>
+<a id="more"></a>
 <h2 id="微表面的提出-原理"><a href="#微表面的提出-原理" class="headerlink" title="微表面的提出/原理"></a>微表面的提出/原理</h2><p>首先介绍三种平面，分别为几何平面(geometric surface)、微表面(microsurface)、以及投影面：</p>
 <p>几何平面即面积为1的平面，微表面则是对几何平面进行扰动过后的曲面，投影面则是从$\omega_o$方向看微表面/几何平面所能看到的面。</p>
 <h3 id="微表面面积、两种积分"><a href="#微表面面积、两种积分" class="headerlink" title="微表面面积、两种积分"></a>微表面面积、两种积分</h3><p>之后提出了两种计算平面面积的方式，分别是空间(spatial)积分与统计学(statistical)积分：</p>
@@ -291,7 +291,7 @@
 <p><img src="https://s2.loli.net/2022/01/08/uohHcjiTNf8QdAq.png" alt="image-20220108160021102"></p>
 <p>其中$\delta_\omega$是Delta函数，仅当自变量等于$\omega$时有非零值，Delta函数还有如下公式(性质)：</p>
 <script type="math/tex; mode=display">
-\int^{\infin}_{-\infin}\delta(x)dx=1</script><h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
+\int^{\infty}_{-\infty}\delta(x)dx=1</script><h3 id="几何面积与投影面积"><a href="#几何面积与投影面积" class="headerlink" title="几何面积与投影面积"></a>几何面积与投影面积</h3><p><img src="https://s2.loli.net/2022/01/08/Cwp6Wzbek4RXfxH.png" alt="image-20220108160618553"></p>
 <p>由图得，$projected\ area=area*cos\theta_0$，因此得出：</p>
 <p><img src="https://s2.loli.net/2022/01/08/Ccz8hIiqxfmlUkL.png" alt="image-20220108160730843"></p>
 <h3 id="遮罩函数-masking-function"><a href="#遮罩函数-masking-function" class="headerlink" title="遮罩函数(masking function)"></a>遮罩函数(masking function)</h3><p>投影的区域不止是从$\omega_o$方向看几何平面的面积，也可以是从$\omega_o$看微表面的可见面积(visible microfacet)。</p>
@@ -630,7 +630,7 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +638,7 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,7 +650,7 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,7 +658,15 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,11 +674,7 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,6 +683,10 @@ G_1(\omega_o,\omega)=\frac{\int_M\delta\omega(\omega_m(p_m))G_1(\omega_o,p_m)dp_
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
             
             <div class="clearfix"></div>

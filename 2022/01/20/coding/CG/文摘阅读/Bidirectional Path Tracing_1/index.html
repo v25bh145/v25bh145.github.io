@@ -6,18 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Tag: 数据结构 | V25bh145的小茶室</title>
+  <title>双向光线追踪-01 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="v25用来记录他自己的博客，看起来好像是这样。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小茶室">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;tags&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&#x2F;index.html">
+  <meta name="description" content="论文出处：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs348b-03&#x2F;papers&#x2F;veach-chapter10.pdf (课程的教材) 标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis 作者：E. Veach 网址：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs34">
+<meta name="keywords" content="计算机图形学,光线追踪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双向光线追踪-01">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2022&#x2F;01&#x2F;20&#x2F;coding&#x2F;CG&#x2F;%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB&#x2F;Bidirectional%20Path%20Tracing_1&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="v25用来记录他自己的博客，看起来好像是这样。">
+<meta property="og:description" content="论文出处：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs348b-03&#x2F;papers&#x2F;veach-chapter10.pdf (课程的教材) 标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis 作者：E. Veach 网址：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs34">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;SR9uQBTxHhInPJV.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;q8f7bhXo1JBSiOa.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;z8ZUbyeoXsRE73S.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;X4j8d2ReDvoPaGA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;hIr59gv3wnH2EW8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;L4mZ3i7N8IvUfeT.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;hIr59gv3wnH2EW8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;PU1TXyF6o87uWb2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;O4urcKMVBNXs8F5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;FZX4OS2ohKwVxRY.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;QpIAGnSdFTcaO5C.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;T8n7B3UjodMlseP.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;n3K6osuPYyHgR17.png">
+<meta property="og:updated_time" content="2022-01-20T10:10:16.778Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;20&#x2F;SR9uQBTxHhInPJV.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
@@ -177,179 +193,231 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-coding/CG/文摘阅读/Bidirectional Path Tracing_1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/04/coding/questions/Question-P1631/" class="archive-article-date">
-        <time datetime="2019-12-04T08:12:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/04/coding/questions/Question-P1631/" target="_blank">Question-P1631</a>
   
+    <h1 class="article-title" itemprop="name">
+      双向光线追踪-01
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/01/20/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Bidirectional%20Path%20Tracing_1/" class="archive-article-date">
+        <time datetime="2022-01-20T07:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-20</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">7分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>论文出处：<a href="https://graphics.stanford.edu/courses/cs348b-03/papers/veach-chapter10.pdf" target="_blank" rel="noopener">https://graphics.stanford.edu/courses/cs348b-03/papers/veach-chapter10.pdf</a> (课程的教材)</p>
+<p>标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis</p>
+<p>作者：E. Veach</p>
+<p>网址：<a href="https://graphics.stanford.edu/courses/cs348b-03" target="_blank" rel="noopener">https://graphics.stanford.edu/courses/cs348b-03</a></p>
+</blockquote>
+<p><strong>注意</strong></p>
+<ol>
+<li>本文可能需要的前置知识：<ol>
+<li>光线追踪(尤其是LTE形式的推导)</li>
+<li>采样理论(尤其是多重重要性采样)</li>
+<li>俄罗斯轮盘赌(Russian Roulette)</li>
+</ol>
+</li>
+<li>由于是英文论文的中文笔记，所以对于私自翻译的专业词汇加上了英文标注。</li>
+<li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
+</ol>
+<a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="每一次光线追踪采样的公式"><a href="#每一次光线追踪采样的公式" class="headerlink" title="每一次光线追踪采样的公式"></a>每一次光线追踪采样的公式</h3><p><img src="https://s2.loli.net/2022/01/20/SR9uQBTxHhInPJV.png" alt="image-20220120160459425"></p>
+<p>对公式作如下说明：</p>
+<ul>
+<li>$\bar x=x_o…x_k$为光线追踪采样过程的路径，且设$x_o$为光源上一点，$x_k$为照相机透镜上一点</li>
+<li>$\mu$为面积积分的简写 $\mu=dA(x_0)…dA(x_k)$)</li>
+<li>$f_j$为每个路径$\bar x$的贡献：</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/01/20/q8f7bhXo1JBSiOa.png" alt="image-20220120160754988"></p>
+<h3 id="双向光线追踪"><a href="#双向光线追踪" class="headerlink" title="双向光线追踪"></a>双向光线追踪</h3><p>双向光线追踪将朴素的光线追踪过程中所追踪的路径拆开来，分为光路(light path, L)与眼路(eye path, E)：其中光路从光源处(随机采样一点)开始追踪，眼路从照相机的透镜处(随机采样一点)开始追踪。一整条路径由连接这两条路径构成。</p>
+<p>将光线追踪中一条路径的顶点个数定义为长度，则设一条路径中光路长s，眼路长t，将两条路径连接所得的总路径长$k=s+t-1$。重要的是，有许多种不同的方法对一条路径进行采样，通过划分可得出，对于一条长为k的路径，有k+2中采样方法：</p>
+<script type="math/tex; mode=display">
+\begin{cases}s = 0,& 1,& ...,& k + 1\\t=k+1,& k,& ...,& 0\end{cases}</script><p>为了使得采样更有效率一些，可以通过调整光路与眼路的长度(总路径长度、位置不变)来得到<strong>一条路径的不同的采样方法</strong>，而对这些采样方法的贡献值进行多重重要性采样，即可得到最终一次光线追踪的值。</p>
+<p>该方法实质属于分组采样，将一条路径视为一个组，通过划分此路径产生各个采样值。不过这样所得的采样值之间就不再是相互独立的了。</p>
+<h3 id="多重重要性采样"><a href="#多重重要性采样" class="headerlink" title="多重重要性采样"></a>多重重要性采样</h3><p>使用多重重要性采样的方式将<strong>一条路径的不同的采样方法</strong>组合起来，有以下公式：</p>
+<p><img src="https://s2.loli.net/2022/01/20/z8ZUbyeoXsRE73S.png" alt="image-20220120164226486"></p>
+<p>其中，$w_{s,t}(\bar x_{s,t})$为采样权重，$p_{s,t}(\bar x_{s,t})$为一条路径的采样概率，稍后会给出计算的公式。</p>
+<h3 id="一些记号-规定"><a href="#一些记号-规定" class="headerlink" title="一些记号/规定"></a>一些记号/规定</h3><p>设一次采样所得光路长$n_L$将光路表示为$y_0…y_{n_L-1}$，其中$y_0$在光源上。同理，设眼路长$n_E$，将眼路表示为$z_{n_E-1}…z_0$，其中$z_0$在照相机透镜上，注意眼路的表示方向是反着的。</p>
+<p>之后，通过将路径再划分，产生了k+2个(包括先前采样的)不同的路径，记为：</p>
+<script type="math/tex; mode=display">
+\bar x_{s,t}=y_0...y_{s-1}z_{t-1}...z_0</script><p>其中，设总路径长k=s+t-1，满足$0\le s\le n_L,0\le t\le n_E,k\ge 1$。将光路与眼路连接的两节点$y_{s-1}z_{t-1}$称为<strong>连接节点(connecting vertices)</strong>，将两连接节点所连接的边称为<strong>连接边(connecting edge)</strong>。</p>
+<p>最后，设空路径$\epsilon$为0贡献值的路径，包含三种情况：</p>
+<script type="math/tex; mode=display">
+\begin{cases}连接节点间相互不可见的路径\\连接路径两端其一贡献值为0\\t>n_E||s>n_L\end{cases}</script><h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>通过给定路径，遍历s,t值，需要计算划分的路径的贡献C：</p>
+<script type="math/tex; mode=display">
+C_{s, t}\equiv w_{s,t}(\bar x_{s,t})\frac{f_j(\bar x_{s,t})}{p_{s,t}(\bar x_{s,t})}\\
+F=\sum_{s\ge0}\sum_{t\ge0}C_{s,t}</script><p>设未定义权重的贡献C*：</p>
+<p><img src="https://s2.loli.net/2022/01/20/X4j8d2ReDvoPaGA.png" alt="image-20220120170033578"></p>
+<p><img src="https://s2.loli.net/2022/01/20/hIr59gv3wnH2EW8.png" alt="image-20220120165803143"></p>
+<h3 id="计算-p-s-t-bar-x-s-t"><a href="#计算-p-s-t-bar-x-s-t" class="headerlink" title="计算$p_{s,t}(\bar x_{s,t})$"></a>计算$p_{s,t}(\bar x_{s,t})$</h3><p>简写为$p_{s,t}(\bar x_{s,t})=p_{s,t}$，一条路径的概率为两条子路径的概率的简单乘积：</p>
+<script type="math/tex; mode=display">
+p_{s,t}(\bar x_{s,t})=p^L_sp^E_t</script><p>对于$p_{s,t}$，底下的下标($s,t$)代表各个路径的长度；而对于$p_s, p_t$，底下的下标(s和t)代表单条路径的路径长度。</p>
+<p>当路径长度=0时，易得$p^L_0=p^E_0=1$。</p>
+<p>当路径长度=1时，只在光源/照相机透镜上采样点，对于这两端的情况(即$y_0$与$z_0$)，被采样的概率即等于在光源、照相机透镜的面上进行2D采样的概率：$p^L_1=P_A(y_0),p^E_1=P_A(z_0)$。</p>
+<p>而当路径长度不唯一时，有以下推导：</p>
+<script type="math/tex; mode=display">
+P_A(y_i|y_{i-2},y_{i-1})=P_{\sigma^\perp}(y_{i-1}\to y_i)G(y_{i-1}\leftrightarrow y_i)</script><p>其中，$P_{\sigma^\perp}(y_{i-1}\to y_i)$为在$y_{i-1}$点上采样$y_i-y_{i-1}$方向的概率，而$G(y_{i-1}\leftrightarrow y_i)$为光线追踪LTE公式的简写项，其等于：</p>
+<p><img src="https://s2.loli.net/2022/01/20/L4mZ3i7N8IvUfeT.png" alt="image-20220120172244448"></p>
+<script type="math/tex; mode=display">
+V(x\leftrightarrow x')=\begin{cases}1& x与x相互可见\\0& x与x相互不可见\end{cases}</script><p>对于$p_i$，有：</p>
+<script type="math/tex; mode=display">
+p^L_i=P_A(y_i-1|y_{i-3},y_{i-2})p^L_{i-1}=P_{\sigma^\perp}(y_{i-2}\to y_{i-1})G(y_{i-2}\leftrightarrow y_{i-1})p^L_{i-1}\\
+p^E_i=P_A(z_i-1|z_{i-3},z_{i-2})p^E_{i-1}=P_{\sigma^\perp}(z_{i-2}\to z_{i-1})G(z_{i-2}\leftrightarrow z_{i-1})p^E_{i-1}</script><h3 id="计算-C-s-t"><a href="#计算-C-s-t" class="headerlink" title="计算$C^*_{s,t}$"></a>计算$C^*_{s,t}$</h3><p><img src="https://s2.loli.net/2022/01/20/hIr59gv3wnH2EW8.png" alt="image-20220120165803143"></p>
+<p>由于f与p都是可以按照路径拆解的，因此可以将p的分解式与f的分解式一并代入，得：</p>
+<p><img src="https://s2.loli.net/2022/01/20/PU1TXyF6o87uWb2.png" alt="image-20220120173151390"></p>
+<p><img src="https://s2.loli.net/2022/01/20/O4urcKMVBNXs8F5.png" alt="image-20220120173202046"></p>
+<p><img src="https://s2.loli.net/2022/01/20/FZX4OS2ohKwVxRY.png" alt="image-20220120173215954"></p>
+<p>对于$L^{(0)}_e(x_0)$，设光源发出的辐亮度$L_e(y_0\to y_1)=L^{(0)}_e(x_0)L^{(1)}_e(y_0\to y_1)$，而$f_s(y_{-1}\to y_0\to y_1)=L^{(1)}_e(y_0\to y_1)$，$W^{(0)}_e(z_0)$同理。</p>
+<h3 id="计算-w-s-t"><a href="#计算-w-s-t" class="headerlink" title="计算$w_{s,t}$"></a>计算$w_{s,t}$</h3><p>简写为$w_{s,t}(\bar x_{s,t})=w_{s,t}$，用到上面的概率定义，将两条光路、眼路视为一条路径来观察：</p>
+<script type="math/tex; mode=display">
+\bar x_{s,t}=x_0...x_k=y_0...y_{s-1}z_{t-1}...z_0</script><p>设$p_i=p_{i,(s+t)-i}(\bar x_{s,t})$，这里概率</p>
+<p>由多重重要性采样得，取$\beta=2$的幂函数启发法(power heuristic)，w权重的公式如下：</p>
+<p><img src="https://s2.loli.net/2022/01/20/QpIAGnSdFTcaO5C.png" alt="image-20220120175527277"></p>
+<p>当0-i个节点为光路时，$p_i$从光路开始推算，而$p_{i+1}$从眼路开始推算：</p>
+<script type="math/tex; mode=display">
+p_i=p^L_i=P_{\sigma^\perp}(x_{i-1}\to x_{i})G(x_{i-1}\leftrightarrow x_{i})p^L_{i-1}=p_{i-1}\\
+p_{i+1}=p^E_{i+1}=P_{\sigma^\perp}(x_{i+1}\to x_i)G(x_{i+1}\leftrightarrow x_{i})p^E_{i+2}=p_{i+2}</script><p>相除，得：</p>
+<p><img src="https://s2.loli.net/2022/01/20/T8n7B3UjodMlseP.png" alt="image-20220120180039548"></p>
+<p>通过<strong>逐步递增i</strong>，我们可以通过<strong>依次向光路增加一个节点，向眼路减少一个节点的方式</strong>使用除法公式算出每一项$p_i$，最后C贡献公式变为：</p>
+<p><img src="https://s2.loli.net/2022/01/20/n3K6osuPYyHgR17.png" alt="image-20220120180200276"></p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          v25bh145
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://v25bh145.github.io/2022/01/20/coding/CG/文摘阅读/Bidirectional Path Tracing_1/" title="双向光线追踪-01" target="_blank">https://v25bh145.github.io/2022/01/20/coding/CG/文摘阅读/Bidirectional Path Tracing_1/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">计算机图形学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">光线追踪</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/30/coding/questions/Question-P2278/" class="archive-article-date">
-        <time datetime="2019-11-30T14:06:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/13/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Understanding%20the%20Masking-Shadowing%20Function%20in%20Microfacet-Based%20BRDFs_3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">理解微表面中的遮罩阴影函数-03</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/30/coding/questions/Question-P2278/" target="_blank">Question-P2278</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">模拟</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/30/coding/questions/Question-P1801/" class="archive-article-date">
-        <time datetime="2019-11-30T10:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/30/coding/questions/Question-P1801/" target="_blank">Question-P1801</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
 
 
           </div>
@@ -390,9 +458,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

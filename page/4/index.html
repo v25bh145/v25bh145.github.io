@@ -80,7 +80,7 @@
 			
 				<li><a href="/tags/Question/" target="_blank">算法问题</a></li>
 			
-				<li><a href="/tags/ctf-web/" target="_blank">ctf</a></li>
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" target="_blank">图形学</a></li>
 			
 				<li><a href="/tags/node/" target="_blank">node</a></li>
 			
@@ -160,7 +160,7 @@
 		        
 					<li style="width: 20%"><a href="/tags/Question/">算法问题</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/ctf-web/">ctf</a></li>
+					<li style="width: 20%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">图形学</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/node/">node</a></li>
 		        
@@ -181,6 +181,124 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-coding/nodeJs/5. CLI以及FS API 第一个node.js程序 - 命令行程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank">5.CLI以及FS API</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
+        <time datetime="2020-09-29T11:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NODE-JS"><a href="#NODE-JS" class="headerlink" title="NODE.JS"></a>NODE.JS</h1><ul>
+<li>为什么要记这个笔记？<ul>
+<li>在以前的实战项目中，发现自己的忘性很大，经常忘记函数名以及使用方法，所以在这次的node.js学习之路中，想记一点笔记以自用。</li>
+</ul>
+</li>
+<li>记些什么？<ul>
+<li>不记基础和起步内容，记一些重要的模块的api函数以及用法，以及一些JavaScript的巧妙用法。</li>
+</ul>
+</li>
+<li>所采用的书籍？<ul>
+<li>《了不起的Node JS 将JavaScript进行到底》</li>
+</ul>
+</li>
+<li>补：<ul>
+<li>此系列与2020年9月初编写，本想使用node搭建一个项目再发布这些文章，奈何写出来自觉没有hexo的主题好看，因此自行删除<del>不是</del>，打算之后把我的项目展示出来以供参考。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="CLI以及FS-API"><a href="#CLI以及FS-API" class="headerlink" title="CLI以及FS API"></a>CLI以及FS API</h1><hr>
+<h2 id="第一个node-js程序-命令行程序"><a href="#第一个node-js程序-命令行程序" class="headerlink" title="第一个node.js程序 - 命令行程序"></a>第一个node.js程序 - 命令行程序</h2><hr>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>1. 程序在命令行运行，意味着程序要么通过node命令运行，要么直接执行，通过终端提供交互给用户进行输入输出。
+2. 启动后需要显示当前目录的列表
+3. 选取某个文件后，显示该文件的内容
+4. 选择某个目录后，显示该目录下的信息
+5. 运行结束后程序退出
+</code></pre>
+    
+    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/5.%20CLI%E4%BB%A5%E5%8F%8AFS%20API%20%E7%AC%AC%E4%B8%80%E4%B8%AAnode.js%E7%A8%8B%E5%BA%8F%20-%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A8%8B%E5%BA%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-coding/questions/Question-P2536" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -332,11 +450,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -821,11 +939,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">深度优先搜索</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">深度优先搜索</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		
 		</ul>
@@ -915,11 +1033,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		
 		</ul>
@@ -1016,11 +1134,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		
 		</ul>
@@ -1031,102 +1149,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/12/09/coding/questions/Question-P1064/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding/questions/Question-P1631" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/04/coding/questions/Question-P1631/" target="_blank">Question-P1631</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/04/coding/questions/Question-P1631/" class="archive-article-date">
-        <time datetime="2019-12-04T08:12:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="P1631"><a href="#P1631" class="headerlink" title="P1631"></a>P1631</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^{2}$个和，求这$N^{2}$个和中最小的N个。</p>
-    
-    <a class="article-more-a" href="/2019/12/04/coding/questions/Question-P1631/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/04/coding/questions/Question-P1631/">展开全文 >></a>
     </p>
     
 
@@ -1342,7 +1364,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1350,11 +1372,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1366,7 +1384,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1374,7 +1392,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1382,11 +1408,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1395,6 +1417,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
             
             <div class="clearfix"></div>

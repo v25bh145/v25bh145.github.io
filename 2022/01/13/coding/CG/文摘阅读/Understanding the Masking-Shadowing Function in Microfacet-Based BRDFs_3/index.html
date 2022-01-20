@@ -47,7 +47,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;oS4ilGBaEsW6eQN.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;OVZdcael7yPoKND.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;15&#x2F;gLWUbYlO6Eh9oMj.png">
-<meta property="og:updated_time" content="2022-01-20T07:45:13.428Z">
+<meta property="og:updated_time" content="2022-01-20T10:10:00.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;08&#x2F;bupRYgE8Q9jTMFv.png">
   
@@ -109,7 +109,7 @@
 			
 				<li><a href="/tags/Question/" target="_blank">算法问题</a></li>
 			
-				<li><a href="/tags/ctf-web/" target="_blank">ctf</a></li>
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" target="_blank">图形学</a></li>
 			
 				<li><a href="/tags/node/" target="_blank">node</a></li>
 			
@@ -189,7 +189,7 @@
 		        
 					<li style="width: 20%"><a href="/tags/Question/">算法问题</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/ctf-web/">ctf</a></li>
+					<li style="width: 20%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">图形学</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/node/">node</a></li>
 		        
@@ -268,7 +268,6 @@
 <p>作者-时间：Eric Heitz-2014</p>
 <p>网址：<a href="http://jcgt.org/published/0003/02/03/" target="_blank" rel="noopener">http://jcgt.org/published/0003/02/03/</a></p>
 </blockquote>
-<p>[toc]</p>
 <p><strong>注意</strong></p>
 <ol>
 <li>本文使用的一些记号与论文相同，如下：</li>
@@ -289,6 +288,7 @@
 <li>由于是英文论文的中文笔记，所以对于私自翻译的专业词汇加上了英文标注。</li>
 <li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
 </ol>
+<a id="more"></a>
 <h2 id="遮罩函数的伸展不变性"><a href="#遮罩函数的伸展不变性" class="headerlink" title="遮罩函数的伸展不变性"></a>遮罩函数的伸展不变性</h2><h3 id="伸展不变性的定义"><a href="#伸展不变性的定义" class="headerlink" title="伸展不变性的定义"></a>伸展不变性的定义</h3><p>如下图，我们将一个微表面拉伸，如果该微表面具有伸展不变性，则其法线的分布函数应当也被等比例拉伸；由于高度不变，表面被拉伸，<strong>出方向光线的斜率</strong>也被等比例拉伸：</p>
 <p><img src="https://s2.loli.net/2022/01/13/kSlzZIT4bdiPH6s.png" alt="image-20220113172956284"></p>
 <h3 id="斜率-slopes-的分布"><a href="#斜率-slopes-的分布" class="headerlink" title="斜率(slopes)的分布"></a>斜率(slopes)的分布</h3><p>一个微表面的模型是三维的，其中Z轴即是高度，X、Y轴则是微表面对应的平面位置。约定使用一个二维向量$(x_{\tilde m},y_{\tilde m})$来表示一个点的斜率，其中$x_{\tilde m}$表示切平面沿x轴的斜率，$y_{\tilde m}$表示切平面沿y轴的斜率，如下图所示[y轴同理]：</p>
@@ -328,13 +328,13 @@ D(ω_m)=\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}</script><p>已知：</p
 \int_\Omega cos\theta_m\frac{Cf(\frac{tan\theta_m}{α})}{cos^4\theta_m}d\omega
 =&\int^{2\pi}_0\int^{\frac{\pi}{2}}_0\frac{Ctan\theta_mf(\frac{tan\theta_m}{α})}{cos^2\theta_m}d\theta_md\phi_m\\
 =&2\pi\int^{\frac{\pi}{2}}_0Ctan\theta_mf(\frac{tan\theta_m}{α})dtan\theta_m\\
-=&2\pi\int^{\infin}_0Ctf(\frac{t}{α})dt\\
-=&2\pi Cα^2\int^{\infin}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\\
-=&Cα^2\int^{\infin}_0uf(u)du=1
+=&2\pi\int^{\infty}_0Ctf(\frac{t}{α})dt\\
+=&2\pi Cα^2\int^{\infty}_0\frac{t}{α}f(\frac{t}{α})d\frac{t}{α}\\
+=&Cα^2\int^{\infty}_0uf(u)du=1
 \end{aligned}</script><p>因为f是关于$\frac{tan\theta_m}{α}$的函数，当代入变量时f是关于u的函数，因此f中不包含变量α，因此积分项中没有变量α，故C中包含有变量项$\frac{1}{α^2}$，不妨就设$C=\frac{1}{α^2}$，同时可得以下两式：</p>
 <script type="math/tex; mode=display">
 P^{22}(x_{\tilde m},y_{\tilde m},α)=\frac{1}{α^2}f(\frac{tan\theta_m}{α})</script><script type="math/tex; mode=display">
-\int^{\infin}_0xf(x)dx=1</script><p>由斜率概率密度得出法线概率密度得：</p>
+\int^{\infty}_0xf(x)dx=1</script><p>由斜率概率密度得出法线概率密度得：</p>
 <script type="math/tex; mode=display">
 D(\omega_m)=\frac{1}{cos\theta^4_mα^2}f(\frac{tan\theta_m}{α})</script><h4 id="各向同性形状不变性的形式化定义"><a href="#各向同性形状不变性的形式化定义" class="headerlink" title="各向同性形状不变性的形式化定义"></a>各向同性形状不变性的形式化定义</h4><p>若斜率分布密度函数对于$\lambda&gt;0$，有以下成立，则该斜率分布函数满足形状不变性。</p>
 <p><img src="https://s2.loli.net/2022/01/14/FBroxSEAk4wZX8M.png" alt="image-20220114165608527"></p>
@@ -438,6 +438,15 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
 
 
 <nav id="article-nav">
+  
+    <a href="/2022/01/20/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Bidirectional%20Path%20Tracing_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          双向光线追踪-01
+        
+      </div>
+    </a>
   
   
     <a href="/2022/01/12/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Understanding%20the%20Masking-Shadowing%20Function%20in%20Microfacet-Based%20BRDFs_2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -656,7 +665,7 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,11 +673,7 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,7 +685,7 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,7 +693,15 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,11 +709,7 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,6 +718,10 @@ Q^{-1}=\begin{pmatrix}α^2_x&r_{xy}α_xα_y\\r_{xy}α_xα_y&α^2_y\end{pmatrix}<
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
             
             <div class="clearfix"></div>
