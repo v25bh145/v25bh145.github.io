@@ -183,6 +183,111 @@
             
 
   
+    <article id="post-coding/designPatten/5.单件模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">5.单件模式-设计模式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-12-13T03:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="单件模式"><a href="#单件模式" class="headerlink" title="单件模式"></a>单件模式</h2><blockquote>
+<p>“用来创建独一无二的，只能有一个实例的对象的入场券。”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>定义: “单件模式确保<strong>一个类只有一个实例</strong>，并提供一个<strong>全局访问点</strong>。”</p>
+</blockquote>
+<ul>
+<li><strong>全局访问点</strong>: <strong>构造函数</strong>是<strong>私有方法</strong>，而提供一个<strong>公开</strong>、<strong>静态</strong>的<code>getInstance()</code>方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqueInstance != <span class="keyword">null</span>) uniqueInstance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>注意</strong>:如果使用1.2版本或之前的JVM，需要建立单件注册表，以免垃圾收集器回收单件。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-coding/designPatten/4.工厂模式-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1105,101 +1210,6 @@
 
 
   
-    <article id="post-coding/ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" target="_blank">CTF笔记-WEB攻防-04</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" class="archive-article-date">
-        <time datetime="2020-10-11T14:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4749&amp;page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
-<p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1398,6 +1408,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
               </li>
              
@@ -1406,7 +1420,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,10 +1436,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
@@ -1430,19 +1444,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">计算机图形学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
             
             <div class="clearfix"></div>

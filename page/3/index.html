@@ -183,6 +183,101 @@
             
 
   
+    <article id="post-coding/ctf/ctf笔记-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" target="_blank">CTF笔记-WEB攻防-04</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/" class="archive-article-date">
+        <time datetime="2020-10-11T14:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="NaNNaNNaNNaN-Batman"><a href="#NaNNaNNaNNaN-Batman" class="headerlink" title="NaNNaNNaNNaN-Batman"></a><a href="https://adworld.xctf.org.cn/task/answer?type=web&amp;number=3&amp;grade=1&amp;id=4749&amp;page=1" target="_blank" rel="noopener">NaNNaNNaNNaN-Batman</a></h1><p>下载附件，打开看到了一堆乱码，看着像是js的审计题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(可能是由于这段乱码的问题，这篇.md中的汉字全都变成了乱码，所以这里的东西删去了) =&gt; 进行了一波完形填空</span><br></pre></td></tr></table></figure>
+<p>仔细对着代码看了看，发现代码是有有序的结构的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_=<span class="string">'function $() &#123;/*乱码*/&#125;'</span>;</span><br><span class="line"><span class="keyword">for</span>(Y <span class="keyword">in</span> $=<span class="string">'/*乱码*/'</span>)</span><br><span class="line">    <span class="keyword">with</span>(_.split($[Y]))_=join(pop());</span><br><span class="line"><span class="built_in">eval</span>(_)</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/10/11/coding/ctf/ctf%E7%AC%94%E8%AE%B0-04/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-coding/ctf/ctf笔记-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1073,99 +1168,6 @@
 
 
   
-    <article id="post-coding/nodeJs/6. TCP服务器 在线聊天应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" target="_blank">6.TCP服务器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-09-29T11:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="TCP服务器"><a href="#TCP服务器" class="headerlink" title="TCP服务器"></a>TCP服务器</h1><hr>
-<h2 id="创建TCP服务器-使用telnet测试"><a href="#创建TCP服务器-使用telnet测试" class="headerlink" title="创建TCP服务器 使用telnet测试"></a>创建TCP服务器 使用telnet测试</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">    res.end(<span class="string">'&lt;h1&gt;hello world&lt;/h1&gt;'</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">《了不起的Node JS 将JavaScript进行到底》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/29/coding/nodeJs/6.%20TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
@@ -1364,6 +1366,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">堆</a>
               </li>
              
@@ -1372,7 +1378,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1384,10 +1394,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
@@ -1396,19 +1402,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">计算机图形学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
             
             <div class="clearfix"></div>

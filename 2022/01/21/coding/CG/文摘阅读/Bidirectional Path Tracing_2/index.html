@@ -6,20 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Question-P1064 | V25bh145的小茶室</title>
+  <title>双向光线追踪-02 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="P1064题目描述金明今天很开心，家里购置的新房就要领钥匙了，新房里有一间金明自己专用的很宽敞的房间。更让他高兴的是，妈妈昨天对他说：“你的房间需要购买哪些物品，怎么布置，你说了算，只要不超过NN元钱就行”。今天一早，金明就开始做预算了，他把想买的物品分为两类：主件与附件，附件是从属于某个主件的，下表就是一些主件与附件的例子： 主件 附件 电脑 打印机，扫描仪 书柜 图书 书桌 台灯，文具 工作椅">
-<meta name="keywords" content="Question,动态规划">
+  <meta name="description" content="论文出处：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs348b-03&#x2F;papers&#x2F;veach-chapter10.pdf (课程的教材) 标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis 作者：E. Veach 网址：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs34">
+<meta name="keywords" content="计算机图形学,光线追踪">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Question-P1064">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;coding&#x2F;questions&#x2F;Question-P1064&#x2F;index.html">
+<meta property="og:title" content="双向光线追踪-02">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2022&#x2F;01&#x2F;21&#x2F;coding&#x2F;CG&#x2F;%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB&#x2F;Bidirectional%20Path%20Tracing_2&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="P1064题目描述金明今天很开心，家里购置的新房就要领钥匙了，新房里有一间金明自己专用的很宽敞的房间。更让他高兴的是，妈妈昨天对他说：“你的房间需要购买哪些物品，怎么布置，你说了算，只要不超过NN元钱就行”。今天一早，金明就开始做预算了，他把想买的物品分为两类：主件与附件，附件是从属于某个主件的，下表就是一些主件与附件的例子： 主件 附件 电脑 打印机，扫描仪 书柜 图书 书桌 台灯，文具 工作椅">
+<meta property="og:description" content="论文出处：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs348b-03&#x2F;papers&#x2F;veach-chapter10.pdf (课程的教材) 标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis 作者：E. Veach 网址：https:&#x2F;&#x2F;graphics.stanford.edu&#x2F;courses&#x2F;cs34">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-29T11:30:17.821Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;XlckraOHD8GBgVC.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;74C8A6jBGHILlhJ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;DZhFfnrMTpqKiou.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;T4fW2ujnsibaGRm.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;C7NoEBXxcVDiSTr.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;UiAuJWtDXhSQoRY.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;y2t7HfYjxnoiecQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;dhTDjGgoqJml5Rb.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;PAfzdhcF4je5UY8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;fieOGLcWJzhINqY.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;25&#x2F;34GVozKZfC8rY1x.png">
+<meta property="og:updated_time" content="2022-01-25T14:09:32.742Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s2.loli.net&#x2F;2022&#x2F;01&#x2F;21&#x2F;XlckraOHD8GBgVC.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
@@ -179,14 +191,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coding/questions/Question-P1064" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-coding/CG/文摘阅读/Bidirectional Path Tracing_2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Question-P1064
+      双向光线追踪-02
     </h1>
   
 
@@ -198,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/12/09/coding/questions/Question-P1064/" class="archive-article-date">
-        <time datetime="2019-12-09T13:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-09</time>
+<a href="/2022/01/21/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Bidirectional%20Path%20Tracing_2/" class="archive-article-date">
+        <time datetime="2022-01-21T09:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-21</time>
 </a>
 
   
@@ -212,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.3k字</span>
+      <span class="post-count">2.1k字</span>
     </span>
   </span>
 
@@ -221,7 +233,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -232,125 +244,87 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="P1064"><a href="#P1064" class="headerlink" title="P1064"></a>P1064</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>金明今天很开心，家里购置的新房就要领钥匙了，新房里有一间金明自己专用的很宽敞的房间。更让他高兴的是，妈妈昨天对他说：“你的房间需要购买哪些物品，怎么布置，你说了算，只要不超过NN元钱就行”。今天一早，金明就开始做预算了，他把想买的物品分为两类：主件与附件，附件是从属于某个主件的，下表就是一些主件与附件的例子：</p>
-<p>主件 附件</p>
-<p>电脑 打印机，扫描仪</p>
-<p>书柜 图书</p>
-<p>书桌 台灯，文具</p>
-<p>工作椅 无</p>
-<p>如果要买归类为附件的物品，必须先买该附件所属的主件。每个主件可以有0个、1个或2个附件。附件不再有从属于自己的附件。金明想买的东西很多，肯定会超过妈妈限定的N元。于是，他把每件物品规定了一个重要度，分为5等：用整数1-5表示，第5等最重要。他还从因特网上查到了每件物品的价格（都是10元的整数倍）。他希望在不超过N元（可以等于N元）的前提下，使每件物品的价格与重要度的乘积的总和最大。</p>
-<p>设第j件物品的价格为v[j]，重要度为w[j]，共选中了k件物品，编号依次为 $j_{1},j_{2},……,j_{k}$ ，则所求的总和为：</p>
-<p>v[j1] <em> w[j1] + v[j2] </em> w[j2] + ……　＋ v[jk] * w[jk]</p>
-<p>请你帮助金明设计一个满足要求的购物单。</p>
-<a id="more"></a>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第1行，为两个正整数，用一个空格隔开：</p>
-<p>N m （其中N(&lt;32000)表示总钱数，m(&lt;60)为希望购买物品的个数。） 从第2行到第m+1行，第j行给出了编号为j-1的物品的基本数据，每行有3个非负整数</p>
-<p>v p q （其中v表示该物品的价格（v<10000），p表示该物品的重要度（1-5），q表示该物品是主件还是附件。如果q=0，表示该物品为主件，如果q>0，表示该物品为附件，q是所属主件的编号）</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个正整数，为不超过总钱数的物品的价格与重要度乘积的总和的最大值（&lt;200000）。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><pre><code>1000 5
-800 2 0
-400 5 1
-300 5 1
-400 3 0
-500 2 0
-</code></pre><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><pre><code>2200
-</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>NOIP 2006 提高组 第二题</p>
-<hr>
-<h2 id="听音乐"><a href="#听音乐" class="headerlink" title="听音乐~"></a>听音乐~</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=864711417&auto=0&height=66"></iframe>
-
-<hr>
-<h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><p>首先这道题是一个0-1型背包问题，不过加了一层限制，<strong>如果想选择附件则必须要先选择对应的主件</strong></p>
+    <blockquote>
+<p>论文出处：<a href="https://graphics.stanford.edu/courses/cs348b-03/papers/veach-chapter10.pdf" target="_blank" rel="noopener">https://graphics.stanford.edu/courses/cs348b-03/papers/veach-chapter10.pdf</a> (课程的教材)</p>
+<p>标题：Bidirectional Path Tracing, Chapter 10, PhD Thesis</p>
+<p>作者：E. Veach</p>
+<p>网址：<a href="https://graphics.stanford.edu/courses/cs348b-03" target="_blank" rel="noopener">https://graphics.stanford.edu/courses/cs348b-03</a></p>
+</blockquote>
+<p><strong>注意</strong></p>
 <ol>
-<li><p>首先考虑n呈10的整数倍，可以将空间缩小10倍，返回的解*10</p>
+<li>本文可能需要的前置知识：<ol>
+<li>光线追踪(尤其是LTE形式的推导)</li>
+<li>采样理论(尤其是多重重要性采样)</li>
+<li>俄罗斯轮盘赌(Russian Roulette，包括一些简单的概率论)</li>
+</ol>
 </li>
-<li><p><code>考虑分组背包，每一个组包含主件和主件的附属，矛盾的选择是主件和不同附件的排列组合</code><br>这样的时间复杂度是指数级了，每一个附件有选择或不选择两种状态</p>
+<li>由于是英文论文的中文笔记，所以对于私自翻译的专业词汇加上了英文标注。</li>
+<li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
+<li>文章些许地方没有看懂，妄加了些揣测，如果看到明显错误的地方请见谅。</li>
+</ol>
+<a id="more"></a>
+<h2 id="实现中的问题"><a href="#实现中的问题" class="headerlink" title="实现中的问题"></a>实现中的问题</h2><h3 id="图像采样与过滤"><a href="#图像采样与过滤" class="headerlink" title="图像采样与过滤"></a>图像采样与过滤</h3><p>为了提高对单个像素采样的精度，需要使用分层采样策略(stratified sampling)，即对像素内的多个位置进行超采样，而这些位置的选择是随机的。</p>
+<h4 id="补充-对像素内部的随机采样-分层采样器"><a href="#补充-对像素内部的随机采样-分层采样器" class="headerlink" title="补充-对像素内部的随机采样[分层采样器]"></a>补充-对像素内部的随机采样[分层采样器]</h4><p>分层采样器也有多种实现，倘若随机生成的点过于集中，也会造成采样结果偏差。有很多优秀的分层采样方式，如颤动(jittering)、拉丁超立方体采样(LHS)等等，详情可以阅读pbrt 7.3部分。</p>
+<h4 id="分层采样公式"><a href="#分层采样公式" class="headerlink" title="分层采样公式"></a>分层采样公式</h4><p>假设对一个像素内部采N份样本，则有最终像素颜色如下：</p>
+<p><img src="https://s2.loli.net/2022/01/21/XlckraOHD8GBgVC.png" alt="image-20220121173943276"></p>
+<p>其中，$h_j$为过滤器，$I$为单次采样的结果。</p>
+<h3 id="估计图像函数值"><a href="#估计图像函数值" class="headerlink" title="估计图像函数值"></a>估计图像函数值</h3><p>为了更有效率地生成路径，在采样决定单个节点后，需要缓存下节点的位置、$f$函数值(BSDF)、$\alpha^E_i$、$\alpha^L_i$、$G(x_{i-1}\leftrightarrow x_i)$、$p_{\sigma^\perp}(x_i\to x_{i-1})$以及$p_{\sigma^\perp}(x_i\to x_{i+1})$。</p>
+<h3 id="决定子路径长度"><a href="#决定子路径长度" class="headerlink" title="决定子路径长度"></a>决定子路径长度</h3><p>前文提到过，决定子路径的长度可以使用俄罗斯轮盘赌方法，设继续采样的概率为$q_i$，则终止采样的概率为$1-q_i$，有如下公式：</p>
+<p><img src="https://s2.loli.net/2022/01/21/74C8A6jBGHILlhJ.png" alt="image-20220121181318947"></p>
+<p>需要注意的是，为了保持其期望值$E=E(qf)+E((1-q)*0)=E(qf)=qE(f)$不变，俄罗斯轮盘赌需要将原概率P乘以继续采样的概率$q_i$，以维持无偏估计，如下：</p>
+<p><img src="https://s2.loli.net/2022/01/21/DZhFfnrMTpqKiou.png" alt="image-20220121181512154"></p>
+<h3 id="子路径长度的特殊情况"><a href="#子路径长度的特殊情况" class="headerlink" title="子路径长度的特殊情况"></a>子路径长度的特殊情况</h3><h4 id="光路长度为0"><a href="#光路长度为0" class="headerlink" title="光路长度为0"></a>光路长度为0</h4><p>当光路长度为0时，光路上并没有节点。即是当眼路采样到光源上的一点的情况，这时不用做复杂的可见性检测(测试两点之间是否有障碍)。这种情况导致了大面积光源或镜面下焦散的产生，</p>
+<h4 id="光路长度为1"><a href="#光路长度为1" class="headerlink" title="光路长度为1"></a>光路长度为1</h4><p>当光路长度为1时，光路上只有一个在随机光源上随机采样得到的节点。这种情况可以等价于<strong>直接光照</strong>。在基础算法下，可以不对其做任何事，只是计算光源节点到眼路最前一个节点辐亮度值与其他值。而在改进情况下，可以<strong>遍历眼路的所有节点</strong>，依次计算遍历节点到光源节点的辐亮度值与其他值，最后将遍历结果相加起来取加权平均值作为这种划分的计算结果。</p>
+<h4 id="（眼路长度为0、1的情况没有看懂，也没找到相关的资料）"><a href="#（眼路长度为0、1的情况没有看懂，也没找到相关的资料）" class="headerlink" title="（眼路长度为0、1的情况没有看懂，也没找到相关的资料）"></a>（眼路长度为0、1的情况没有看懂，也没找到相关的资料）</h4><h3 id="处理镜面表面"><a href="#处理镜面表面" class="headerlink" title="处理镜面表面"></a>处理镜面表面</h3><p>镜面表面由于使用了Delta分布，因此存在值为0的问题，具体有两个地方需要特别注意：</p>
+<h4 id="计算镜面的c值-连接边"><a href="#计算镜面的c值-连接边" class="headerlink" title="计算镜面的c值(连接边)"></a>计算镜面的c值(连接边)</h4><blockquote>
+<p> 在设计BSDF函数的时候如果不是采样取值，一般都会返回0值，只有sample_f是非零，且只会返回一个确定的采样方向。</p>
+</blockquote>
+<p>当连接点其中之一所在的材质具有镜面属性时，由镜面的Delta属性(Dirac分布)，其$f_s$(BSDF)值会得到0值。回顾连接边的公式：</p>
+<p><img src="https://s2.loli.net/2022/01/21/T4fW2ujnsibaGRm.png" alt="image-20220121184343684"></p>
+<h4 id="迭代i值划分路径"><a href="#迭代i值划分路径" class="headerlink" title="迭代i值划分路径"></a>迭代i值划分路径</h4><p>回顾上文，当逐步增加光路长度时，需要将结果值乘以下值：</p>
+<p><img src="https://s2.loli.net/2022/01/21/C7NoEBXxcVDiSTr.png" alt="image-20220121184525971"></p>
+<p>而当$x_{i+1},x_i,x_{i-1}$其中一项具有镜面属性时，有可能使得分数=0甚至正无穷。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>通过在计算光线追踪时引入一个镜面标志位(specular flag)，可以在记录采样点时顺便记录下其是否具有镜面属性。当需要计算具有镜面属性的点的$f_s$或$P$时，可以无视此点，直接使用反射/折射定律生成另一束追踪光线对下一个点进行计算。</p>
+<h3 id="估计权重函数"><a href="#估计权重函数" class="headerlink" title="估计权重函数"></a>估计权重函数</h3><p>在估计权重函数时，需要通过估计概率值$p_i$估计权重函数，而有些情况下真实的概率非常难以估计，因此需要特别摘出这些情况以针对选择一些(效率上)更加合理的估算概率方法。</p>
+<p>例如，当估计采样采样点对光源某一点上的概率密度时，精准的估计方法是计算出此点可以看到的所有光源面积，而这是十分耗时且复杂的。因此我们简单将概率密度估计为：$P_A(x)=\frac{1}{n*area}$。其中，n为光源数量，$area$为此光源面积。</p>
+<h2 id="减少可见性检测的数量"><a href="#减少可见性检测的数量" class="headerlink" title="减少可见性检测的数量"></a>减少可见性检测的数量</h2><h3 id="此节的一些假设"><a href="#此节的一些假设" class="headerlink" title="此节的一些假设"></a>此节的一些假设</h3><p>假设$F=C_1+…+C_n$中$C_i$为单条路径的不同光路、眼路划分采样方式，且$C_i=t_i*v_i$，$t_i$为暂定贡献，$v_i$为可见性因素(非0或1)。</p>
+<p>可见性检测的数量可以通过俄罗斯轮盘赌(RR)进行减少。注意，前文中的俄罗斯轮盘赌用于决定子路径的数量，在决定好子路径数量之后开始划分光路、眼路，在这之后，才可以使用这里所述的方式，在求单个划分方式的贡献值时尽可能提高效率。</p>
+<p>俄罗斯轮盘赌的公式为：</p>
+<p><img src="https://s2.loli.net/2022/01/25/UiAuJWtDXhSQoRY.png" alt="image-20220125212616046"></p>
+<p>需要在计算$C_i$之前估计$q_i$，以决定是否对这个划分深入计算。</p>
+<h3 id="简单计算-q-i"><a href="#简单计算-q-i" class="headerlink" title="简单计算$q_i$"></a>简单计算$q_i$</h3><p>首先，可以通过设定一个轮盘赌门槛(roulette threshold, 以下简称门槛)来决定$q_i$的取值，如下：</p>
+<p><img src="https://s2.loli.net/2022/01/25/y2t7HfYjxnoiecQ.png" alt="image-20220125212815818"></p>
+<p>这个方法并不很令人满意，因为门槛$\delta$是随机选择的，如果门槛过高会导致方差过高，而门槛过低则会导致很高的计算复杂度，因此需要一种基于划分方式动态计算门槛的方式。</p>
+<h3 id="效率优化计算-q-i"><a href="#效率优化计算-q-i" class="headerlink" title="效率优化计算$q_i$"></a>效率优化计算$q_i$</h3><p>定义估计积分F的效率估计定义式如下：</p>
+<p><img src="https://s2.loli.net/2022/01/25/dhTDjGgoqJml5Rb.png" alt="image-20220125213112946"></p>
+<p>假设计算时间仅与产生的光线n成正比，包括光路与眼路发出的所有相交光线。</p>
+<h4 id="计算方差-sigma-2"><a href="#计算方差-sigma-2" class="headerlink" title="计算方差$\sigma^2$"></a>计算方差$\sigma^2$</h4><p>由概率论知识，假设$v_i=1$，得：</p>
+<script type="math/tex; mode=display">
+E[C_i]=v_it_i\\
+\begin{aligned}V[C_i]=&E[C_i^2]-E[C_i]^2\\=&\frac{v_i^2t_i^2}{q_i}-v_i^2t_i^2\\=&(\frac{1}{q_i}-1)v_i^2t_i^2\end{aligned}</script><p>设原本方法的方差为$\sigma_0^2$，则此时的方差为$\sigma_0^2+V[C_i]$。</p>
+<h4 id="计算时间T"><a href="#计算时间T" class="headerlink" title="计算时间T"></a>计算时间T</h4><p>由于计算时间与n成正比，设原本方法需要发出$n_0$条光线，则现在方法需要发出$n_0-(1-q_i)$条光线</p>
+<h4 id="计算效率"><a href="#计算效率" class="headerlink" title="计算效率"></a>计算效率</h4><p>代入时间T与方差$\sigma^2$到效率公式中，得：</p>
+<script type="math/tex; mode=display">
+\epsilon=\frac{1}{(\sigma_0^2+V[C_i])(n_0-(1-q_i))}</script><script type="math/tex; mode=display">
+q_i=t_i\sqrt{\frac{n_0-1}{\sigma_0^2-t_i^2}}</script><p>代入$q_i=min(1,\frac{t_i}{\delta})$得：</p>
+<p><img src="https://s2.loli.net/2022/01/25/PAfzdhcF4je5UY8.png" alt="image-20220125220913909"></p>
+<h4 id="公式的两个问题"><a href="#公式的两个问题" class="headerlink" title="公式的两个问题"></a>公式的两个问题</h4><ol>
+<li>$t_i$需要在计算完整个路径后才能获得。</li>
+<li>$t_i^2&gt;\sigma_0^2$时，$\delta$取复数域。</li>
+</ol>
+<p>因此，为了优化$\delta$的计算，将公式简化为如下：</p>
+<p><img src="https://s2.loli.net/2022/01/25/fieOGLcWJzhINqY.png" alt="image-20220125220923127"></p>
+<h4 id="估计-n-0-与-delta-0"><a href="#估计-n-0-与-delta-0" class="headerlink" title="估计$n_0$与$\delta_0$"></a>估计$n_0$与$\delta_0$</h4><ol>
+<li><p>存储到目前为止的$n_0$与$\delta_0$作为此次估计结果：</p>
+<p>效果不够，例如屏幕左半为黑右半为白的情况。</p>
 </li>
-<li><p><code>考虑优化，对每一个组内部进行0-1背包处理，计算不同体积下能获得的最大价格，矛盾的选择是在选择在此组消耗的体积</code></p>
+<li><p>使用局部的$n_0$与$\delta_0$估计当前像素的$n_0$与$\delta_0$</p>
+<p>随机顺序采集像素，之后估计某像素样本时取最近(nearest)像素的$n_0$与$\delta_0$作为其估计值。</p>
 </li>
-<li><p><code>最后考虑关于动态规划的数组在空间上的优化，0-1背包问题使用一维数组存储单个组解，放在分组问题中组循环的内部，分组问题使用一维数组刷新的方式</code></p>
+<li><p>在本文实现中，采用”s”型扫描线进行估计，只存储最后采集的N个$n_0$与$\delta_0$。</p>
+<p><img src="https://s2.loli.net/2022/01/25/34GVozKZfC8rY1x.png" alt="image-20220125220812167"></p>
 </li>
 </ol>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>#include &lt;iostream&gt;
-using namespace std;
-int N, m, groupOptimal[3250], optimal[3250];
-int mGroup = 0;
-struct Group
-{
-    int value;
-    int cost;
-    int sonValue[62];
-    int sonCost[62];
-    int length;
-} k[62];
-
-int main()
-{
-    cin&gt;&gt;N&gt;&gt;m;
-    N = N / 10;
-
-    for(int i = 0; i &lt;= m; i++)
-    {
-        //初始化操作,-1代表不存在
-        k[i].value = -1;
-        k[i].length = 0;
-    }
-
-    int tmpValue, tmpPrior, tmpOf;
-    for(int i = 1; i &lt;= m; i++)
-    {
-        cin&gt;&gt;tmpValue&gt;&gt;tmpPrior&gt;&gt;tmpOf;
-        if(tmpOf == 0)
-        {
-            k[i].value = tmpValue * tmpPrior / 10;
-            k[i].cost = tmpValue / 10;
-        }
-        else
-        {
-            k[tmpOf].length++;
-            k[tmpOf].sonValue[k[tmpOf].length] = tmpValue * tmpPrior / 10;
-            k[tmpOf].sonCost[k[tmpOf].length] = tmpValue / 10;
-        }    
-    }
-    for(int i = 1; i &lt;= m; i++)
-        if(k[i].value != -1)
-        //若组存在，则组的数目自增1
-        {
-            mGroup++;
-            swap(k[mGroup], k[i]);
-        }
-
-    for(int i = 1; i &lt;= mGroup; i++)
-    //动态规划数组初始化，放入主件
-    {
-        for(int j = 0; j &lt;= N; j++)
-        {
-            if(j &gt;= k[i].cost)
-                groupOptimal[j] = k[i].value;
-            else
-                groupOptimal[j] = -100000000;
-        }
-
-        for(int v = 1; v &lt;= k[i].length; v++)
-            for(int j = N; j &gt;= k[i].cost; j--)
-                if(j - k[i].sonCost[v] &gt;= 0)
-                    groupOptimal[j] = max(groupOptimal[j], groupOptimal[j - k[i].sonCost[v]] + k[i].sonValue[v]);
-
-        for(int j = N; j &gt;= 0; j--)
-            for(int u = j; u &gt;= k[i].cost; u--)
-                optimal[j] = max(optimal[j], optimal[j - u] + groupOptimal[u]);
-    }
-    cout&lt;&lt;optimal[N] * 10&lt;&lt;endl;
-    return 0;
-}
-</code></pre><hr>
-<h2 id="复杂度：-O-m-2-N-mN-2"><a href="#复杂度：-O-m-2-N-mN-2" class="headerlink" title="复杂度：$O(m^{2}N + mN^{2})$"></a>复杂度：$O(m^{2}N + mN^{2})$</h2><p>绰绰有余辣</p>
-<hr>
-<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>有没有感觉篇博客明显变短了鸭哈哈哈</p>
-<p>我感觉我太啰嗦了，而且一般写的思考过程和试错鸭什么的辣些一般我也不会怎么看的hhhh</p>
-<p>最近在复习 <del>(从0基础开始学)</del> 动态规划呢，感觉好难鸭哈哈哈</p>
-<p>最大的问题就是转移方程的推导了嗯嗯，没看见这个转移方程的时候我根本推不出来哈哈哈 <del>(难道是我题解看多了)</del></p>
-<p>加油扒~顺便<a href="https://www.kancloud.cn/kancloud/pack/70124" target="_blank" rel="noopener">背包九讲</a>的东东我打算往笔记本里记廖，这里就不复述辣</p>
 
     
 
@@ -365,7 +339,7 @@ int main()
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2019/12/09/coding/questions/Question-P1064/" title="Question-P1064" target="_blank">https://v25bh145.github.io/2019/12/09/coding/questions/Question-P1064/</a>
+          <a href="https://v25bh145.github.io/2022/01/21/coding/CG/文摘阅读/Bidirectional Path Tracing_2/" title="双向光线追踪-02" target="_blank">https://v25bh145.github.io/2022/01/21/coding/CG/文摘阅读/Bidirectional Path Tracing_2/</a>
         </li>
         
         <li>
@@ -387,11 +361,11 @@ int main()
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">Question</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">计算机图形学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">光线追踪</a>
         		</li>
       		
 		</ul>
@@ -410,18 +384,9 @@ int main()
 
 <nav id="article-nav">
   
-    <a href="/2019/12/11/coding/questions/Question-P1280/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Question-P1280
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/04/coding/questions/Question-P1631/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Question-P1631</div>
+    <a href="/2022/01/20/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/Bidirectional%20Path%20Tracing_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">双向光线追踪-01</div>
       <i class="icon-circle-right"></i>
     </a>
   
