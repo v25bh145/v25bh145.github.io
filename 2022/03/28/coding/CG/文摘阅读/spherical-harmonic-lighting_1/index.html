@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="V25bh145的小茶室">
 <meta property="og:description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2022-03-28T08:58:26.480Z">
+<meta property="og:updated_time" content="2022-03-29T03:33:38.635Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
@@ -212,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">773字</span>
+      <span class="post-count">781字</span>
     </span>
   </span>
 
@@ -244,6 +244,7 @@
 <li>渲染方程以及辐射度量学</li>
 <li>BRDF</li>
 <li>蒙特卡洛积分</li>
+<li>IBL（基于图像的光照）</li>
 <li>傅里叶变换</li>
 </ol>
 </li>
@@ -308,12 +309,12 @@ c_i=\frac{1}{N}\sum^N_{j=1}light(x_j)y_i(x_j)4\pi=\frac{4\pi}{N}\sum^N_{j=1}ligh
 <h4 id="球谐函数计算中的问题"><a href="#球谐函数计算中的问题" class="headerlink" title="球谐函数计算中的问题"></a>球谐函数计算中的问题</h4><p><strong>振铃现象</strong>：高频光照导致球谐系数重建后的不连续性，对光照进行<strong>前置滤波</strong>(例如，高斯滤波)即可消去光照部分。</p>
 <h2 id="球谐函数的属性"><a href="#球谐函数的属性" class="headerlink" title="球谐函数的属性"></a>球谐函数的属性</h2><h3 id="正交规范性"><a href="#正交规范性" class="headerlink" title="正交规范性"></a>正交规范性</h3><script type="math/tex; mode=display">
 \int_\Omega y_i(x)y_j(x)=\begin{cases}0&i\ne j\\1&i=j\end{cases}</script><h3 id="旋转不变性"><a href="#旋转不变性" class="headerlink" title="旋转不变性"></a>旋转不变性</h3><script type="math/tex; mode=display">
-\widetilde{g(s)}=\widetilde{f(R(s))}</script><h3 id="简化计算-为简便表示，-y-i-omega-o-与积分-int-并没有使用-体积角坐标系转换公式-化开"><a href="#简化计算-为简便表示，-y-i-omega-o-与积分-int-并没有使用-体积角坐标系转换公式-化开" class="headerlink" title="简化计算[为简便表示，$y_i(\omega_o)$与积分$\int$并没有使用 体积角坐标系转换公式 化开]"></a>简化计算[为简便表示，$y_i(\omega_o)$与积分$\int$并没有使用 体积角坐标系转换公式 化开]</h3><script type="math/tex; mode=display">
+\widetilde{g(s)}=\widetilde{f(R(s))}</script><h3 id="简化计算-为简便表示，-y-i-omega-i-与积分-int-并没有使用-体积角坐标系转换公式-化开"><a href="#简化计算-为简便表示，-y-i-omega-i-与积分-int-并没有使用-体积角坐标系转换公式-化开" class="headerlink" title="简化计算[为简便表示，$y_i(\omega_i)$与积分$\int$并没有使用 体积角坐标系转换公式 化开]"></a>简化计算[为简便表示，$y_i(\omega_i)$与积分$\int$并没有使用 体积角坐标系转换公式 化开]</h3><script type="math/tex; mode=display">
 \begin{aligned}L(p, \omega_i)
-&=\int_\Omega L(\omega_o)t(\omega_o)d\omega_o\\
-&=\int_\Omega\sum_{i=0}^{l^2}(L_iy_i(\omega_o))\sum^{l^2}_{j=0}(t_jy_j(\omega_o))\\
-&=\int_\Omega\sum_{i=0}^{l^2}\sum^{l^2}_{j=0}L_iy_i(\omega_o)t_jy_j(\omega_o)\\
-&=\sum_{i=0}^{l^2}\sum^{l^2}_{j=0}L_it_j\int_\Omega y_i(\omega_o)y_j(\omega_o)\\
+&=\int_\Omega L(\omega_i)t(\omega_i)d\omega_i\\
+&=\int_\Omega\sum_{i=0}^{l^2}(L_iy_i(\omega_i))\sum^{l^2}_{j=0}(t_jy_j(\omega_i))d\omega_i\\
+&=\int_\Omega\sum_{i=0}^{l^2}\sum^{l^2}_{j=0}L_iy_i(\omega_i)t_jy_j(\omega_i)d\omega_i\\
+&=\sum_{i=0}^{l^2}\sum^{l^2}_{j=0}L_it_j\int_\Omega y_i(\omega_i)y_j(\omega_i)d\omega_i\\
 &=\sum_{i=0}^{l^2}L_it_i
 \end{aligned}</script><h3 id="不同点之间球谐系数的转移"><a href="#不同点之间球谐系数的转移" class="headerlink" title="不同点之间球谐系数的转移"></a>不同点之间球谐系数的转移</h3><p>设任意光源点的光源函数为a(s)，目标点有函数b(s)描述光线s从光源到目标点如何被遮蔽。设有一种方法可以将入射光的系数转换为一个已经被阴影遮蔽过的光的系数，称其为c(s)。</p>
 <p>设从光源点到目标点的转移矩阵$M_{nn}$，表示光源的SH投影直接映射到目标点的SH投影：</p>
@@ -381,6 +382,15 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
 
 
 <nav id="article-nav">
+  
+    <a href="/2022/03/29/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          球谐光照-02
+        
+      </div>
+    </a>
   
   
     <a href="/2022/02/26/CV/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/" id="article-nav-older" class="article-nav-link-wrap">
@@ -587,15 +597,19 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Question</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,11 +621,11 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,15 +637,15 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,15 +653,11 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,11 +669,11 @@ c_i=\sum^{n^2}_{j=1}M_{ij}a_i</script><h3 id="球谐函数的旋转"><a href="#�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">球谐光照</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">球谐光照</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
             
             <div class="clearfix"></div>

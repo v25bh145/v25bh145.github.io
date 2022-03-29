@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>我的第一个博客 | V25bh145的小茶室</title>
+  <title>球谐光照-02 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="首先，不管你是谁，总之欢迎来到我的博客鸭~">
-<meta name="keywords" content="markdown,随笔">
+  <meta name="description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
+<meta name="keywords" content="计算机图形学,球谐光照">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一个博客">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2&#x2F;index.html">
+<meta property="og:title" content="球谐光照-02">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2022&#x2F;03&#x2F;29&#x2F;coding&#x2F;CG&#x2F;%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB&#x2F;spherical-harmonic-lighting_2&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="首先，不管你是谁，总之欢迎来到我的博客鸭~">
+<meta property="og:description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;26&#x2F;eSxz8W2A6rFpMyK.png">
-<meta property="og:updated_time" content="2020-10-21T19:32:43.970Z">
+<meta property="og:updated_time" content="2022-03-29T03:33:29.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;26&#x2F;eSxz8W2A6rFpMyK.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
@@ -181,14 +179,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一个博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-coding/CG/文摘阅读/spherical-harmonic-lighting_2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      我的第一个博客
+      球谐光照-02
     </h1>
   
 
@@ -200,8 +198,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2019-11-26T09:28:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+<a href="/2022/03/29/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_2/" class="archive-article-date">
+        <time datetime="2022-03-29T03:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-29</time>
 </a>
 
   
@@ -214,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">870字</span>
+      <span class="post-count">2.1k字</span>
     </span>
   </span>
 
@@ -223,7 +221,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -234,242 +232,93 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="首先，不管你是谁，总之欢迎来到我的博客鸭"><a href="#首先，不管你是谁，总之欢迎来到我的博客鸭" class="headerlink" title="首先，不管你是谁，总之欢迎来到我的博客鸭~"></a>首先，不管你是谁，总之欢迎来到我的博客鸭~</h2><a id="more"></a>
-<p><strong>听音乐~</strong></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=527778&auto=0&height=66"></iframe>
-
-<p>第一个博客文章，我就记一下.md的相关知识扒  </p>
-<p>学自菜鸟教程 </p>
-<blockquote>
-<p><a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a></p>
-<h1 id="一-标题"><a href="#一-标题" class="headerlink" title="一. 标题"></a>一. 标题</h1><p>标题一共六种鸭，一级到六级     </p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-</code></pre></blockquote>
-<pre><code>一级标题
--------
-二级标题
-=======
-</code></pre><h1 id="二-段落的格式"><a href="#二-段落的格式" class="headerlink" title="二. 段落的格式"></a>二. 段落的格式</h1><p>关于换行的话，有两种方式：  </p>
-<ol>
-<li>在一行尾部空出两个以上空格</li>
-<li>多空一行</li>
-</ol>
-<p>这两种方式有差别的亚子</p>
-<p>段落的字体可以自己设置鸭</p>
-<p>有这些：  </p>
-<ol>
-<li><p>星号<br>星号可以<strong>插入在文本之间</strong>呢<br><em>斜体字~</em><br><strong>粗♂体字</strong><br><strong><em>粗♂斜♂体</em></strong>   </p>
-<pre><code> *斜体字~*   
- **粗♂体字**
- ***粗♂斜♂体***   
-</code></pre></li>
-<li><p>下划线<br>下划线只能在段首段位使用的<br>_斜体字~_<br><strong>粗♂体字</strong>  </p>
-<pre><code> _斜体字~_  
- __粗♂体字__
-</code></pre></li>
-<li><p>分割线<br>↓这个就是个分割线辣~~↓  </p>
-</li>
-</ol>
-<hr>
-<pre><code>    ***
-    * * *
-    *****
-    - - -
-    -------
-</code></pre><ol>
-<li>删除线<br><del>删除线</del>~<br><del>一一一</del>(调皮)  </li>
-</ol>
-<pre><code>    ~~删除线~~
-</code></pre><ol>
-<li><p>下划线<br><u>这个</u></p>
-<pre><code> &lt;u&gt;下划线&lt;/u&gt;
-</code></pre></li>
-<li>脚注<br> 脚注貌似无法使用emmmmm</li>
-</ol>
-<h1 id="三-列表"><a href="#三-列表" class="headerlink" title="三. 列表"></a>三. 列表</h1><p>有序的和无序的：</p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li><p>第三项  </p>
-<pre><code>  * 第一项
-  * 第二项
-  * 第三项  
-
-  + 第一项
-  + 第二项
-  + 第三项
-
-  - 第一项
-  - 第二项
-  - 第三项
-</code></pre></li>
-</ul>
-<ol>
-<li>qaq</li>
-<li>qaq</li>
-<li><p>qaq</p>
-<pre><code> 1. qaq
- 2. qaq
- 3. qaq
-</code></pre></li>
-</ol>
-<p>然后还能嵌套,像酱紫</p>
-<ol>
-<li>qaq</li>
-</ol>
-<ul>
-<li>qaq<ul>
-<li>qaq</li>
-</ul>
-<ul>
-<li>qaq<ul>
-<li>qaq<ul>
-<li>qaq<ul>
-<li>qaq</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>qaq</li>
-</ol>
-<ul>
-<li>qaq</li>
-</ul>
-<ol>
-<li><p>qaq</p>
-<p> (混乱)</p>
-<h1 id="四-区块"><a href="#四-区块" class="headerlink" title="四. 区块"></a>四. 区块</h1><p>区块引用就是加上一个&gt;符号和一个空格</p>
-<blockquote>
-<p>我是一个区块引用  </p>
+    <blockquote>
+<p>论文出处：<a href="https://xueshu.baidu.com/usercenter/paper/show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;site=xueshu_se&amp;hitarticle=1" target="_blank" rel="noopener">https://xueshu.baidu.com/usercenter/paper/show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;site=xueshu_se&amp;hitarticle=1</a></p>
+<p>标题：Spherical Harmonic Lighting: The Gritty Details</p>
+<p>作者：Robin Green</p>
 </blockquote>
-</li>
+<p><strong>注意</strong></p>
+<ol>
+<li>本文可能需要的前置知识：<ol>
+<li>渲染方程以及辐射度量学</li>
+<li>BRDF</li>
+<li>蒙特卡洛积分</li>
+<li>IBL（基于图像的光照）</li>
+<li>傅里叶变换</li>
 </ol>
-<blockquote>
-<p>巧了，我也是诶</p>
-<p>我不仅有一级引用</p>
-<blockquote>
-<p>我还有二级引用</p>
-<blockquote>
-<p>甚至还有三级  </p>
-<ul>
-<li>甚至还能做列表<ul>
-<li>还能嵌套</li>
-</ul>
 </li>
-</ul>
+<li>由于是英文论文的中文笔记，所以对于私自翻译的专业词汇加上了英文标注。</li>
+<li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
+<li>文章些许地方没有看懂，妄加了些揣测，如果看到明显错误的地方请见谅。</li>
+</ol>
+<a id="more"></a>
+<h2 id="漫反射表面的球谐光照算法"><a href="#漫反射表面的球谐光照算法" class="headerlink" title="漫反射表面的球谐光照算法"></a>漫反射表面的球谐光照算法</h2><blockquote>
+<p>假设几何模型已经使用合适的表示方法存入内存中，只对使用光线追踪采样出的采样点感兴趣，因此我们只需要顶点、法线与三角形的信息。并且，假设我们已经拥有了每个顶点的光照信息(以球谐系数存储)，现在考虑每个点都会向其他点发射光线以进行全局光照。</p>
 </blockquote>
 <ol>
-<li>列表<blockquote>
-<blockquote>
-<p>区块引用</p>
-</blockquote>
-</blockquote>
-</li>
+<li>首先考虑到一个顶点可能具有多个法线，将所有这样的顶点按照法线分离为几个顶点-法线对，称各个顶点-法线对为一组独特的照明点。</li>
+<li>接下来，遍历所有照明点，为每个照明点计算传递函数，按照上一小节的公式，传递函数只需要光源点的几何数据，不需要使用目标点的数据。如果拥有了光源点的光照函数，则可计算出该照明点的近似光照出来。</li>
 </ol>
-</blockquote>
-<p>我是一个区块引用  </p>
-<p>巧了，我也是诶</p>
-<p>我不仅有一级引用</p>
-<blockquote>
-<p>我还有二级引用</p>
-<blockquote>
-<p>甚至还有三级  </p>
-<ul>
-<li>甚至还能做列表<ul>
-<li>还能嵌套</li>
-</ul>
-</li>
-</ul>
-</blockquote>
+<p>接下来给出三种计算转移函数的思路，算法的复杂度逐次递增，注意一下算法均是离线的，属于预处理算法。</p>
+<h3 id="不考虑遮挡的漫反射转移函数"><a href="#不考虑遮挡的漫反射转移函数" class="headerlink" title="不考虑遮挡的漫反射转移函数"></a>不考虑遮挡的漫反射转移函数</h3><p>考虑渲染方程的漫反射项公式：</p>
+<script type="math/tex; mode=display">
+L_{DU}(x)=\frac{\rho_x}{\pi}\int_SL_i(x, \omega_i)<N_x, \omega_i>d\omega_i</script><p>其中，$\rho_x$为(菲涅尔)反射率，$N_x$为目标点x处的法线，设$<N_x, \omega_i>$为$max(N_x\cdot\omega_i, 0)$。</p>
+<p>由于遮挡项为$<N_x, \omega_i>$，在不考虑遮挡的情况下，我们就设置$M^{DU}=<N_x, \omega_i>$，使用蒙特卡洛估计，公式推导如下：</p>
+<script type="math/tex; mode=display">
+c_p[i]=\frac{area\cdot albedo}{samples_n}\sum^{samples_n}_{i=1}<N_p, \omega_j>c_{j, p_j}[i]</script><p>点p处共有$n^2$个球谐系数，则根据所有采样的方向与目标点计算结果，求其第i个球谐系数。</p>
+<p>其中，$\frac{area}{samples_n}$为蒙特卡洛估计的系数，<strong>一个点的球谐系数使用同一组采样点，而不是对每个球谐系数都进行一次采样</strong>。</p>
+<h3 id="考虑遮挡的漫反射转移函数-直接光照"><a href="#考虑遮挡的漫反射转移函数-直接光照" class="headerlink" title="考虑遮挡的漫反射转移函数[直接光照]"></a>考虑遮挡的漫反射转移函数[直接光照]</h3><p>加入简单的遮挡测试函数$V(\omega_i)$，漫反射项公式变为：</p>
+<script type="math/tex; mode=display">
+L(x)=\frac{\rho_x}{\pi}\int_SL_i(x, \omega_i)V(\omega_i)<N_x, \omega_i>d\omega_i</script><script type="math/tex; mode=display">
+V(\omega_i)=\begin{cases}0&光源点与目标点之间被自遮挡\\1&光源点与目标点之间没有被自遮挡\end{cases}</script><blockquote>
+<p>注意：</p>
 <ol>
-<li>列表<blockquote>
+<li>自遮挡的原文是blocked by self，但是理解可以理解为是否被场景的任何不同三角形遮挡，毕竟我们讨论的对象仅限于三角形，<strong>不考虑几何体信息</strong>，而三角形在一个平面内，不可能出现自遮挡，这点仅仅来自于我的个人猜测。</li>
+<li>由上一条进行推导，若光线会被场景遮挡，则$L_{DU}(x)=0$，反而言之，<strong>光线没有被场景遮挡则结果不为0</strong>，只有IBL或者天空盒会出现这种情况。</li>
+<li>这里的遮挡测试函数<strong>仅仅</strong>返回一个布尔值，不需要计算精准的遮挡点。</li>
+</ol>
+</blockquote>
+<p>加入遮挡测试后，转移函数的形式变成了$M^{DU}=V(\omega_i)<N_x, \omega_i>$。</p>
+<h3 id="互反射的漫反射转移函数-间接光照"><a href="#互反射的漫反射转移函数-间接光照" class="headerlink" title="互反射的漫反射转移函数[间接光照]"></a>互反射的漫反射转移函数[间接光照]</h3><p>与路径追踪类似，每个光源点可以发出光线，传递光照给到达的目标点，目标点也可以再发出光线，传递光照给下一个目标点，以此类推。不过不同的是，路径追踪采取类似于<strong>深度优先搜索</strong>的算法，一条光线从头追踪到尾；球谐光照采取类似于<strong>广度优先搜索</strong>的算法，随着光线弹射循环次数的增加，从每个顶点发射一次光线，对到达的目标点加上其光照。</p>
+<h4 id="采样公式"><a href="#采样公式" class="headerlink" title="采样公式"></a>采样公式</h4><script type="math/tex; mode=display">
+L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_x, \omega_i>d\omega_i</script><p>其中，$L_{DS}(x)$是<strong>考虑遮挡的漫反射转移函数</strong>：$L_{DS}(x)=\frac{\rho_x}{\pi}\int_SL_i(x, \omega_i)V(\omega_i)<N_x, \omega_i>d\omega_i$，注意<strong>V=0代表被遮挡；V=1代表没有被遮挡，遮挡测试通过</strong>。</p>
+<p>公式大意为，若光线没有被遮挡，则按照<strong>考虑遮挡的漫反射转移函数</strong>进行计算，若光线被遮挡，则计算<strong>遮挡其的点</strong>到该点的光照值。</p>
+<h4 id="预计算与数据约定"><a href="#预计算与数据约定" class="headerlink" title="预计算与数据约定"></a>预计算与数据约定</h4><p>对光线进行预采样，存入samples[]数组中，将数组索引称为<strong>采样编号</strong>，记录其$\phi$与$\theta$；并计算<strong>以每个照明点为原点的情况下</strong>，其发射出的光线是否被场景遮挡(原文：hit_self)，设置一个<strong>bool类型</strong>的以<strong>照明点编号</strong>与<strong>采样编号</strong>为索引的数组hit_self[][]，如果该采样的光线被场景遮挡，则数组中该值为true，否则为false。</p>
 <blockquote>
-<p>区块引用</p>
-<h1 id="五-代码"><a href="#五-代码" class="headerlink" title="五. 代码"></a>五. 代码</h1><p><code>scanf()</code>函数~<br><code>printf()</code>函数~<br><code>static void main(String[] args)</code></p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-</blockquote>
-<pre><code>    `scanf()`函数~  
-    `printf()`函数~  
-    `static void main(String[] args`  
-</code></pre><p>空四格或者一个Tab就是代码区块辣</p>
-<pre><code>    ----&gt;像这样(这怎么描述啊喂)
-</code></pre><h1 id="六-链接"><a href="#六-链接" class="headerlink" title="六. 链接"></a>六. 链接</h1><p>比如酱紫:</p>
-<p>滚去问<a href="http://www.baidu.com/" target="_blank" rel="noopener">度娘</a>啊！</p>
-<pre><code>    滚去问[度娘](http://www.baidu.com/)啊！
-</code></pre><p><a href="https://v25bh145.github.io/">https://v25bh145.github.io/</a></p>
-<pre><code>    &lt;https://v25bh145.github.io/&gt;
-</code></pre><p>还有高级(<del>搞♂基</del>)的链接  </p>
-<p>变量式的：</p>
-<p>滚去问度娘啊啊啊 <a href="http://www.baidu.com/" target="_blank" rel="noopener">baidu</a><br>滚去问[我的主页]啊啊啊 <a href="https://v25bh145.github.io">主页</a>  </p>
-<h1 id="七-图片"><a href="#七-图片" class="headerlink" title="七. 图片"></a>七. 图片</h1><pre><code>    ![alt 属性文本](图片地址)
-    ![alt 属性文本](图片地址 &quot;可选标题&quot;)
-</code></pre><ul>
-<li><em>alt 属性文本</em> :就是图片的替代文字</li>
-<li><em>可选标题</em> :title属性的文字</li>
-</ul>
-<p>我这里用了<a href="https://sm.ms/" target="_blank" rel="noopener">这个上传图片网站</a>哇</p>
-<p><img src="https://i.loli.net/2019/11/26/eSxz8W2A6rFpMyK.png" alt="example.png"></p>
-<pre><code>    ![example.png](https://i.loli.net/2019/11/26/eSxz8W2A6rFpMyK.png)
-</code></pre><p>当然是可以使用变量的啦    </p>
-<pre><code>    [example][1]  
-    [1]: &quot;链接&quot;
-</code></pre><h1 id="八-表格"><a href="#八-表格" class="headerlink" title="八. 表格"></a>八. 表格</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th></th>
-<th>&lt;-学姐头没了(滑稽)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>单元格儿</td>
-<td>单元格儿</td>
-<td>单元格儿</td>
-</tr>
-<tr>
-<td>单元格儿</td>
-<td>单元格儿</td>
-<td>单元格儿</td>
-</tr>
-</tbody>
-</table>
-</div>
-<pre><code>    |表头||&lt;-学姐头没了(滑稽)|
-    | ---- | ---- | ---- |
-    | 单元格儿 | 单元格儿 | 单元格儿 |
-    | 单元格儿 | 单元格儿 | 单元格儿 |
-</code></pre><p>表头底下的横线还可以设置表格格式：</p>
-<ul>
-<li>:—— 居左对齐</li>
-<li>——: 居右对齐</li>
-<li>:——: 居中对齐</li>
-</ul>
-<h1 id="⑨-另外一些gao♂ji特性"><a href="#⑨-另外一些gao♂ji特性" class="headerlink" title="⑨. 另外一些gao♂ji特性"></a>⑨. 另外一些gao♂ji特性</h1><p>一些高级技巧：</p>
+<p>注意：</p>
 <ol>
-<li><p>支持HTML元素<br><del>也就是说可以不用学markdown直接开学html哈哈哈</del></p>
-</li>
-<li><p>*转义*  </p>
-<pre><code> \*转义\*
-</code></pre></li>
-<li>内嵌数学公式<br>以<script type="math/tex">开始，\</script>结束,格式为<strong>TeX</strong>或者<strong>LaTeX</strong></li>
+<li>预采样/预计算中的光线求交只用知道是否相交，没有必要求具体的交点。</li>
+<li>hit_self的设置与$V(\omega_i)$的定义是相反的，hit_self为1则说明被遮挡，而在$V(\omega_i)$中却说明没有被遮挡，即遮挡测试通过。</li>
 </ol>
+</blockquote>
+<p>此外，记录每个顶点每次光线弹射的结果sh_buffer[][]，第一个索引为光线弹射次数bounce，第二个索引为照明点的RGB的球谐系数索引，假设若顶点有n个，采用RGB，球谐系数的个数为<strong>n_coeff</strong>(三层球谐n_coeff为9，四层球谐n_coeff为16)，则第二个索引范围为<strong>[0, n*3*n_coeff]</strong>，数组类型为<strong>vec3</strong>。上述预计算结果存入sh_buffer[0][]中。</p>
+<h4 id="采样算法"><a href="#采样算法" class="headerlink" title="采样算法"></a>采样算法</h4><ol>
+<li>循环光线弹射次数，设当前的光线弹射次数为bounce，从1到自设定的上限，每次循环内部进行如下步骤：<ol>
+<li>遍历所有照明点，设当前的顶点为i，对循环内部进行如下步骤：<ol>
+<li>计算顶点的albedo值：${albedo_R, albedo_G, albedo_B}=\frac{\{kd.x, kd.y, kd.z\}}{\pi}$。</li>
+<li>遍历所有预采样好的光线，设当前的光线为j，对循环内部进行如下步骤：<ol>
+<li>如果从i出发的光线j被遮挡，即hit_self[i][j]==1，则退出循环。</li>
+<li>计算$Hs=<N_i, dir>$，若$Hs&lt;=0$，则退出循环。</li>
+<li>计算从照明点i出发的光线j与场景的具体交点，包括交点在三角形中的重心坐标以及三角形的参数，通过插值获得该点的<strong>球谐系数</strong>，存入sh[]中，注意到sh数组大小为RGB<em>n_coeff。<em>*如果没有与三角形相交，则退出循环[此句的解释见后，读者可以先忽略这句话]</em></em>。</li>
+<li>遍历顶点，累加该照明点i在第bounce次光线反射的球谐系数：<ul>
+<li>k from 0 to n_coeff</li>
+<li>sh_buffer[bounce][i*3*n_coeff + <strong>0*n_coeff</strong> + <strong>k</strong>] += albedo_red * Hs * sh[<strong>k</strong> + <strong>0*n_coeff</strong>];</li>
+<li>sh_buffer[bounce][i*3*n_coeff + <strong>1*n_coeff</strong> + <strong>k</strong>] += albedo_red * Hs * sh[<strong>k</strong> + <strong>1*n_coeff</strong>];</li>
+<li>sh_buffer[bounce][i*3*n_coeff + <strong>2*n_coeff</strong> + <strong>k</strong>] += albedo_red * Hs * sh[<strong>k</strong> + <strong>2*n_coeff</strong>];</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>计算蒙特卡洛估计的因子$factor=\frac{area}{n_samples}$，对这次光线弹射采样所获得的所有结果乘以因子factor。</li>
+</ol>
+</li>
+<li>循环光线弹射次数，将非0次的光线弹射结果累加到第0次光线弹射结果中，删除所有非0次的光线弹射结果。</li>
+</ol>
+<blockquote>
+<p>注：此处仅个人理解，hit_self可以实现为类似<strong>布隆过滤器</strong>的效果，仅仅用于存储一个近似结果。即hit_self值为False的必不可能相交，hit_self值为True的有可能相交，但并不一定相交。若hit_self的准确率越大，则判断结果越准确。具体到数据结构而言，若我们使用KD-Tree，若光线穿过任何有三角形在划分区域，即可判定hit_self为True，不必进行再进一步的判断。当然这样做仅仅是降低了预计算的复杂度，对光线弹射循环而言，我们当然希望hit_self越准确越好。</p>
+</blockquote>
 
     
 
@@ -484,7 +333,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://v25bh145.github.io/2019/11/26/我的第一个博客/" title="我的第一个博客" target="_blank">https://v25bh145.github.io/2019/11/26/我的第一个博客/</a>
+          <a href="https://v25bh145.github.io/2022/03/29/coding/CG/文摘阅读/spherical-harmonic-lighting_2/" title="球谐光照-02" target="_blank">https://v25bh145.github.io/2022/03/29/coding/CG/文摘阅读/spherical-harmonic-lighting_2/</a>
         </li>
         
         <li>
@@ -506,11 +355,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">markdown</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">计算机图形学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">球谐光照</a>
         		</li>
       		
 		</ul>
@@ -529,15 +378,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/11/26/coding/questions/Question-P1908/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Question-P1908
-        
-      </div>
-    </a>
   
+    <a href="/2022/03/28/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">球谐光照-01</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
