@@ -6,18 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://v25bh145.github.io">
-  <title>Archives | V25bh145的小茶室</title>
+  <title>球谐光照-03 | V25bh145的小茶室</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="v25用来记录他自己的博客，看起来好像是这样。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="V25bh145的小茶室">
-<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
+<meta name="keywords" content="计算机图形学,球谐光照">
+<meta property="og:type" content="article">
+<meta property="og:title" content="球谐光照-03">
+<meta property="og:url" content="https:&#x2F;&#x2F;v25bh145.github.io&#x2F;2022&#x2F;03&#x2F;29&#x2F;coding&#x2F;CG&#x2F;%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB&#x2F;spherical-harmonic-lighting_3&#x2F;index.html">
 <meta property="og:site_name" content="V25bh145的小茶室">
-<meta property="og:description" content="v25用来记录他自己的博客，看起来好像是这样。">
+<meta property="og:description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242a978a3586.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242aa20a5d0e.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242aa2708cd7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242aa20a5d0e.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242aa8a7e00a.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242b6ee519f8.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242b68a5569d.png">
+<meta property="og:updated_time" content="2022-03-29T08:34:45.181Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242a978a3586.png">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
   
@@ -177,496 +187,213 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-coding/CG/文摘阅读/spherical-harmonic-lighting_3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-20T04:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/20/coding/designPatten/9.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">9.迭代器模式与组合模式-设计模式</a>
   
+    <h1 class="article-title" itemprop="name">
+      球谐光照-03
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/03/29/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_3/" class="archive-article-date">
+        <time datetime="2022-03-29T08:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-29</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>论文出处：<a href="https://xueshu.baidu.com/usercenter/paper/show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;site=xueshu_se&amp;hitarticle=1" target="_blank" rel="noopener">https://xueshu.baidu.com/usercenter/paper/show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;site=xueshu_se&amp;hitarticle=1</a></p>
+<p>标题：Spherical Harmonic Lighting: The Gritty Details</p>
+<p>作者：Robin Green</p>
+</blockquote>
+<p><strong>注意</strong></p>
+<ol>
+<li>本文可能需要的前置知识：<ol>
+<li>渲染方程以及辐射度量学</li>
+<li>BRDF</li>
+<li>蒙特卡洛积分</li>
+<li>IBL（基于图像的光照）</li>
+<li>傅里叶变换</li>
+</ol>
+</li>
+<li>由于是英文论文的中文笔记，所以对于私自翻译的专业词汇加上了英文标注。</li>
+<li>文章有些公式在推导过程中隐式使用了很多交叉知识，我擅自将其部分标注了出来并适当补充了一些推导。</li>
+<li>文章些许地方没有看懂，妄加了些揣测，如果看到明显错误的地方请见谅。</li>
+</ol>
+<a id="more"></a>
+<h2 id="渲染SH漫反射表面"><a href="#渲染SH漫反射表面" class="headerlink" title="渲染SH漫反射表面"></a>渲染SH漫反射表面</h2><blockquote>
+<p>上一节讨论了如何计算转移函数，现在需要使用预计算好的转移函数$t_i$以及光源以球谐系数表示的亮度$L_i$计算出照明点的球谐系数。</p>
+</blockquote>
+<p>根据<strong>球谐函数属性</strong>一节，有$L(p, \omega_i)=\sum_{i=0}^{l^2}L_it_i$，在上一节中我们假设每个照明点接受<strong>相同程度的光照</strong>，实现如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n_coeff; ++j) &#123;</span><br><span class="line">	vertex[i].red = light_red[j] * vertex[i].sh_red[j];</span><br><span class="line">	vertex[i].green = light_green[j] * vertex[i].sh_green[j];</span><br><span class="line">	vertex[i].blue = light_blue[j] * vertex[i].sh_blue[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建光源"><a href="#创建光源" class="headerlink" title="创建光源"></a>创建光源</h2><h3 id="自然光源-天空盒"><a href="#自然光源-天空盒" class="headerlink" title="自然光源[天空盒]"></a>自然光源[天空盒]</h3><p>1955年，CIE(国际照明委员会)测量了一系列天气下整个天空盒的光照，不同天气情况下的公式如下：</p>
+<h4 id="CIE阴天模型-CIE-Overcast-model"><a href="#CIE阴天模型-CIE-Overcast-model" class="headerlink" title="CIE阴天模型(CIE Overcast model)"></a>CIE阴天模型(CIE Overcast model)</h4><p>阴天下没有太阳，设P为模型中一点，P到天顶的角度为$\theta$ (原文图中标注为$\theta$，公式却标注为$\beta$)。</p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242a978a3586.png" alt="image-20220329143840639"></p>
+<script type="math/tex; mode=display">
+L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-model"><a href="#CIE晴天模型-CIE-Clear-Sky-model" class="headerlink" title="CIE晴天模型(CIE Clear Sky model)"></a>CIE晴天模型(CIE Clear Sky model)</h4><p>晴天下设太阳距离天顶角度为S，P到天顶角度为$\theta$，太阳与P角度为$\gamma$，太阳在平面的投影与P在平面的投影角度为$\phi$。</p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242aa20a5d0e.png" alt="image-20220329144135779"></p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242aa2708cd7.png" alt="image-20220329144142247"></p>
+<h4 id="CIE多云模型-CIE-Partly-Cloudy-model"><a href="#CIE多云模型-CIE-Partly-Cloudy-model" class="headerlink" title="CIE多云模型(CIE Partly Cloudy model)"></a>CIE多云模型(CIE Partly Cloudy model)</h4><p>同晴天模型，设太阳距离天顶角度为S，P到天顶角度为$\theta$，太阳与P角度为$\gamma$，太阳在平面的投影与P在平面的投影角度为$\phi$。</p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242aa20a5d0e.png" alt="image-20220329144135779"></p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242aa8a7e00a.png" alt="image-20220329144321529"></p>
+<h3 id="高清动态范围-HDR-high-dynamic-range-光源-IBL"><a href="#高清动态范围-HDR-high-dynamic-range-光源-IBL" class="headerlink" title="高清动态范围(HDR, high dynamic range)光源[IBL]"></a>高清动态范围(HDR, high dynamic range)光源[IBL]</h3><p>HDR光源可以通过HDR图片转换为<strong>高清动态范围光源探针</strong>(high dynamic range light probe)，这样制作的光源称为基于图像的照明，当然也可以直接使用六面体贴图，将其处理为球谐系数当做光源。</p>
+<p>我们将算法解耦为两部分，一部分用于从HDR/IBL贴图中采样颜色值，一部分用于将颜色转换为球谐系数，设采样函数的输入为<strong>从原点出发的一个单位向量</strong>，即vec3={x, y, z}，输出为一个颜色值，即vec3={R, G, B}。</p>
+<h4 id="采样HDR"><a href="#采样HDR" class="headerlink" title="采样HDR"></a>采样HDR</h4><p>设$(dx, dy, dz)=(sin\theta cos\phi,sin\theta sin\phi,cos\theta)$，我们需要建立起$(\theta, \phi)$与$(u, v)$的对应投影关系。</p>
+<h5 id="球形投影"><a href="#球形投影" class="headerlink" title="球形投影"></a>球形投影</h5><p>在本文中，使用球体投影的方式存储环境HDR贴图。</p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242b6ee519f8.jpg" alt="spherical-harmonic-lighting"></p>
+<p>我们先将$(\theta, \phi)$投影到$([-1, 1], [-1, 1])$中，再将其变换到$([0, 1], [0, 1])$中：</p>
+<script type="math/tex; mode=display">
+(\frac{\theta}{\pi} cos\phi, \frac{\theta}{\pi} sin\phi)=(u', v')</script><script type="math/tex; mode=display">
+(\frac{u'+1}{2}, \frac{v'+1}{2})=(u, v)</script><script type="math/tex; mode=display">
+(\frac{\frac{acos(z)x}{\pi\sqrt{x^2+y^2}}+1}{2}, \frac{\frac{acos(z)y}{\pi\sqrt{x^2+y^2}}+1}{2})=(u,v)</script><h5 id="等距柱状投影图-Equirectangular-Map"><a href="#等距柱状投影图-Equirectangular-Map" class="headerlink" title="等距柱状投影图(Equirectangular Map)"></a>等距柱状投影图(Equirectangular Map)</h5><p>在<a href="https://learnopengl.com/PBR/IBL/Diffuse-irradiance" target="_blank" rel="noopener">learnOpenGL IBL</a>一文中，以此方式存储HDR贴图：</p>
+<p><img src="http://124.222.23.180/i/2022/03/29/6242b68a5569d.png" alt="ibl_hdr_radiance"></p>
+<p>我们先将$(\theta, \phi)$投影到$([-\pi, \pi], [-\frac{\pi}{2}, \frac{\pi}{2}])$中，再将其变换到$([0, 1], [0, 1])$中：</p>
+<script type="math/tex; mode=display">
+(\phi-\pi, \frac{\pi}{2}-\theta)=(u', v')</script><script type="math/tex; mode=display">
+(\frac{u'}{2\pi}+\frac{1}{2}, \frac{v'}{\pi}+\frac{1}{2})=(u, v)</script><script type="math/tex; mode=display">
+(\frac{atan(y, x)}{2\pi}+\frac{1}{2},\frac{asin(z)}{\pi}+\frac{1}{2})=(u, v)</script><blockquote>
+<p>注意：</p>
+<ol>
+<li>在OpenGL中，有个内建函数为atan(y, x)，返回的值域范围为$[-\pi, \pi]$，恰好可以用于计算$\phi-\pi$。</li>
+<li>在原文中，使用的坐标系公式为$(x, y, z)=(sin\phi cos\theta, sin\theta, sin\phi sin\theta)$，与论文中有所不同。</li>
+</ol>
+</blockquote>
+<h4 id="将颜色处理为球谐系数"><a href="#将颜色处理为球谐系数" class="headerlink" title="将颜色处理为球谐系数"></a>将颜色处理为球谐系数</h4><p>考虑处理后面部分，即将采样所得的颜色值转换为球谐系数的算法，其中设sh_samples是使用<strong>SH_setup_spherical_samples</strong>函数提前采样好的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> glm::vec3(*SH_vector_fn_rgb)(glm::vec3 dir);</span><br><span class="line"><span class="built_in">vector</span>&lt;glm::vec3&gt; SH_project_vector_function_rgb(SH_vector_fn_rgb fn, <span class="built_in">vector</span>&lt;SHSample&gt; sh_samples) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.f</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> area = <span class="number">4.f</span> * PI;</span><br><span class="line">    <span class="built_in">vector</span>&lt;glm::vec3&gt; result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> SHSample&amp; sample : sh_samples) &#123;</span><br><span class="line">        glm::vec3 color = fn(sample.vec);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; n_coeff; ++n) &#123;</span><br><span class="line">            result.push_back(color * <span class="keyword">float</span>(sample.coeff[n]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">float</span> factor = area / sh_samples.<span class="built_in">size</span>();</span><br><span class="line">    for_each(result.<span class="built_in">begin</span>(), result.<span class="built_in">end</span>(), [factor](glm::vec3&amp; dir) &#123;</span><br><span class="line">        dir = dir * factor;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//for (int i = 0; i &lt; n_coeff; ++i) &#123;</span></span><br><span class="line">    <span class="comment">//    result[i] = result[i] * factor;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          v25bh145
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://v25bh145.github.io/2022/03/29/coding/CG/文摘阅读/spherical-harmonic-lighting_3/" title="球谐光照-03" target="_blank">https://v25bh145.github.io/2022/03/29/coding/CG/文摘阅读/spherical-harmonic-lighting_3/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">计算机图形学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">球谐光照</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-17T03:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/29/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">球谐光照-02</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/17/coding/designPatten/8.%E6%A8%A1%E6%9D%BF%E7%AE%97%E6%B3%95%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">8.模板方法模式-设计模式</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-15T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/15/coding/designPatten/7.%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F&%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">7.适配器模式&amp;外观模式-设计模式</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-13T08:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/13/coding/designPatten/6.%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">6.命令模式-设计模式</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-13T03:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/13/coding/designPatten/5.%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">5.单件模式-设计模式</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T19:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/13/coding/designPatten/4.%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">4.工厂模式-设计模式</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T03:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/12/coding/designPatten/3.%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">3.装饰者模式-设计模式</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-12T02:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/12/coding/designPatten/2.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">2.观察者模式-设计模式</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-12-11T17:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/12/coding/designPatten/1.%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_blank">1.策略模式-设计模式</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">《Head First 设计模式》</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/" class="archive-article-date">
-        <time datetime="2020-10-21T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/10/21/coding/ctf/ctf%E7%AC%94%E8%AE%B0-08/" target="_blank">CTF笔记-WEB攻防-08</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">ctf-web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">CTF笔记-WEB攻防</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -707,8 +434,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

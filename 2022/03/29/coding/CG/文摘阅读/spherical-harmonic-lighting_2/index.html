@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="V25bh145的小茶室">
 <meta property="og:description" content="论文出处：https:&#x2F;&#x2F;xueshu.baidu.com&#x2F;usercenter&#x2F;paper&#x2F;show?paperid=1aff591b823d2a822ab690f702c7c6b6&amp;amp;site=xueshu_se&amp;amp;hitarticle=1 标题：Spherical Harmonic Lighting: The Gritty Details 作者：Robin Green  注意">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2022-03-29T03:33:29.034Z">
+<meta property="og:updated_time" content="2022-03-29T06:17:19.729Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="V25bh145的小茶室" type="application/atom+xml">
@@ -212,7 +212,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.1k字</span>
+      <span class="post-count">2.2k字</span>
     </span>
   </span>
 
@@ -221,7 +221,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -274,7 +274,7 @@ V(\omega_i)=\begin{cases}0&光源点与目标点之间被自遮挡\\1&光源点�
 <p>注意：</p>
 <ol>
 <li>自遮挡的原文是blocked by self，但是理解可以理解为是否被场景的任何不同三角形遮挡，毕竟我们讨论的对象仅限于三角形，<strong>不考虑几何体信息</strong>，而三角形在一个平面内，不可能出现自遮挡，这点仅仅来自于我的个人猜测。</li>
-<li>由上一条进行推导，若光线会被场景遮挡，则$L_{DU}(x)=0$，反而言之，<strong>光线没有被场景遮挡则结果不为0</strong>，只有IBL或者天空盒会出现这种情况。</li>
+<li>若光线会被场景遮挡，则$L_{DU}(x)=0$，反而言之，<strong>光线没有被场景遮挡则结果不为0</strong>，文章假设每个照明点接受相同程度的光照，也就是说整个场景光照的<strong>变化率</strong>(variance)非常小。</li>
 <li>这里的遮挡测试函数<strong>仅仅</strong>返回一个布尔值，不需要计算精准的遮挡点。</li>
 </ol>
 </blockquote>
@@ -289,6 +289,7 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
 <ol>
 <li>预采样/预计算中的光线求交只用知道是否相交，没有必要求具体的交点。</li>
 <li>hit_self的设置与$V(\omega_i)$的定义是相反的，hit_self为1则说明被遮挡，而在$V(\omega_i)$中却说明没有被遮挡，即遮挡测试通过。</li>
+<li>只处理照明点数据，而具体片元的数据则需要插值确定，称这种着色方法为高洛德着色。</li>
 </ol>
 </blockquote>
 <p>此外，记录每个顶点每次光线弹射的结果sh_buffer[][]，第一个索引为光线弹射次数bounce，第二个索引为照明点的RGB的球谐系数索引，假设若顶点有n个，采用RGB，球谐系数的个数为<strong>n_coeff</strong>(三层球谐n_coeff为9，四层球谐n_coeff为16)，则第二个索引范围为<strong>[0, n*3*n_coeff]</strong>，数组类型为<strong>vec3</strong>。上述预计算结果存入sh_buffer[0][]中。</p>
@@ -377,6 +378,15 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
 
 
 <nav id="article-nav">
+  
+    <a href="/2022/03/29/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          球谐光照-03
+        
+      </div>
+    </a>
   
   
     <a href="/2022/03/28/coding/CG/%E6%96%87%E6%91%98%E9%98%85%E8%AF%BB/spherical-harmonic-lighting_1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -575,19 +585,11 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,19 +601,7 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +613,11 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,7 +625,7 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +633,27 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,11 +665,11 @@ L_{DI}(x)=L_{DS}(x)+\frac{\rho_x}{\pi}\int\bar L(x', \omega_i)(1-V(\omega_i))<N_
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">球谐光照</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">光线追踪</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">球谐光照</a>
               </li>
             
             <div class="clearfix"></div>
