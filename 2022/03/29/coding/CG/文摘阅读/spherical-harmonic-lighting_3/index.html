@@ -25,7 +25,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242aa8a7e00a.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242b6ee519f8.jpg">
 <meta property="og:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242b68a5569d.png">
-<meta property="og:updated_time" content="2022-03-29T08:34:45.181Z">
+<meta property="og:updated_time" content="2022-03-31T03:27:57.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;124.222.23.180&#x2F;i&#x2F;2022&#x2F;03&#x2F;29&#x2F;6242a978a3586.png">
   
@@ -220,7 +220,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -229,7 +229,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -298,7 +298,8 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
 </ol>
 </blockquote>
 <h4 id="将颜色处理为球谐系数"><a href="#将颜色处理为球谐系数" class="headerlink" title="将颜色处理为球谐系数"></a>将颜色处理为球谐系数</h4><p>考虑处理后面部分，即将采样所得的颜色值转换为球谐系数的算法，其中设sh_samples是使用<strong>SH_setup_spherical_samples</strong>函数提前采样好的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> glm::vec3(*SH_vector_fn_rgb)(glm::vec3 dir);</span><br><span class="line"><span class="built_in">vector</span>&lt;glm::vec3&gt; SH_project_vector_function_rgb(SH_vector_fn_rgb fn, <span class="built_in">vector</span>&lt;SHSample&gt; sh_samples) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.f</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> area = <span class="number">4.f</span> * PI;</span><br><span class="line">    <span class="built_in">vector</span>&lt;glm::vec3&gt; result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> SHSample&amp; sample : sh_samples) &#123;</span><br><span class="line">        glm::vec3 color = fn(sample.vec);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; n_coeff; ++n) &#123;</span><br><span class="line">            result.push_back(color * <span class="keyword">float</span>(sample.coeff[n]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">float</span> factor = area / sh_samples.<span class="built_in">size</span>();</span><br><span class="line">    for_each(result.<span class="built_in">begin</span>(), result.<span class="built_in">end</span>(), [factor](glm::vec3&amp; dir) &#123;</span><br><span class="line">        dir = dir * factor;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//for (int i = 0; i &lt; n_coeff; ++i) &#123;</span></span><br><span class="line">    <span class="comment">//    result[i] = result[i] * factor;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> glm::vec3(*SH_vector_fn_rgb)(SHSample sample);</span><br><span class="line"><span class="built_in">vector</span>&lt;glm::vec3&gt; SH_project_vector_function_rgb(SH_vector_fn_rgb fn, <span class="built_in">vector</span>&lt;SHSample&gt; sh_samples) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.f</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> area = <span class="number">4.f</span> * PI;</span><br><span class="line">    <span class="built_in">vector</span>&lt;glm::vec3&gt; result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; n_coeff; ++n) &#123;</span><br><span class="line">        result.push_back(&#123; <span class="number">0.f</span>, <span class="number">0.f</span>, <span class="number">0.f</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> SHSample&amp; sample : sh_samples) &#123;</span><br><span class="line">        glm::vec3 color = fn(sample);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; n_coeff; ++n) &#123;</span><br><span class="line">            result[n] += (color * <span class="keyword">float</span>(sample.coeff[n]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">float</span> factor = area / sh_samples.<span class="built_in">size</span>();</span><br><span class="line">    for_each(result.<span class="built_in">begin</span>(), result.<span class="built_in">end</span>(), [factor](glm::vec3&amp; dir) &#123;</span><br><span class="line">        dir = dir * factor;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="立方贴图的采样-补-——SH-vector-fn-rgb的实现"><a href="#立方贴图的采样-补-——SH-vector-fn-rgb的实现" class="headerlink" title="立方贴图的采样(补)——SH_vector_fn_rgb的实现"></a>立方贴图的采样(补)——SH_vector_fn_rgb的实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt; datas; <span class="keyword">int</span> textureSize, nrComponents;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set_sh_light_from_cube_paraments</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>*&gt; input_datas, <span class="keyword">int</span> input_textureSize, <span class="keyword">int</span> input_nrComponents)</span> </span>&#123;</span><br><span class="line">    datas = input_datas;</span><br><span class="line">    textureSize = input_textureSize;</span><br><span class="line">    nrComponents = input_nrComponents;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 立方贴图各个2D贴图的纹理坐标见：https://blog.csdn.net/qjh5606/article/details/89847297</span></span><br><span class="line">glm::<span class="function">vec3 <span class="title">gen_sh_light_from_cube</span><span class="params">(SHSample sample)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.f</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> EPSILON = <span class="number">1e-6</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> INF = <span class="number">1e7</span>;</span><br><span class="line">    <span class="keyword">double</span> <span class="built_in">width</span> = <span class="keyword">double</span>(textureSize);</span><br><span class="line">    <span class="keyword">double</span> u, v;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span>* data;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类似于包围盒-光线求交算法</span></span><br><span class="line">    <span class="keyword">double</span> x = sample.vec.x, y = sample.vec.y, z = sample.vec.z;</span><br><span class="line">    assert(<span class="built_in">abs</span>(x * x + y * y + z * z - <span class="number">1</span>) &lt; EPSILON);</span><br><span class="line">    <span class="keyword">double</span> w_over_2 = <span class="built_in">width</span> / <span class="number">2.f</span>;</span><br><span class="line">    <span class="keyword">double</span> xAxis = x &gt;= <span class="number">0.f</span> ? w_over_2 : -w_over_2;</span><br><span class="line">    <span class="keyword">double</span> yAxis = y &gt;= <span class="number">0.f</span> ? w_over_2 : -w_over_2;</span><br><span class="line">    <span class="keyword">double</span> zAxis = z &gt;= <span class="number">0.f</span> ? w_over_2 : -w_over_2;</span><br><span class="line">    <span class="keyword">double</span> tx = (<span class="built_in">abs</span>(x) &lt; EPSILON ? INF : xAxis / x), ty = (<span class="built_in">abs</span>(y) &lt; EPSILON ? INF : yAxis / y), tz = (<span class="built_in">abs</span>(z) &lt; EPSILON ? INF : zAxis / z);</span><br><span class="line">    <span class="keyword">if</span> (tx &lt;= ty &amp;&amp; tx &lt;= tz) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xAxis &gt; <span class="number">0.f</span>) &#123;</span><br><span class="line">            <span class="comment">// 0 +x</span></span><br><span class="line">            u = w_over_2 - z * tx;</span><br><span class="line">            v = w_over_2 - y * tx;</span><br><span class="line">            data = datas[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 1 -x</span></span><br><span class="line">            u = w_over_2 + z * tx;</span><br><span class="line">            v = w_over_2 - y * tx;</span><br><span class="line">            data = datas[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ty &lt;= tx &amp;&amp; ty &lt;= tz) &#123;</span><br><span class="line">        glm::vec2 xz = &#123; x * ty, z * ty &#125;;</span><br><span class="line">        <span class="keyword">if</span> (yAxis &gt; <span class="number">0.f</span>) &#123;</span><br><span class="line">            <span class="comment">// 2 +y</span></span><br><span class="line">            u = w_over_2 + x * ty;</span><br><span class="line">            v = w_over_2 + z * ty;</span><br><span class="line">            data = datas[<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 3 -y</span></span><br><span class="line">            u = w_over_2 + x * ty;</span><br><span class="line">            v = w_over_2 - z * ty;</span><br><span class="line">            data = datas[<span class="number">3</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        glm::vec2 xy = &#123; x * tz,  y * tz &#125;;</span><br><span class="line">        <span class="keyword">if</span> (zAxis &gt; <span class="number">0.f</span>) &#123;</span><br><span class="line">            <span class="comment">// 4 +z</span></span><br><span class="line">            u = w_over_2 + x * tz;</span><br><span class="line">            v = w_over_2 - y * tz;</span><br><span class="line">            data = datas[<span class="number">4</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 5 -z</span></span><br><span class="line">            u = w_over_2 - x * tz;</span><br><span class="line">            v = w_over_2 - y * tz;</span><br><span class="line">            data = datas[<span class="number">5</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get colors from data</span></span><br><span class="line">    glm::vec3 color = glm::vec3(<span class="number">1.f</span>);</span><br><span class="line">    <span class="keyword">int</span> index = (<span class="keyword">int</span>(u) * <span class="built_in">width</span> + <span class="keyword">int</span>(v)) * nrComponents;</span><br><span class="line">    <span class="keyword">if</span> (nrComponents == <span class="number">1</span>)</span><br><span class="line">        color = &#123; (<span class="keyword">float</span>)data[index], <span class="number">1.f</span>, <span class="number">1.f</span>&#125;;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (nrComponents == <span class="number">3</span>)</span><br><span class="line">        color = &#123; (<span class="keyword">float</span>)data[index], (<span class="keyword">float</span>)data[index + <span class="number">1</span>], (<span class="keyword">float</span>)data[index + <span class="number">2</span>]&#125;;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (nrComponents == <span class="number">4</span>)</span><br><span class="line">        color = &#123; (<span class="keyword">float</span>)data[index], (<span class="keyword">float</span>)data[index + <span class="number">1</span>], (<span class="keyword">float</span>)data[index + <span class="number">2</span>]&#125;;</span><br><span class="line">    color /= <span class="number">255.f</span>;</span><br><span class="line">    <span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     
 
@@ -555,6 +556,22 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">容斥</a>
               </li>
              
@@ -563,7 +580,7 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +588,15 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">深度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,14 +605,6 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">分治法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,35 +620,15 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">《了不起的Node JS 将JavaScript进行到底》</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">暴力</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">《Head First 设计模式》</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">计算机图形学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +637,10 @@ L_P=L_z\frac{1+2sin\theta}{3}</script><h4 id="CIE晴天模型-CIE-Clear-Sky-mode
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">球谐光照</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">微表面</a>
               </li>
             
             <div class="clearfix"></div>
